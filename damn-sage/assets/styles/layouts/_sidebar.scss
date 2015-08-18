@@ -1,0 +1,67 @@
+.sidebar {
+  margin: 0 0 2.5em 0;
+  border-top: 1px solid $bordercolor;
+  h3.widget-title, h3 {
+    padding: 1em;
+    margin: 0;
+  }
+  ul, ol {
+    list-style: none;
+    padding-left: 0;
+    li {
+      padding: 1em;
+      border-bottom: 1px solid $bordercolor;
+      @include transitions;
+      &:hover {
+        background-color: $grayhovercolor;
+      }
+    }
+    li:first-child {
+      border-top: 1px solid $bordercolor;
+    }
+  }
+  .latest-articles-list {
+    margin-bottom: 0;
+    li {
+      counter-increment: step-counter;
+      &:before {
+        content: counter(step-counter);
+        font-size: 3em;
+        font-weight: 700;
+        padding: 0;
+        float: left;
+        @include inlinemiddle;
+        width: 13%;
+      }
+      .list-thumb {
+        width: 22%;
+        @include inlinemiddle;
+        img {
+          width: 85%;
+          @include border-radius(50%);
+        }
+      }
+      .list-meta {
+        width: 62%;
+        @include inlinemiddle;
+        line-height: 1.25em;
+        @include blacktomediumgraylink;
+        span {
+          font-size: .95em;
+          @include lightgraytomediumgraylink;
+        }
+      }
+    }
+  }
+}
+
+body.single {
+  .sidebar {
+    @media (min-width: $screen-sm-min) {
+      width: 360px;
+      float: right;
+      border-left: 1px solid $bordercolor;
+      padding: 0;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+footer.content-info {
+  background-color: $black;
+  color: $white;
+  text-transform: uppercase;
+  a, a:visited {
+    color: $light-gray;
+    &:hover {
+      color: $white;
+    }
+  }
+  .footer-advert-wrap {
+    padding: 3em 0;
+  }
+  .footer-wrap {
+    background-color: $text-color;
+    padding: 3em 0 1em;
+    h4 {
+      font-weight: 700;
+    }
+    .row {
+      padding-bottom: 2.5em;
+    }
+  }
+}

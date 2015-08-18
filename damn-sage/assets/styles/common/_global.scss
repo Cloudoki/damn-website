@@ -1,0 +1,144 @@
+/******************************************************************
+Site Name: DAMn Magazine
+Author: Mike Lythcott
+******************************************************************/
+
+/*********************
+GENERAL STYLES
+*********************/
+
+body {
+  font-family: $sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  font-size: 62.5%;
+  color: $text-color;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+
+hr {
+  margin: 25px 0;
+  background-color: $gray;
+  border: 1px solid $gray;
+  height: 1px;
+  clear: both;
+}
+
+p {
+  line-height: 1.6em;
+  margin-bottom: 1.25em;
+  strong {
+    color: $black;
+  }
+}
+
+.clearthis {
+  clear:both;
+  display: block;
+  height: 1px;
+  line-height: 1px;
+}
+
+/*********************
+LINK STYLES
+*********************/
+
+a, a:visited {
+  color: $link-color;
+  @include transitions;
+  text-decoration: none;
+
+  &:hover, &:focus {
+    color: $link-hover;
+    text-decoration: none;
+  }
+
+  &:active {}
+
+  &:link {
+    -webkit-tap-highlight-color : rgba( 0, 0, 0, 0.3 );
+  }
+}
+
+/******************************************************************
+H1, H2, H3, H4, H5 STYLES
+******************************************************************/
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
+  text-rendering: optimizelegibility;
+  font-weight: 400;
+  a {
+    text-decoration: none;
+  }
+}
+
+/*********************
+IMAGE
+*********************/
+
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+/*********************
+VERTICAL RHYTHYM
+*********************/
+
+header, .main, .sidebar, footer, .single-news-item, .wrap {
+  font-size: 16px;
+}
+
+/*********************
+LOGO
+*********************/
+
+.main-logo {
+    max-width: 320px;
+    max-height: 71px;
+    display: block;
+    background: url("../images/damn-2X.png") no-repeat;
+    background: url("../images/damn-white.svg") no-repeat;
+    @include aspect-ratio(23, 5);
+    @include imagereplacement;
+    background-size: 100% auto;
+  }
+
+/*********************
+INPUT
+*********************/
+
+// input options
+.input-lg {
+  font-size: 1em;
+}
+
+/*********************
+PADDING & MARGINS
+*********************/
+
+// custom padding
+.paddingTop {
+  padding-top: 1.5em;
+}
+
+.paddingBottom {
+  padding-bottom: 1.5em;
+}
+
+/*********************
+LISTS
+*********************/
+
+.list-unstyled {
+  li {
+    line-height: 2em;
+  }
+}
+

@@ -1,0 +1,19 @@
+.btn-noRadius {
+  border-radius: 0 !important;
+}
+
+.btn-whitestroke {
+  color: $white !important;
+  border-color: $white;
+  background: none;
+  text-transform: uppercase;
+  a {
+    color: $white !important;
+  }
+}
+
+.btn-xl {
+  padding: (16 / 16) *1em (22 / 16) *1em;
+  line-height: 1.5;
+  font-size: (20 / 16) *1em;
+}
