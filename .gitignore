@@ -18,6 +18,9 @@ web/.htaccess
 db-sync
 sql-dump-*.sql
 
+# The Theme
+web/app/themes/damn-sage
+
 # Dotenv
 .env
 .env.*

@@ -25,6 +25,9 @@
     }
   },
   "config": {
-    "devUrl": "http://damnmagazine.site"
+    "devUrl": "http://damn.local"
+  },
+  "paths": {
+	  "dist": "../web/app/themes/damn-sage"
   }
 }
