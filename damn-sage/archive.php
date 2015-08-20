@@ -11,17 +11,4 @@
   <?php endwhile; ?>
 </div>
 
-<div class="row">
-  <div class="col-12 col-xs-6 col-sm-4">
-    <h3>Agenda</h3>
-  </div>
-
-  <div class="col-12 col-xs-6 col-sm-4">
-    <h3>Social Media</h3>
-    <?php if ( is_active_sidebar( 'sidebar-homepage-socials' ) ) : dynamic_sidebar( 'sidebar-homepage-socials' ); endif; ?>
-  </div>
-
-  <div class="col-12 col-xs-6 col-sm-4">
-    <h3>Join DAMn +</h3>
-  </div>
-</div>
+<?php get_template_part('templates/page-navi'); ?>

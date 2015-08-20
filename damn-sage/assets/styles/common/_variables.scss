@@ -284,6 +284,44 @@ $browser-context: 16; // Default
 // }
 
 /*********************
+POSITIONING
+*********************/
+
+/// Shorthand mixin for offset positioning
+/// @param {String} $position - Either `relative`, `absolute` or `fixed`
+/// @param {Length} $top [null] - Top offset
+/// @param {Length} $right [null] - Right offset
+/// @param {Length} $bottom [null] - Bottom offset
+/// @param {Length} $left [null] - Left offset
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+//Usage
+// .foo {
+//   @include position(absolute, $top: 1em, $left: 50%);
+// }
+
+// compiles
+
+// .foo {
+//   position: absolute;
+//   top: 1em;
+//   left: 50%;
+// }
+
+@mixin posabsolutebottomleft {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+}
+
+/*********************
 TRANSITION
 *********************/
 
@@ -529,13 +567,6 @@ COMMON & MISC
 @mixin blockfloat {
   display: block;
   float: left;
-}
-
-@mixin posabsolutebottomleft {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 10;
 }
 
 @mixin floatleft100 {

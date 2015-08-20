@@ -78,13 +78,7 @@ cd damn-sage
 npm install
 bower install
 ```
-Let's create the theme `dist` folder and add it's path for compiling in the theme manifest.
 
-```
-mkdir ../web/app/themes/damn-sage
-cp assets/manifest.example.json assets/manifest.json
-nano assets/manifest.json
-```
 
 ## Usage
 For more info on using roots/bedrock, head to [roots.io/bedrock](https://roots.io/bedrock/).
@@ -95,6 +89,12 @@ The theme is managed though Gulp. Some basic commands:
 gulp #Compile and optimize the files in your assets directory
 gulp watch #Compile assets when file changes are made
 gulp --production #Compile assets for production
+```
+
+To connect the theme folder with the bedrock theme directory, add a symlink.
+
+```
+ln -s /local/path/to/damn-website/damn-sage/dist ../web/app/themes/damn-sage
 ```
 
 For more info on using roots/sage, head to [roots.io/sage docs](https://roots.io/sage/docs/theme-development/).

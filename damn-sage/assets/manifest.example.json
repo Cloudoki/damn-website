@@ -26,8 +26,5 @@
   },
   "config": {
     "devUrl": "http://damn.local"
-  },
-  "paths": {
-	  "dist": "../web/app/themes/damn-sage"
   }
 }

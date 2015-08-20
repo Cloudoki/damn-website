@@ -1,6 +1,12 @@
 .sidebar {
   margin: 0 0 2.5em 0;
   border-top: 1px solid $bordercolor;
+  @media (min-width: $screen-sm-min) {
+    width: 360px;
+    float: right;
+    border-left: 1px solid $bordercolor;
+    padding: 0;
+  }
   h3.widget-title, h3 {
     padding: 1em;
     margin: 0;
@@ -51,17 +57,6 @@
           @include lightgraytomediumgraylink;
         }
       }
-    }
-  }
-}
-
-body.single {
-  .sidebar {
-    @media (min-width: $screen-sm-min) {
-      width: 360px;
-      float: right;
-      border-left: 1px solid $bordercolor;
-      padding: 0;
     }
   }
 }

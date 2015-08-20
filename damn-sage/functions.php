@@ -19,6 +19,7 @@ $sage_includes = [
   'lib/titles.php',                // Page titles
   'lib/extras.php',                // Custom functions
   'lib/widgets.php',               // Custom widgets
+  'lib/wp_bootstrap_navwalker.php', // Bringing back Bootstrap dropdown menu to the main nav
 ];
 
 foreach ($sage_includes as $file) {

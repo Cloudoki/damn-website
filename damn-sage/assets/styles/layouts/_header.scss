@@ -1,46 +1,64 @@
-.header-wrapper {
-  width: 100%;
-  padding: (30 / 16) * 1em;
-  background-color: $black;
-}
-
 .navbar-default {
   background-color: $white;
   border: 0;
   border-bottom: 1px solid $bordercolor;
-  #navbar-1 {
-    padding: 0;
-    ul.nav {
-      width: 100%;
-      li {
-        a, a:visited {
-          font-size: (20 / 16) * 1em;
-          color: $black;
-          padding: 0 (20 / 16) * 1em;
-          line-height: 60px;
-          text-transform: uppercase;
-          &:hover {
-            color: $red;
+  margin-bottom: (30 / 16) * 1em;
+  .header-wrapper {
+    width: 100%;
+    padding: (30 / 16) * 1em;
+    background-color: $black;
+  }
+
+  .main-navigation {
+    border: 0;
+    .menu-main-nav-container {
+      padding: 0;
+      ul.nav {
+        width: 100%;
+        li {
+          a, a:visited {
+            font-size: (20 / 16) * 1em;
+            color: $black;
+            padding: 0 (20 / 16) * 1em;
+            line-height: 60px;
+            text-transform: uppercase;
+            &:hover {
+              color: $red;
+            }
+          }
+          &:first-child {
+            a {
+              padding-left: 0;
+            }
           }
         }
-        &:first-child {
+        li.active {
+          &:first-child {
+            a {
+              padding-left: (20 / 16) * 1em;
+            }
+          }
+        }
+        li.small-text {
+          float: right;
           a {
-            padding-left: 0;
+            font-size: .9em;
           }
         }
-      }
-      li.small-text {
-        float: right;
-        a {
-          font-size: .9em;
-        }
-      }
-      li.search {
-        font-size: 1em;
-        a {
-          padding-right: 0;
+        li.search {
+          font-size: 1em;
+          a {
+            padding-right: 0;
+          }
         }
       }
     }
   }
+}
+
+/* bootstrap override */
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+  background-color: $white;
+  border-left: 1px solid $bordercolor;
+  border-right: 1px solid $bordercolor;
 }

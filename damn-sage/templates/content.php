@@ -1,3 +1,8 @@
+<?php
+$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' );
+$url = $thumb['0'];
+?>
+
 <?php if (is_single()) { ?>
   <div class="col-12 col-xs-6 col-sm-3">
 <?php } else { ?>
@@ -5,15 +10,14 @@
 <?php } ?>
 
   <div class="news-item">
-    <div class="post-image">
-      <?php if ( has_post_thumbnail()) { ?>
-        <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-          <?php the_post_thumbnail( 'news-image' ); ?>
-        </a>
-      <?php } else { ?>
-        <img src="<?= get_template_directory_uri(); ?>/dist/images/default.gif" alt="<?= get_bloginfo("name"); ?>"/>
-      <?php } ?>
+    <?php if ( has_post_thumbnail()) { ?>
+      <div class="post-image" style="background-image:url(<?=$url?>);">
+    <?php } else { ?>
+      <div class="post-image" style="background-image:url(<?= get_template_directory_uri(); ?>/dist/images/default-tall.png)">
+    <?php } ?>
+      <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?= get_bloginfo("name"); ?>" class="placeholder" />
     </div>
+
     <header>
       <div class="category-link">
         <?php the_category(' '); ?>
@@ -22,4 +26,3 @@
     </header>
   </div>
 </div>
-

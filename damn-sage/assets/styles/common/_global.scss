@@ -44,6 +44,27 @@ p {
   line-height: 1px;
 }
 
+body.archive, body.single {
+  .main {
+    @media (min-width: $screen-sm-min) {
+      width: auto !important;
+      margin: 0 390px 0 60px !important;
+      float: none !important;
+      padding: 0 !important;
+    }
+  }
+}
+
+body.archive {
+  .main {
+    @media (min-width: $screen-sm-min) {
+      margin-left: 30px !important;
+    }
+  }
+}
+
+/* see sidebar.scss for sidebar settings */
+
 /*********************
 LINK STYLES
 *********************/
@@ -139,6 +160,29 @@ LISTS
 .list-unstyled {
   li {
     line-height: 2em;
+  }
+}
+
+/*********************
+NAVIGATION
+*********************/
+
+.article-navigation {
+  padding: 0 0 2em 0px;
+  ul.pagination {
+    span.current {
+      color: $black;
+    }
+    li {
+      color: $medium-gray;
+      a {
+        color: $black;
+        &:hover {
+          color: $white;
+          background-color: $black;
+        }
+      }
+    }
   }
 }
 
