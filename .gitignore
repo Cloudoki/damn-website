@@ -13,13 +13,11 @@ web/app/uploads/*
 # WordPress
 web/wp
 web/.htaccess
+web/app/uploads
 
 # WP-CLI
 db-sync
 sql-dump-*.sql
-
-# The Theme
-web/app/themes/damn-sage
 
 # Dotenv
 .env
