@@ -2,14 +2,12 @@ footer.content-info {
   background-color: $black;
   color: $white;
   text-transform: uppercase;
+  clear: both;
   a, a:visited {
     color: $light-gray;
     &:hover {
       color: $white;
     }
-  }
-  .footer-advert-wrap {
-    padding: 3em 0;
   }
   .footer-wrap {
     background-color: $text-color;

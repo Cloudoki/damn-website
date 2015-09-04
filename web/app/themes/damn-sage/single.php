@@ -7,4 +7,8 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-<?php get_template_part('templates/content-single', get_post_type()); ?>
+<?php if (is_singular( 'magazine' )) { ?>
+  <?php get_template_part('templates/content-magazines', get_post_type()); ?>
+<?php } else { ?>
+  <?php get_template_part('templates/content-single', get_post_type()); ?>
+<?php } ?>

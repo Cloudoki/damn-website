@@ -1,57 +1,146 @@
-.navbar-default {
-  background-color: $white;
-  border: 0;
-  border-bottom: 1px solid $bordercolor;
+// home above nav wide featured content
+.home-feature {
+  background-color: $black;
   margin-bottom: (30 / 16) * 1em;
-  .header-wrapper {
-    width: 100%;
-    padding: (30 / 16) * 1em;
-    background-color: $black;
-  }
+}
 
-  .main-navigation {
+body.single {
+  .home-feature {
+    margin-bottom: 0;
+  }
+}
+// end home above nav wide featured content
+
+a.main-logo {
+  float: left;
+  margin-right: .9em;
+  max-width: 320px;
+  max-height: 71px;
+  display: block;
+  background: url("../images/damn-2X.png") no-repeat;
+  background: url("../images/damn-white.svg") no-repeat;
+  @include aspect-ratio(23, 5.8);
+  @include imagereplacement;
+  background-size: 100% auto;
+}
+
+// main navbar in header
+
+.home-feature {
+  .navbar-default {
+    // background-color: $white;
+    background: none;
     border: 0;
-    .menu-main-nav-container {
-      padding: 0;
-      ul.nav {
-        width: 100%;
-        li {
-          a, a:visited {
-            font-size: (20 / 16) * 1em;
-            color: $black;
-            padding: 0 (20 / 16) * 1em;
-            line-height: 60px;
-            text-transform: uppercase;
-            &:hover {
-              color: $red;
+    border-bottom: 1px solid $bordercolor;
+    .header-wrapper {
+      width: 100%;
+      padding: (30 / 16) * 1em;
+      background-color: $black;
+      background-color: rgba(0,0,0,0.6);
+      .issue-number {
+        font-size: 4.5em;
+        font-weight: 700;
+        display: block;
+        float: left;
+        margin-top: 0.28em;
+        line-height: 0.8em;
+      }
+    }
+    .white-wrapper {
+      background-color: $white;
+    }
+
+    .main-navigation {
+      border: 0;
+      .menu-main-nav-container {
+        padding: 0;
+        ul.nav {
+          width: 100%;
+          li {
+            a, a:visited {
+              font-size: (20 / 16) * 1em;
+              color: $black;
+              padding: 0 (20 / 16) * 1em;
+              line-height: 60px;
+              text-transform: uppercase;
+              font-weight: 400;
+              &:hover {
+                color: $red;
+              }
+            }
+            &:first-child {
+              a {
+                padding-left: 0;
+              }
             }
           }
-          &:first-child {
+          li li a {
+            font-weight: 400;
+          }
+          li.active {
+            &:first-child {
+              a {
+                padding-left: (20 / 16) * 1em;
+              }
+            }
+          }
+          li.small-text {
+            float: right;
             a {
-              padding-left: 0;
+              font-size: .9em;
+              font-weight: 400;
             }
           }
-        }
-        li.active {
-          &:first-child {
+          li.search {
+            font-size: 1em;
             a {
-              padding-left: (20 / 16) * 1em;
+              padding-right: 0;
             }
-          }
-        }
-        li.small-text {
-          float: right;
-          a {
-            font-size: .9em;
-          }
-        }
-        li.search {
-          font-size: 1em;
-          a {
-            padding-right: 0;
           }
         }
       }
+    }
+  }
+}
+
+.title-wrapper {
+  text-align: center;
+  margin: 0;
+  padding: 2em 0;
+  border-top: 1px solid $bordercolor;
+  background-color: $white;
+  clear: both;
+  h2 {
+    margin: 0;
+    text-transform: uppercase;
+  }
+}
+
+.dropdown-menu {
+  margin: 0;
+  padding: 0;
+  border-top: 0 !important;
+  li {
+    a {
+      padding: 0 1.25em !important;
+      font-size: 1em !important;
+      line-height: 40px !important;
+      border-bottom: 1px solid $white;
+      &:hover {
+        border-bottom: 1px solid rgba(0,0,0,.15);
+        background: none !important;
+      }
+    }
+  }
+  li.active {
+    a {
+      background-color: $black !important;
+      color: $white !important;
+    }
+  }
+  li:last-child {
+    a {
+      border-bottom: 0;
     }
   }
 }
@@ -62,3 +151,16 @@
   border-left: 1px solid $bordercolor;
   border-right: 1px solid $bordercolor;
 }
+
+.navbar-default .navbar-nav>.open>a {
+  background: none !important;
+}
+
+.page-header {
+  margin-top: 0;
+  padding-bottom: 0;
+  border: 0;
+}
+
+
+

@@ -7,6 +7,7 @@ $icon-font-path:        "../fonts/";
 
 // Fonts
 $sans-serif:        "proxima-nova", helvetica, arial, tahoma, sans-serif;
+$museo:             "museo", georgia, helvetica, arial, tahoma, sans-serif;
 $serif:             "Georgia", Cambria, Times New Roman, Times, serif;
 
 // Grid settings
@@ -23,6 +24,7 @@ $black:           #000;
 $red:             #b60202;
 $bordercolor:     #ddd;
 $grayhovercolor:  #f5f5f5;
+$lightestgray:    #f9f9f9;
 
 // Link Colors
 $link-color:      #b60202;
@@ -402,13 +404,13 @@ TOOLS
 
 // http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
 .image-replacement {
-  text-indent: 100%;
+  text-indent: 1000%;
   white-space: nowrap;
   overflow: hidden;
 }
 
 @mixin imagereplacement {
-  text-indent: 100%;
+  text-indent: 1000%;
   white-space: nowrap;
   overflow: hidden;
 }

@@ -28,14 +28,40 @@ add_filter('body_class', __NAMESPACE__ . '\\body_class');
  * Clean up the_excerpt()
  */
 function excerpt_more() {
-  return ' &hellip; <a href="' . get_permalink() . '">' . __('Continued', 'sage') . '</a>';
+  return ' &hellip; <a href="' . get_permalink() . '">' . __('More', 'sage') . '</a>';
 }
 add_filter('excerpt_more', __NAMESPACE__ . '\\excerpt_more');
 
 
+function custom_excerpt_length( $length ) {
+  return 10;
+}
+add_filter( 'excerpt_length', __NAMESPACE__ . '\\custom_excerpt_length', 999 );
+
 /*********************
 * MIKE'S CUSTOM      *
 *********************/
+
+// Mike's function to modify the main/homepage query object to display 6 posts, not the default in "reading" settings
+
+function mike_modify_main_query( $query ) {
+  if ( $query->is_home() && $query->is_main_query() ) { // Run only on the homepage
+  $query->query_vars['posts_per_page'] = 6; // Show only 6 posts on the homepage only
+  }
+}
+// Hook my above function to the pre_get_posts action
+add_action( 'pre_get_posts', __NAMESPACE__ . '\\mike_modify_main_query' );
+
+
+// Mike's function to modify the archive query object to display 15 posts
+
+// function mike_modify_archive_query( $query ) {
+//   if ( $query->is_archive() ) { // Run only on archive pages, but not custom post types
+//   $query->query_vars['posts_per_page'] = 15; // Show only 15 posts per page
+//   }
+// }
+// // Hook my above function to the pre_get_posts action
+// add_action( 'pre_get_posts', __NAMESPACE__ . '\\mike_modify_archive_query' );
 
 
 /*********************

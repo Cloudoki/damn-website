@@ -15,7 +15,7 @@ class blog_Widget extends WP_Widget {
     $args=array(
       'posts_per_page'=> $instance['posts_number'], // Number of related posts that will be shown.
       'post_type' => 'post',
-      'post__not_in' => array($post->ID),
+      // 'post__not_in' => array($post->ID),
     );
     $my_query = new wp_query( $args );
     if( $my_query->have_posts() ) {
@@ -54,7 +54,7 @@ class blog_Widget extends WP_Widget {
 
   /** @see WP_Widget::form */
   function form($instance) {
-    $instance = wp_parse_args( (array) $instance, array( 'title'    => 'Latest', 'posts_number'  => '6' ));
+    $instance = wp_parse_args( (array) $instance, array( 'title'    => 'Latest', 'posts_number'  => '5' ));
     $title = strip_tags($instance['title']);
     $posts_number = strip_tags($instance['posts_number']);
     ?>

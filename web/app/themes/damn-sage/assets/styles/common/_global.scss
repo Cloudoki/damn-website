@@ -17,10 +17,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/*********************
-LAYOUT & GRID STYLES
-*********************/
-
 hr {
   margin: 25px 0;
   background-color: $gray;
@@ -30,11 +26,8 @@ hr {
 }
 
 p {
-  line-height: 1.6em;
-  margin-bottom: 1.25em;
-  strong {
-    color: $black;
-  }
+  line-height: 1.5em;
+  margin-bottom: 1.5em;
 }
 
 .clearthis {
@@ -44,21 +37,57 @@ p {
   line-height: 1px;
 }
 
-body.archive, body.single {
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+
+.wrap {
+  padding-bottom: 3em;
+}
+
+.container {
+  @media screen and (min-width: 1540px) {
+    width: 1440px;
+  }
+}
+
+.main {
+  @media (min-width: $screen-sm-min) {
+    width: auto !important;
+    float: none !important;
+    padding: 0 !important;
+  }
+}
+
+body.home, body.archive {
+  .main {
+    margin: 0 auto !important;
+  }
+}
+
+body.single {
   .main {
     @media (min-width: $screen-sm-min) {
-      width: auto !important;
-      margin: 0 390px 0 60px !important;
-      float: none !important;
-      padding: 0 !important;
+      margin: 0 390px 0 80px !important;
     }
   }
 }
 
-body.archive {
-  .main {
-    @media (min-width: $screen-sm-min) {
-      margin-left: 30px !important;
+// body.archive {
+//   .main {
+//     @media (min-width: $screen-sm-min) {
+//       margin-left: 30px !important;
+//     }
+//   }
+// }
+
+/* 404 */
+body.error404 {
+  .page-header {
+    text-align: center;
+    h1 {
+      text-transform: uppercase;
+      font-size: 5em;
     }
   }
 }
@@ -112,7 +141,7 @@ img {
 VERTICAL RHYTHYM
 *********************/
 
-header, .main, .sidebar, footer, .single-news-item, .wrap {
+.home-feature, header, .main, .sidebar, footer, .single-news-item, .wrap {
   font-size: 16px;
 }
 
@@ -120,16 +149,7 @@ header, .main, .sidebar, footer, .single-news-item, .wrap {
 LOGO
 *********************/
 
-.main-logo {
-    max-width: 320px;
-    max-height: 71px;
-    display: block;
-    background: url("../images/damn-2X.png") no-repeat;
-    background: url("../images/damn-white.svg") no-repeat;
-    @include aspect-ratio(23, 5);
-    @include imagereplacement;
-    background-size: 100% auto;
-  }
+/* see header.scss */
 
 /*********************
 INPUT
@@ -185,4 +205,35 @@ NAVIGATION
     }
   }
 }
+
+/*********************
+ADVERTS
+*********************/
+
+.advert {
+  .g img {
+    margin: 0 auto;
+  }
+}
+
+.advert-sidebar-top, .advert-sidebar-bottom {
+  border-bottom: 1px solid $bordercolor;
+  .g img {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+}
+
+.footer-advert {
+  padding: 3em 0;
+  img {
+    margin: 0 auto;
+  }
+}
+
+
+
+
+
+
 

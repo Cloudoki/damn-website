@@ -1,14 +1,15 @@
 .sidebar {
   margin: 0 0 2.5em 0;
-  border-top: 1px solid $bordercolor;
+  // border-top: 1px solid $bordercolor;
   @media (min-width: $screen-sm-min) {
     width: 360px;
     float: right;
     border-left: 1px solid $bordercolor;
     padding: 0;
+    margin: -40px 0 2.5em 0;
   }
   h3.widget-title, h3 {
-    padding: 1em;
+    padding: (16 / 16) * 1em;
     margin: 0;
   }
   ul, ol {

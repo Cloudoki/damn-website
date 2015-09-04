@@ -7,9 +7,10 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "modernizr": "2.8.2",
     "bootstrap-sass-official": "3.3.5",
-    "fontawesome": "~4.4.0"
+    "fontawesome": "~4.4.0",
+    "modernizr": "2.8.2",
+    "salvattore": "~1.0.8"
   },
   "overrides": {
     "modernizr": {
@@ -41,6 +42,11 @@
       "main": [
         "./scss/font-awesome.scss",
         "./fonts/*"
+      ]
+    },
+    "salvattore": {
+      "main": [
+        "./dist/salvattore.js"
       ]
     }
   }
