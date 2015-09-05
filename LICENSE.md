@@ -1,3 +1,14 @@
+For DAMn Magazine
+
+Copyright (c) DAMn° Magazine
+
+All proprietary plugins and themes are for DAMn° Magazine usage only.
+No rights are granted for redistribution.
+All open source components remain covered by their respective licenses.
+
+
+For Roots.io
+
 Copyright (c) Roots
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
