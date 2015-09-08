@@ -5,13 +5,16 @@
     width: 360px;
     float: right;
     border-left: 1px solid $bordercolor;
+    border-right: 1px solid $bordercolor;
     padding: 0;
-    margin: -40px 0 2.5em 0;
+    margin: -2.5em 0 2.5em 0;
   }
-  h3.widget-title, h3 {
-    padding: (16 / 16) * 1em;
-    margin: 0;
+  .sidebar-padding {
+    padding: 1.5em;
   }
+}
+
+.sidebar, .widget {
   ul, ol {
     list-style: none;
     padding-left: 0;
@@ -27,37 +30,89 @@
       border-top: 1px solid $bordercolor;
     }
   }
-  .latest-articles-list {
-    margin-bottom: 0;
+  ol {
     li {
-      counter-increment: step-counter;
-      &:before {
-        content: counter(step-counter);
-        font-size: 3em;
-        font-weight: 700;
-        padding: 0;
-        float: left;
-        @include inlinemiddle;
-        width: 13%;
+      padding: 1em 1em 1em 1.5em;
+    }
+  }
+}
+
+h3.widget-title, h3.widget-title-black {
+  // see below for padding for sidebar specific widgets, as they have padding on all sides, others, only top/bottom
+  margin: 0;
+}
+h3.widget-title-black {
+  @include blackbackwhitetext;
+}
+
+.widget {
+  h3.widget-title, h3.widget-title-black, h3 {
+    padding: (16 / 16) * 1em 0;
+  }
+}
+
+.sidebar {
+  .widget {
+    h3.widget-title, h3.widget-title-black, h3 {
+      padding: (16 / 16) * 1em;
+    }
+  }
+}
+
+// latest articles & calendar // latest calendar specific items below
+
+.latest-articles-list, .latest-calendar-list {
+  margin-bottom: 0;
+  li {
+    counter-increment: step-counter;
+    &:before {
+      content: counter(step-counter);
+      font-size: 3em;
+      font-weight: 700;
+      padding: 0;
+      float: left;
+      @include inlinemiddle;
+      width: 14%;
+    }
+    .list-thumb {
+      width: 22%;
+      @include inlinemiddle;
+      img {
+        width: 85%;
+        @include border-radius(50%);
       }
-      .list-thumb {
-        width: 22%;
-        @include inlinemiddle;
-        img {
-          width: 85%;
-          @include border-radius(50%);
-        }
-      }
-      .list-meta {
-        width: 62%;
-        @include inlinemiddle;
-        line-height: 1.25em;
-        @include blacktomediumgraylink;
-        span {
-          font-size: .95em;
-          @include lightgraytomediumgraylink;
-        }
+    }
+    .list-meta {
+      width: 61%;
+      @include inlinemiddle;
+      line-height: 1.25em;
+      @include blacktomediumgraylink;
+      span {
+        font-size: .95em;
+        @include lightgraytomediumgraylink;
       }
     }
   }
 }
+
+// productivity page - sidebar
+.sidebar {
+  .product-info {
+    border-top: 1px solid $bordercolor;
+    border-bottom: 1px solid $bordercolor;
+    padding: 1.5em 1.5em 2em 1.5em;
+    background-color: $lightestgray;
+    .company-logo {
+      padding-bottom: 1em;
+    }
+    .product-creators {
+      padding: 0 0 1.3em 0;
+      margin-bottom: 1.3em;
+      border-bottom: 1px solid $bordercolor;
+    }
+  }
+}
+
+
+
+

@@ -74,4 +74,41 @@
   // Load Events
   $(document).ready(UTIL.loadEvents);
 
+  // MIKEY custom
+
+  // Sticky Kit for sidebar stick
+  var browserWidth = $(window).width();
+  if ((browserWidth > 1024)) {
+    $('.sidebar').stick_in_parent({offset_top: 80})
+    .on('sticky_kit:bottom', function(e) {
+        $(this).parent().css('position', 'static');
+    })
+    .on('sticky_kit:unbottom', function(e) {
+        $(this).parent().css('position', 'relative');
+    });
+  }
+
+
+  // Setup Headheasive for sticky navigation
+
+  // Set options
+  var options = {
+    offset: '.fixed-nav-activator',
+    classes: {
+      // Cloned elem class
+      clone: 'headhesive',
+
+      // Stick class
+      stick: 'headhesive--stick',
+
+      // Unstick class
+      unstick: 'headhesive--unstick'
+    },
+    // Throttle scroll event to fire every 250ms to improve performace
+    throttle: 250,
+  };
+
+  // Sticky header courtesy of Headhesive.js, Create a new instance of Headhesive
+  var header = new Headhesive('.white-wrapper', options);
+
 })(jQuery); // Fully reference jQuery after this point.

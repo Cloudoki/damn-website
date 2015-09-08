@@ -27,130 +27,216 @@ a.main-logo {
 // main navbar in header
 
 .home-feature {
-  .navbar-default {
-    // background-color: $white;
-    background: none;
-    border: 0;
-    border-bottom: 1px solid $bordercolor;
-    .header-wrapper {
-      width: 100%;
-      padding: (30 / 16) * 1em;
-      background-color: $black;
-      background-color: rgba(0,0,0,0.6);
-      .issue-number {
-        font-size: 4.5em;
-        font-weight: 700;
-        display: block;
-        float: left;
-        margin-top: 0.28em;
-        line-height: 0.8em;
+  .header-wrapper {
+    width: 100%;
+    padding: (30 / 16) * 1em;
+    background-color: $black;
+    background-color: rgba(0,0,0,0.6);
+    .issue-number {
+      font-size: 4.5em;
+      font-weight: 700;
+      display: block;
+      float: left;
+      margin-top: 0.28em;
+      line-height: 0.8em;
+    }
+  }
+}
+
+.white-wrapper {
+  background-color: $white;
+  border-bottom: 1px solid $bordercolor;
+}
+
+.navbar-default {
+  // background-color: $white;
+  background: none;
+  border: 0;
+  // border-bottom: 1px solid $bordercolor;
+  margin-bottom: 0;
+}
+
+.main-navigation {
+  border: 0;
+
+  // Main nav (always visible)
+  .menu-main-nav-container {
+    padding: 0;
+  }
+
+  // Social nav (hidden in normal nav, visible in Headhesive, stick nav)
+  .menu-socials-header-container {
+    display: none;
+  }
+}
+
+// Nav structure
+ul.nav {
+  width: 100%;
+  li {
+    a, a:visited {
+      font-size: (20 / 16) * 1em;
+      color: $black !important;
+      padding: 0 (20 / 16) * 1em;
+      line-height: 60px;
+      text-transform: uppercase;
+      font-weight: 700;
+      border-bottom: 0;
+      @include transitions;
+      border-right: 1px solid $white;
+      border-left: 1px solid $white;
+      &:hover {
+        color: $black;
+        background: none !important;
+        border-color: $bordercolor;
       }
     }
-    .white-wrapper {
-      background-color: $white;
-    }
-
-    .main-navigation {
-      border: 0;
-      .menu-main-nav-container {
-        padding: 0;
-        ul.nav {
-          width: 100%;
-          li {
-            a, a:visited {
-              font-size: (20 / 16) * 1em;
-              color: $black;
-              padding: 0 (20 / 16) * 1em;
-              line-height: 60px;
-              text-transform: uppercase;
-              font-weight: 400;
-              &:hover {
-                color: $red;
-              }
-            }
-            &:first-child {
-              a {
-                padding-left: 0;
-              }
-            }
-          }
-          li li a {
-            font-weight: 400;
-          }
-          li.active {
-            &:first-child {
-              a {
-                padding-left: (20 / 16) * 1em;
-              }
-            }
-          }
-          li.small-text {
-            float: right;
-            a {
-              font-size: .9em;
-              font-weight: 400;
-            }
-          }
-          li.search {
-            font-size: 1em;
-            a {
-              padding-right: 0;
-            }
-          }
+    &:first-child {
+      a {
+        padding-left: 0;
+        &:hover {
+          border-left-color: $white;
         }
       }
     }
   }
-}
-
-.title-wrapper {
-  text-align: center;
-  margin: 0;
-  padding: 2em 0;
-  border-top: 1px solid $bordercolor;
-  background-color: $white;
-  clear: both;
-  h2 {
-    margin: 0;
-    text-transform: uppercase;
-  }
-}
-
-.dropdown-menu {
-  margin: 0;
-  padding: 0;
-  border-top: 0 !important;
-  li {
+  li.search {
     a {
-      padding: 0 1.25em !important;
-      font-size: 1em !important;
-      line-height: 40px !important;
-      border-bottom: 1px solid $white;
       &:hover {
-        border-bottom: 1px solid rgba(0,0,0,.15);
-        background: none !important;
+        border-right-color: $white;
       }
     }
   }
-  li.active {
+  li.search.active {
     a {
-      background-color: $black !important;
-      color: $white !important;
+      border-right-color: $white;
     }
   }
-  li:last-child {
+  li li a {
+    font-weight: 400;
+  }
+  li.active, li.open {
+    /* see border for active state at the bottom under Boostrap Overrides */
     a {
-      border-bottom: 0;
+      border-left: 1px solid $bordercolor !important;
+      border-right: 1px solid $bordercolor !important;
+      background: none !important
     }
+    &:first-child {
+      a {
+        padding-left: (20 / 16) * 1em;
+        border-left-color: $white;
+      }
+    }
+  }
+  li.small-text {
+    float: right;
+    a {
+      font-size: .9em;
+      font-weight: 400;
+    }
+  }
+  li.search {
+    font-size: 1em;
+    a {
+      padding-right: 0;
+    }
+  }
+  // dropdown
+  .dropdown-menu {
+    margin: 1px 0 0 0;
+    padding: 0;
+    border-top: 0 !important;
+    li {
+      a {
+        padding: 0 1.25em !important;
+        font-size: 1em !important;
+        line-height: 40px !important;
+        border-left: 0 !important;
+        border-right: 0 !important;
+        border-bottom: 1px solid $white;
+        &:hover {
+          border-bottom: 1px solid rgba(0,0,0,.15);
+          background: none !important;
+        }
+      }
+    }
+    li.active {
+      a {
+        border-bottom: 1px solid rgba(0,0,0,.15);
+        border-top: 1px solid rgba(0,0,0,.15);
+        background: none !important;
+      }
+    }
+    li:last-child {
+      a {
+        border-bottom: 0;
+      }
+    }
+  }
+}
+
+// main nav
+ul.social-nav {
+  li {
+    @include blockfloat;
+    a, a:visited {
+      font-size: (18 / 16) * 1em;
+      color: $black;
+      padding: 0 (12 / 16) * 1em;
+      line-height: 60px;
+      @include transitions;
+      &:hover {
+        color: $black;
+      }
+    }
+  }
+}
+
+// HEADHESIVE STICK NAV OPTIONS
+
+/* before scroll or in "unstick" mode, hide */
+.headhesive {
+  @include position(fixed, $top: -60px, $left: 0);
+  @include opacity(0);
+  border-bottom: 1px solid $bordercolor;
+  .main-navigation {
+    padding: 0 !important;
+  }
+}
+
+/* when scroll past the header, in active "stick" mode */
+.headhesive--stick {
+  display: block;
+  @include position(fixed, $top: 0, $left: 0);
+  @include opacity(0.97);
+  z-index: 1001;
+  width: 100%;
+  @include transition500ms;
+  .main-navigation {
+    .menu-main-nav-container {
+      // normal nav when stick is active - set to auto width
+      @include blockfloat ;
+      ul.nav li a {
+        font-size: (14/16) * 1em;
+      }
+    }
+    // social menu visible on stick
+    .menu-socials-header-container {
+      display: block;
+      float: right;
+    }
+  }
+}
+
+// Show stick nav if logged in as admin
+body.logged-in {
+  .headhesive--stick {
+    top: 29px;
   }
 }
 
 /* bootstrap override */
-.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
-  background-color: $white;
-  border-left: 1px solid $bordercolor;
-  border-right: 1px solid $bordercolor;
-}
 
 .navbar-default .navbar-nav>.open>a {
   background: none !important;
@@ -162,5 +248,50 @@ a.main-logo {
   border: 0;
 }
 
+/* activator for fixed nav. Needs white background so black of header background doesn't show */
+.fixed-nav-activator {
+  background: none;
+  margin-top: -1px;
+}
+
+/* title wrappers */
+
+.title-wrapper, .title-wrapper-in-content {
+  text-align: center;
+  margin: 0;
+  padding: 2em 0 0 0;
+  background-color: $white;
+  clear: both;
+  h1, h3 {
+    margin: 0;
+    text-transform: uppercase;
+    display: inline-block;
+    border-bottom: 2px solid $black;
+    padding-bottom: .4em;
+    font-size: 2.2em;
+  }
+  h3 {
+    font-size: 1.7em;
+    margin-bottom: 1em;
+  }
+}
+
+/* title wrapper - alternate behavior on page and taxonomy terms */
+body.tax-magazine, body.page {
+  .title-wrapper {
+    padding-bottom: 2em;
+    border-bottom: 1px solid $bordercolor;
+  }
+  .title-wrapper-in-content {
+    border-bottom: 0;
+    padding-bottom: .5em;
+  }
+}
+
+.taxonomy-description {
+  p {
+    margin: 1em 0 0 0;
+  }
+}
 
 

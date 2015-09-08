@@ -37,12 +37,39 @@ p {
   line-height: 1px;
 }
 
+.noMargin {
+  margin: 0 !important;
+}
+
+.marginRight {
+  margin-right: 1em;
+}
+
+.marginBottom {
+  margin-bottom: 1em;
+}
+
+.marginTop {
+  margin-top: 1em;
+}
+
+.black-back-white-text {
+  background-color: $black;
+  color: $white;
+}
+
 /*********************
 LAYOUT & GRID STYLES
 *********************/
 
 .wrap {
   padding-bottom: 3em;
+}
+
+body.single-calendar, body.tax-magazine, body.page {
+  .wrap {
+    margin-top: 2.5em;
+  }
 }
 
 .container {
@@ -61,14 +88,14 @@ LAYOUT & GRID STYLES
 
 body.home, body.archive {
   .main {
-    margin: 0 auto !important;
+    margin: 0 auto;
   }
 }
 
-body.single {
+body.single, body.tax-magazine, body.page {
   .main {
     @media (min-width: $screen-sm-min) {
-      margin: 0 390px 0 80px !important;
+      margin: 0 390px 0 0px !important;
     }
   }
 }
@@ -115,6 +142,13 @@ a, a:visited {
   }
 }
 
+a.black-link, a.black-link:visited {
+  color: $black;
+  &:hover {
+    color: lighten($black, 15%);
+  }
+}
+
 /******************************************************************
 H1, H2, H3, H4, H5 STYLES
 ******************************************************************/
@@ -141,7 +175,7 @@ img {
 VERTICAL RHYTHYM
 *********************/
 
-.home-feature, header, .main, .sidebar, footer, .single-news-item, .wrap {
+.home-feature, header, .main, .sidebar, footer, .single-news-item, .wrap, .headhesive {
   font-size: 16px;
 }
 
@@ -189,6 +223,7 @@ NAVIGATION
 
 .article-navigation {
   padding: 0 0 2em 0px;
+  text-align: center;
   ul.pagination {
     span.current {
       color: $black;

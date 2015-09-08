@@ -9,6 +9,9 @@ footer.content-info {
       color: $white;
     }
   }
+  p {
+    text-transform: none;
+  }
   .footer-wrap {
     background-color: $text-color;
     padding: 3em 0 1em;

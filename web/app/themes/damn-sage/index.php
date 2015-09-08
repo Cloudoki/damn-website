@@ -21,8 +21,8 @@
 <?php /* sponsored content */ ?>
 <div class="row sponsored-content-wrapper">
   <div class="col-xs-12">
-    <div class="sponsored-content">
-      Sponsored content
+    <div class="advert middle advert">
+      <?php if (function_exists('adrotate_group')) echo adrotate_group(6); ?>
     </div>
   </div>
 </div>
@@ -86,7 +86,7 @@
 <?php /* 3 bottom widgets */ ?>
 <div class="row bottom-widgets">
   <div class="col-12 col-xs-6 col-sm-4">
-    <h3>Agenda</h3>
+    <?php if ( is_active_sidebar( 'sidebar-homepage-agenda' ) ) : dynamic_sidebar( 'sidebar-homepage-agenda' ); endif; ?>
   </div>
 
   <div class="col-12 col-xs-6 col-sm-4">

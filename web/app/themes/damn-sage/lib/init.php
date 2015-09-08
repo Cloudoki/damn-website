@@ -22,7 +22,8 @@ function setup() {
     'primary_navigation' => __('Primary Navigation', 'sage'),
     'header_socials' => __('Header Socials', 'sage'),
     'footer_navigation' => __('Footer Navigation', 'sage'),
-    'footer_socials' => __('Footer Socials', 'sage')
+    'footer_socials' => __('Footer Socials', 'sage'),
+    'colophon' => __('Colophon', 'sage')
   ]);
 
   // Add post thumbnails
@@ -72,8 +73,17 @@ function widgets_init() {
   ]);
 
   register_sidebar([
-    'name'          => __('Homepage - Socials', 'sage'),
+    'name'          => __('Homepage - Socials (Instagram, etc)', 'sage'),
     'id'            => 'sidebar-homepage-socials',
+    'before_widget' => '<section class="widget %1$s %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h3 class="widget-title">',
+    'after_title'   => '</h3>'
+  ]);
+
+  register_sidebar([
+    'name'          => __('Homepage - Agenda Feed', 'sage'),
+    'id'            => 'sidebar-homepage-agenda',
     'before_widget' => '<section class="widget %1$s %2$s">',
     'after_widget'  => '</section>',
     'before_title'  => '<h3 class="widget-title">',

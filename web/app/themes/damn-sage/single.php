@@ -7,8 +7,19 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-<?php if (is_singular( 'magazine' )) { ?>
-  <?php get_template_part('templates/content-magazines', get_post_type()); ?>
+<?php if (is_singular( 'magazines' )) { ?>
+  <?php get_template_part('templates/content-single-magazines', get_post_type()); ?>
+<?php } elseif (is_singular( 'calendar' )) { ?>
+  <?php get_template_part('templates/content-single-calendar', get_post_type()); ?>
 <?php } else { ?>
   <?php get_template_part('templates/content-single', get_post_type()); ?>
+<?php } ?>
+
+<?php /* Facebook Comments */ ?>
+<?php comments_template('/templates/facebook-comments.php'); ?>
+
+<?php if (is_singular( 'magazines' )) { ?>
+<?php } else { ?>
+  <?php /* Related Posts */ ?>
+  <?php get_template_part('templates/related-posts'); ?>
 <?php } ?>

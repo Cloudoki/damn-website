@@ -1,0 +1,44 @@
+.search-large {
+  padding: 2em 0 10em 0;
+  .search-form {
+    width: 100%;
+    .input-group {
+      width: 100%;
+      input.search-field {
+        width: 100%;
+        font-size: 3em;
+        padding: .3em;
+        height: auto;
+        box-shadow: none;
+        border-color: $bordercolor;
+      }
+      button {
+        width: 100%;
+        font-size: 3em;
+        padding: .3em 1em;
+        height: auto;
+        border: 1px solid $bordercolor;
+        background: none;
+        color: $black !important;
+        &:hover {
+          color: $white !important;
+        }
+      }
+    }
+  }
+}
+
+.wp-tag-cloud {
+  list-style: none;
+  li {
+    display: inline-block;
+    a {
+      display: inline-block;
+      padding: 0 1em;
+      border: 1px solid $bordercolor;
+      margin: 0 .75em .75em 0;
+      line-height: 50px;
+      height: 50px;
+    }
+  }
+}

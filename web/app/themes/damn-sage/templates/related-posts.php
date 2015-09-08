@@ -10,7 +10,7 @@
   'tag__in' => $tag_ids,
   'post_type' => array( 'post' ),
   'post__not_in' => array($post->ID),
-  'posts_per_page'=>4
+  'posts_per_page'=>3
   );
 
   $my_query = new wp_query( $args );

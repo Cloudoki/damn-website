@@ -7,10 +7,12 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "Headhesive.js": "headhesive#~1.2.4",
     "bootstrap-sass-official": "3.3.5",
     "fontawesome": "~4.4.0",
     "modernizr": "2.8.2",
-    "salvattore": "~1.0.8"
+    "salvattore": "~1.0.8",
+    "sticky-kit": "~1.1.2"
   },
   "overrides": {
     "modernizr": {
@@ -30,7 +32,12 @@
         "./assets/javascripts/bootstrap/popover.js",
         "./assets/javascripts/bootstrap/scrollspy.js",
         "./assets/javascripts/bootstrap/tab.js",
-        "./assets/javascripts/bootstrap/affix.js"
+        "./assets/javascripts/bootstrap/affix.js",
+        "./assets/fonts/bootstrap/glyphicons-halflings-regular.eot",
+        "./assets/fonts/bootstrap/glyphicons-halflings-regular.svg",
+        "./assets/fonts/bootstrap/glyphicons-halflings-regular.ttf",
+        "./assets/fonts/bootstrap/glyphicons-halflings-regular.woff",
+        "./assets/fonts/bootstrap/glyphicons-halflings-regular.woff2"
       ]
     },
     "fontawesome": {

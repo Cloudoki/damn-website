@@ -53,8 +53,8 @@ function display_sidebar() {
        */
       [
         'is_404',
-        // MIKEY
-        // 'is_front_page',
+        'is_front_page',
+        ['is_post_type_archive', ['post', 'calendar', 'magazines', 'product']],
         ['is_page_template', 'template-custom.php']
       ]
     );
