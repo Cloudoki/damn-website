@@ -7,6 +7,19 @@ $url = $thumb['0'];
   <?php /* REUSED snippet to display title, category, subtitle */ ?>
   <?php get_template_part('templates/snippet', 'feed-header'); ?>
 
+  <?php if(get_field('start_date')) { ?>
+    <div class="event-date row">
+      <div class="col-xs-6">
+        <p><strong>Start Date:</strong> <?php the_field('start_date'); ?></p>
+      </div>
+      <?php if(get_field('end_date')) { ?>
+        <div class="col-xs-6">
+          <p><strong>End Date:</strong> <?php the_field('end_date'); ?></p>
+        </div>
+      <?php } ?>
+    </div>
+  <?php } ?>
+
   <?php if ( has_post_thumbnail()) { ?>
     <div class="post-image" style="background-image:url(<?=$url?>);">
   <?php } else { ?>

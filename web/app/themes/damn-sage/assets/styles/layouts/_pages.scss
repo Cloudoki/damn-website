@@ -42,3 +42,31 @@
     }
   }
 }
+
+.mailing-list-form {
+  form {
+    width: 100%;
+    margin: 0 auto;
+    padding: 3em 0;
+    float: left;
+    width: 100%;
+    input {
+      width: 95%;
+      line-height: 40px;
+      border-radius: 40px;
+      padding: 0 1em;
+    }
+  }
+  .col-sm-10 {
+    float: none !important;
+    display: inline-block;
+  }
+  .form-group {
+    float: left;
+    width: 100%;
+    input {
+      width: 95%;
+      margin-bottom: 1em;
+    }
+  }
+}

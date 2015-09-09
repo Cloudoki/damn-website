@@ -16,6 +16,12 @@
 .news-item {
   margin-bottom: 2em;
   overflow: hidden;
+  .post-image {
+    clear: both;
+    img {
+      @include width100heightauto;
+    }
+  }
   &:hover {
     .post-image {
       @include opacity(0.3);
@@ -129,6 +135,7 @@ body.post-type-archive-product {
   .news-item, .single-news-item {
     .post-image {
       border: 10px solid $black;
+      border-bottom: 0;
     }
     header {
       position: relative;
@@ -274,116 +281,121 @@ body.single, body.page {
         padding-bottom: 1.5em;
         h1 {
           margin-bottom: 0;
+          clear: both;
         }
         h2 {
           margin: .5em 0 0 0;
+          clear: both;
         }
       }
     }
+  }
+}
 
-    // entry footer for posts - for contributors, see below
-    footer {
+// SINGLE (the rest - footer)
+body.single, body.page {
+  // entry footer for posts - for contributors, see below
+  footer {
+    @include floatleft100;
+    padding: 1.5em;
+    border: 1px solid $bordercolor;
+    @include border-radius(2px);
+    // background-color: $lightestgray;
+    .author-wrapper, .tags-wrapper, .story-navigation {
       @include floatleft100;
-      padding: 1.5em;
-      border: 1px solid $bordercolor;
-      @include border-radius(2px);
-      // background-color: $lightestgray;
-      .author-wrapper, .tags-wrapper, .story-navigation {
+    }
+    .author-wrapper {
+      border-bottom: 1px solid $bordercolor;
+      padding-bottom: 1.5em;
+      margin-bottom: 1.5em;
+      .author-info {
         @include floatleft100;
-      }
-      .author-wrapper {
-        border-bottom: 1px solid $bordercolor;
-        padding-bottom: 1.5em;
-        margin-bottom: 1.5em;
-        .author-info {
-          @include floatleft100;
-          .pull-left {
-            margin: 0 1.5em 0 0;
-            width: 85px;
-            @media screen and (min-width: 992px) {
-              width: 128px;
-            }
-            img {
-              @include border-radius(150px);
-            }
-          }
-          .author-meta {
-            margin-left: 109px;
-            @media screen and (min-width: 992px) {
-              margin-left: 152px;
-            }
-          }
-          h3 {
-            margin-top: 0;
-          }
-          p {
-            margin: 0 0 0.5em 0;
-          }
-          .social-profiles {
-            margin: 0;
-            clear: both;
-            li {
-              padding: 0 10px 0 0;
-            }
-            li:last-child {
-              padding-right: 0;
-              span {
-                display: none;
-              }
-            }
-          }
-        }
-      }
-      .tags-wrapper {
-        padding-bottom: 1.5em;
-        margin-bottom: 1.5em;
-        border-bottom: 1px solid $bordercolor;
-      }
-      .story-navigation {
-        img {
-          width: 50px;
-          height: 50px;
-          @include border-radius(50px);
-        }
-        .nav-previous, .nav-next {
-          @include text-truncate;
-          line-height: 50px;
-          @include blacktomediumgraylink;
-        }
-        .nav-previous {
-          padding-right: 0;
-          @media (max-width: $screen-xs-max) {
-            float: none;
+        .pull-left {
+          margin: 0 1.5em 0 0;
+          width: 85px;
+          @media screen and (min-width: 992px) {
+            width: 128px;
           }
           img {
-            float: right;
-            margin-left: 1em;
+            @include border-radius(150px);
           }
         }
-        .nav-next {
-          padding-left: 0;
-          img {
-            float: left;
-            margin-right: 1em;
+        .author-meta {
+          margin-left: 109px;
+          @media screen and (min-width: 992px) {
+            margin-left: 152px;
+          }
+        }
+        h3 {
+          margin-top: 0;
+        }
+        p {
+          margin: 0 0 0.5em 0;
+        }
+        .social-profiles {
+          margin: 0;
+          clear: both;
+          li {
+            padding: 0 10px 0 0;
+          }
+          li:last-child {
+            padding-right: 0;
+            span {
+              display: none;
+            }
           }
         }
       }
     }
-
-    // Contributors list
-    footer.contributors-list {
-      .author-wrapper {
-        .author-info {
-          p {
-            margin-bottom: 1em;
-          }
+    .tags-wrapper {
+      padding-bottom: 1.5em;
+      margin-bottom: 1.5em;
+      border-bottom: 1px solid $bordercolor;
+    }
+    .story-navigation {
+      img {
+        width: 50px;
+        height: 50px;
+        @include border-radius(50px);
+      }
+      .nav-previous, .nav-next {
+        @include text-truncate;
+        line-height: 50px;
+        @include blacktomediumgraylink;
+      }
+      .nav-previous {
+        padding-right: 0;
+        @media (max-width: $screen-xs-max) {
+          float: none;
+        }
+        img {
+          float: right;
+          margin-left: 1em;
         }
       }
-      .author-wrapper:last-child {
-        margin-bottom: 0;
-        padding-bottom: 0;
-        border-bottom: 0;
+      .nav-next {
+        padding-left: 0;
+        img {
+          float: left;
+          margin-right: 1em;
+        }
       }
+    }
+  }
+
+  // Contributors list
+  footer.contributors-list {
+    .author-wrapper {
+      .author-info {
+        p {
+          margin-bottom: 1em;
+        }
+      }
+    }
+    .author-wrapper:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: 0;
     }
   }
 }
@@ -482,5 +494,34 @@ h3.all-articles {
   padding: 1em 0 0 0;
   border-top: 1px solid $bordercolor;
 }
+
+
+// Calendar single
+
+.event-date {
+  border: 1px solid $bordercolor;
+  padding: 1em;
+  margin: 1.25em 0;
+  float: left;
+  width: 100%;
+  p {
+    margin: 0;
+  }
+  .col-xs-6:nth-child(2) {
+    border-left: 1px solid $bordercolor;
+  }
+}
+
+// Calendar Productivity
+body.post-type-archive-calendar {
+  .event-date {
+    margin: 0;
+    padding: 1em 1em 1.25em 1em;
+    border: none;
+    border-top: 1px solid $bordercolor;
+    color: $white;
+  }
+}
+
 
 

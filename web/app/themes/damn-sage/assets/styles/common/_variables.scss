@@ -592,6 +592,17 @@ COMMON & MISC
   width: 100%;
 }
 
+@mixin width100heightautoboth {
+  width: 100%;
+  height: auto;
+  clear: both;
+}
+
+@mixin width100heightauto {
+  width: 100%;
+  height: auto;
+}
+
 @mixin paddedborderbottom {
   padding: 1.5em 0;
   border-bottom: 1px solid $bordercolor;
