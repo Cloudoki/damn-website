@@ -38,6 +38,17 @@ function custom_excerpt_length( $length ) {
 }
 add_filter( 'excerpt_length', __NAMESPACE__ . '\\custom_excerpt_length', 999 );
 
+
+/**
+ *	DAMn Customised
+ *	All action & hook functionalities - add them here for clear overview.
+ */
+
+add_action ('pre_get_posts', array('Roots\DAMn', 'filter_home'));
+
+
+
+
 /*********************
 * MIKE'S CUSTOM      *
 *********************/
@@ -50,7 +61,7 @@ function mike_modify_main_query( $query ) {
   }
 }
 // Hook my above function to the pre_get_posts action
-add_action( 'pre_get_posts', __NAMESPACE__ . '\\mike_modify_main_query' );
+// add_action( 'pre_get_posts', __NAMESPACE__ . '\\mike_modify_main_query' );
 
 // modify normal archive to show 18 items per page
 
@@ -99,6 +110,9 @@ add_filter( 'get_the_archive_title', function ($title) {
   }
   return $title;
 });
+
+
+
 
 
 /*********************

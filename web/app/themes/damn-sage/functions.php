@@ -20,6 +20,7 @@ $sage_includes = [
   'lib/extras.php',                // Custom functions
   'lib/widgets.php',               // Custom widgets
   'lib/wp_bootstrap_navwalker.php', // Bringing back Bootstrap dropdown menu to the main nav
+  'lib/damn.php'					// DAMn customisations
 ];
 
 foreach ($sage_includes as $file) {

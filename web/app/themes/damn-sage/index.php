@@ -6,16 +6,23 @@
 <?php endif; ?>
 
 <div class="row">
-  <?php while (have_posts()) : the_post(); ?>
-    <?php /* normal post display */ ?>
-    <?php get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
-
-    <?php /* insert advert if after the 1st post */ ?>
-    <?php if ($wp_query->current_post == 0) { ?>
-      <?php get_template_part('templates/advert-block-premium'); ?>
-      <div class="clearfix visible-sm visible-md visible-lg"></div>
-    <?php } ?>
-  <?php endwhile; ?>
+	<?php 
+	$post_count = 0;
+	
+	while (have_posts()) : the_post();
+		
+		if(++$post_count == 6) break;
+		
+		/* normal post display */
+		get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
+		
+		<?php /* insert advert if after the 1st post */ ?>
+		<?php if ($wp_query->current_post == 0) { ?>
+			<?php get_template_part('templates/advert-block-premium'); ?>
+			<div class="clearfix visible-sm visible-md visible-lg"></div>
+		<?php } ?>
+		
+	<?php endwhile; ?>
 </div>
 
 <?php /* sponsored content */ ?>
@@ -30,6 +37,19 @@
 
 <?php /* 4 up category feeds */ ?>
 <div class="row home-category-feeds">
+<?php /*
+		
+	$post_cats = [];
+	
+	while (have_posts()) : the_post();
+	
+		$post_cats[the_category(' ')]
+		
+		
+	
+	endwhile;
+*/ ?>	
+		
   <div class="col-xs-12 col-md-3">
     <?php   $do_not_duplicate = array(); ?>
     <?php   $artcats = new WP_Query('category_name=art&posts_per_page=2'); ?>
