@@ -1,6 +1,9 @@
 // REUSED ITEMS
 
 .bordered-image {
+  @media screen and (min-width: 768px) and (max-width: 991px) {
+    margin-bottom: 2em;
+  }
   img {
     padding: 1em;
     border: 1px solid $bordercolor;
@@ -42,10 +45,13 @@
     }
   }
   header {
-    padding: 2em;
+    padding: 1.2em;
     width: 100%;
     @include posabsolutebottomleft;
     background: linear-gradient( to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) );
+    @media screen and (min-width: 1200px) {
+      padding: 2em;
+    }
     .category-link {
       a {
         @include blockfloat;
@@ -210,7 +216,7 @@ body.post-type-archive-calendar {
 }
 @media screen and (min-width:992px) and (max-width: 9999px){
   #columns-calendar[data-columns]::before {
-    content: '3 .col-md-4';
+    content: '4 .col-md-3';
   }
 }
 
@@ -239,7 +245,7 @@ body.single {
       }
     }
     header {
-      padding: 3em 3em 3em 5.625em;
+      padding: 3em 4em;
       width: 100%;
     }
   }
@@ -251,34 +257,6 @@ body.single, body.page {
   .hentry {
     margin-bottom: 2em;
     @include floatleft100;
-
-    /* entry meta + social sharing */
-    .meta-sharing, .product-info {
-      margin: 0 0 1.6em 0;
-      border: 1px solid $bordercolor;
-      float: left;
-      width: 100%;
-      .pull-left, .pull-right {
-        padding: 1.25em;
-        font-size: .95em;
-      }
-      .pull-left {
-        p {
-          line-height: 18px;
-        }
-        &:nth-child(1) {
-          border-right: 1px solid $bordercolor;
-        }
-      }
-    }
-    .addthis_responsive_sharing {
-      @include floatleft100;
-    }
-    .at-resp-share-element a {
-      padding-bottom: 0 !important;
-      margin: 0 0 0 5px !important;
-    }
-
 
     /* entry */
     .entry-content {
@@ -303,7 +281,6 @@ body.single, body.page {
       }
     }
 
-
     // entry footer for posts - for contributors, see below
     footer {
       @include floatleft100;
@@ -322,13 +299,19 @@ body.single, body.page {
           @include floatleft100;
           .pull-left {
             margin: 0 1.5em 0 0;
-            width: 128px;
+            width: 85px;
+            @media screen and (min-width: 992px) {
+              width: 128px;
+            }
             img {
               @include border-radius(150px);
             }
           }
           .author-meta {
-            margin-left: 152px;
+            margin-left: 109px;
+            @media screen and (min-width: 992px) {
+              margin-left: 152px;
+            }
           }
           h3 {
             margin-top: 0;
@@ -338,6 +321,7 @@ body.single, body.page {
           }
           .social-profiles {
             margin: 0;
+            clear: both;
             li {
               padding: 0 10px 0 0;
             }
@@ -404,6 +388,33 @@ body.single, body.page {
   }
 }
 
+/* entry meta + social sharing */
+.meta-sharing, .product-info {
+  margin: 0 0 1.6em 0;
+  border: 1px solid $bordercolor;
+  float: left;
+  width: 100%;
+  .pull-left, .pull-right {
+    padding: 1.25em;
+    font-size: .95em;
+  }
+  .pull-left {
+    p {
+      line-height: 18px;
+    }
+    &:nth-child(1) {
+      border-right: 1px solid $bordercolor;
+    }
+  }
+}
+.addthis_responsive_sharing {
+  @include floatleft100;
+}
+.at-resp-share-element a {
+  padding-bottom: 0 !important;
+  margin: 0 0 0 5px !important;
+}
+
 // Single Productivity
 
 body.single-product {
@@ -431,13 +442,19 @@ body.single-product {
 
 .all-articles {
   h2 {
-    font-size: (22 / 16) * 1em;
+    font-size: (21 / 16) * 1em;
+    line-height: 1.15;
   }
 }
 
 .related-posts {
   h2 {
     font-size: (24 / 16) * 1em;
+  }
+  @media screen and (min-width: 768px) and (max-width: 991px) {
+    .news-item-wrapper:nth-child(3) {
+      display: none;
+    }
   }
 }
 

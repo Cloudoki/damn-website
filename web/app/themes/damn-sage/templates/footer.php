@@ -28,13 +28,15 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-xs-6 col-md-3">
+      <div class="row row-links">
+        <div class="col-xs-6 col-sm-12 col-md-3">
           <h4>About Damn</h4>
           <?php the_field('about_damn', 'option'); ?>
         </div>
 
-        <div class="col-xs-6 col-md-3">
+        <div class="clearfix visible-sm-block"></div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3">
           <h4>Information</h4>
           <?php
           if (has_nav_menu('footer_navigation')) :
@@ -43,7 +45,7 @@
           ?>
         </div>
 
-        <div class="col-xs-6 col-md-3">
+        <div class="col-xs-6 col-sm-4 col-md-3">
           <h4>Socials</h4>
           <?php
           if (has_nav_menu('footer_socials')) :
@@ -52,7 +54,7 @@
           ?>
         </div>
 
-        <div class="col-xs-6 col-md-3">
+        <div class="col-xs-6 col-sm-4 col-md-3">
           <h4>Colophon</h4>
           <?php
           if (has_nav_menu('colophon')) :

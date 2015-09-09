@@ -77,6 +77,9 @@ body.single-calendar, body.tax-magazine, body.page {
 }
 
 .container {
+  @media screen and (min-width: 768px) and (max-width: 991px) {
+    width: 96% !important;
+  }
   @media screen and (min-width: 1540px) {
     width: 1440px;
   }
@@ -99,8 +102,17 @@ body.home, body.archive {
 body.single, body.tax-magazine, body.page {
   .main {
     @media (min-width: $screen-sm-min) {
+      margin: 0 340px 0 0px !important;
+    }
+    @media (min-width: $screen-md-min) {
       margin: 0 390px 0 0px !important;
     }
+  }
+}
+
+body.page-template-page-magazine {
+  .main {
+    margin: 0 auto !important;
   }
 }
 
@@ -188,7 +200,7 @@ img {
 VERTICAL RHYTHYM
 *********************/
 
-.home-feature, header, .main, .sidebar, footer, .single-news-item, .wrap, .headhesive {
+.home-feature, header, .main, .sidebar, footer, .single-news-item, .wrap, .headhesive, p {
   font-size: 16px;
   @media screen and (max-width: 767px) {
     font-size: 13px;
@@ -197,9 +209,12 @@ VERTICAL RHYTHYM
     font-size: 14px;
   }
   @media screen and (min-width: 992px) {
-    font-size: 15px;
+    font-size: 14px;
   }
   @media screen and (min-width: 1200px) {
+    font-size: 15px;
+  }
+  @media screen and (min-width: 1540px) {
     font-size: 16px;
   }
 }
@@ -279,8 +294,12 @@ ADVERTS
 .advert-sidebar-top, .advert-sidebar-bottom {
   border-bottom: 1px solid $bordercolor;
   .g img {
-    margin-top: 2em;
-    margin-bottom: 2em;
+    margin-top: .8em;
+    margin-bottom: .8em;
+    @media (min-width: $screen-md-min) {
+      margin-top: 2em;
+      margin-bottom: 2em;
+    }
   }
 }
 

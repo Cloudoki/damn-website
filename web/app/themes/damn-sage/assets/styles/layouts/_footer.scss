@@ -21,5 +21,10 @@ footer.content-info {
     .row {
       padding-bottom: 2.5em;
     }
+    .row-links {
+      .col-sm-4:nth-child(3n+1) {
+        clear: none !important;
+      }
+    }
   }
 }

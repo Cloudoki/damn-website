@@ -52,15 +52,26 @@ function mike_modify_main_query( $query ) {
 // Hook my above function to the pre_get_posts action
 add_action( 'pre_get_posts', __NAMESPACE__ . '\\mike_modify_main_query' );
 
-// modify calendar posts to show 16 items per page
+// modify normal archive to show 18 items per page
 
-function mike_modify_archive_query( $query ) {
-  if ( $query->is_post_type_archive('calendar') && is_archive() ) { // Run only on archive pages, but not custom post types
-  $query->query_vars['posts_per_page'] = 15; // Show only 15 posts per page
+// function mike_modify_normal_archive_query( $query ) {
+//   if ( $query->is_archive()) { // Run only on archive pages, but not custom post types
+//   $query->query_vars['posts_per_page'] = 18; // Show only 15 posts per page
+//   }
+// }
+// // Hook my above function to the pre_get_posts action
+// add_action( 'pre_get_posts', __NAMESPACE__ . '\\mike_modify_normal_archive_query' );
+
+
+// modify calendar posts to show 12 items per page
+
+function mike_modify_calendar_archive_query( $query ) {
+  if ( $query->is_post_type_archive('calendar')) { // Run only on archive pages, but not custom post types
+  $query->query_vars['posts_per_page'] = 12; // Show only 15 posts per page
   }
 }
 // Hook my above function to the pre_get_posts action
-add_action( 'pre_get_posts', __NAMESPACE__ . '\\mike_modify_archive_query' );
+add_action( 'pre_get_posts', __NAMESPACE__ . '\\mike_modify_calendar_archive_query' );
 
 
 // modify magazine taxonomy posts to show 16 items per page

@@ -18,34 +18,32 @@
     </a>
   </div>
 
-  <div class="author-meta">
-    <h3><a href="<?= get_author_posts_url(get_the_author_meta('ID')); ?>" rel="author" class="fn"><?= get_the_author(); ?></a></h3>
+  <h3><a href="<?= get_author_posts_url(get_the_author_meta('ID')); ?>" rel="author" class="fn"><?= get_the_author(); ?></a></h3>
 
-    <?php if ( get_the_author_meta( 'description' ) ) : ?>
-      <p><?php the_author_meta( 'description' ); ?></p>
+  <?php if ( get_the_author_meta( 'description' ) ) : ?>
+    <p><?php the_author_meta( 'description' ); ?></p>
+  <?php endif; ?>
+
+  <ul class="social-profiles list-inline">
+    <?php if ( get_the_author_meta( 'user_url' ) ) : ?>
+      <li><a href="<?php the_author_meta('user_url');?>" target="_blank" title="Author Website">Website</a> <span>&nbsp; /</span></li>
     <?php endif; ?>
-
-    <ul class="social-profiles list-inline">
-      <?php if ( get_the_author_meta( 'user_url' ) ) : ?>
-        <li><a href="<?php the_author_meta('user_url');?>" target="_blank" title="Author Website">Website</a> <span>&nbsp; /</span></li>
-      <?php endif; ?>
-      <?php if ( get_the_author_meta( 'author_facebook' ) ) : ?>
-        <li><a href="<?php the_author_meta('author_facebook');?>" target="_blank" title="Author Facebook">Facebook</a> <span>&nbsp; /</span></li>
-      <?php endif; ?>
-      <?php if ( get_the_author_meta( 'author_twitter' ) ) : ?>
-        <li><a href="<?php the_author_meta('author_twitter');?>" target="_blank" title="Author Twitter">Twitter</a> <span>&nbsp; /</span></li>
-      <?php endif; ?>
-      <?php if ( get_the_author_meta( 'author_linkedin' ) ) : ?>
-        <li><a href="<?php the_author_meta('author_linkedin');?>" target="_blank" title="Author LinkedIN">LinkedIN</a> <span>&nbsp; /</span></li>
-      <?php endif; ?>
-      <?php if ( get_the_author_meta( 'author_pinterest' ) ) : ?>
-        <li><a href="<?php the_author_meta('author_pinterest');?>" target="_blank" title="Author Pinterest">Pinterest</a> <span>&nbsp; /</span></li>
-      <?php endif; ?>
-      <?php if ( get_the_author_meta( 'author_instagram' ) ) : ?>
-        <li><a href="<?php the_author_meta('author_instagram');?>" target="_blank" title="Author Instagram">Instagram</a> <span>&nbsp; /</span></li>
-      <?php endif; ?>
-    </ul>
-  </div>
+    <?php if ( get_the_author_meta( 'author_facebook' ) ) : ?>
+      <li><a href="<?php the_author_meta('author_facebook');?>" target="_blank" title="Author Facebook">Facebook</a> <span>&nbsp; /</span></li>
+    <?php endif; ?>
+    <?php if ( get_the_author_meta( 'author_twitter' ) ) : ?>
+      <li><a href="<?php the_author_meta('author_twitter');?>" target="_blank" title="Author Twitter">Twitter</a> <span>&nbsp; /</span></li>
+    <?php endif; ?>
+    <?php if ( get_the_author_meta( 'author_linkedin' ) ) : ?>
+      <li><a href="<?php the_author_meta('author_linkedin');?>" target="_blank" title="Author LinkedIN">LinkedIN</a> <span>&nbsp; /</span></li>
+    <?php endif; ?>
+    <?php if ( get_the_author_meta( 'author_pinterest' ) ) : ?>
+      <li><a href="<?php the_author_meta('author_pinterest');?>" target="_blank" title="Author Pinterest">Pinterest</a> <span>&nbsp; /</span></li>
+    <?php endif; ?>
+    <?php if ( get_the_author_meta( 'author_instagram' ) ) : ?>
+      <li><a href="<?php the_author_meta('author_instagram');?>" target="_blank" title="Author Instagram">Instagram</a> <span>&nbsp; /</span></li>
+    <?php endif; ?>
+  </ul>
   <?php /* author meta end */ ?>
 
   <div class="clearthis"></div>

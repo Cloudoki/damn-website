@@ -2,12 +2,15 @@
   margin: 0 0 2.5em 0;
   // border-top: 1px solid $bordercolor;
   @media (min-width: $screen-sm-min) {
-    width: 360px;
+    width: 320px;
     float: right;
     border-left: 1px solid $bordercolor;
     border-right: 1px solid $bordercolor;
     padding: 0;
     margin: -2.5em 0 2.5em 0;
+  }
+  @media (min-width: $screen-md-min) {
+    width: 360px;
   }
   .sidebar-padding {
     padding: 1.5em;
@@ -105,6 +108,10 @@ h3.widget-title-black {
     border-bottom: 1px solid $bordercolor;
     padding: 1.5em 1.5em 2em 1.5em;
     background-color: $lightestgray;
+    @media screen and (min-width: 768px) and (max-width: 991px) {
+      border-left: 0;
+      border-right: 0;
+    }
     .company-logo {
       padding-bottom: 1em;
     }

@@ -2,7 +2,7 @@
   <article <?php post_class(''); ?>>
     <div class="entry-content">
       <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-5">
+        <div class="col-xs-12 col-sm-12 col-md-5">
           <div class="post-image bordered-image">
             <?php if ( has_post_thumbnail()) { ?>
               <?php the_post_thumbnail('large'); ?>
@@ -12,7 +12,7 @@
           </div>
         </div>
 
-        <div class="col-xs-12 col-sm-6 col-md-7">
+        <div class="col-xs-12 col-sm-12 col-md-7">
           <div class="title-header">
             <h1 class="entry-title"><?php the_title(); ?></h1>
             <?php if(get_field('sub-title')) { ?>

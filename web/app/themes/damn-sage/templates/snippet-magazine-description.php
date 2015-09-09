@@ -4,7 +4,7 @@
   <article <?php post_class(''); ?>>
     <div class="entry-content">
       <div class="row">
-        <div class="col-xs-5 col-sm-4">
+        <div class="col-xs-5 col-sm-5">
           <div class="post-image bordered-image">
 
             <?php $magazineimage = wp_get_attachment_image_src(get_field('magazine_taxonomy_image', $term->taxonomy . '_' . $term->term_id), 'full'); ?>
@@ -19,7 +19,7 @@
           </div>
         </div>
 
-        <div class="col-xs-7 col-sm-8">
+        <div class="col-xs-7 col-sm-7">
           <?php the_field('magazine_taxonomy_description', $term->taxonomy . '_' . $term->term_id); ?>
         </div>
       </div>

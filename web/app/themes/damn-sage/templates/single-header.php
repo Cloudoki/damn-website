@@ -9,7 +9,9 @@ $url = $thumb['0'];
   <?php } else { ?>
     <div class="post-image" style="background-image:url(<?= get_template_directory_uri(); ?>/dist/images/default-large.png)">
   <?php } ?>
-      <img src="<?= get_template_directory_uri(); ?>/dist/images/default-large-wide.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>"/>
+    <?php /* based on browser size, show one other other image. uses bootstrap visible class to show/hide */ ?>
+    <img src="<?= get_template_directory_uri(); ?>/dist/images/default-large-wide.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="visible-md-block visible-lg-block" />
+    <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-news-sm.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="visible-xs-block visible-sm-block" />
   </div>
 
   <header>
@@ -25,3 +27,13 @@ $url = $thumb['0'];
     <?php } ?>
   </header>
 </div>
+
+<?php /* only show share icons and publish date/author here on 768 to 991, since its too wide to fit in the normal place (at this particular view) */ ?>
+<?php while (have_posts()) : the_post(); ?>
+  <div class="visible-sm-block ipad-sized-meta">
+    <div class="container">
+      <?php get_template_part('templates/entry-meta'); ?>
+      <div class="clearthis"></div>
+    </div>
+  </div>
+<?php endwhile; ?>

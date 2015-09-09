@@ -1,6 +1,6 @@
 <?php while (have_posts()) : the_post(); ?>
   <article <?php post_class(''); ?>>
-    <header>
+    <header class="hidden-sm hidden-sm-block">
       <?php get_template_part('templates/entry-meta'); ?>
     </header>
 
