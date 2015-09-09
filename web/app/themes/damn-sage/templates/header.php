@@ -12,6 +12,7 @@
     $the_query = new WP_Query(array(
       'meta_query' => array(
         'post_type' => array ('post','calendar'),
+        'posts_per_page' => 1,
         array(
           'key' => 'magazine_feature_home',
           'value' => '1',

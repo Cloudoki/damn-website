@@ -30,7 +30,7 @@
 
 <?php /* 4 up category feeds */ ?>
 <div class="row home-category-feeds">
-  <div class="col-xs-6 col-md-3">
+  <div class="col-xs-12 col-md-3">
     <?php   $do_not_duplicate = array(); ?>
     <?php   $artcats = new WP_Query('category_name=art&posts_per_page=2'); ?>
     <?php if (have_posts()) : ?>
@@ -43,7 +43,7 @@
     <?php   endwhile; endif; wp_reset_postdata(); ?>
   </div>
 
-  <div class="col-xs-6 col-md-3">
+  <div class="col-xs-12 col-md-3">
     <?php   $artcats = new WP_Query( array( 'category_name' => 'architecture', 'posts_per_page' => 2, 'post__not_in' => $do_not_duplicate ) ); ?>
     <?php if (have_posts()) : ?>
       <h3 class="archive-title">
@@ -57,7 +57,7 @@
 
   <div class="clearfix visible-xs-block"></div>
 
-  <div class="col-xs-6 col-md-3">
+  <div class="col-xs-12 col-md-3">
     <?php   $artcats = new WP_Query( array( 'category_name' => 'design', 'posts_per_page' => 2, 'post__not_in' => $do_not_duplicate ) ); ?>
     <?php if (have_posts()) : ?>
       <h3 class="archive-title">
@@ -69,7 +69,7 @@
     <?php   endwhile; endif; wp_reset_postdata(); ?>
   </div>
 
-  <div class="col-xs-6 col-md-3">
+  <div class="col-xs-12 col-md-3">
     <?php   $artcats = new WP_Query( array( 'category_name' => 'fashion', 'posts_per_page' => 2, 'post__not_in' => $do_not_duplicate ) ); ?>
     <?php if (have_posts()) : ?>
       <h3 class="archive-title">
@@ -85,15 +85,15 @@
 
 <?php /* 3 bottom widgets */ ?>
 <div class="row bottom-widgets">
-  <div class="col-12 col-xs-6 col-sm-4">
+  <div class="col-xs-12 col-sm-4">
     <?php if ( is_active_sidebar( 'sidebar-homepage-agenda' ) ) : dynamic_sidebar( 'sidebar-homepage-agenda' ); endif; ?>
   </div>
 
-  <div class="col-12 col-xs-6 col-sm-4">
+  <div class="col-xs-12 col-sm-4">
     <?php if ( is_active_sidebar( 'sidebar-homepage-socials' ) ) : dynamic_sidebar( 'sidebar-homepage-socials' ); endif; ?>
   </div>
 
-  <div class="col-12 col-xs-6 col-sm-4">
+  <div class="col-xs-12 col-sm-4">
     <h3>Join DAMn +</h3>
   </div>
 </div>

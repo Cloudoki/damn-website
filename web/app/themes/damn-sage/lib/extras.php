@@ -56,7 +56,7 @@ add_action( 'pre_get_posts', __NAMESPACE__ . '\\mike_modify_main_query' );
 
 function mike_modify_archive_query( $query ) {
   if ( $query->is_post_type_archive('calendar') && is_archive() ) { // Run only on archive pages, but not custom post types
-  $query->query_vars['posts_per_page'] = 16; // Show only 15 posts per page
+  $query->query_vars['posts_per_page'] = 15; // Show only 15 posts per page
   }
 }
 // Hook my above function to the pre_get_posts action

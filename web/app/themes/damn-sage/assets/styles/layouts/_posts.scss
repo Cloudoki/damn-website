@@ -12,6 +12,7 @@
 
 .news-item {
   margin-bottom: 2em;
+  overflow: hidden;
   &:hover {
     .post-image {
       @include opacity(0.3);
@@ -76,7 +77,7 @@
       p {
         margin: 0;
         font-size: 1em;
-        line-height: 1.45em;
+        line-height: 1.4em;
         a {
           display: none;
         }
@@ -209,7 +210,7 @@ body.post-type-archive-calendar {
 }
 @media screen and (min-width:992px) and (max-width: 9999px){
   #columns-calendar[data-columns]::before {
-    content: '4 .col-md-3';
+    content: '3 .col-md-4';
   }
 }
 
@@ -423,13 +424,21 @@ body.single-product {
 
 // MISC SINGLE - related products, facebook comments, all articles for magazines
 
-.facebook-comments, .related-posts, .back-issues {
+.facebook-comments, .related-posts, .back-issues, .all-articles {
   margin-bottom: 2em;
   @include floatleft100;
 }
 
-.related-posts {
+.all-articles {
+  h2 {
+    font-size: (22 / 16) * 1em;
+  }
+}
 
+.related-posts {
+  h2 {
+    font-size: (24 / 16) * 1em;
+  }
 }
 
 .fb-comments {

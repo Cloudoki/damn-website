@@ -26,9 +26,11 @@
       <?php get_template_part('templates/snippet-magazine-description'); ?>
     <?php } ?>
 
-    <?php while (have_posts()) : the_post(); ?>
-      <?php get_template_part('templates/content-magazine', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
-    <?php endwhile; ?>
+    <div class="all-articles">
+      <?php while (have_posts()) : the_post(); ?>
+        <?php get_template_part('templates/content-magazine', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
+      <?php endwhile; ?>
+    </div>
 
   <?php }
   /* If Calendar */

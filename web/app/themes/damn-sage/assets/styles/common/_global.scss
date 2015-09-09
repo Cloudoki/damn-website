@@ -17,6 +17,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body.wp-admin {
+  font-size: 100% !important;
+}
+
 hr {
   margin: 25px 0;
   background-color: $gray;
@@ -153,13 +157,22 @@ a.black-link, a.black-link:visited {
 H1, H2, H3, H4, H5 STYLES
 ******************************************************************/
 
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
+// Headers
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  line-height: 1.2;
   text-rendering: optimizelegibility;
   font-weight: 400;
   a {
     text-decoration: none;
   }
 }
+
+h1, .h1 { font-size: (36 / 16) * 1em; }
+h2, .h2 { font-size: (30 / 16) * 1em; }
+h3, .h3 { font-size: (24 / 16) * 1em; }
+h4, .h4 { font-size: (18 / 16) * 1em; }
+h5, .h5 { font-size: (16 / 16) * 1em; }
+h6, .h6 { font-size: (12 / 16) * 1em; }
 
 /*********************
 IMAGE
@@ -177,6 +190,18 @@ VERTICAL RHYTHYM
 
 .home-feature, header, .main, .sidebar, footer, .single-news-item, .wrap, .headhesive {
   font-size: 16px;
+  @media screen and (max-width: 767px) {
+    font-size: 13px;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+  }
+  @media screen and (min-width: 992px) {
+    font-size: 15px;
+  }
+  @media screen and (min-width: 1200px) {
+    font-size: 16px;
+  }
 }
 
 /*********************

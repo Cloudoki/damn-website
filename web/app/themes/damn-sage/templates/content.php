@@ -12,7 +12,7 @@
 <?php
 $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' );
 $url = $thumb['0'];
-$wrapperclass = ( $wp_query->current_post%4 == 0 && (int)( $wp_query->current_post / 3 ) < 3 && !is_paged() ) ? 'class="news-item-wrapper col-xs-6 col-sm-8"' : 'class="news-item-wrapper col-xs-6 col-sm-6 col-md-4"';
+$wrapperclass = ( $wp_query->current_post%4 == 0 && (int)( $wp_query->current_post / 3 ) < 3 && !is_paged() ) ? 'class="news-item-wrapper col-xs-12 col-sm-8"' : 'class="news-item-wrapper col-xs-12 col-sm-6 col-md-4"';
 ?>
 
 

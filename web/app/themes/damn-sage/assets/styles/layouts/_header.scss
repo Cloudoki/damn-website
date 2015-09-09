@@ -85,6 +85,13 @@ ul.nav {
       @include transitions;
       border-right: 1px solid $white;
       border-left: 1px solid $white;
+      @media screen and (min-width: 768px) and (max-width: 991px) {
+        font-size: 0.8em;
+        padding: 0 (15 / 16) * 1em;
+      }
+      @media screen and (min-width: 992px) and (max-width: 1199px) {
+        font-size: 1.1em;
+      }
       &:hover {
         color: $black;
         background: none !important;
