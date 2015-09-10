@@ -4,6 +4,10 @@ $url = $thumb['0'];
 ?>
 
 <div class="news-item">
+
+  <?php /* damn plus badge */ ?>
+  <?php get_template_part('templates/damn-plus-badge'); ?>
+
   <?php /* REUSED snippet to display title, category, subtitle */ ?>
   <?php get_template_part('templates/snippet', 'feed-header'); ?>
 

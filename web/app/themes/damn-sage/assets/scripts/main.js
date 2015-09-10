@@ -86,6 +86,8 @@
     .on('sticky_kit:unbottom', function(e) {
         $(this).parent().css('position', 'relative');
     });
+  } else {
+    $(".sidebar").trigger("sticky_kit:detach");
   }
 
 

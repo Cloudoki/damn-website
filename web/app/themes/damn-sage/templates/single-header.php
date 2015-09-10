@@ -4,6 +4,9 @@ $url = $thumb['0'];
 ?>
 
 <div class="single-news-item">
+  <?php /* damn plus badge */ ?>
+  <?php get_template_part('templates/damn-plus-badge'); ?>
+
   <?php if ( has_post_thumbnail()) { ?>
     <div class="post-image" style="background-image:url(<?=$url?>);">
   <?php } else { ?>

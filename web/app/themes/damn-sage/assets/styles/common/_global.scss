@@ -62,6 +62,21 @@ p {
   color: $white;
 }
 
+.whiteBackground {
+  background-color: $white !important;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;
+    background: none !important;
+    border-top:1px solid $bordercolor;
+    margin:2em 0;
+    padding:0;
+}
+
 /*********************
 LAYOUT & GRID STYLES
 *********************/
@@ -216,6 +231,9 @@ VERTICAL RHYTHYM
   }
   @media screen and (min-width: 1540px) {
     font-size: 16px;
+    .hentry p {
+      font-size: 17px;
+    }
   }
 }
 

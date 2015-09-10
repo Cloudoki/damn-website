@@ -35,11 +35,16 @@
     <?php } ?>
 
       <div class="news-item">
+
+        <?php /* damn plus badge */ ?>
+        <?php get_template_part('templates/damn-plus-badge'); ?>
+
         <?php if ( has_post_thumbnail()) { ?>
           <div class="post-image" style="background-image:url(<?=$url?>);">
         <?php } else { ?>
           <div class="post-image" style="background-image:url(<?= get_template_directory_uri(); ?>/dist/images/default-tall.png)">
         <?php } ?>
+
           <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
             <?php if (is_single()) { ?>
               <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
@@ -135,7 +140,17 @@
   </div>
 
   <div class="col-xs-12 col-sm-4">
-    <h3>Join DAMn +</h3>
+    <div class="widget">
+      <h3 class="widget-title">Join DAMn +</h3>
+      <?php if(get_field('join_damn_plus_image', 'option')) { ?>
+        <div class="join-damn-plus-home-image">
+          <?php $joinimage = wp_get_attachment_image_src(get_field('join_damn_plus_image', 'option'), 'full'); ?>
+          <a href="/join-damn-plus" title="Join DAMn Plus">
+            <img src="<?php echo $joinimage[0]; ?>" alt="Join DAMn Plus">
+          </a>
+        </div>
+      <?php } ?>
+    </div>
   </div>
 </div>
 

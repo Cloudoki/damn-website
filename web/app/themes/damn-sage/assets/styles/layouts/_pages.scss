@@ -1,3 +1,11 @@
+.page-featured-image {
+  margin-bottom: 1.75em;
+  width: 100%;
+  img {
+    @include maximage;
+  }
+}
+
 .search-large {
   padding: 2em 0 10em 0;
   .search-form {
@@ -70,3 +78,24 @@
     }
   }
 }
+
+// DAMN PLUS join page
+.join-damn-plus-info {
+  .magazine-cover {
+    h3 {
+      margin: .3em 0 1em;
+    }
+  }
+  ol {
+    margin: 1em 0;
+    li {
+      font-size: 1.5em;
+      padding: .5em 0;
+      border-bottom: 1px solid $bordercolor;
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
+}
+

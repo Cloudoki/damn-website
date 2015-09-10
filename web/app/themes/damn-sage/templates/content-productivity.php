@@ -1,4 +1,8 @@
 <div class="news-item">
+
+  <?php /* damn plus badge */ ?>
+  <?php get_template_part('templates/damn-plus-badge'); ?>
+
   <div class="post-image">
     <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
       <?php if ( has_post_thumbnail()) { ?>

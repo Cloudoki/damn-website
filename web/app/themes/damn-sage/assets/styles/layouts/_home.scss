@@ -8,6 +8,11 @@
 
 .home-category-feeds {
   margin-bottom: .5em;
+  .news-item {
+    header {
+      padding: 1.5em;
+    }
+  }
   h3.archive-title {
     margin: 0 0 (20 / 24) * 1em 0;
   }
@@ -15,6 +20,9 @@
     @media screen and (min-width: 1200px) and (max-width: 1499px) {
       font-size: (20 / 16) * 1em;
     }
+  }
+  .damn-plus-badge {
+    width: 75px;
   }
 }
 

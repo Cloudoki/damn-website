@@ -2,8 +2,18 @@
   <article <?php post_class(''); ?>>
     <div class="entry-content">
       <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-5">
+        <div class="col-xs-12">
+          <h1 class="entry-title"><?php the_title(); ?></h1>
+          <?php if(get_field('sub-title')) { ?>
+            <h2 class="subtitle">
+              <?php the_field('sub-title'); ?>
+            </h2>
+          <?php } ?>
           <div class="post-image bordered-image">
+
+            <?php /* damn plus badge */ ?>
+            <?php get_template_part('templates/damn-plus-badge'); ?>
+
             <?php if ( has_post_thumbnail()) { ?>
               <?php the_post_thumbnail('large'); ?>
             <?php } else { ?>
@@ -12,10 +22,8 @@
           </div>
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-7">
+        <div class="col-xs-12">
           <div class="title-header">
-            <h1 class="entry-title"><?php the_title(); ?></h1>
-
             <?php if(get_field('start_date')) { ?>
               <div class="event-date row">
                 <div class="col-xs-6">
@@ -27,12 +35,6 @@
                   </div>
                 <?php } ?>
               </div>
-            <?php } ?>
-
-            <?php if(get_field('sub-title')) { ?>
-              <h2 class="subtitle">
-                <?php the_field('sub-title'); ?>
-              </h2>
             <?php } ?>
 
             <?php if(get_field('event_website')) { ?>

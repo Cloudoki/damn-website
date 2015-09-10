@@ -20,5 +20,8 @@
     .btn:hover {
       background-color: inherit;
     }
+    .color-box, .damn-plus-badge, .join-damn-plus-home-image {
+      background-color: #<?php the_field('issue_number_color', 'option'); ?>;
+    }
   </style>
 </head>

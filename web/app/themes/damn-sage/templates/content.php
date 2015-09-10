@@ -20,6 +20,10 @@ $wrapperclass = ( $wp_query->current_post%4 == 0 && (int)( $wp_query->current_po
 
 
   <div class="news-item">
+
+    <?php /* damn plus badge */ ?>
+    <?php get_template_part('templates/damn-plus-badge'); ?>
+
     <? /* the actual post images are backgrounds. transparent placeholders GIFs fill the actual space, so all blocks are the same size.
       If no post image is present, a default image loads instead */
 
@@ -30,6 +34,7 @@ $wrapperclass = ( $wp_query->current_post%4 == 0 && (int)( $wp_query->current_po
     <?php } else { ?>
       <div class="post-image" style="background-image:url(<?= get_template_directory_uri(); ?>/dist/images/default-tall.png)">
     <?php } ?>
+
       <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
         <?php if (is_single()) { ?>
           <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
