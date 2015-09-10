@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a3c3fe6b4914d8bc64170406d807203c",
+    "hash": "99d26700f5daee57772b2c14696934a3",
     "packages": [
         {
             "name": "composer/installers",
@@ -311,6 +311,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/google-analytics-dashboard-for-wp/"
+        },
+        {
+            "name": "wpackagist-plugin/s2member",
+            "version": 150827,
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/s2member/",
+                "reference": "tags/150827"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/s2member.150827.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/s2member/"
         }
     ],
     "packages-dev": [],
