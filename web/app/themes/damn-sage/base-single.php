@@ -19,15 +19,13 @@ use Roots\Sage\Wrapper;
 
     <?php /* news image & meta */ ?>
 
-    <?php if (is_singular( 'magazine' ) || (is_singular('calendar'))) { ?>
-      <div class="single-news-item">
-      </div>
+    <?php if (is_singular('calendar')) { ?>
     <?php } else { ?>
       <?php get_template_part('templates/single-header'); ?>
     <?php } ?>
 
     <div class="wrap" role="document">
-      <div class="content">
+      <div class="content single-content container">
         <?php if (Config\display_sidebar()) : ?>
           <aside class="sidebar" role="complementary">
             <?php include Wrapper\sidebar_path(); ?>
@@ -39,14 +37,13 @@ use Roots\Sage\Wrapper;
         <div class="clearfix"></div>
       </div><!-- /.content -->
 
-      <?php if (is_singular( 'magazine' )) { ?>
+      <?php if (is_singular( 'magazines' )) { ?>
       <?php } else { ?>
-        <?php /* Related Posts */ ?>
-        <?php get_template_part('templates/related-posts'); ?>
-
         <?php /* Back Issues */ ?>
         <?php get_template_part('templates/back issues'); ?>
       <?php } ?>
+
+      <div class="clearthis"></div>
     </div><!-- /.wrap -->
 
     <?php

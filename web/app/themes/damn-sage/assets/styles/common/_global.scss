@@ -17,6 +17,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body.wp-admin {
+  font-size: 100% !important;
+}
+
 hr {
   margin: 25px 0;
   background-color: $gray;
@@ -37,6 +41,27 @@ p {
   line-height: 1px;
 }
 
+.noMargin {
+  margin: 0 !important;
+}
+
+.marginRight {
+  margin-right: 1em;
+}
+
+.marginBottom {
+  margin-bottom: 1em;
+}
+
+.marginTop {
+  margin-top: 1em;
+}
+
+.black-back-white-text {
+  background-color: $black;
+  color: $white;
+}
+
 /*********************
 LAYOUT & GRID STYLES
 *********************/
@@ -45,7 +70,16 @@ LAYOUT & GRID STYLES
   padding-bottom: 3em;
 }
 
+body.single-calendar, body.tax-magazine, body.page {
+  .wrap {
+    margin-top: 2.5em;
+  }
+}
+
 .container {
+  @media screen and (min-width: 768px) and (max-width: 991px) {
+    width: 96% !important;
+  }
   @media screen and (min-width: 1540px) {
     width: 1440px;
   }
@@ -61,15 +95,24 @@ LAYOUT & GRID STYLES
 
 body.home, body.archive {
   .main {
-    margin: 0 auto !important;
+    margin: 0 auto;
   }
 }
 
-body.single {
+body.single, body.tax-magazine, body.page {
   .main {
     @media (min-width: $screen-sm-min) {
-      margin: 0 390px 0 80px !important;
+      margin: 0 340px 0 0px !important;
     }
+    @media (min-width: $screen-md-min) {
+      margin: 0 390px 0 0px !important;
+    }
+  }
+}
+
+body.page-template-page-magazine {
+  .main {
+    margin: 0 auto !important;
   }
 }
 
@@ -115,17 +158,33 @@ a, a:visited {
   }
 }
 
+a.black-link, a.black-link:visited {
+  color: $black;
+  &:hover {
+    color: lighten($black, 15%);
+  }
+}
+
 /******************************************************************
 H1, H2, H3, H4, H5 STYLES
 ******************************************************************/
 
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
+// Headers
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  line-height: 1.2;
   text-rendering: optimizelegibility;
   font-weight: 400;
   a {
     text-decoration: none;
   }
 }
+
+h1, .h1 { font-size: (36 / 16) * 1em; }
+h2, .h2 { font-size: (30 / 16) * 1em; }
+h3, .h3 { font-size: (24 / 16) * 1em; }
+h4, .h4 { font-size: (18 / 16) * 1em; }
+h5, .h5 { font-size: (16 / 16) * 1em; }
+h6, .h6 { font-size: (12 / 16) * 1em; }
 
 /*********************
 IMAGE
@@ -141,8 +200,23 @@ img {
 VERTICAL RHYTHYM
 *********************/
 
-.home-feature, header, .main, .sidebar, footer, .single-news-item, .wrap {
+.home-feature, header, .main, .sidebar, footer, .single-news-item, .wrap, .headhesive, p {
   font-size: 16px;
+  @media screen and (max-width: 767px) {
+    font-size: 13px;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+  }
+  @media screen and (min-width: 992px) {
+    font-size: 14px;
+  }
+  @media screen and (min-width: 1200px) {
+    font-size: 15px;
+  }
+  @media screen and (min-width: 1540px) {
+    font-size: 16px;
+  }
 }
 
 /*********************
@@ -189,6 +263,7 @@ NAVIGATION
 
 .article-navigation {
   padding: 0 0 2em 0px;
+  text-align: center;
   ul.pagination {
     span.current {
       color: $black;
@@ -219,8 +294,12 @@ ADVERTS
 .advert-sidebar-top, .advert-sidebar-bottom {
   border-bottom: 1px solid $bordercolor;
   .g img {
-    margin-top: 2em;
-    margin-bottom: 2em;
+    margin-top: .8em;
+    margin-bottom: .8em;
+    @media (min-width: $screen-md-min) {
+      margin-top: 2em;
+      margin-bottom: 2em;
+    }
   }
 }
 

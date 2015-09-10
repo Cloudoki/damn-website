@@ -30,6 +30,11 @@ $lightestgray:    #f9f9f9;
 $link-color:      #b60202;
 $link-hover:      #000;
 
+@mixin blackbackwhitetext {
+  background-color: $black;
+  color: $white;
+}
+
 // Global
 $gutter: (30 / 16) * 1em;
 $gutterpx: 30px;
@@ -350,6 +355,12 @@ USAGE: @include transition(all 0.2s ease-in-out);
   @include transition-timing-function(ease-in-out);
 }
 
+@mixin transition500ms {
+  @include transition-property(all);
+  @include transition-duration(500ms);
+  @include transition-timing-function(ease-in-out);
+}
+
 @mixin transition0ms {
   @include transition-property(all);
   @include transition-duration(0ms);
@@ -571,9 +582,25 @@ COMMON & MISC
   float: left;
 }
 
+@mixin autowidthinlineblock {
+  width: auto;
+  display: inline-block;
+}
+
 @mixin floatleft100 {
   float: left;
   width: 100%;
+}
+
+@mixin width100heightautoboth {
+  width: 100%;
+  height: auto;
+  clear: both;
+}
+
+@mixin width100heightauto {
+  width: 100%;
+  height: auto;
 }
 
 @mixin paddedborderbottom {

@@ -27,130 +27,287 @@ a.main-logo {
 // main navbar in header
 
 .home-feature {
-  .navbar-default {
-    // background-color: $white;
-    background: none;
-    border: 0;
-    border-bottom: 1px solid $bordercolor;
-    .header-wrapper {
-      width: 100%;
-      padding: (30 / 16) * 1em;
-      background-color: $black;
-      background-color: rgba(0,0,0,0.6);
-      .issue-number {
-        font-size: 4.5em;
-        font-weight: 700;
-        display: block;
-        float: left;
-        margin-top: 0.28em;
-        line-height: 0.8em;
+  .header-wrapper {
+    width: 100%;
+    padding: (30 / 16) * 1em;
+    background-color: $black;
+    background-color: rgba(0,0,0,0.6);
+    .issue-number {
+      font-size: 4.5em;
+      font-weight: 700;
+      display: block;
+      float: left;
+      margin-top: 0.28em;
+      line-height: 0.8em;
+    }
+  }
+}
+
+// single news item on HOME PAGE TOP FEATURE
+// home above nav wide featured content
+body.home {
+  .home-feature {
+    background-color: $black;
+    margin-bottom: (30 / 16) * 1em;
+    .single-news-item {
+      margin-bottom: -140px;
+      &:hover {
+        header {
+          background: none;
+        }
+      }
+      .post-image {
+        width: 100%;
+        img {
+          width: 100%;
+        }
+      }
+      header {
+        bottom: 140px;
+        padding-bottom: 2em;
+        background: none;
+        h1 {
+          font-size: (42 / 16 * 1em);
+        }
       }
     }
-    .white-wrapper {
-      background-color: $white;
+    .header-wrapper {
+      background: none;
     }
+  }
 
-    .main-navigation {
-      border: 0;
-      .menu-main-nav-container {
-        padding: 0;
-        ul.nav {
-          width: 100%;
-          li {
-            a, a:visited {
-              font-size: (20 / 16) * 1em;
-              color: $black;
-              padding: 0 (20 / 16) * 1em;
-              line-height: 60px;
-              text-transform: uppercase;
-              font-weight: 400;
-              &:hover {
-                color: $red;
-              }
-            }
-            &:first-child {
-              a {
-                padding-left: 0;
-              }
-            }
-          }
-          li li a {
-            font-weight: 400;
-          }
-          li.active {
-            &:first-child {
-              a {
-                padding-left: (20 / 16) * 1em;
-              }
-            }
-          }
-          li.small-text {
-            float: right;
-            a {
-              font-size: .9em;
-              font-weight: 400;
-            }
-          }
-          li.search {
-            font-size: 1em;
-            a {
-              padding-right: 0;
-            }
-          }
+  // if text needs to be black
+  .black-text {
+    .single-news-item {
+      header {
+        .category-link a {
+          border-color: $black;
+          color: $black;
+        }
+        h1, h2, h3 {
+          text-shadow: 2px 2px 7px rgba(255,255,255,.4) !important;
+        }
+        h1 a {
+          color: $black;
+        }
+        .subtitle {
+          color: $black;
+        }
+      }
+    }
+    a.main-logo {
+      background: url("../images/damn-2X-black.png") no-repeat;
+      background: url("../images/damn.svg") no-repeat;
+    }
+  }
+}
+
+.white-wrapper {
+  background-color: $white;
+  border-bottom: 1px solid $bordercolor;
+}
+
+.navbar-default {
+  // background-color: $white;
+  background: none;
+  border: 0;
+  // border-bottom: 1px solid $bordercolor;
+  margin-bottom: 0;
+}
+
+.main-navigation {
+  border: 0;
+
+  // Main nav (always visible)
+  .menu-main-nav-container {
+    padding: 0;
+  }
+
+  // Social nav (hidden in normal nav, visible in Headhesive, the sticky nav - see .headhesive for more on this style )
+  .menu-socials-header-container {
+    display: none;
+  }
+}
+
+// Nav structure
+ul.nav {
+  width: 100%;
+  li {
+    a, a:visited {
+      font-size: (20 / 16) * 1em;
+      color: $black !important;
+      padding: 0 (20 / 16) * 1em;
+      line-height: 60px;
+      text-transform: uppercase;
+      font-weight: 700;
+      border-bottom: 0;
+      @include transitions;
+      border-right: 1px solid $white;
+      border-left: 1px solid $white;
+      @media screen and (min-width: 768px) and (max-width: 991px) {
+        font-size: 0.9em;
+        padding: 0 (15 / 16) * 1em;
+        line-height: (50 / 16) * 1em;
+      }
+      @media screen and (min-width: 992px) and (max-width: 1199px) {
+        font-size: 1.1em;
+      }
+      &:hover {
+        color: $black;
+        background: none !important;
+        border-color: $bordercolor;
+      }
+    }
+    &:first-child {
+      a {
+        padding-left: 0;
+        &:hover {
+          border-left-color: $white;
         }
       }
     }
   }
-}
-
-.title-wrapper {
-  text-align: center;
-  margin: 0;
-  padding: 2em 0;
-  border-top: 1px solid $bordercolor;
-  background-color: $white;
-  clear: both;
-  h2 {
-    margin: 0;
-    text-transform: uppercase;
+  li.search a {
+    &:hover {
+      border-right-color: $white;
+    }
   }
-}
-
-.dropdown-menu {
-  margin: 0;
-  padding: 0;
-  border-top: 0 !important;
-  li {
+  li.search.active a {
+    border-right-color: $white;
+  }
+  li li a {
+    font-weight: 400;
+  }
+  li.active, li.open {
+    /* see border for active state at the bottom under Boostrap Overrides */
     a {
-      padding: 0 1.25em !important;
-      font-size: 1em !important;
-      line-height: 40px !important;
-      border-bottom: 1px solid $white;
-      &:hover {
-        border-bottom: 1px solid rgba(0,0,0,.15);
-        background: none !important;
+      border-left: 1px solid $bordercolor !important;
+      border-right: 1px solid $bordercolor !important;
+      background: none !important
+    }
+    &:first-child {
+      a {
+        padding-left: (20 / 16) * 1em;
+        border-left-color: $white;
       }
     }
   }
-  li.active {
+  li.small-text {
+    float: right;
     a {
-      background-color: $black !important;
-      color: $white !important;
+      font-size: .9em;
+      font-weight: 400;
     }
   }
-  li:last-child {
+  li.search {
+    font-size: 1em;
     a {
-      border-bottom: 0;
+      padding-right: 0;
     }
+  }
+  // dropdown
+  .dropdown-menu {
+    margin: 1px 0 0 0;
+    padding: 0;
+    border-top: 0 !important;
+    li {
+      a {
+        padding: 0 1.25em !important;
+        font-size: 1em !important;
+        line-height: 40px !important;
+        border-left: 0 !important;
+        border-right: 0 !important;
+        border-bottom: 1px solid $white;
+        &:hover {
+          border-bottom: 1px solid rgba(0,0,0,.15);
+          background: none !important;
+        }
+      }
+    }
+    li.active {
+      a {
+        border-bottom: 1px solid rgba(0,0,0,.15);
+        border-top: 1px solid rgba(0,0,0,.15);
+        background: none !important;
+      }
+    }
+    li:last-child {
+      a {
+        border-bottom: 0;
+      }
+    }
+  }
+}
+
+// main nav
+ul.social-nav {
+  li {
+    @include blockfloat;
+    a, a:visited {
+      font-size: (18 / 16) * 1em;
+      color: $black;
+      padding: 0 (12 / 16) * 1em;
+      line-height: 60px;
+      @include transitions;
+      &:hover {
+        color: $black;
+      }
+    }
+  }
+}
+
+// HEADHESIVE STICK NAV OPTIONS
+
+/* before scroll or in "unstick" mode, hide */
+.headhesive {
+  @include position(fixed, $top: -60px, $left: 0);
+  @include opacity(0);
+  border-bottom: 1px solid $bordercolor;
+  .main-navigation {
+    padding: 0 !important;
+    @media screen and (min-width: 992px) and (max-width: 1199px) {
+      ul.nav li a {
+        padding: 0 .9em;
+      }
+    }
+  }
+}
+
+/* when scroll past the header, in active "stick" mode */
+.headhesive--stick {
+  display: block;
+  @include position(fixed, $top: 0, $left: 0);
+  @include opacity(0.97);
+  z-index: 1001;
+  width: 100%;
+  @include transition500ms;
+  .main-navigation {
+    .menu-main-nav-container {
+      // normal nav when stick is active - set to auto width
+      @include blockfloat ;
+      ul.nav li a {
+        font-size: (14/16) * 1em;
+      }
+    }
+    // social menu visible on stick
+    .menu-socials-header-container {
+      display: block;
+      float: right;
+      @media screen and (min-width: 768px) and (max-width: 991px) {
+        display: none;
+      }
+    }
+  }
+}
+
+// Show stick nav if logged in as admin
+body.logged-in {
+  .headhesive--stick {
+    top: 29px;
   }
 }
 
 /* bootstrap override */
-.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
-  background-color: $white;
-  border-left: 1px solid $bordercolor;
-  border-right: 1px solid $bordercolor;
-}
 
 .navbar-default .navbar-nav>.open>a {
   background: none !important;
@@ -162,5 +319,65 @@ a.main-logo {
   border: 0;
 }
 
+/* activator for fixed nav. Needs white background so black of header background doesn't show */
+.fixed-nav-activator {
+  background: none;
+  margin-top: -1px;
+}
+
+/* title wrappers */
+
+.title-wrapper, .title-wrapper-in-content {
+  text-align: center;
+  margin: 0;
+  padding: 2em 0 0 0;
+  background-color: $white;
+  clear: both;
+  h1, h3 {
+    margin: 0;
+    text-transform: uppercase;
+    display: inline-block;
+    border-bottom: 2px solid $black;
+    padding-bottom: .4em;
+    font-size: 2.2em;
+  }
+  h3 {
+    font-size: 1.7em;
+    margin-bottom: 1em;
+  }
+}
+
+/* title wrapper - alternate behavior on page and taxonomy terms */
+body.tax-magazine, body.page {
+  .title-wrapper {
+    padding-bottom: 2em;
+    border-bottom: 1px solid $bordercolor;
+  }
+  .title-wrapper-in-content {
+    border-bottom: 0;
+    padding-bottom: .5em;
+  }
+}
+
+.taxonomy-description {
+  p {
+    margin: 1em 0 0 0;
+  }
+}
+
+// top social sharing and author/date info, only to show on single pages at 768 - 992 (hidden with bootstrap visible-sm-block class on template)
+.ipad-sized-meta {
+  border-bottom: 1px solid $bordercolor;
+  margin-top: -2.5em;
+  margin-bottom: 5.5em;
+  .meta-sharing {
+    margin-bottom: 3em;
+    border: 0;
+    .pull-left, .pull-right {
+      border: 0 !important;
+      padding: 0 !important;
+    }
+  }
+}
 
 

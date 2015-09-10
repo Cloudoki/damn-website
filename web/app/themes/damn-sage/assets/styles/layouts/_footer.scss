@@ -9,6 +9,9 @@ footer.content-info {
       color: $white;
     }
   }
+  p {
+    text-transform: none;
+  }
   .footer-wrap {
     background-color: $text-color;
     padding: 3em 0 1em;
@@ -17,6 +20,11 @@ footer.content-info {
     }
     .row {
       padding-bottom: 2.5em;
+    }
+    .row-links {
+      .col-sm-4:nth-child(3n+1) {
+        clear: none !important;
+      }
     }
   }
 }

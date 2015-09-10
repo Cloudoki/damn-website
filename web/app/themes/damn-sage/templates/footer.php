@@ -1,8 +1,7 @@
 <footer class="content-info" role="contentinfo">
-  <div class="footer-advert-wrap">
-    <div class="container">
-      <div class="advert footer-advert">
-      </div>
+  <div class="container">
+    <div class="advert footer-advert">
+      <?php if (function_exists('adrotate_group')) echo adrotate_group(2); ?>
     </div>
   </div>
 
@@ -16,25 +15,28 @@
           <div class="btn-toolbar pull-right" role="toolbar">
             <div class="btn-group">
               <button type="button" class="btn btn-whitestroke btn-xl btn-noRadius">
-                <a href="/mailing-list" title="Join The Mailing List">Join The Mailing List</a>
+                <a href="/subscribe" title="Join The Mailing List">Join The Mailing List</a>
               </button>
             </div>
 
             <div class="btn-group pull-right">
               <button type="button" class="btn btn-whitestroke btn-xl btn-noRadius">
-                <a href="/magazine" title="DAMN Magazine - Back Issues">Back Issues</a>
+                <a href="/back-issues" title="DAMN Magazine - Back Issues">Back Issues</a>
               </button>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-xs-6 col-md-3">
+      <div class="row row-links">
+        <div class="col-xs-6 col-sm-12 col-md-3">
           <h4>About Damn</h4>
+          <?php the_field('about_damn', 'option'); ?>
         </div>
 
-        <div class="col-xs-6 col-md-3">
+        <div class="clearfix visible-sm-block"></div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3">
           <h4>Information</h4>
           <?php
           if (has_nav_menu('footer_navigation')) :
@@ -43,7 +45,7 @@
           ?>
         </div>
 
-        <div class="col-xs-6 col-md-3">
+        <div class="col-xs-6 col-sm-4 col-md-3">
           <h4>Socials</h4>
           <?php
           if (has_nav_menu('footer_socials')) :
@@ -52,8 +54,13 @@
           ?>
         </div>
 
-        <div class="col-xs-6 col-md-3">
-          <h4>Contact</h4>
+        <div class="col-xs-6 col-sm-4 col-md-3">
+          <h4>Colophon</h4>
+          <?php
+          if (has_nav_menu('colophon')) :
+            wp_nav_menu(['theme_location' => 'colophon', 'menu_class' => 'footer-nav list-unstyled']);
+          endif;
+          ?>
         </div>
       </div>
 
