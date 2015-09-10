@@ -40,8 +40,8 @@ add_filter( 'excerpt_length', __NAMESPACE__ . '\\custom_excerpt_length', 999 );
 
 
 /**
- *	DAMn Customised
- *	All action & hook functionalities - add them here for clear overview.
+ *  DAMn Customised
+ *  All action & hook functionalities - add them here for clear overview.
  */
 
 // add_action ('pre_get_posts', array('Roots\DAMn', 'filter_home'));

@@ -7,20 +7,20 @@
 
 <?php
 
-	// Get home fillament stream
-	$dynamics = new WP_Query(
-	[
-		'posts_per_page' => 30,
-		'post_type' => array ('post','calendar'),
-	]);
+  // Get home fillament stream
+  $dynamics = new WP_Query(
+  [
+    'posts_per_page' => 30,
+    'post_type' => array ('post','calendar'),
+  ]);
 
 ?>
 
 <?php /* first six posts */ ?>
 <div class="row">
-	<?php
-	$post_count = 0;
-	while ($dynamics->have_posts()) : $dynamics->the_post();
+  <?php
+  $post_count = 0;
+  while ($dynamics->have_posts()) : $dynamics->the_post();
   if($post_count++ == 6) break;
   ?>
     <?php
@@ -58,13 +58,13 @@
       </div>
     </div>
 
-		<?php /* insert advert if after the 1st post */ ?>
-		<?php if($post_count == 1) { ?>
-			<?php get_template_part('templates/advert-block-premium'); ?>
-			<div class="clearfix visible-sm visible-md visible-lg"></div>
-		<?php } ?>
+    <?php /* insert advert if after the 1st post */ ?>
+    <?php if($post_count == 1) { ?>
+      <?php get_template_part('templates/advert-block-premium'); ?>
+      <div class="clearfix visible-sm visible-md visible-lg"></div>
+    <?php } ?>
 
-	<?php endwhile; ?>
+  <?php endwhile; ?>
 </div>
 
 <?php /* sponsored content */ ?>
@@ -81,45 +81,45 @@
 <div class="row home-category-feeds">
 <?php
 
-	$post_cats = [];
-	$cats_count = 0;
+  $post_cats = [];
+  $cats_count = 0;
 
-	while ($dynamics->have_posts()) : $dynamics->the_post();
+  while ($dynamics->have_posts()) : $dynamics->the_post();
 
-		// Build Cat info
-		$categories = get_the_category();
+    // Build Cat info
+    $categories = get_the_category();
 
-		if(!isset ($post_cats[$categories[0]->term_id]))
+    if(!isset ($post_cats[$categories[0]->term_id]))
 
-			$post_cats[$categories[0]->term_id] = [];
+      $post_cats[$categories[0]->term_id] = [];
 
-		// Dirty fetch post
-		ob_start();
-		get_template_part('templates/content-home-small-feeds', get_post_type() != 'post' ? get_post_type() : get_post_format());
+    // Dirty fetch post
+    ob_start();
+    get_template_part('templates/content-home-small-feeds', get_post_type() != 'post' ? get_post_type() : get_post_format());
 
-		$post_cats[$categories[0]->term_id][] = ob_get_clean();
+    $post_cats[$categories[0]->term_id][] = ob_get_clean();
 
 
-		// Output if possible
-		if (count ($post_cats[$categories[0]->term_id]) == 2)
-		{
+    // Output if possible
+    if (count ($post_cats[$categories[0]->term_id]) == 2)
+    {
 
-		?>
-		 <div class="col-xs-12 col-md-3">
-			<h3 class="archive-title">
-			<?php echo $categories[0]->name; ?>
-			</h3>
-		<?php
+    ?>
+     <div class="col-xs-12 col-md-3">
+      <h3 class="archive-title">
+      <?php echo $categories[0]->name; ?>
+      </h3>
+    <?php
 
-			echo implode ("<br>", $post_cats[$categories[0]->term_id]);
+      echo implode ("<br>", $post_cats[$categories[0]->term_id]);
 
-		?> </div> <?php
+    ?> </div> <?php
 
-			if (++$cats_count == 4) break;
-		}
+      if (++$cats_count == 4) break;
+    }
 
-	endwhile;
-	?>
+  endwhile;
+  ?>
 
 </div>
 
