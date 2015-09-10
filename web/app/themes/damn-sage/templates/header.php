@@ -7,17 +7,7 @@
 
 	<?php /* If top wide home featured content is active */ ?>
 	<?php if (is_home()) { 
-	
-		// BIG FAT !HACK!
-		global $wpdb;
-		
-		// Pre-select ID's
-		$posts = $wpdb->get_col( 'select ID from wp_posts where post_type in("post","calendar") and post_date < NOW() order by post_date desc limit 20', 0);
-		
-		$primary_limit = 6;
-		$column_row_limit = 2;
-		$column_limit = 4;
-	
+
 		$the_query = new WP_Query(array(
 			'meta_query' => array(
 				'post_type' => array ('post','calendar'),

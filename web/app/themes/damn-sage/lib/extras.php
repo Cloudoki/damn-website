@@ -44,7 +44,7 @@ add_filter( 'excerpt_length', __NAMESPACE__ . '\\custom_excerpt_length', 999 );
  *	All action & hook functionalities - add them here for clear overview.
  */
 
-add_action ('pre_get_posts', array('Roots\DAMn', 'filter_home'));
+// add_action ('pre_get_posts', array('Roots\DAMn', 'filter_home'));
 
 
 
@@ -57,7 +57,7 @@ add_action ('pre_get_posts', array('Roots\DAMn', 'filter_home'));
 
 function mike_modify_main_query( $query ) {
   if ( $query->is_home() && $query->is_main_query() ) { // Run only on the homepage
-  $query->query_vars['posts_per_page'] = 6; // Show only 6 posts on the homepage only
+  //$query->query_vars['posts_per_page'] = 6; // Show only 6 posts on the homepage only
   }
 }
 // Hook my above function to the pre_get_posts action

@@ -5,13 +5,23 @@
   <?php get_search_form(); ?>
 <?php endif; ?>
 
+<?php
+
+	// BIG FAT !HACK!
+	global $wpdb;
+	
+	// Pre-select ID's
+	$posts = $wpdb->get_col( 'select ID from wp_posts where post_type in("post","calendar") and post_status="publish" and post_date < NOW() order by post_date desc limit 20', 0);
+
+?>
+
 <div class="row">
 	<?php 
 	$post_count = 0;
 	
 	while (have_posts()) : the_post();
 		
-		if(++$post_count == 6) break;
+		if($post_count++ == 6) break;
 		
 		/* normal post display */
 		get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
@@ -37,19 +47,49 @@
 
 <?php /* 4 up category feeds */ ?>
 <div class="row home-category-feeds">
-<?php /*
+<?php
 		
 	$post_cats = [];
+	$cats_count = 0;
 	
 	while (have_posts()) : the_post();
-	
-		$post_cats[the_category(' ')]
 		
+		// Build Cat info
+		$categories = get_the_category();
 		
-	
+		if(!isset ($post_cats[$categories[0]->term_id]))
+		
+			$post_cats[$categories[0]->term_id] = [];
+		
+		// Dirty fetch post
+		ob_start();
+		get_template_part('templates/content-home-small-feeds', get_post_type() != 'post' ? get_post_type() : get_post_format());
+
+		$post_cats[$categories[0]->term_id][] = ob_get_clean();
+		
+		echo $categories[0]->name ." " ;
+		
+		// Output if possible
+		if (count ($post_cats[$categories[0]->term_id]) == 2)
+		{
+			
+		?>
+		 <div class="col-xs-12 col-md-3">	
+			<h3 class="archive-title">
+			<?php echo $categories[0]->name; ?>
+			</h3>
+		<?php	
+			
+			echo implode ("<br>", $post_cats[$categories[0]->term_id]);
+		
+		?> </div> <?php
+			
+			if (++$cats_count == 4) break;
+		}
+
 	endwhile;
-*/ ?>	
-		
+	?>	
+<?php /*		
   <div class="col-xs-12 col-md-3">
     <?php   $do_not_duplicate = array(); ?>
     <?php   $artcats = new WP_Query('category_name=art&posts_per_page=2'); ?>
@@ -100,6 +140,7 @@
       <?php get_template_part('templates/content-home-small-feeds', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
     <?php   endwhile; endif; wp_reset_postdata(); ?>
   </div>
+  */ ?>
 </div>
 
 
