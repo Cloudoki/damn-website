@@ -7,19 +7,20 @@
 
 <?php
 
-	// BIG FAT !HACK!
-	global $wpdb;
+	// Get home fillament stream
+	$dynamics = new WP_Query(
+	[
+		'posts_per_page' => 30,
+		'post_type' => array ('post','calendar'),
+	]);
 	
-	// Pre-select ID's
-	$posts = $wpdb->get_col( 'select ID from wp_posts where post_type in("post","calendar") and post_status="publish" and post_date < NOW() order by post_date desc limit 20', 0);
-
 ?>
 
 <div class="row">
 	<?php 
 	$post_count = 0;
 	
-	while (have_posts()) : the_post();
+	while ($dynamics->have_posts()) : $dynamics->the_post();
 		
 		if($post_count++ == 6) break;
 		
@@ -27,7 +28,7 @@
 		get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
 		
 		<?php /* insert advert if after the 1st post */ ?>
-		<?php if ($wp_query->current_post == 0) { ?>
+		<?php if($post_count == 1) { ?>
 			<?php get_template_part('templates/advert-block-premium'); ?>
 			<div class="clearfix visible-sm visible-md visible-lg"></div>
 		<?php } ?>
@@ -52,7 +53,7 @@
 	$post_cats = [];
 	$cats_count = 0;
 	
-	while (have_posts()) : the_post();
+	while ($dynamics->have_posts()) : $dynamics->the_post();
 		
 		// Build Cat info
 		$categories = get_the_category();
@@ -67,7 +68,6 @@
 
 		$post_cats[$categories[0]->term_id][] = ob_get_clean();
 		
-		echo $categories[0]->name ." " ;
 		
 		// Output if possible
 		if (count ($post_cats[$categories[0]->term_id]) == 2)
@@ -88,59 +88,8 @@
 		}
 
 	endwhile;
-	?>	
-<?php /*		
-  <div class="col-xs-12 col-md-3">
-    <?php   $do_not_duplicate = array(); ?>
-    <?php   $artcats = new WP_Query('category_name=art&posts_per_page=2'); ?>
-    <?php if (have_posts()) : ?>
-      <h3 class="archive-title">
-        Art
-      </h3>
-    <?php   while ($artcats->have_posts()) : $artcats->the_post(); ?>
-    <?php   $do_not_duplicate[] = $post->ID; ?>
-      <?php get_template_part('templates/content-home-small-feeds', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
-    <?php   endwhile; endif; wp_reset_postdata(); ?>
-  </div>
+	?>
 
-  <div class="col-xs-12 col-md-3">
-    <?php   $artcats = new WP_Query( array( 'category_name' => 'architecture', 'posts_per_page' => 2, 'post__not_in' => $do_not_duplicate ) ); ?>
-    <?php if (have_posts()) : ?>
-      <h3 class="archive-title">
-        Architecture
-      </h3>
-    <?php   while ($artcats->have_posts()) : $artcats->the_post(); ?>
-    <?php   $do_not_duplicate[] = $post->ID; ?>
-      <?php get_template_part('templates/content-home-small-feeds', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
-    <?php   endwhile; endif; wp_reset_postdata(); ?>
-  </div>
-
-  <div class="clearfix visible-xs-block"></div>
-
-  <div class="col-xs-12 col-md-3">
-    <?php   $artcats = new WP_Query( array( 'category_name' => 'design', 'posts_per_page' => 2, 'post__not_in' => $do_not_duplicate ) ); ?>
-    <?php if (have_posts()) : ?>
-      <h3 class="archive-title">
-        Design
-      </h3>
-    <?php   while ($artcats->have_posts()) : $artcats->the_post(); ?>
-    <?php   $do_not_duplicate[] = $post->ID; ?>
-      <?php get_template_part('templates/content-home-small-feeds', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
-    <?php   endwhile; endif; wp_reset_postdata(); ?>
-  </div>
-
-  <div class="col-xs-12 col-md-3">
-    <?php   $artcats = new WP_Query( array( 'category_name' => 'fashion', 'posts_per_page' => 2, 'post__not_in' => $do_not_duplicate ) ); ?>
-    <?php if (have_posts()) : ?>
-      <h3 class="archive-title">
-        Fashion
-      </h3>
-    <?php   while ($artcats->have_posts()) : $artcats->the_post(); ?>
-    <?php   $do_not_duplicate[] = $post->ID; ?>
-      <?php get_template_part('templates/content-home-small-feeds', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
-    <?php   endwhile; endif; wp_reset_postdata(); ?>
-  </div>
-  */ ?>
 </div>
 
 

@@ -57,7 +57,7 @@ add_filter( 'excerpt_length', __NAMESPACE__ . '\\custom_excerpt_length', 999 );
 
 function mike_modify_main_query( $query ) {
   if ( $query->is_home() && $query->is_main_query() ) { // Run only on the homepage
-  //$query->query_vars['posts_per_page'] = 6; // Show only 6 posts on the homepage only
+  $query->query_vars['posts_per_page'] = 1; // Show only 6 posts on the homepage only
   }
 }
 // Hook my above function to the pre_get_posts action
