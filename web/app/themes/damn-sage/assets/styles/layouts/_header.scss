@@ -213,7 +213,7 @@ ul.nav {
     li {
       a {
         padding: 0 1.25em !important;
-        font-size: 1em !important;
+        font-size: 1.1em !important;
         line-height: 40px !important;
         border-left: 0 !important;
         border-right: 0 !important;
@@ -304,6 +304,24 @@ ul.social-nav {
 body.logged-in {
   .headhesive--stick {
     top: 29px;
+  }
+}
+
+// NAV options for DAMn Plus based on logged in or not
+ul.nav {
+  li.logged-in {
+    display: none;
+  }
+}
+
+body.logged-in {
+  ul.nav {
+    li.logged-out {
+      display: none;
+    }
+    li.logged-in {
+      display: block;
+    }
   }
 }
 

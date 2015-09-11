@@ -1,14 +1,18 @@
 <?php the_content(); ?>
 
+<div class="bordered padding1em marginBottom">
+  <a href="/category/damn-plus/" class="btn btn-primary btn-lg marginRight">VIEW ALL DAMn + ARTICLES</a> <a href="/join-damn-plus/damn-plus/profile/" class="btn btn-primary btn-lg">EDIT PROFILE</a>
+</div>
+
 <section class="widget damn-plus-login-form visible-xs-block bordered">
   <?php if ( is_active_sidebar( 'sidebar-damn-plus-widget' ) ) : dynamic_sidebar( 'sidebar-damn-plus-widget' ); endif; ?>
   <div class="clearthis"></div>
 </section>
 
-<hr />
-
 <div class="related-posts clearfix">
-  <h3>DAMn + Articles </h3>
+  <div class="text-center">
+    <h3 class="marginAuto bottomBorderInline">DAMn + Articles </h3>
+  </div>
   <div class="row">
     <?php
     $damn_query1 = new WP_Query( array( 'post_type' => array( 'post' ), 'showposts' => 15, 'offset' => 0, 'category_name' => "damn-plus"));

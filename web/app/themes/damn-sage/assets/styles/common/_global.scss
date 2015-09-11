@@ -46,15 +46,20 @@ p {
 }
 
 .marginRight {
-  margin-right: 1em;
+  margin-right: 1em !important;
 }
 
 .marginBottom {
-  margin-bottom: 1em;
+  margin-bottom: 1em !important;
 }
 
 .marginTop {
-  margin-top: 1em;
+  margin-top: 1em !important;
+}
+
+.marginAuto {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .black-back-white-text {
@@ -72,6 +77,22 @@ p {
 
 .bordered {
   border: 1px solid $bordercolor;
+}
+
+.bottomBorderInline {
+  display: inline-block !important;
+  margin-bottom: 1em;
+  padding-bottom: 12px;
+  border-bottom: 2px solid $black;
+}
+
+.borderTopSpacing {
+  border-top: 1px solid $bordercolor;
+  padding-top: 1em;
+}
+
+.floatLeft100 {
+  @include floatleft100;
 }
 
 /* change border colour to suit your needs */

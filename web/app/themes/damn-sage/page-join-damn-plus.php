@@ -13,7 +13,7 @@ Template Name: Join DAMn Plus
   <?php } ?>
 
   <div class="row join-damn-plus-info">
-    <div class="col-xs-3 magazine-cover">
+    <div class="col-xs-3 col-md-4 magazine-cover">
 
       <?php
       $tax = 'magazine';
@@ -49,11 +49,16 @@ Template Name: Join DAMn Plus
 
     </div>
 
-    <div class="col-xs-9">
+    <div class="col-xs-9 col-md-8 join-damn-plus-form">
       <?php the_content(); ?>
 
-      <hr />
-
+      <?php if(get_field('profile_shortcode')) { ?>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <?php the_field('profile_shortcode'); ?>
+          </div>
+        </div>
+      <?php } ?>
     </div>
   </div>
 

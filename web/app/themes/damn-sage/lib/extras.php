@@ -42,6 +42,15 @@ function custom_excerpt_length($length) {
 }
 add_filter( 'excerpt_length', __NAMESPACE__ . '\\custom_excerpt_length', 999 );
 
+//Page Slug Body Class
+function add_slug_body_class( $classes ) {
+global $post;
+if ( isset( $post ) ) {
+$classes[] = $post->post_type . '-' . $post->post_name;
+}
+return $classes;
+}
+add_filter( 'body_class', __NAMESPACE__ . '\\add_slug_body_class' );
 
 /**
  *  DAMn Customised

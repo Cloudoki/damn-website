@@ -103,3 +103,92 @@
 // DAMN PLUS Login form & summary boxes, see sidebar.scss
 //.damn-plus-login-form is there, as is .ws-plugin--s2member-pro-login-widget-profile-summary
 
+// DAMN PLUS profile page
+.profile-mods, .join-damn-plus-form {
+  .panel-body {
+    padding: 2em !important;
+    @media screen and (max-width: 767px) {
+      padding: 1.25em;
+    }
+    .btn {
+      margin-top: 1em;
+      font-size: 1.25em;
+      text-transform: uppercase;
+      padding: 10px 16px;
+    }
+  }
+  .edit-profile {
+    @media screen and (min-width: 768px) {
+      border-right: 1px solid $bordercolor;
+    }
+  }
+  .cancel-button {
+  }
+}
+
+// profile form
+#ws-plugin--s2member-profile, .s2member-pro-paypal-form, .s2member-pro-paypal-checkout-form {
+  table {
+    td {
+      padding-bottom: 1em !important;
+      label {
+        width: 100%;
+        @media screen and (min-width: 768px) {
+          width: 97%;
+        }
+        input {
+          margin-top: .7em;
+        }
+      }
+    }
+  }
+  .s2member-pro-paypal-form-section {
+    padding-bottom: 1em !important;
+    label {
+      width: 100%;
+      @media screen and (min-width: 768px) {
+        width: 97%;
+      }
+      input, select {
+        margin: .7em 0;
+      }
+    }
+    .btn {
+      margin-top: 1em;
+      font-size: 1.25em;
+      text-transform: uppercase;
+      padding: 10px 16px;
+    }
+  }
+  #s2member-pro-paypal-checkout-form-registration-section-title {
+    border-top: 1px solid $bordercolor;
+    padding-top: 1em;
+    margin-bottom: 1em;
+  }
+  #s2member-pro-paypal-checkout-form-coupon-div {
+    label {
+      width: auto !important;
+    }
+    #s2member-pro-paypal-checkout-coupon-apply {
+      display: block !important;
+    }
+  }
+  #s2member-pro-paypal-checkout-password1, #s2member-pro-paypal-checkout-password2 {
+    width: 97%;
+    max-width: 450px;
+  }
+  #s2member-pro-paypal-checkout-zip {
+    width: 250px;
+  }
+}
+
+// login
+body.login {
+  h3.widget-title {
+    text-align: center;
+    margin: -1px;
+  }
+}
+
+
+

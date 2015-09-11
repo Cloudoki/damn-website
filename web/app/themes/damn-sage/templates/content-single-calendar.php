@@ -34,6 +34,7 @@
                     <p><strong>End Date:</strong> <?php the_field('end_date'); ?></p>
                   </div>
                 <?php } ?>
+                <div class="clearthis"></div>
               </div>
             <?php } ?>
 
