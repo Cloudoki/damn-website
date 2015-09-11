@@ -487,6 +487,42 @@ body.single-product {
   }
 }
 
+.damn-plus-cta {
+  display: table;
+  padding: 1em;
+  height: 100%;
+  margin: 1em 0 2em 0;
+  @include floatleft100;
+  @media screen and (min-width: 768px) {
+    padding: 1.5em;
+  }
+  @media screen and (min-width: 1200px) {
+    padding: 1.8em;
+  }
+  div {
+    display: table-cell;
+    height: 100%;
+  }
+  .damn-plus-image-cta {
+    border-right: 1px solid $white;
+  }
+  .damn-plus-cta-copy {
+    padding-left: 20px !important;
+    color: $white;
+    @media screen and (min-width: 768px) {
+      padding-left: 25px !important;
+    }
+    .btn {
+      margin-bottom: 1em;
+      margin-top: .25em;
+      background-color: $white !important;
+      color: $black !important;
+    }
+  }
+}
+
+// other misc
+
 .facebook-comments, .related-posts, .back-issues, .all-articles {
   margin-bottom: 2em;
   @include floatleft100;

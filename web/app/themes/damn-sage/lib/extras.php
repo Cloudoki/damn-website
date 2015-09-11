@@ -33,8 +33,12 @@ function excerpt_more() {
 add_filter('excerpt_more', __NAMESPACE__ . '\\excerpt_more');
 
 
-function custom_excerpt_length( $length ) {
-  return 10;
+function custom_excerpt_length($length) {
+    if(in_category('damn-plus')) {  //For posts belonging to category IDs 4 and 40
+        return 65; //return 65 words for the excerpt
+    } else {
+        return 10; //for all others, return 40 words.
+    }
 }
 add_filter( 'excerpt_length', __NAMESPACE__ . '\\custom_excerpt_length', 999 );
 

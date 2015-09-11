@@ -199,6 +199,15 @@ h6, .h6 { font-size: (12 / 16) * 1em; }
   padding-left: 0;
 }
 
+// images not going over 100% in bootstrap grids
+
+[class^="col-"] {
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
 /*********************
 SASS MIXINS
 *********************/

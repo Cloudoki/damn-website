@@ -54,7 +54,6 @@ Template Name: Join DAMn Plus
 
       <hr />
 
-      <!-- <a href="/wp/wp-login.php?action=register" class="btn btn-default btn-lg" role="button">JOIN NOW</a> -->
     </div>
   </div>
 
