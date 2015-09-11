@@ -14,8 +14,14 @@
           <?php the_content(); ?>
 
         <?php } else { ?>
-          <?php /* display teaser and CTA */ ?>
-          <?php the_excerpt(); ?>
+          <?php /* display excerpt teaser and CTA */ ?>
+
+          <?php if(get_field('custom_excerpt_damn_plus')) { ?>
+            <?php the_field('custom_excerpt_damn_plus'); ?>
+          <?php } else { ?>
+            <?php the_excerpt(); ?>
+          <?php } ?>
+
           <div class="damn-plus-cta">
               <div class="col-xs-12 col-sm-4 damn-plus-image-cta">
                 <a href="/join-damn-plus" title="Join DAMn Plus">
