@@ -20,8 +20,11 @@
     .btn:hover {
       background-color: inherit;
     }
-    .color-box, .damn-plus-badge, .join-damn-plus-home-image, .damn-plus-cta {
+    .color-box, .damn-plus-badge, .join-damn-plus-home-image, .damn-plus-cta, .category-link .damn-plus {
       background-color: #<?php the_field('issue_number_color', 'option'); ?>;
+    }
+    .category-link .damn-plus {
+      border-color: #<?php the_field('issue_number_color', 'option'); ?> !important;
     }
   </style>
 </head>

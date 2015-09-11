@@ -115,7 +115,21 @@ add_filter( 'get_the_archive_title', function ($title) {
   return $title;
 });
 
+function add_slug_class_wp_list_categories($list) {
 
+    $cats = get_categories('hide_empty=0');
+    foreach($cats as $cat) {
+        $find = 'cat-item-' . $cat->term_id . '"';
+        $replace = 'cat-item-' . $cat->slug . ' cat-item-' . $cat->term_id . '"';
+        $list = str_replace( $find, $replace, $list );
+        $find = 'cat-item-' . $cat->term_id . ' ';
+        $replace = 'cat-item-' . $cat->slug . ' cat-item-' . $cat->term_id . ' ';
+        $list = str_replace( $find, $replace, $list );
+    }
+
+    return $list;
+}
+add_filter('wp_list_categories', __NAMESPACE__ . '\\add_slug_class_wp_list_categories');
 
 
 
