@@ -20,11 +20,17 @@
     .btn:hover {
       background-color: inherit;
     }
-    .color-box, .damn-plus-badge, .join-damn-plus-home-image, .damn-plus-cta, .category-link .damn-plus, .page-featured-image {
+    .color-box, .damn-plus-badge, .join-damn-plus-home-image, .damn-plus-cta, .page-featured-image {
       background-color: #<?php the_field('issue_number_color', 'option'); ?>;
     }
     .category-link .damn-plus {
       border-color: #<?php the_field('issue_number_color', 'option'); ?> !important;
+      background-color: #<?php the_field('issue_number_color', 'option'); ?>;
+      color: #fff !important;
+    }
+    .category-link .damn-plus:hover {
+      background-color: #<?php the_field('issue_number_color', 'option'); ?> !important;
+      color: #000 !important;
     }
     body.damn-plus .title-wrapper h1, body.category-damn-plus .title-wrapper h1 {
       border-color: #fff;

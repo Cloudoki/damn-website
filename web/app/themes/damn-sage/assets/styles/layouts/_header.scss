@@ -83,6 +83,9 @@ body.home {
         .category-link a {
           border-color: $black;
           color: $black;
+          &:hover {
+            color: $white;
+          }
         }
         h1, h2, h3 {
           text-shadow: 2px 2px 7px rgba(255,255,255,.4) !important;
