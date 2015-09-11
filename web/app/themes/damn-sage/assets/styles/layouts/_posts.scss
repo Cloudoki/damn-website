@@ -576,6 +576,12 @@ body.single-product {
   }
 }
 
+body.single {
+  .more-link {
+    display: none;
+  }
+}
+
 // Magazine single
 
 h3.all-articles {

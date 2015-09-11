@@ -55,7 +55,13 @@ $the_query = new WP_Query(array(
         <header>
           <div class="container">
             <div class="category-link">
-              <?php the_category(' '); ?>
+              <?php
+                $sep = '';
+                foreach ((get_the_category()) as $cat) {
+                    echo $sep . '<a href="' . get_category_link($cat->term_id) . '"  class="' . $cat->slug . '" title="View all posts in '. esc_attr($cat->name) . '">' . $cat->cat_name . '</a>';
+                    $sep = '';
+                }
+              ?>
             </div>
             <h1 class="entry-title">
               <?php if(get_field('custom_link')) { ?>
