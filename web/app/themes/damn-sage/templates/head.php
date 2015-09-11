@@ -13,7 +13,7 @@
     a, a:visited, #menu-main-nav a span {
       color: #<?php the_field('issue_number_color', 'option'); ?>;
     }
-    .btn-default, .btn-primary, body.damn-plus .title-wrapper, body.login h3.widget-title {
+    .btn-default, .btn-primary, body.damn-plus .title-wrapper, body.category-damn-plus .title-wrapper, body.login h3.widget-title {
       background-color: #<?php the_field('issue_number_color', 'option'); ?>;
       color: #fff !important;
     }
@@ -26,7 +26,7 @@
     .category-link .damn-plus {
       border-color: #<?php the_field('issue_number_color', 'option'); ?> !important;
     }
-    body.damn-plus .title-wrapper h1 {
+    body.damn-plus .title-wrapper h1, body.category-damn-plus .title-wrapper h1 {
       border-color: #fff;
     }
   </style>

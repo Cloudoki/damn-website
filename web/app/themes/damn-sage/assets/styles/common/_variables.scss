@@ -584,6 +584,15 @@ COMMON & MISC
   }
 }
 
+@mixin blacktowhitelink {
+  a, a:visited {
+    color: $black;
+    &:hover {
+      color: $white;
+    }
+  }
+}
+
 @mixin whitetowhitelink {
   a {
     color: $white;

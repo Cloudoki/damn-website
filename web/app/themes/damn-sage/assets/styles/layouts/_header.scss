@@ -315,13 +315,11 @@ ul.nav {
 }
 
 body.logged-in {
-  ul.nav {
-    li.logged-out {
-      display: none;
-    }
-    li.logged-in {
-      display: block;
-    }
+  .logged-out {
+    display: none !important;
+  }
+  .logged-in {
+    display: block !important;
   }
 }
 
