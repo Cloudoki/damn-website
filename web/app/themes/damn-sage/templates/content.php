@@ -12,7 +12,7 @@
 <?php
 $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' );
 $url = $thumb['0'];
-$wrapperclass = ( $wp_query->current_post%4 == 0 && (int)( $wp_query->current_post / 3 ) < 3 && !is_paged() ) ? 'class="news-item-wrapper col-xs-12 col-sm-8"' : 'class="news-item-wrapper col-xs-12 col-sm-6 col-md-4"';
+$wrapperclass = ( $wp_query->current_post%4 == 0 && (int)( $wp_query->current_post / 3 ) < 3 && !is_paged() && is_home() ) ? 'class="news-item-wrapper col-xs-12 col-sm-8"' : 'class="news-item-wrapper col-xs-12 col-sm-6 col-md-4"';
 ?>
 
 
@@ -39,7 +39,7 @@ $wrapperclass = ( $wp_query->current_post%4 == 0 && (int)( $wp_query->current_po
         <?php if (is_single()) { ?>
           <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
         <?php } else { ?>
-          <?php if( $wp_query->current_post%4 == 0 && (int)( $wp_query->current_post / 3 ) < 3 && !is_paged() ) : ?>
+          <?php if( $wp_query->current_post%4 == 0 && (int)( $wp_query->current_post / 3 ) < 3 && !is_paged() && is_home() ) : ?>
             <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-wide.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
           <?php else : ?>
             <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />

@@ -13,14 +13,14 @@
     a, a:visited, #menu-main-nav a span {
       color: #<?php the_field('issue_number_color', 'option'); ?>;
     }
-    .btn-default {
+    .btn-default, .btn-primary {
       background-color: #<?php the_field('issue_number_color', 'option'); ?>;
       color: #fff !important;
     }
     .btn:hover {
       background-color: inherit;
     }
-    .color-box, .damn-plus-badge, .join-damn-plus-home-image, .damn-plus-cta, .category-link .damn-plus {
+    .color-box, .damn-plus-badge, .join-damn-plus-home-image, .damn-plus-cta, .category-link .damn-plus, .page-featured-image {
       background-color: #<?php the_field('issue_number_color', 'option'); ?>;
     }
     .category-link .damn-plus {

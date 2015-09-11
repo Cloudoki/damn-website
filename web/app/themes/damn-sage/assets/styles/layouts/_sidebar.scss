@@ -59,11 +59,54 @@ h3.widget-title-black {
 
 .sidebar {
   .widget {
+    border-bottom: 1px solid $bordercolor;
     h3.widget-title, h3.widget-title-black, h3 {
       padding: (16 / 16) * 1em;
+      border-bottom: 1px solid $bordercolor;
     }
   }
 }
+
+// DAMN PLUS related
+.damn-plus-login-form {
+  margin: 0;
+  h3 {
+    margin: 0;
+    padding: (16 / 16) * 1em !important;
+    border-bottom: 1px solid $bordercolor;
+  }
+}
+
+.damn-plus-login-form.color-box {
+  padding: 2em .25em;
+}
+
+.ws-plugin--s2member-pro-login-widget {
+  padding: 1.5em;
+  .form-control {
+    margin-bottom: 1em;
+  }
+  .ws-plugin--s2member-pro-login-widget-remember-me {
+    input {
+      margin-right: 6px;
+    }
+  }
+  .btn-primary {
+    font-size: 1.25em;
+    margin-top: .75em;
+  }
+}
+
+.ws-plugin--s2member-pro-login-widget-profile-summary {
+  .avatar {
+    width: 20%;
+    float: left;
+    margin: 0 10px 10px 0;
+    max-width: 128px;
+    @include border-radius(128px);
+  }
+}
+
 
 // latest articles & calendar // latest calendar specific items below
 

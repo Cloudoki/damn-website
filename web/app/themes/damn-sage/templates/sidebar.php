@@ -34,6 +34,12 @@ if (is_singular('product')) { ?>
   <?php /* end if get field = creators */ ?>
 <?php } ?>
 
+<?php if (is_page('join-damn-plus') || is_page('damn-plus') || is_page('profile')) { ?>
+  <div class="damn-plus-login-form">
+    <?php if ( is_active_sidebar( 'sidebar-damn-plus-widget' ) ) : dynamic_sidebar( 'sidebar-damn-plus-widget' ); endif; ?>
+  </div>
+<?php } ?>
+
 <div class="advert advert-sidebar-top">
   <?php if (function_exists('adrotate_group')) echo adrotate_group(3); ?>
 </div>

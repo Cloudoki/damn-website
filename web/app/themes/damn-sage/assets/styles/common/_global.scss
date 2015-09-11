@@ -70,6 +70,10 @@ p {
   padding: 1em;
 }
 
+.bordered {
+  border: 1px solid $bordercolor;
+}
+
 /* change border colour to suit your needs */
 hr {
     display:block;
@@ -79,6 +83,11 @@ hr {
     border-top:1px solid $bordercolor;
     margin:2em 0;
     padding:0;
+    clear: none !important;
+    @include floatleft100;
+    @media screen and (max-width: 767px) {
+      margin: 1.25em 0;
+    }
 }
 
 /*********************
@@ -109,6 +118,7 @@ body.single-calendar, body.tax-magazine, body.page {
     width: auto !important;
     float: none !important;
     padding: 0 !important;
+    overflow: hidden;
   }
 }
 

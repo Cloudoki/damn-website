@@ -1,6 +1,7 @@
 .page-featured-image {
   margin-bottom: 1.75em;
   width: 100%;
+  line-height: 1px;
   img {
     @include maximage;
   }
@@ -79,7 +80,7 @@
   }
 }
 
-// DAMN PLUS join page
+// DAMN PLUS join page or login/summary page
 .join-damn-plus-info {
   .magazine-cover {
     h3 {
@@ -98,4 +99,7 @@
     }
   }
 }
+
+// DAMN PLUS Login form & summary boxes, see sidebar.scss
+//.damn-plus-login-form is there, as is .ws-plugin--s2member-pro-login-widget-profile-summary
 
