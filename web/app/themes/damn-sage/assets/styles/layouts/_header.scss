@@ -62,6 +62,7 @@ body.home {
     margin-bottom: (30 / 16) * 1em;
     .single-news-item {
       margin-bottom: -140px;
+      max-height: 600px;
       &:hover {
         header {
           background: none;
