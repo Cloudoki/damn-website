@@ -4,6 +4,13 @@
     <div class="container">
       <a class="main-logo" href="/">DAMn MAGAZINE - <?php bloginfo('name'); ?></a>
       <span class="issue-number" style="color: #<?php the_field('issue_number_color', 'option'); ?>"><?php the_field('issue_number', 'option'); ?></span>
+      <div class="pull-right social-navs">
+        <?php
+        if (has_nav_menu('header_socials')) :
+          wp_nav_menu(['theme_location' => 'header_socials', 'walker' => new wp_bootstrap_navwalker(), 'menu_class' => 'social-nav navbar-nav']);
+        endif;
+        ?>
+      </div>
     </div>
   </div>
 

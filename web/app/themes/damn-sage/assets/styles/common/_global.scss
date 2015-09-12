@@ -134,8 +134,8 @@ body.single-calendar, body.tax-magazine, body.page {
 }
 
 .container {
-  @media screen and (min-width: 768px) and (max-width: 991px) {
-    width: 96% !important;
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    width: 94% !important;
   }
   @media screen and (min-width: 1540px) {
     width: 1440px;
@@ -148,6 +148,10 @@ body.single-calendar, body.tax-magazine, body.page {
     float: none !important;
     padding: 0 !important;
     overflow: hidden;
+  }
+  @media screen and (max-width: 767px) {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
   img {
     max-width: 100%;

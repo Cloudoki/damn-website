@@ -29,15 +29,13 @@
       </div>
 
       <div class="row row-links">
-        <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="col-xs-12 col-sm-5 col-md-6">
           <h4>About Damn</h4>
           <?php the_field('about_damn', 'option'); ?>
         </div>
 
-        <div class="clearfix visible-sm-block"></div>
-		
-		<div class="col-sm-0 col-md-1"></div>
-		
+		    <div class="col-xs-12 col-sm-1 col-md-1"></div>
+
         <div class="col-xs-6 col-sm-3 col-md-2">
           <h4>Socials</h4>
           <?php
@@ -47,7 +45,7 @@
           ?>
         </div>
 
-        <div class="col-xs-6 col-md-3">
+        <div class="col-xs-6 col-sm-3 col-md-3">
           <h4>Colophon</h4>
           <?php
           if (has_nav_menu('colophon')) :
