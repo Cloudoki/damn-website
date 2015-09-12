@@ -14,14 +14,18 @@ body.single {
 a.main-logo {
   float: left;
   margin-right: .9em;
-  max-width: 320px;
-  max-height: 71px;
+  width: 320px;
+  height: 71px;
   display: block;
   background: url("../images/damn-2X.png") no-repeat;
   background: url("../images/damn-white.svg") no-repeat;
-  @include aspect-ratio(23, 5.8);
-  @include imagereplacement;
+  text-indent: -9999px;
+  outline: none;
   background-size: 100% auto;
+  @media screen and (max-width:767px) {
+    width: 180px;
+    height: 40px;
+  }
 }
 
 // main navbar in header
@@ -32,13 +36,20 @@ a.main-logo {
     padding: (30 / 16) * 1em;
     background-color: $black;
     background-color: rgba(0,0,0,0.6);
+    @media screen and (max-width:767px) {
+      padding: 1.25em .5em;
+    }
     .issue-number {
       font-size: 4.5em;
       font-weight: 700;
       display: block;
       float: left;
-      margin-top: 0.28em;
+      margin-top: 20px;
       line-height: 0.8em;
+      @media screen and (max-width:767px) {
+        margin-top: 9px;
+        font-size: 3.5em;
+      }
     }
   }
 }
@@ -108,6 +119,7 @@ body.home {
 .white-wrapper {
   background-color: $white;
   border-bottom: 1px solid $bordercolor;
+  border-top: 1px solid $black;
 }
 
 .navbar-default {
@@ -266,6 +278,9 @@ ul.social-nav {
   @include position(fixed, $top: -60px, $left: 0);
   @include opacity(0);
   border-bottom: 1px solid $bordercolor;
+  .container {
+    width: 100%;
+  }
   .main-navigation {
     padding: 0 !important;
     @media screen and (min-width: 992px) and (max-width: 1199px) {
@@ -289,7 +304,7 @@ ul.social-nav {
       // normal nav when stick is active - set to auto width
       @include blockfloat ;
       ul.nav li a {
-        font-size: (14/16) * 1em;
+        font-size: .8em;
       }
     }
     // social menu visible on stick

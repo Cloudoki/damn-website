@@ -28,48 +28,79 @@
     $url = $thumb['0'];
     ?>
 
-    <?php if( $dynamics->current_post%4 == 0 && (int)( $dynamics->current_post / 3 ) < 3 && !is_paged() ) { ?>
-      <div class="news-item-wrapper col-xs-12 col-sm-8">
-    <?php } else { ?>
-      <div class="news-item-wrapper col-xs-12 col-sm-6 col-md-4">
+    <?php if( $dynamics->current_post%6 == 0 ) { ?>
+      <?php /* begin the "first-post-advert-wrapper" div */ ?>
+      <div class="first-post-advert-wrapper">
+        <div class="table-row">
     <?php } ?>
 
-      <div class="news-item">
-
-        <?php /* damn plus badge */ ?>
-        <?php get_template_part('templates/damn-plus-badge'); ?>
-
+    <?php if( $dynamics->current_post%4 == 0 && (int)( $dynamics->current_post / 3 ) < 3 && !is_paged() ) { ?>
+      <?php if( $dynamics->current_post%6 == 0 ) { ?>
         <?php if ( has_post_thumbnail()) { ?>
-          <div class="post-image" style="background-image:url(<?=$url?>);">
+          <div class="news-item-wrapper col-xs-12 col-sm-8 large-post <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>" style="background-image:url(<?=$url?>);">
         <?php } else { ?>
-          <div class="post-image" style="background-image:url(<?= get_template_directory_uri(); ?>/dist/images/default-tall.png)">
+          <div class="news-item-wrapper col-xs-12 col-sm-8 large-post <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>" style="background-image:url(<?= get_template_directory_uri(); ?>/dist/images/default-tall.png)">
         <?php } ?>
-
-          <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-            <?php if (is_single()) { ?>
-              <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
-            <?php } else { ?>
-              <?php if( $dynamics->current_post%4 == 0 && (int)( $dynamics->current_post / 3 ) < 3 && !is_paged() ) : ?>
-                <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-wide.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
-              <?php else : ?>
-                <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
-              <?php endif; ?>
-            <?php } ?>
+          <?php /* REUSED snippet to display title, category, subtitle */ ?>
+          <?php get_template_part('templates/snippet', 'feed-header'); ?>
+          <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="link-image">
+            <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
           </a>
-        </div>
+      <?php } else { ?>
+        <div class="news-item-wrapper col-xs-12 col-sm-6 col-md-8 medium-post <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
+      <?php } ?>
+    <?php } else { ?>
+      <div class="news-item-wrapper col-xs-12 col-sm-6 col-md-4 <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
+    <?php } ?>
 
-        <?php /* REUSED snippet to display title, category, subtitle */ ?>
-        <?php get_template_part('templates/snippet', 'feed-header'); ?>
-      </div>
+      <?php if( $dynamics->current_post%6 == 0 ) { ?>
+        <?php /* news image on first post is outside the news-item div, so no "news-item" need for first post. */ ?>
+      <?php } else { ?>
+        <div class="news-item">
+
+          <?php /* damn plus badge */ ?>
+          <?php get_template_part('templates/damn-plus-badge'); ?>
+
+          <?php if ( has_post_thumbnail()) { ?>
+            <div class="post-image" style="background-image:url(<?=$url?>);">
+          <?php } else { ?>
+            <div class="post-image" style="background-image:url(<?= get_template_directory_uri(); ?>/dist/images/default-tall.png)">
+          <?php } ?>
+            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+              <?php if (is_single()) { ?>
+                <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
+              <?php } else { ?>
+                <?php if( $dynamics->current_post%6 == 0 ) : ?>
+                  <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-wide.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
+                <?php elseif( $dynamics->current_post%6 ==4 ) : ?>
+                  <?php /* show non wide blank-image only on 768-992 so boxes adjust properly, using class "visible-xs-block" */ ?>
+                  <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-wide.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder hidden-sm" />
+                  <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder visible-sm-block" />
+                <?php else : ?>
+                  <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
+                <?php endif; ?>
+              <?php } ?>
+            </a>
+          </div>
+
+          <?php /* REUSED snippet to display title, category, subtitle */ ?>
+          <?php get_template_part('templates/snippet', 'feed-header'); ?>
+        </div><?php /* end news-item */ ?>
+      <?php } ?>
+
     </div>
 
     <?php /* insert advert if after the 1st post */ ?>
     <?php if($post_count == 1) { ?>
       <?php get_template_part('templates/advert-block-premium'); ?>
       <div class="clearfix visible-sm visible-md visible-lg"></div>
+      </div><?php /* close out the "table-row" div */ ?>
+      </div><?php /* close out the "first-post-advert-wrapper" div */ ?>
+      <div class="empty-wrapper"><?php /* open a new, basic container div so bootstrap column clears dont count advert wrapper in nth-child and break the layout */ ?>
     <?php } ?>
 
   <?php endwhile; ?>
+  </div><?php /* close empty wrapper */ ?>
 </div>
 
 <?php /* sponsored content */ ?>
@@ -110,7 +141,7 @@
     {
 
     ?>
-     <div class="col-xs-12 col-md-3">
+     <div class="col-xs-12 col-sm-6 col-md-3">
       <h3 class="archive-title">
       <?php echo $categories[0]->name; ?>
       </h3>
@@ -131,25 +162,29 @@
 
 <?php /* 3 bottom widgets */ ?>
 <div class="row bottom-widgets">
-  <div class="col-xs-12 col-sm-4">
+  <div class="col-xs-12 col-sm-6 col-md-4">
     <?php if ( is_active_sidebar( 'sidebar-homepage-agenda' ) ) : dynamic_sidebar( 'sidebar-homepage-agenda' ); endif; ?>
   </div>
 
-  <div class="col-xs-12 col-sm-4">
+  <div class="col-xs-12 col-sm-6 col-md-4">
     <?php if ( is_active_sidebar( 'sidebar-homepage-socials' ) ) : dynamic_sidebar( 'sidebar-homepage-socials' ); endif; ?>
   </div>
 
-  <div class="col-xs-12 col-sm-4">
+  <div class="col-xs-12 col-sm-12 col-md-4">
     <div class="widget">
       <h3 class="widget-title">Join DAMn +</h3>
-      <?php if(get_field('join_damn_plus_image', 'option')) { ?>
         <div class="join-damn-plus-home-image">
           <?php $joinimage = wp_get_attachment_image_src(get_field('join_damn_plus_image', 'option'), 'full'); ?>
+          <?php $joinimagewide = wp_get_attachment_image_src(get_field('join_damn_plus_image_wide', 'option'), 'full'); ?>
           <a href="/join-damn-plus" title="Join DAMn Plus">
-            <img src="<?php echo $joinimage[0]; ?>" alt="Join DAMn Plus">
+            <?php if(get_field('join_damn_plus_image', 'option')) { ?>
+              <img src="<?php echo $joinimage[0]; ?>" alt="Join DAMn Plus" class="visible-md-block visible-lg-block">
+            <?php } ?>
+            <?php if(get_field('join_damn_plus_image_wide', 'option')) { ?>
+              <img src="<?php echo $joinimagewide[0]; ?>" alt="Join DAMn Plus" class="visible-xs-block visible-sm-block">
+            <?php } ?>
           </a>
         </div>
-      <?php } ?>
     </div>
   </div>
 </div>

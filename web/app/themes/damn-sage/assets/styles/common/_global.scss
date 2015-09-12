@@ -7,6 +7,10 @@ Author: Mike Lythcott
 GENERAL STYLES
 *********************/
 
+body, html {
+  height: 100%;
+}
+
 body {
   font-family: $sans-serif;
   font-weight: 400;
@@ -93,6 +97,10 @@ p {
 
 .floatLeft100 {
   @include floatleft100;
+}
+
+.noBackground {
+  background: none !important;
 }
 
 /* change border colour to suit your needs */

@@ -22,7 +22,7 @@ use Roots\Sage\Wrapper;
         <?php /* container enforces max-width */ ?>
         <div class="content container">
       <?php } else {?>
-        <div class="content">
+
       <?php } ?>
 
         <?php if (is_page('back-issues') || is_page('search')) { ?>
@@ -35,7 +35,7 @@ use Roots\Sage\Wrapper;
         <?php } ?>
 
         <main class="main" role="main">
-          <?php if (is_page('back-issues') || is_page('search')) { ?>
+          <?php if (is_page('search')) { ?>
             <div class="container">
               <?php include Wrapper\template_path(); ?>
             </div>

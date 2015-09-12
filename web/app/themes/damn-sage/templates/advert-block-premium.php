@@ -1,4 +1,4 @@
-<div class="news-item-wrapper col-xs-6 col-sm-4 advert advert-premium">
+<div class="news-item-wrapper col-xs-12 col-sm-4 advert advert-premium">
   <div class="news-item">
     <div class="post-image">
       <?php if (function_exists('adrotate_group')) echo adrotate_group(1); ?>

@@ -18,15 +18,7 @@ $url = $thumb['0'];
   </div>
 
   <header>
-    <div class="category-link">
-      <?php
-        $sep = '';
-        foreach ((get_the_category()) as $cat) {
-            echo $sep . '<a href="' . get_category_link($cat->term_id) . '"  class="' . $cat->slug . '" title="View all posts in '. esc_attr($cat->name) . '">' . $cat->cat_name . '</a>';
-            $sep = '';
-        }
-      ?>
-    </div>
+    <?php get_template_part('templates/snippet', 'category-link'); ?>
     <div class="entry-meta">
     <h1 class="entry-title"><?php the_title(); ?></h1>
     <?php if(get_field('sub-title')) { ?>

@@ -3,7 +3,7 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' 
 $url = $thumb['0'];
 ?>
 
-<div class="news-item-wrapper">
+<div class="news-item-wrapper <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
   <div class="news-item">
 
     <?php /* damn plus badge */ ?>
@@ -20,9 +20,7 @@ $url = $thumb['0'];
     </div>
 
     <header>
-      <div class="category-link">
-        <?php the_category(' '); ?>
-      </div>
+      <?php get_template_part('templates/snippet', 'category-link'); ?>
 
       <h3 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
     </header>
