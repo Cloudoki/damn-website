@@ -35,8 +35,10 @@
         </div>
 
         <div class="clearfix visible-sm-block"></div>
-
-        <div class="col-xs-6 col-sm-4 col-md-3">
+		
+		<div class="col-sm-0 col-md-1"></div>
+		
+        <div class="col-xs-6 col-sm-3 col-md-2">
           <h4>Socials</h4>
           <?php
           if (has_nav_menu('footer_socials')) :
@@ -45,7 +47,7 @@
           ?>
         </div>
 
-        <div class="col-xs-6 col-sm-4 col-md-3">
+        <div class="col-xs-6 col-md-3">
           <h4>Colophon</h4>
           <?php
           if (has_nav_menu('colophon')) :
