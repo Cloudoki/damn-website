@@ -29,21 +29,12 @@
       </div>
 
       <div class="row row-links">
-        <div class="col-xs-6 col-sm-12 col-md-3">
+        <div class="col-xs-12 col-sm-6 col-md-6">
           <h4>About Damn</h4>
           <?php the_field('about_damn', 'option'); ?>
         </div>
 
         <div class="clearfix visible-sm-block"></div>
-
-        <div class="col-xs-6 col-sm-4 col-md-3">
-          <h4>Information</h4>
-          <?php
-          if (has_nav_menu('footer_navigation')) :
-            wp_nav_menu(['theme_location' => 'footer_navigation', 'menu_class' => 'footer-nav list-unstyled']);
-          endif;
-          ?>
-        </div>
 
         <div class="col-xs-6 col-sm-4 col-md-3">
           <h4>Socials</h4>
