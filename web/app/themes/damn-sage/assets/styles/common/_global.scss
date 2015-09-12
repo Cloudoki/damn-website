@@ -149,6 +149,9 @@ body.single-calendar, body.tax-magazine, body.page {
     padding: 0 !important;
     overflow: hidden;
   }
+  img {
+    max-width: 100%;
+  }
 }
 
 body.home, body.archive {
@@ -168,7 +171,7 @@ body.single, body.tax-magazine, body.page {
   }
 }
 
-body.page-template-page-magazine {
+body.page-template-page-magazine, body.page-colofon, body.page-colophon {
   .main {
     margin: 0 auto !important;
   }
@@ -232,6 +235,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   line-height: 1.2;
   text-rendering: optimizelegibility;
   font-weight: 400;
+  margin-top: 0;
   a {
     text-decoration: none;
   }

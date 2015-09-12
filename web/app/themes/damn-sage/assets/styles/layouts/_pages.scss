@@ -81,10 +81,13 @@
 }
 
 // DAMN PLUS join page or login/summary page
-.join-damn-plus-info {
+.join-damn-plus-info, .subscribe-page {
   .magazine-cover {
     h3 {
       margin: .3em 0 1em;
+    }
+    .news-item {
+      margin-bottom: 1.5em;
     }
   }
   ol {
@@ -190,5 +193,20 @@ body.login {
   }
 }
 
+// Colophon
+
+.colophon {
+  .column-1, .column-2, .column-3, .column-4 {
+    word-wrap: break-word;
+  }
+  .column-1, .column-3 {
+    @media screen and (min-width: 992px) {
+      text-align: right;
+    }
+  }
+  .col-ms-6 {
+    width: 50% !important;
+  }
+}
 
 

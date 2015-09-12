@@ -25,7 +25,7 @@ use Roots\Sage\Wrapper;
 
       <?php } ?>
 
-        <?php if (is_page('back-issues') || is_page('search')) { ?>
+        <?php if (is_page('back-issues') || is_page('search') || is_page('colophon') || is_page('colofon')) { ?>
         <?php } elseif (is_tax( 'magazine' ) || is_page()) { ?>
           <?php if (Config\display_sidebar()) : ?>
             <aside class="sidebar" role="complementary">

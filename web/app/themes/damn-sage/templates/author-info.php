@@ -44,6 +44,7 @@
       <li><a href="<?php the_author_meta('author_instagram');?>" target="_blank" title="Author Instagram">Instagram</a> <span>&nbsp; /</span></li>
     <?php endif; ?>
   </ul>
+
   <?php /* author meta end */ ?>
 
   <div class="clearthis"></div>

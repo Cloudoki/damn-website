@@ -280,7 +280,9 @@ ul.social-nav {
   @include opacity(0);
   border-bottom: 1px solid $bordercolor;
   .container {
-    width: 100%;
+    @media screen and (max-width: 991px) {
+      width: 100%;
+    }
   }
   .main-navigation {
     padding: 0 !important;
