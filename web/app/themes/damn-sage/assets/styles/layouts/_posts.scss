@@ -432,7 +432,7 @@ body.single, body.page {
         font-size: 1.25em;
       }
       h1, h2, h3, h4, h5, h6 {
-        margin: 0 0 (18 / 24) * 1em 0;
+        margin: 0 0 (16 / 24) * 1em 0;
       }
       .title-header {
         border-bottom: 1px solid $bordercolor;
@@ -644,14 +644,28 @@ body.single-product {
     display: table-cell;
     height: 100%;
   }
-  .damn-plus-image-cta {
-    border-right: 1px solid $white;
-  }
+  .damn-plus-image-cta {}
   .damn-plus-cta-copy {
     padding-left: 20px !important;
     color: $white;
     @media screen and (min-width: 768px) {
       padding-left: 25px !important;
+      border-left: 1px solid $white;
+    }
+    h2 {
+      border-bottom: 1px solid $white;
+      padding-bottom: .5em;
+      font-weight: 700;
+      font-size: 2.5em;
+    }
+    ul {
+      li {
+        border-color: $white;
+        border-bottom: 1px solid rgba(255,255,255,0.3);
+        padding-bottom: .5em;
+        margin-bottom: .5em;
+        font-size: 1.2em;
+      }
     }
     .btn {
       margin-bottom: 1em;

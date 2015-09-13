@@ -35,7 +35,7 @@ hr {
 
 p {
   line-height: 1.5em;
-  margin-bottom: 1.5em;
+  margin-bottom: 1.4em;
 }
 
 .clearthis {
@@ -325,6 +325,16 @@ LISTS
 .list-unstyled {
   li {
     line-height: 2em;
+  }
+}
+
+ul, ol {
+  margin: 0 0 1.3em 0;
+  padding: 0;
+  list-style: none;
+  li {
+    list-style: none;
+    padding: .25em 0;
   }
 }
 

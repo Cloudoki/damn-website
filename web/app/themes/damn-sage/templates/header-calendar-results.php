@@ -5,7 +5,7 @@
 
 <div class="home-feature">
 
-  <?php get_template_part('templates/snippet', 'header-nav-only'); ?>
+  <?php get_template_part('templates/snippet', 'header-nav-items'); ?>
 
   <div class="title-wrapper">
     <h1 class="archive-title">
