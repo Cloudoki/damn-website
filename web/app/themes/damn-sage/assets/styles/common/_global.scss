@@ -57,6 +57,10 @@ p {
   margin-bottom: 1em !important;
 }
 
+.marginBottom15 {
+  margin-bottom: 1.5em !important;
+}
+
 .marginTop {
   margin-top: 1em !important;
 }
@@ -328,13 +332,15 @@ LISTS
   }
 }
 
-ul, ol {
-  margin: 0 0 1.3em 0;
-  padding: 0;
-  list-style: none;
-  li {
+.hentry {
+  ul, ol {
+    margin: 0 0 1.3em 0;
+    padding: 0;
     list-style: none;
-    padding: .25em 0;
+    li {
+      list-style: none;
+      padding: .25em 0;
+    }
   }
 }
 

@@ -196,6 +196,12 @@ body.login {
 // Colophon
 
 .colophon {
+  margin-bottom: 1.5em;
+  .contributor-names {
+    span {
+      display: block;
+    }
+  }
   .column-1, .column-2, .column-3, .column-4 {
     word-wrap: break-word;
   }
