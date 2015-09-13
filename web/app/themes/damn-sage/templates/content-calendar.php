@@ -1,4 +1,6 @@
 <?php
+global $issue_color;
+
 $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' );
 $url = $thumb['0'];
 ?>
@@ -27,7 +29,7 @@ $url = $thumb['0'];
   <?php if ( has_post_thumbnail()) { ?>
     <div class="post-image" style="background-image:url(<?=$url?>);">
   <?php } else { ?>
-    <div class="post-image" style="background-color: #<?php the_field('issue_number_color', 'option'); ?>">
+    <div class="post-image" style="background-color: <?=$issue_color?>">
   <?php } ?>
     <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
       <?php if ( has_post_thumbnail()) { ?>
