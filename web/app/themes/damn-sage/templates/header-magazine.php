@@ -28,6 +28,34 @@ $header_highlight = get_field ('header_highlight', $issue_acf_id);
 $header_subtitle = get_field ('header_subtitle', $issue_acf_id);
 
 ?>
+	<?php /*-- style all colors based on issue # color --*/ ?>
+	<style type="text/css" media="screen">
+		a, a:visited, #menu-main-nav a span {
+			color: <?=$issue_color?>;
+		}
+		.btn-default, .btn-primary, body.damn-plus .title-wrapper, body.category-damn-plus .title-wrapper, body.login .main h3.widget-title {
+			background-color: <?=$issue_color?>;
+			color: #fff !important;
+		}
+		.btn:hover {
+			background-color: inherit;
+		}
+		.color-box, .damn-plus-badge, .join-damn-plus-home-image, .damn-plus-cta, .page-featured-image, .news-item-wrapper.damn-plus .news-item, .single-news-item {
+			background-color: <?=$issue_color?>;
+		}
+		.category-link .damn-plus {
+			border-color: <?=$issue_color?> !important;
+			background-color: <?=$issue_color?>;
+			color: #fff !important;
+		}
+		.category-link .damn-plus:hover {
+			background-color: <?=$issue_color?> !important;
+			color: #000 !important;
+		}
+		body.damn-plus .title-wrapper h1, body.category-damn-plus .title-wrapper h1 {
+			border-color: #fff;
+		}
+	</style>
 
 	<div class="home-feature<?=$contrast? ' black-text': null?>">
 		<div class="single-news-item">
