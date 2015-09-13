@@ -21,7 +21,7 @@ Template Name: Colophon
 
         <?php
         // Get all users order by amount of posts
-        $allUsers = get_users('orderby=post_count&order=DESC&showposts=15');
+        $allUsers = get_users('orderby=post_count&order=DESC&number=15');
         $users = array();
 
         // Remove subscribers from the list as they won't write any articles
@@ -37,13 +37,22 @@ Template Name: Colophon
         </h3>
 
         <div class="contributor-names">
-          <?php foreach($users as $user) { ?>
-            <span>
-              <a href="<?php echo get_author_posts_url( $user->ID ); ?>" title="Read Articles">
-                <?php echo $user->display_name; ?>
-              </a>
-            </span>
-          <?php } ?>
+          <?php foreach($users as $user) {
+            $contributor = new WP_Query(array(
+              'number'=>15
+            ));
+            $userlink = get_author_posts_url( $user->ID );
+            $firstName = get_user_meta($user->ID, 'first_name', true);
+            $lastName = get_user_meta($user->ID, 'last_name', true);
+            echo '<span>';
+            echo '<a href="'.$userlink.'" title="Contributor">';
+            echo "$firstName";
+            echo " $lastName";
+            echo '</a>';
+            echo '</span>';
+
+          } ?>
+
           <a href="/colophon/contributors/" title="All Contributors" class="btn btn-primary marginTop marginBottom15">All Contributors</a>
         </div>
 

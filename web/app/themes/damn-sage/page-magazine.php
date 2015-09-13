@@ -19,12 +19,16 @@ Template Name: Magazine taxonomy
       'taxonomy'=>'magazine',
       'term' => $magazine->slug
     ));
+    $issue_acf_id = 'magazine_' . $magazine->term_id;
     $link = get_term_link(intval($magazine->term_id),'magazine');
     $image_url = get_template_directory_uri();
     $magazineimage = wp_get_attachment_image_src(get_field('magazine_taxonomy_image', $magazine->taxonomy.'_'.$magazine->term_id), 'full');
+    $positivenegative = the_field('colour_scheme');
+    $contrast = get_field ('colour_scheme', $issue_acf_id);
+
     echo "<div class='news-item-wrapper col-xs-6 col-sm-4 col-md-3'>";
       echo "<div class='news-item'>";
-        echo '<div class="post-image" style="background-image:url('.$magazineimage[0].');">';
+        echo '<div class="post-image color-'.$contrast.'" style="background-image:url('.$magazineimage[0].');">';
           echo "<a href=\"{$link}\" title='{$magazine->name}'>";
             echo '<img src="'.$image_url.'/dist/images/blank-image-magazine.gif" alt="'.$magazine->name.'" class="placeholder" />';
           echo "</a>";
