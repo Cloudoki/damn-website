@@ -39,7 +39,7 @@ Template Name: Colophon
         <div class="contributor-names">
           <?php foreach($users as $user) { ?>
             <span>
-              <a href="<?php echo get_author_posts_url( $user->ID ); ?>" title="Read Articles" class="black-link">
+              <a href="<?php echo get_author_posts_url( $user->ID ); ?>" title="Read Articles">
                 <?php echo $user->display_name; ?>
               </a>
             </span>
