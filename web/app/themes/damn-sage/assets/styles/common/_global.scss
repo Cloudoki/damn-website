@@ -127,7 +127,9 @@ LAYOUT & GRID STYLES
   padding-bottom: 3em;
 }
 
-body.single-calendar, body.tax-magazine, body.page {
+// body[class*=" calendar-"] {}
+
+body.single-calendar, body.tax-magazine, body.page, body.post-type-archive-calendar {
   .wrap {
     margin-top: 2.5em;
   }
@@ -175,7 +177,7 @@ body.single, body.tax-magazine, body.page {
   }
 }
 
-body.page-template-page-magazine, body.page-colofon, body.page-colophon {
+body.page-template-page-magazine, body.page-colofon, body.page-colophon, body.page-search {
   .main {
     margin: 0 auto !important;
   }

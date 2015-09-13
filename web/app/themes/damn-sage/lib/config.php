@@ -54,8 +54,13 @@ function display_sidebar() {
       [
         'is_404',
         'is_front_page',
-        ['is_post_type_archive', ['post', 'calendar', 'magazines', 'product']],
-        ['is_page_template', 'template-custom.php']
+        'is_home',
+        ['is_post_type_archive', ['post', 'calendar', 'product']],
+        ['is_page_template', 'template-custom.php'],
+        ['is_page', 'back-issues'],
+        ['is_page', 'search'],
+        ['is_page', 'colophon'],
+        ['is_page', 'colofon']
       ]
     );
 

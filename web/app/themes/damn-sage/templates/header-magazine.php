@@ -5,15 +5,15 @@
  */
 global $issue, $issue_color, $issue_number;
 
-$issue = $_GET['issue']? 
-	
-	get_term_by('slug', preg_replace ("/[^A-Za-z0-9-]/", '', $_GET['issue']), 'magazine'): 
+$issue = $_GET['issue']?
+
+	get_term_by('slug', preg_replace ("/[^A-Za-z0-9-]/", '', $_GET['issue']), 'magazine'):
 	get_field ('current_issue', 'option');
 
 
 if (!$issue) $issue = get_field ('current_issue', 'option');
 if (!$issue)
-	
+
 	 throw new Exception('No current issue is set, please contact the DAMn° Moderator.');
 
 // Some dry data
@@ -28,10 +28,10 @@ $header_highlight = get_field ('header_highlight', $issue_acf_id);
 $header_subtitle = get_field ('header_subtitle', $issue_acf_id);
 
 ?>
-	
+
 	<div class="home-feature<?=$contrast? ' black-text': null?>">
 		<div class="single-news-item">
-		
+
 			<?php if ($header_image): ?>
 			<div class="post-image">
 				<a href="<?=$issue_link?>" rel="bookmark" title="<?=$header_highlight?>">
@@ -39,24 +39,24 @@ $header_subtitle = get_field ('header_subtitle', $issue_acf_id);
 				</a>
 			</div>
 			<?php endif; ?>
-		
+
 			<header>
 				<div class="container">
-					
+
 					<?php if ($issue_cat): ?>
 					<div class="category-link">
 						<a href="<?=get_category_link($issue_cat->term_id)?>"  class="<?=$issue_cat->slug?>" title="View all posts in <?=$issue_cat->name?>"><?=$issue_cat->name?></a>
-					</div>	
+					</div>
 					<? endif; ?>
-					
+
 					<h1 class="entry-title">
 						<a href="<?=$issue_link?>" rel="bookmark" title="<?=$header_highlight?>"><?=$header_highlight?></a>
 					</h1>
 					<h3 class="subtitle"><?=$header_subtitle?></h3>
-					
+
 				</div>
 			</header>
 		</div>
-		
+
 		<?php get_template_part('templates/snippet', 'header-nav'); ?>
 	</div>

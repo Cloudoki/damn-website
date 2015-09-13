@@ -42,13 +42,14 @@ a.main-logo {
     }
     li {
       a {
-        @media screen and (max-width: 767px) {
-          line-height: 30px;
-        }
+        // for color for black header, see .black-text below
         font-size: 1.25em;
         color: $white !important;
         @media screen and (min-width: 992px) {
           padding: 0 1em;
+        }
+        @media screen and (max-width: 767px) {
+          line-height: 30px;
         }
         @include opacity(0.7);
         &:hover {
@@ -110,6 +111,7 @@ body.home {
     .single-news-item {
       margin-bottom: -140px;
       max-height: 600px;
+      overflow: hidden;
       &:hover {
         header {
           background: none;
@@ -161,13 +163,23 @@ body.home {
       background: url("../images/damn-2X-black.png") no-repeat;
       background: url("../images/damn.svg") no-repeat;
     }
+
+    .social-navs {
+      ul.social-nav {
+        li {
+          a {
+            color: $black !important;
+          }
+        }
+      }
+    }
   }
 }
 
 .white-wrapper {
   background-color: $white;
   border-bottom: 1px solid $bordercolor;
-  border-top: 1px solid $black;
+  border-top: 1px solid $bordercolor;
 }
 
 .navbar-default {
@@ -302,7 +314,15 @@ ul.nav {
   }
 }
 
-// main nav
+body.page-search {
+  ul.nav li.search.active {
+    a {
+      border-right: 0 !important;
+    }
+  }
+}
+
+// social nav
 ul.social-nav {
   li {
     @include blockfloat;
@@ -432,7 +452,7 @@ body.logged-in {
 }
 
 /* title wrapper - alternate behavior on page and taxonomy terms */
-body.tax-magazine, body.page {
+body.tax-magazine, body.page, body.post-type-archive-calendar, body[class^="calendar-"], body[class*=" calendar-"] {
   .title-wrapper {
     padding-bottom: 2em;
     border-bottom: 1px solid $bordercolor;

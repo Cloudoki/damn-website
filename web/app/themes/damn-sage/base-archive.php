@@ -18,25 +18,29 @@ use Roots\Sage\Wrapper;
     ?>
 
     <div class="wrap" role="document">
-      <?php if (is_tax( 'magazine' ) || is_page() || is_post_type_archive('calendar')) { ?>
+      <?php if (is_tax( 'magazine' ) || is_post_type_archive('calendar')) { ?>
         <?php /* container enforces max-width */ ?>
           <div class="content container">
         <?php } else { ?>
           <div class="content">
         <?php } ?>
 
-        <?php if (is_tax( 'magazine' ) || is_page()) { ?>
+        <?php if (is_tax( 'magazine' ) || is_post_type_archive('calendar')) { ?>
           <?php if (Config\display_sidebar()) : ?>
             <aside class="sidebar" role="complementary">
-              <?php include Wrapper\sidebar_path(); ?>
+              <?php if (is_post_type_archive('calendar')) { ?>
+                <?php include Wrapper\sidebar_calendar_path(); ?>
+              <?php } else { ?>
+                <?php include Wrapper\sidebar_path(); ?>
+              <?php } ?>
             </aside><!-- /.sidebar -->
           <?php endif; ?>
         <?php } ?>
 
         <main class="main" role="main">
-          <?php if (is_tax( 'magazine' ) || is_page() || is_post_type_archive('calendar')) { ?>
+          <?php if (is_tax( 'magazine' ) || is_post_type_archive('calendar')) { ?>
             <?php /* these pages do not need a "container" div */ ?>
-            <?php include Wrapper\template_path(); ?>
+            <?php include Wrapper\template_path('page'); ?>
           <?php } else {?>
             <div class="container">
               <?php include Wrapper\template_path(); ?>

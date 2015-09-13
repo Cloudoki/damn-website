@@ -1,6 +1,5 @@
 .sidebar {
   margin: 0 0 2.5em 0;
-  // border-top: 1px solid $bordercolor;
   @media (min-width: $screen-sm-min) {
     width: 320px;
     float: right;
@@ -59,10 +58,8 @@ h3.widget-title-black {
 
 .sidebar {
   .widget {
-    border-bottom: 1px solid $bordercolor;
     h3.widget-title, h3.widget-title-black, h3 {
       padding: (16 / 16) * 1em;
-      border-bottom: 1px solid $bordercolor;
     }
   }
 }
@@ -108,7 +105,7 @@ h3.widget-title-black {
 }
 
 
-// latest articles & calendar // latest calendar specific items below
+// Latest articles & calendar // latest calendar specific items below
 
 .latest-articles-list, .latest-calendar-list {
   margin-bottom: 0;
@@ -144,10 +141,11 @@ h3.widget-title-black {
   }
 }
 
-// productivity page - sidebar
+// Productivity page - sidebar
 .sidebar {
   .product-info {
     border: 0;
+    border-top: 1px solid $bordercolor;
     border-bottom: 1px solid $bordercolor;
     padding: 1.5em 1.5em 2em 1.5em;
     background-color: $lightestgray;
@@ -166,6 +164,19 @@ h3.widget-title-black {
   }
 }
 
-
+// Calendar Archive (only for sidebar search widget)
+.sidebar {
+  .searchandfilter {
+    ul li li {
+      border: 0 !important;
+    }
+    .datepicker {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 10px;
+      font-size: 1.25em;
+    }
+  }
+}
 
 
