@@ -15,9 +15,8 @@
 
         <?php } else { ?>
           <?php /* else display excerpt or content above the more tag and the CTA to subscribe */ ?>
-          <?php if(strpos(get_the_content(),'id="more-')) :
-          global $more; $more = 0;
-          the_content(''); ?>
+          <?php if(strpos(get_the_content(),'id="more-')) : global $more; $more = 0; the_content(''); ?>
+          <?php else : the_excerpt(''); ?>
           <?php endif; ?>
 
           <?php /* CTA */ ?>

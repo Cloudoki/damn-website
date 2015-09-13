@@ -17,15 +17,15 @@ $header_subtitle = get_field ('header_subtitle', $issue_acf_id);
 ?>
 
 	<div class="home-feature<?=$contrast? ' black-text': null?>">
+		<?php if ($header_image): ?>
 		<div class="single-news-item">
 
-			<?php if ($header_image): ?>
+
 			<div class="post-image">
 				<a href="<?=$issue_link?>" rel="bookmark" title="<?=$header_highlight?>">
 					<img src="<?=$header_image?>" alt="<?=$issue->name?>" />
 				</a>
 			</div>
-			<?php endif; ?>
 
 			<header>
 				<div class="container">
@@ -44,6 +44,7 @@ $header_subtitle = get_field ('header_subtitle', $issue_acf_id);
 				</div>
 			</header>
 		</div>
+		<?php endif; ?>
 
 		<?php get_template_part('templates/snippet', 'header-nav'); ?>
 	</div>

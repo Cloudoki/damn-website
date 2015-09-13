@@ -26,7 +26,7 @@ Template Name: Magazine taxonomy
     $positivenegative = the_field('colour_scheme');
     $contrast = get_field ('colour_scheme', $issue_acf_id);
 
-    echo "<div class='news-item-wrapper col-xs-6 col-sm-4 col-md-3'>";
+    echo "<div class='news-item-wrapper col-xs-6 col-sm-4 col-md-3 col-lg-3'>";
       echo "<div class='news-item'>";
         echo '<div class="post-image color-'.$contrast.'" style="background-image:url('.$magazineimage[0].');">';
           echo "<a href=\"{$link}\" title='{$magazine->name}'>";
