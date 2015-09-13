@@ -10,7 +10,7 @@
   // Get home fillament stream
   $dynamics = new WP_Query(
   [
-    'posts_per_page' => 30,
+    'posts_per_page' => 40,
     'post_type' => array ('post','calendar'),
   ]);
 
@@ -102,6 +102,19 @@
   <?php endwhile; ?>
   </div><?php /* close empty wrapper */ ?>
 </div>
+
+<style>
+	.sponsored-content-wrapper .advert.middle 	{
+		background-color: black !important;
+		position: relative;
+		padding: 12px;
+	}
+	
+	.sponsored-content-wrapper .advert.middle img	{
+		width: auto;
+		height: auto;
+	}
+</style>
 
 <?php /* sponsored content */ ?>
 <div class="row sponsored-content-wrapper">
