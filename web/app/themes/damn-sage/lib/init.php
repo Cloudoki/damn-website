@@ -103,7 +103,7 @@ function widgets_init() {
     'name'          => __('Calendar Page', 'sage'),
     'id'            => 'sidebar-calendar-page-filter',
     'before_widget' => '<section class="widget %1$s %2$s">',
-    'after_widget'  => '</section>',
+    'after_widget'  => '<span class="back-to-calendar pull-right"><a href="/calendar" title="Back to all Calendar events" class="btn btn-primary text-uppercase"><i class="fa fa-arrow-left"></i> Back To All</a></span><div class="clearthis"></div></section>',
     'before_title'  => '<h3 class="widget-title">',
     'after_title'   => '</h3>'
   ]);

@@ -22,14 +22,13 @@ Template Name: Calendar Search Results
       <div class="content container">
         <main class="main calendar-results" role="main">
 
-          <?php if (!have_posts()) : ?>
-            <div class="alert alert-warning">
-              <?php _e('Sorry, no results were found.', 'sage'); ?>
-            </div>
-            <?php get_search_form(); ?>
-          <?php endif; ?>
-
           <?php if ( is_active_sidebar( 'sidebar-calendar-page-filter' ) ) : dynamic_sidebar( 'sidebar-calendar-page-filter' ); endif; ?>
+
+          <?php if (!have_posts()) : ?>
+            <div class="alert alert-warning text-center">
+              <?php _e('Sorry, no results were found. Try another search or <a href="/calendar" title="Back to all Calendar items">go back to all Calendar items</a>.', 'sage'); ?>
+            </div>
+          <?php endif; ?>
 
           <div class="row">
             <?php if (have_posts()) : ?>
