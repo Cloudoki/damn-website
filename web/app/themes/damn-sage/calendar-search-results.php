@@ -1,6 +1,7 @@
 <?php
-use Roots\Sage\Config;
-use Roots\Sage\Wrapper;
+/*
+Template Name: Calendar Search Results
+*/
 ?>
 
 <!doctype html>
