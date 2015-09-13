@@ -7,7 +7,7 @@
   <div class="header-wrapper">
     <div class="container">
       <a class="main-logo" href="/">DAMn MAGAZINE - <?php bloginfo('name'); ?></a>
-      <span class="issue-number" style="color: <?=$issue_color?>"><?=$issue_number</span>
+      <span class="issue-number" style="color: <?=$issue_color?>"><?=$issue_number?></span>
       <div class="pull-right social-navs">
         <?php
         if (has_nav_menu('header_socials')) :
