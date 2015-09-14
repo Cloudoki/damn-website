@@ -27,13 +27,18 @@ use Roots\Sage\Wrapper;
     <div class="wrap" role="document">
       <div class="content single-content container">
         <?php if (Config\display_sidebar()) : ?>
-          <aside class="sidebar" role="complementary">
+          <aside class="sidebar visible-sm-block visible-md-block visible-lg-block" role="complementary">
             <?php include Wrapper\sidebar_path(); ?>
           </aside><!-- /.sidebar -->
         <?php endif; ?>
         <main class="main" role="main">
           <?php include Wrapper\template_path(); ?>
         </main><!-- /.main -->
+        <?php if (Config\display_sidebar()) : ?>
+          <aside class="sidebar visible-xs-block" role="complementary">
+            <?php include Wrapper\sidebar_path(); ?>
+          </aside><!-- /.sidebar -->
+        <?php endif; ?>
         <div class="clearfix"></div>
       </div><!-- /.content -->
 
