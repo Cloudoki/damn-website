@@ -21,7 +21,7 @@ Template Name: Colophon
 
         <?php
         // Get all users order by amount of posts
-        $allUsers = get_users('orderby=display_name&number=15');
+        $allUsers = get_users('orderby=display_name');
         $users = array();
         // Remove subscribers from the list as they won't write any articles
         foreach($allUsers as $currentUser) {
@@ -35,6 +35,7 @@ Template Name: Colophon
           Contributors
         </h3>
 
+        <!-- Contributors list -->
         <div class="contributor-names">
           <?php foreach($users as $user) { ?>
             <span>
@@ -46,6 +47,7 @@ Template Name: Colophon
 
           <a href="/colophon/contributors/" title="All Contributors" class="btn btn-primary marginTop marginBottom15">All Contributors</a>
         </div>
+        <!-- End Contributors list -->
 
         <?php if(get_field('column_1')) { ?>
           <?php the_field('column_1'); ?>
