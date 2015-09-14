@@ -29,9 +29,15 @@ class DAMn {
 	 */
 	public static function filter_on_issue ($query)
 	{
-		if ($issue = (int) $_GET['issue'])
+		$issue = preg_replace ("/[^A-Za-z0-9-]/", '', $_GET['issue']);
+		
+		if ($issue && !is_admin() && $query->is_main_query())
 		{
-			// $query->
+			$query->set ('tax_query', [
+				'taxonomy' => 'magazine',
+	            'field' => 'slug',
+	            'terms' => array( $issue )
+			]);
 		}
 	}
 
