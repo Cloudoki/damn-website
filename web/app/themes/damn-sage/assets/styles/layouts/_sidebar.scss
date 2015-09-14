@@ -16,6 +16,12 @@
   }
 }
 
+.sidebar.is_stuck, .is_stuck {
+  @media screen and (max-width: 767px {
+    position: relative !important;
+  }
+}
+
 .sidebar, .widget {
   ul, ol {
     list-style: none;

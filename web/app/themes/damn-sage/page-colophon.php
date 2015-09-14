@@ -21,7 +21,7 @@ Template Name: Colophon
 
         <?php
         // Get all users order by amount of posts
-        $allUsers = get_users('orderby=display_name&number=15');
+        $allUsers = get_users('orderby=post_count&number=15');
         $users = array();
         // Remove subscribers from the list as they won't write any articles
         foreach($allUsers as $currentUser) {
