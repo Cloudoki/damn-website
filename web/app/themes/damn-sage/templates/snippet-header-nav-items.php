@@ -1,13 +1,15 @@
-<?php /* Begin actual header/navigation */ 
+<?php /* Begin actual header/navigation */
 	global $issue_color, $issue_number;
 ?>
-
 
 <header class="banner navbar navbar-default navbar-static-top" role="banner">
   <div class="header-wrapper">
     <div class="container">
-      <a class="main-logo" href="/">DAMn MAGAZINE - <?php bloginfo('name'); ?></a>
-      <span class="issue-number" style="color: <?=$issue_color?>"><?=$issue_number?></span>
+      <div class="pull-left">
+        <a class="main-logo" href="/">DAMn MAGAZINE - <?php bloginfo('name'); ?></a>
+        <span class="issue-number" style="color: <?=$issue_color?>"><?=$issue_number?></span>
+      </div>
+
       <div class="pull-right social-navs">
         <?php
         if (has_nav_menu('header_socials')) :
