@@ -16,7 +16,11 @@ $header_subtitle = get_field ('header_subtitle', $issue_acf_id);
 
 ?>
 
-	<div class="home-feature<?=$contrast? ' black-text': null?>">
+	<?php if (is_home() && (!$header_image)): ?>
+		<div class="home-feature nothing">
+	<?php else : ?>
+		<div class="home-feature<?=$contrast? ' black-text': null?>">
+	<?php endif; ?>
 		<?php if ($header_image): ?>
 		<div class="single-news-item">
 
