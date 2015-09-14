@@ -1,5 +1,5 @@
 <?php /* Begin actual header/navigation */
-	global $issue_color, $issue_number;
+	global $issue, $issue_color, $issue_number;
 ?>
 
 <header class="banner navbar navbar-default navbar-static-top" role="banner">
@@ -8,6 +8,31 @@
       <div class="pull-left">
         <a class="main-logo" href="/">DAMn MAGAZINE - <?php bloginfo('name'); ?></a>
         <span class="issue-number" style="color: <?=$issue_color?>"><?=$issue_number?></span>
+        <?php /* toggle selector for issues */ ?>
+        <ul id="issue-selector" class="nav navbar-nav">
+          <li id="" class="dropdown">
+            <a title="Select An Issue" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">
+              <i class="fa fa-chevron-up"></i>
+              <i class="fa fa-chevron-down"></i>
+            </a>
+            <ul role="" class=" dropdown-menu">
+
+              <?php
+                $tax = 'magazine';
+                $tax_args = array(
+                  'orderby' => 'ID',
+                  'order' => 'DESC'
+                );
+                $magazines = get_terms( $tax, $tax_args );
+                foreach($magazines as $magazine) {
+                  $issue_color = get_field('issue_color', $magazine->taxonomy.'_'.$magazine->term_id);
+                  echo '<li style="background-color: ' . $issue_color . '"><a href="/?issue=' . $magazine->slug . '" title="">'. $magazine->name .'</a></li>';
+                }
+              ?>
+
+            </ul>
+          </li>
+        </ul>
       </div>
 
       <div class="pull-right social-navs">

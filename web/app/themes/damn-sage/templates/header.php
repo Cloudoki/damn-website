@@ -32,7 +32,7 @@ $issue_number = get_field ('magazine_number', $issue_acf_id);
 	a, a:visited, #menu-main-nav a span {
 		color: <?=$issue_color?>;
 	}
-	.btn-default, .btn-primary, body.damn-plus .title-wrapper, body.category-damn-plus .title-wrapper, body.login .main h3.widget-title {
+	.btn-default, .btn-primary, body.damn-plus .title-wrapper, body.category-damn-plus .title-wrapper, body.login .main h3.widget-title, .back-to-calendar a.btn-primary {
 		background-color: <?=$issue_color?>;
 		color: #fff !important;
 	}
@@ -60,7 +60,7 @@ $issue_number = get_field ('magazine_number', $issue_acf_id);
 <?php if (is_home()): ?>
 
 	<?php get_template_part('templates/header', 'magazine'); // or 'event' ?>
-	
+
 <?php else: ?>
 
 	<div class="home-feature">

@@ -499,12 +499,46 @@ ul#issue-selector {
   width: auto !important;
   border: 0 !important;
   li.dropdown {
-    a {
-      padding: 0 1em 0em 1em !important;
-      line-height: 55px !important;
-      display: block !important;
+    border: 0 !important;
+    a.dropdown-toggle {
+      padding: 0 10px 0 15px !important;
+      margin: 16px 0 0 0 !important;
+      width: 45px !important;
+      height: 60px !important;
+      line-height: 30px !important;
       border: 0 !important;
-      margin-top: 17px !important;
+      color: $white !important;
+      &:hover {
+        border: 0 !important;
+        opacity: 0.5;
+      }
+    }
+    ul.dropdown-menu {
+      top: 30% !important;
+      left: 50px !important;
+      width: 374px !important;
+      text-align: center;
+      li {
+        border: 0 !important;
+        width: 124px !important;
+        float: left !important;
+        a {
+          border: 0 !important;
+        }
+      }
+    }
+  }
+}
+
+.black-text {
+  ul#issue-selector {
+    li.dropdown {
+      a.dropdown-toggle {
+        color: $black !important;
+        &:hover {
+          opacity: 0.5;
+        }
+      }
     }
   }
 }

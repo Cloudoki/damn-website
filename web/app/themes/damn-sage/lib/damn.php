@@ -30,7 +30,7 @@ class DAMn {
 	public static function filter_on_issue ($query)
 	{
 		$issue = preg_replace ("/[^A-Za-z0-9-]/", '', $_GET['issue']);
-		
+
 		if ($issue && !is_admin() && $query->is_main_query())
 		{
 			$query->set ('tax_query', [
