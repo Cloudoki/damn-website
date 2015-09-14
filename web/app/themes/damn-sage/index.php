@@ -12,6 +12,8 @@
   [
     'posts_per_page' => 40,
     'post_type' => array ('post','calendar'),
+    'orderby' => 'post_date',
+	'order' => 'DESC'
   ]);
 
 ?>
