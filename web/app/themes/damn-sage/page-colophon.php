@@ -2,6 +2,8 @@
 /*
 Template Name: Colophon
 */
+
+global $issue;
 ?>
 
 <?php while (have_posts()) : the_post(); ?>
@@ -36,16 +38,41 @@ Template Name: Colophon
         </h3>
 
         <div class="contributor-names">
-          <?php foreach($users as $user) { ?>
-            <span>
-              <a href="<?php echo get_author_posts_url( $user->ID ); ?>" title="Read Articles" class="black-link">
-                <?php echo $user->display_name; ?>
-              </a>
-            </span>
-          <?php } ?>
+
+          <?php foreach($users as $user) {
+            $issue = preg_replace ("/[^A-Za-z0-9-]/", '', $_GET['issue']);
+
+            if ($issue && !is_admin())
+            {
+              $query->set ('tax_query', [
+                'taxonomy' => 'magazine',
+                      'field' => 'slug',
+                      'terms' => array( $issue )
+              ]);
+            }
+
+            $userlink = get_author_posts_url( $user->ID );
+            $firstName = get_user_meta($user->ID, 'first_name', true);
+            $lastName = get_user_meta($user->ID, 'last_name', true);
+            echo '<span>';
+            echo '<a href="'.$userlink.'" title="Contributor">';
+            echo "$firstName";
+            echo " $lastName";
+            echo '</a>';
+            echo '</span>';
+
+          } ?>
 
           <a href="/colophon/contributors/" title="All Contributors" class="btn btn-primary marginTop marginBottom15">All Contributors</a>
         </div>
+
+
+
+
+
+
+
+
 
         <?php if(get_field('column_1')) { ?>
           <?php the_field('column_1'); ?>
