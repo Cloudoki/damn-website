@@ -21,7 +21,7 @@ Template Name: Colophon
 
         <?php
         // Get all users order by amount of posts
-        $allUsers = get_users('orderby=post_count&order=DESC&number=15');
+        $allUsers = get_users('orderby=display_name&number=15');
         $users = array();
 
         // Remove subscribers from the list as they won't write any articles
@@ -37,26 +37,16 @@ Template Name: Colophon
         </h3>
 
         <div class="contributor-names">
-          <?php foreach($users as $user) {
-            $contributor = new WP_Query(array(
-              'number'=>15
-            ));
-            $userlink = get_author_posts_url( $user->ID );
-            $firstName = get_user_meta($user->ID, 'first_name', true);
-            $lastName = get_user_meta($user->ID, 'last_name', true);
-            echo '<span>';
-            echo '<a href="'.$userlink.'" title="Contributor">';
-            echo "$firstName";
-            echo " $lastName";
-            echo '</a>';
-            echo '</span>';
-
-          } ?>
+          <?php foreach($users as $user) { ?>
+            <span>
+              <a href="<?php echo get_author_posts_url( $user->ID ); ?>" title="Read Articles" class="black-link">
+                <?php echo $user->display_name; ?>
+              </a>
+            </span>
+          <?php } ?>
 
           <a href="/colophon/contributors/" title="All Contributors" class="btn btn-primary marginTop marginBottom15">All Contributors</a>
         </div>
-
-
 
         <?php if(get_field('column_1')) { ?>
           <?php the_field('column_1'); ?>
@@ -92,3 +82,40 @@ Template Name: Colophon
   </div>
 
 <?php endwhile; ?>
+
+
+
+<article <?php post_class(''); ?>>
+  <?php /* display normal content, if it exists */ ?>
+  <?php while (have_posts()) : the_post(); ?>
+    <?php the_content(); ?>
+  <?php endwhile; ?>
+
+  <?php /* query to show all users */ ?>
+  <?php
+  // Get all users order by amount of posts
+  $allUsers = get_users('orderby=display_name&order=DESC&show_full');
+  $users = array();
+
+  // Remove subscribers from the list as they won't write any articles
+  foreach($allUsers as $currentUser) {
+    if(!in_array( 'subscriber', $currentUser->roles )) {
+      $users[] = $currentUser;
+    }
+  }
+  ?>
+
+  <footer class="contributors-list">
+    <?php foreach($users as $user) { ?>
+    <?php $firstName = get_user_meta($user->ID, 'first_name', true); ?>
+    <?php $lastName = get_user_meta($user->ID, 'last_name', true); ?>
+
+      <a href="<?php echo get_author_posts_url( $user->ID ); ?>" title="Read Articles" class="black-link">
+        <?php /* display name as what's selected in Display name as setting
+        <?php echo $user->display_name; ?>
+        */ ?>
+        <?php echo $firstName; ?> <?php echo $lastName; ?>
+      </a>
+    <?php } ?>
+  </footer>
+</article>

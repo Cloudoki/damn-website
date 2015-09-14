@@ -13,7 +13,7 @@ Template Name: Contributors
   <?php /* query to show all users */ ?>
   <?php
   // Get all users order by amount of posts
-  $allUsers = get_users('orderby=post_count&order=DESC&show_fullname=true');
+  $allUsers = get_users('orderby=display_name');
   $users = array();
 
   // Remove subscribers from the list as they won't write any articles
@@ -26,8 +26,6 @@ Template Name: Contributors
 
   <footer class="contributors-list">
     <?php foreach($users as $user) { ?>
-    <?php $firstName = get_user_meta($user->ID, 'first_name', true); ?>
-    <?php $lastName = get_user_meta($user->ID, 'last_name', true); ?>
 
       <div class="author-wrapper">
         <div class="author-info">
@@ -46,10 +44,7 @@ Template Name: Contributors
           <div class="author-meta">
             <h3>
               <a href="<?php echo get_author_posts_url( $user->ID ); ?>" title="Read Articles" class="black-link">
-                <?php /* display name as what's selected in Display name as setting
                 <?php echo $user->display_name; ?>
-                */ ?>
-                <?php echo $firstName; ?> <?php echo $lastName; ?>
               </a>
             </h3>
             <p class="authorDescrption"><?php echo get_user_meta($user->ID, 'description', true); ?></p>
