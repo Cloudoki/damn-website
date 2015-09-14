@@ -28,3 +28,17 @@ footer.content-info {
     }
   }
 }
+
+.footer-wrap {
+  ul {
+    li {
+      line-height: 16px;
+      padding: 0 0 1em 0;
+      .fa {
+        width: 1.6em;
+        display: block;
+        float: right;
+      }
+    }
+  }
+}

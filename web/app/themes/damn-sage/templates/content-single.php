@@ -6,7 +6,7 @@
 
     <div class="entry-content">
 
-      <?php /* If is in DAMn Plus category, decide to show content IF user is logged in with an account, or else, CTA.. else, all other categories, display normal content */ ?>
+      <?php /* If is in DAMn + category, decide to show content IF user is logged in with an account, or else, CTA.. else, all other categories, display normal content */ ?>
       <?php if (in_category('damn-plus')) { ?>
 
         <?php if (current_user_can("access_s2member_level1")){ ?>
@@ -22,12 +22,12 @@
           <?php /* CTA */ ?>
           <div class="damn-plus-cta">
             <div class="col-xs-12 col-sm-4 damn-plus-image-cta">
-              <a href="/join-damn-plus" title="Join DAMn Plus">
-                <img src="<?= get_template_directory_uri(); ?>/dist/images/damn-join-box-boxed.png" alt="Join DAMn Plus" class="placeholder" />
+              <a href="/join-damn-plus" title="Join DAMn +">
+                <img src="<?= get_template_directory_uri(); ?>/dist/images/damn-join-box-boxed.png" alt="Join DAMn +" class="placeholder" />
               </a>
             </div>
             <div class="col-xs-12 col-sm-8 damn-plus-cta-copy">
-              <h2>Dear DAMn reader,<br /><span style="font-size: 80%;">This is a <strong>DAMN+</strong> article.</span></h2>
+              <h2>Dear DAMn reader,<br /><span style="font-size: 80%;">This is a <strong>DAMN +</strong> article.</span></h2>
               <p>
                 With a subscription, you get unlimited access to:
 
@@ -40,7 +40,7 @@
 
                 <h3><strong>Subscribe for just € 5 / month</strong>, and get two months on the house.</h3>
               </p>
-              <a href="/join-damn-plus" class="btn btn-default btn-lg" role="button" title="Join DAMn Plus">JOIN DAMn PLUS</a>
+              <a href="/join-damn-plus" class="btn btn-default btn-lg" role="button" title="Join DAMn +">JOIN DAMn +</a>
             </div>
           </div>
         <?php } ?>

@@ -36,7 +36,7 @@
 
 		    <div class="col-xs-12 col-sm-1 col-md-1"></div>
 
-        <div class="col-xs-6 col-sm-3 col-md-2">
+        <div class="col-xs-6 col-sm-3 col-md-2 text-right">
           <h4>Socials</h4>
           <?php
           if (has_nav_menu('footer_socials')) :
@@ -45,7 +45,7 @@
           ?>
         </div>
 
-        <div class="col-xs-6 col-sm-3 col-md-3">
+        <div class="col-xs-6 col-sm-3 col-md-3 text-right">
           <h4>Colophon</h4>
           <?php
           if (has_nav_menu('colophon')) :
