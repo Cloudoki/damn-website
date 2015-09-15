@@ -7,32 +7,54 @@
 
 <?php
 
-  if ($issue) {
-    $dynamics = new WP_Query(
-    [
-      'posts_per_page' => 60,
-      'post_type' => array ('post','calendar'),
-      'orderby' => 'post_date',
-      'order' => 'DESC',
-      // if issue filter, restrict post to only issue posts
-      'tax_query' => array(
-        array(
-          'taxonomy' => 'magazine',
-          'terms'    => $issue,
-        ),
-      ),
-
-    ]);
-
-  } else {
-    $dynamics = new WP_Query(
-    [
-      'posts_per_page' => 60,
-      'post_type' => array ('post','calendar'),
-      'orderby' => 'post_date',
-      'order' => 'DESC',
-    ]);
-  }
+	/**
+	 *	Issue filtering.
+	 *
+	 *	If issue string parameter is provided,
+	 *	show only connected posts and calendars.
+	 */
+	$main_query = [
+		'posts_per_page' => 75,
+		'post_type' => array ('post','calendar'),
+		'orderby' => 'post_date',
+		'order' => 'DESC'
+	];
+	
+	if ($_GET['issue'])
+		$main_query['tax_query'][] = [
+			'taxonomy' => 'magazine',
+			'field' => 'slug',
+			'terms' => [$issue->slug]
+		];
+	
+	$dynamics = new WP_Query($main_query);
+	
+	/*
+	if ($_GET['issue']) {
+		$dynamics = new WP_Query(
+		[
+			'posts_per_page' => 75,
+			'post_type' => array ('post','calendar'),
+			'orderby' => 'post_date',
+			'order' => 'DESC',
+			// if issue filter, restrict post to only issue posts
+			'tax_query' => array(
+				array(
+					'taxonomy' => 'magazine',
+					'terms'    => $issue,
+				),
+			)
+		]);
+	
+	} else {
+		$dynamics = new WP_Query(
+		[
+			'posts_per_page' => 75,
+			'post_type' => array ('post','calendar'),
+			'orderby' => 'post_date',
+			'order' => 'DESC',
+		]);
+	}*/
 
 ?>
 
