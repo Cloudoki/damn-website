@@ -36,12 +36,24 @@
 
 ?>
 
+<?php
+
+/**
+ *  Selected Issue
+ */
+global $issue, $issue_color, $issue_number;
+
+// Some dry data
+$issue_acf_id = 'magazine_' . $issue->term_id;
+$featurevideo = get_field ('video_embed1', $issue_acf_id);
+?>
+
 <?php /* first six posts */ ?>
 <div class="row">
   <?php
   $post_count = 0;
   while ($dynamics->have_posts()) : $dynamics->the_post();
-    if(get_field('video_embed1', 'option')) {
+    if($featurevideo) {
       if($post_count++ == 5) break;
     } else {
       if($post_count++ == 6) break;
@@ -121,7 +133,9 @@
           <div class="post-image" style="background-image:url(<?= get_template_directory_uri(); ?>/dist/images/default-tall.png)">
           <?php } ?>
             <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-              <?php if(get_field('video_embed1', 'option')) { ?>
+
+            <?php /* if featured video, need a slightly taller image so the video and the post next to it align in height */ ?>
+              <?php if($featurevideo) { ?>
                 <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-video.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
               <?php } else { ?>
                 <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
@@ -137,14 +151,14 @@
 
   <?php endwhile; ?>
 
-  <?php if(get_field('video_embed1', 'option')) { ?>
+  <?php if($featurevideo) { ?>
     <div class="news-item-wrapper col-xs-12 col-sm-6 col-md-8 medium-post video-post">
       <div class="news-item">
         <div class="post-image">
-          <?php the_field('video_embed1', 'option'); ?>
+          <?=$featurevideo?>
           <?php /* show non wide blank-image only on 768-992 so boxes adjust properly, using class "visible-xs-block" */ ?>
           <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-wide-video.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder hidden-sm" />
-          <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder visible-sm-block" />
+          <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-video.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder visible-sm-block" />
         </div>
       </div>
     </div>
