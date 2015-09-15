@@ -657,7 +657,26 @@ ul#issue-selector {
       }
     }
   }
+  li.dropdown.open {
+    ul.dropdown-menu {
+      @media screen and (max-width: 767px) {
+        background-color: $white;
+        position: absolute !important;
+        top: 52px !important;
+        left: -200px !important;
+        width: 300px !important;
+        border: 1px solid $bordercolor;
+      }
+      li {
+        @media screen and (max-width: 767px) {
+          background-color: $white;
+          width: 99px !important;
+        }
+      }
+    }
+  }
 }
+
 
 .black-text {
   ul#issue-selector {
