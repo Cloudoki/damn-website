@@ -346,18 +346,29 @@ body.post-type-archive-calendar, body[class^="calendar-"], body[class*=" calenda
     border: none;
     border-top: 1px solid $bordercolor;
     border-bottom: 1px solid $bordercolor;
-    color: $white;
+    color: $white; // see below for black color for single pages
   }
 }
 
 // Calendar single
 
 body.single-calendar {
+  .event-date {
+    color: $black;
+    padding-bottom: 1em !important
+  }
   .hentry {
     .entry-content {
       h1.entry-title {
         margin-bottom: .4em;
         margin-top: 0;
+      }
+      .title-header {
+        border: 0 !important;
+        margin-bottom: 0 !important;
+        .event-date {
+          border: 1px solid $bordercolor;
+        }
       }
     }
   }

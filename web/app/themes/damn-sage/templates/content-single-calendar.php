@@ -22,7 +22,7 @@
           </div>
         </div>
 
-        <div class="col-xs-12">
+        <div class="col-xs-12 marginTop">
           <div class="title-header">
             <?php if(get_field('start_date')) { ?>
               <div class="event-date row">
@@ -37,6 +37,8 @@
                 <div class="clearthis"></div>
               </div>
             <?php } ?>
+
+            <div class="clearthis"></div>
 
             <?php if(get_field('event_website')) { ?>
               <a class="btn btn-lg btn-default marginRight marginTop text-uppercase" href="<?php the_field('event_website'); ?>" role="button" target="_blank" title="Event Website">Website</a>
