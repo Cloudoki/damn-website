@@ -11,6 +11,8 @@
   <?php get_template_part('templates/content-single-magazines', get_post_type()); ?>
 <?php } elseif (is_singular( 'calendar' )) { ?>
   <?php get_template_part('templates/content-single-calendar', get_post_type()); ?>
+<?php } elseif (is_singular( 'product' )) { ?>
+  <?php get_template_part('templates/content-single-product', get_post_type()); ?>
 <?php } else { ?>
   <?php get_template_part('templates/content-single', get_post_type()); ?>
 <?php } ?>

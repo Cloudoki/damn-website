@@ -19,7 +19,7 @@ use Roots\Sage\Wrapper;
 
     <?php /* news image & meta */ ?>
 
-    <?php if (is_singular('calendar')) { ?>
+    <?php if (is_singular('calendar') || is_singular('product')) { ?>
     <?php } else { ?>
       <?php get_template_part('templates/single-header'); ?>
     <?php } ?>

@@ -12,23 +12,24 @@ Template Name: Colophon
     </div>
   <?php } ?>
 
-  <div class="row colophon">
+  <div class="row colophon marginTop2em">
 
     <?php the_content(); ?>
 
     <div class="col-xs-12 col-ms-6 col-sm-6">
       <div class="col-xs-12 col-md-6 column-1">
 
-        <?php
-        // Get all users order by amount of posts
-        $allUsers = get_users('orderby=display_name');
-        $users = array();
-        // Remove subscribers from the list as they won't write any articles
-        foreach($allUsers as $currentUser) {
-          if(!in_array( 'subscriber', $currentUser->roles )) {
-            $users[] = $currentUser;
+        <?php /* query to show all users */ ?>
+          <?php
+          // Get all users order by amount of posts
+          $allUsers = get_users('orderby=display_name');
+          $users = array();
+
+          foreach($allUsers as $currentUser) {
+            if(in_array( 'author', $currentUser->roles )) {
+              $users[] = $currentUser;
+            }
           }
-        }
         ?>
 
         <h3 class="text-uppercase">
