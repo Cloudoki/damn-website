@@ -17,26 +17,30 @@
             <?php if ( has_post_thumbnail()) { ?>
               <?php the_post_thumbnail('large'); ?>
             <?php } else { ?>
-              <img src="<?= get_template_directory_uri(); ?>/dist/images/default-tall.png" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
+              <img src="<?= get_template_directory_uri(); ?>/dist/images/default.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
             <?php } ?>
           </div>
         </div>
 
         <div class="col-xs-12 marginTop">
           <div class="title-header">
-            <?php if(get_field('start_date')) { ?>
+            <?php if(get_field('start_date') || get_field('end_date')) { ?>
+              <div class="event-date row bordered-gray">
+            <?php } else { ?>
               <div class="event-date row">
-                <div class="col-xs-6">
+            <?php } ?>
+              <?php if(get_field('start_date')) { ?>
+                <div class="col-xs-6 start-date">
                   <p><strong>Start Date:</strong> <?php the_field('start_date'); ?></p>
                 </div>
-                <?php if(get_field('end_date')) { ?>
-                  <div class="col-xs-6">
-                    <p><strong>End Date:</strong> <?php the_field('end_date'); ?></p>
-                  </div>
-                <?php } ?>
-                <div class="clearthis"></div>
-              </div>
-            <?php } ?>
+              <?php } ?>
+              <?php if(get_field('end_date')) { ?>
+                <div class="col-xs-6 end-date">
+                  <p><strong>End Date:</strong> <?php the_field('end_date'); ?></p>
+                </div>
+              <?php } ?>
+              <div class="clearthis"></div>
+            </div>
 
             <div class="clearthis"></div>
 

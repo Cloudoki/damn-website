@@ -405,18 +405,23 @@ body.post-type-archive-calendar {
 }
 
 .event-date {
-  border: 1px solid $bordercolor;
-  padding-top: 1em;
-  padding-bottom: 1em;
   margin: 0;
   float: left;
   width: 100%;
+  .start-date, .end-date {
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
   p {
     margin: 0;
   }
   .col-xs-6:nth-child(2) {
     border-left: 1px solid $bordercolor;
   }
+}
+
+.event-date.border-bottom-white {
+  border-bottom: 1px solid $bordercolor !important;
 }
 
 // Calendar archive event date
@@ -427,11 +432,8 @@ body.post-type-archive-calendar, body[class^="calendar-"], body[class*=" calenda
     width: 75px;
   }
   .event-date {
-    padding-top: 1em;
-    padding-bottom: 1.25em;
-    border: none;
+    padding: 0;
     border-top: 1px solid $bordercolor;
-    border-bottom: 1px solid $bordercolor;
     color: $white; // see below for black color for single pages
   }
 }
@@ -441,7 +443,10 @@ body.post-type-archive-calendar, body[class^="calendar-"], body[class*=" calenda
 body.single-calendar {
   .event-date {
     color: $black;
-    padding-bottom: 1em !important
+    border: 0;
+  }
+  .event-date.bordered-gray {
+    border: 1px solid $bordercolor;
   }
   .hentry {
     .entry-content {
@@ -452,11 +457,8 @@ body.single-calendar {
       .title-header {
         border: 0 !important;
         margin-bottom: 0 !important;
-        .event-date {
-          border: 1px solid $bordercolor;
-        }
         .pull-right {
-          padding-top: 1.8em;
+          padding-top: 1.4em;
           @media screen and (min-width: 768px) and (max-width: 1145px) {
             float: none !important;
             clear: both !important;
