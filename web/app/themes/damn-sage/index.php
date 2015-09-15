@@ -200,20 +200,29 @@ while ($dynamics->have_posts()) : $dynamics->the_post();
 
     // Build Cat info
     $categories = get_the_category();
+    
+    if (count ($categories) > 1) shuffle ($categories);
+	
+	// Prevent cat overkill
+	$cat_term = isset ($post_cats[$categories[0]->term_id], $categories[1]) && count ($post_cats[$categories[0]->term_id]) > 2? 
+		
+		$categories[1]->term_id: 
+		$categories[0]->term_id;
+	
+	
+    if(!isset ($post_cats[$cat_term]))
 
-    if(!isset ($post_cats[$categories[0]->term_id]))
-
-      $post_cats[$categories[0]->term_id] = [];
+      $post_cats[$cat_term] = [];
 
     // Dirty fetch post
     ob_start();
     get_template_part('templates/content-home-small-feeds', get_post_type() != 'post' ? get_post_type() : get_post_format());
 
-    $post_cats[$categories[0]->term_id][] = ob_get_clean();
+    $post_cats[$cat_term][] = ob_get_clean();
 
 
     // Output if possible
-    if (count ($post_cats[$categories[0]->term_id]) == 2)
+    if (count ($post_cats[$cat_term]) == 2)
     {
 
     ?>
@@ -223,7 +232,7 @@ while ($dynamics->have_posts()) : $dynamics->the_post();
       </h3>
     <?php
 
-      echo implode ("<br>", $post_cats[$categories[0]->term_id]);
+      echo implode ("<br>", $post_cats[$cat_term]);
 
     ?> </div> <?php
 
