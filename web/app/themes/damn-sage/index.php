@@ -7,7 +7,7 @@
 
 <?php
 
-  if ($issue && !is_admin()) {
+  if ($issue) {
     $dynamics = new WP_Query(
     [
       'posts_per_page' => 40,
@@ -41,7 +41,11 @@
   <?php
   $post_count = 0;
   while ($dynamics->have_posts()) : $dynamics->the_post();
-  if($post_count++ == 6) break;
+    if(get_field('video_embed1', 'option')) {
+      if($post_count++ == 5) break;
+    } else {
+      if($post_count++ == 6) break;
+    }
   ?>
     <?php
     $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' );
@@ -49,35 +53,42 @@
     ?>
 
     <?php if( $dynamics->current_post%6 == 0 ) { ?>
-      <?php /* begin the "first-post-advert-wrapper" div */ ?>
-      <div class="first-post-advert-wrapper">
-        <div class="table-row">
-    <?php } ?>
 
-    <?php if( $dynamics->current_post%4 == 0 && (int)( $dynamics->current_post / 3 ) < 3 && !is_paged() ) { ?>
-      <?php if( $dynamics->current_post%6 == 0 ) { ?>
-        <?php if ( has_post_thumbnail()) { ?>
-          <div class="news-item-wrapper col-xs-12 col-sm-8 large-post <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>" style="background-image:url(<?=$url?>);">
-        <?php } else { ?>
-          <div class="news-item-wrapper col-xs-12 col-sm-8 large-post <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>" style="background-image:url(<?= get_template_directory_uri(); ?>/dist/images/default-tall.png)">
-        <?php } ?>
-          <?php /* REUSED snippet to display title, category, subtitle */ ?>
-          <?php get_template_part('templates/snippet', 'feed-header'); ?>
-          <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="link-image">
-            <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
-          </a>
-      <?php } else { ?>
-        <div class="news-item-wrapper col-xs-12 col-sm-6 col-md-8 medium-post <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
-      <?php } ?>
-    <?php } else { ?>
-      <div class="news-item-wrapper col-xs-12 col-sm-6 col-md-4 <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
-    <?php } ?>
+      <?php /* first post and ad */ ?>
+        <div class="row">
+          <div class="first-post-advert-wrapper">
+            <div class="table-row">
 
-      <?php if( $dynamics->current_post%6 == 0 ) { ?>
-        <?php /* news image on first post is outside the news-item div, so no "news-item" need for first post. */ ?>
-      <?php } else { ?>
+              <?php /* first news item wrapper */ ?>
+              <?php if ( has_post_thumbnail()) { ?>
+              <div class="news-item-wrapper col-xs-12 col-sm-8 large-post <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>" style="background-image:url(<?=$url?>);">
+              <?php } else { ?>
+              <div class="news-item-wrapper col-xs-12 col-sm-8 large-post <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>" style="background-image:url(<?= get_template_directory_uri(); ?>/dist/images/default-tall.png)">
+              <?php } ?>
+
+                <?php /* REUSED snippet to display title, category, subtitle */ ?>
+                <?php get_template_part('templates/snippet', 'feed-header'); ?>
+                <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="link-image">
+                  <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
+                </a>
+
+              </div>
+              <?php /* end news item wrapper */ ?>
+
+
+              <?php /* advert */ ?>
+              <?php get_template_part('templates/advert-block-premium'); ?>
+
+            </div>
+          </div>
+        </div><?php /* end first row */ ?>
+        <div class="empty-wrapper row"><?php /* open a new, basic container div so bootstrap column clears dont count advert wrapper in nth-child and break the layout. DIV CLOSED after ENDWHILE */ ?>
+      <?php /* end dynamics current post first post */ ?>
+
+    <?php } elseif ( $dynamics->current_post%6 == 5 ) { ?>
+
+      <div class="news-item-wrapper col-xs-12 col-sm-6 col-md-8 medium-post <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
         <div class="news-item">
-
           <?php /* DAMn + badge */ ?>
           <?php get_template_part('templates/damn-plus-badge'); ?>
 
@@ -87,53 +98,71 @@
             <div class="post-image" style="background-image:url(<?= get_template_directory_uri(); ?>/dist/images/default-tall.png)">
           <?php } ?>
             <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-              <?php if (is_single()) { ?>
-                <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
+              <?php /* show non wide blank-image only on 768-992 so boxes adjust properly, using class "visible-xs-block" */ ?>
+              <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-wide.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder hidden-sm" />
+              <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder visible-sm-block" />
+            </a>
+          </div>
+          <?php /* REUSED snippet to display title, category, subtitle */ ?>
+          <?php get_template_part('templates/snippet', 'feed-header'); ?>
+        </div>
+      </div>
+
+    <?php } else { ?>
+
+      <div class="news-item-wrapper col-xs-12 col-sm-6 col-md-4 <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
+        <div class="news-item">
+          <?php /* DAMn + badge */ ?>
+          <?php get_template_part('templates/damn-plus-badge'); ?>
+
+          <?php if ( has_post_thumbnail()) { ?>
+          <div class="post-image" style="background-image:url(<?=$url?>);">
+          <?php } else { ?>
+          <div class="post-image" style="background-image:url(<?= get_template_directory_uri(); ?>/dist/images/default-tall.png)">
+          <?php } ?>
+            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+              <?php if(get_field('video_embed1', 'option')) { ?>
+                <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-video.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
               <?php } else { ?>
-                <?php if( $dynamics->current_post%6 == 0 ) : ?>
-                  <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-wide.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
-                <?php elseif( $dynamics->current_post%6 ==4 ) : ?>
-                  <?php /* show non wide blank-image only on 768-992 so boxes adjust properly, using class "visible-xs-block" */ ?>
-                  <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-wide.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder hidden-sm" />
-                  <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder visible-sm-block" />
-                <?php else : ?>
-                  <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
-                <?php endif; ?>
+                <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
               <?php } ?>
             </a>
           </div>
 
           <?php /* REUSED snippet to display title, category, subtitle */ ?>
           <?php get_template_part('templates/snippet', 'feed-header'); ?>
-        </div><?php /* end news-item */ ?>
-      <?php } ?>
-
-    </div>
-
-    <?php /* insert advert if after the 1st post */ ?>
-    <?php if($post_count == 1) { ?>
-      <?php get_template_part('templates/advert-block-premium'); ?>
-      <div class="clearfix visible-sm visible-md visible-lg"></div>
-      </div><?php /* close out the "table-row" div */ ?>
-      </div><?php /* close out the "first-post-advert-wrapper" div */ ?>
-      <div class="empty-wrapper"><?php /* open a new, basic container div so bootstrap column clears dont count advert wrapper in nth-child and break the layout */ ?>
+        </div>
+      </div>
     <?php } ?>
 
   <?php endwhile; ?>
-  </div><?php /* close empty wrapper */ ?>
-</div>
+
+  <?php if(get_field('video_embed1', 'option')) { ?>
+    <div class="news-item-wrapper col-xs-12 col-sm-6 col-md-8 medium-post video-post">
+      <div class="news-item">
+        <div class="post-image">
+          <?php the_field('video_embed1', 'option'); ?>
+          <?php /* show non wide blank-image only on 768-992 so boxes adjust properly, using class "visible-xs-block" */ ?>
+          <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-wide-video.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder hidden-sm" />
+          <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder visible-sm-block" />
+        </div>
+      </div>
+    </div>
+  <?php } ?>
+
+  </div><?php /* close empty-wrapper */ ?>
 
 <style>
-	.sponsored-content-wrapper .advert.middle 	{
-		background-color: black !important;
-		position: relative;
-		padding: 12px;
-	}
+  .sponsored-content-wrapper .advert.middle   {
+    background-color: black !important;
+    position: relative;
+    padding: 12px;
+  }
 
-	.sponsored-content-wrapper .advert.middle img	{
-		width: auto;
-		height: auto;
-	}
+  .sponsored-content-wrapper .advert.middle img {
+    width: auto;
+    height: auto;
+  }
 </style>
 
 <?php /* sponsored content */ ?>

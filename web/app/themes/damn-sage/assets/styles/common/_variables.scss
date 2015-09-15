@@ -575,6 +575,13 @@ PULL OVERRIDES
 CONTENT
 *********************/
 
+@mixin subtitletext {
+  margin: .5em 0 0 0;
+  font-size: (18 / 16) * 1em;
+  font-family: $museo;
+  font-weight: 300;
+}
+
 @mixin newsitemheader {
   header {
     padding: 1.2em;
@@ -607,10 +614,7 @@ CONTENT
     }
     /* subtitle for main feeds - see below for subtitle for single page headers */
     .subtitle {
-      margin: .5em 0 0 0;
-      font-size: (18 / 16) * 1em;
-      font-family: $museo;
-      font-weight: 300;
+      @include subtitletext;
       color: $white;
       p {
         margin: 0;

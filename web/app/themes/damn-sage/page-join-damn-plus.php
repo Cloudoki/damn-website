@@ -20,15 +20,21 @@ Template Name: Join DAMn Plus
     </div>
 
     <div class="col-xs-9 col-md-8 join-damn-plus-form">
-      <?php the_content(); ?>
+      <article <?php post_class(''); ?>>
 
-      <?php if(get_field('profile_shortcode')) { ?>
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <?php the_field('profile_shortcode'); ?>
-          </div>
+        <div class="entry-content">
+          <?php the_content(); ?>
+
+          <?php if(get_field('profile_shortcode')) { ?>
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <?php the_field('profile_shortcode'); ?>
+              </div>
+            </div>
+          <?php } ?>
         </div>
-      <?php } ?>
+
+      </article>
     </div>
   </div>
 

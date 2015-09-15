@@ -646,7 +646,16 @@ body.single-product {
     display: table-cell;
     height: 100%;
   }
-  .damn-plus-image-cta {}
+  .damn-plus-image-cta {
+    .post-image {
+      max-width: 95%;
+      margin-bottom: 1em;
+      color: $white;
+    }
+    a, a:visited {
+      color: $white !important;
+    }
+  }
   .damn-plus-cta-copy {
     padding-left: 20px !important;
     color: $white;

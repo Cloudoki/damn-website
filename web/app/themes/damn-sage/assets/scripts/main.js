@@ -113,4 +113,6 @@
   // Sticky header courtesy of Headhesive.js, Create a new instance of Headhesive
   var header = new Headhesive('.white-wrapper', options);
 
+  $(".featured-video").fitVids();
+
 })(jQuery); // Fully reference jQuery after this point.
