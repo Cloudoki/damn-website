@@ -27,7 +27,7 @@ use Roots\Sage\Wrapper;
 
         <?php if (is_tax( 'magazine' ) || is_post_type_archive('calendar')) { ?>
           <?php if (Config\display_sidebar()) : ?>
-            <aside class="sidebar" role="complementary">
+            <aside class="sidebar visible-sm-block visible-md-block visible-lg-block" role="complementary">
               <?php if (is_post_type_archive('calendar')) { ?>
                 <?php include Wrapper\sidebar_calendar_path(); ?>
               <?php } else { ?>
@@ -47,6 +47,19 @@ use Roots\Sage\Wrapper;
             </div>
           <?php } ?>
         </main><!-- /.main -->
+
+        <?php if (is_tax( 'magazine' ) || is_post_type_archive('calendar')) { ?>
+          <?php if (Config\display_sidebar()) : ?>
+            <aside class="sidebar visible-xs-block" role="complementary">
+              <?php if (is_post_type_archive('calendar')) { ?>
+                <?php include Wrapper\sidebar_calendar_path(); ?>
+              <?php } else { ?>
+                <?php include Wrapper\sidebar_path(); ?>
+              <?php } ?>
+            </aside><!-- /.sidebar -->
+          <?php endif; ?>
+        <?php } ?>
+
       </div><!-- /.content -->
 
       <?php /* Back Issues */ ?>

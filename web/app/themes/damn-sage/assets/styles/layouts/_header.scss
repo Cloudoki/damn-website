@@ -22,7 +22,11 @@ a.main-logo {
   text-indent: -9999px;
   outline: none;
   background-size: 100% auto;
-  @media screen and (max-width:767px) {
+  @media screen and (max-width: 480px) {
+    width: 140px;
+    height: 31px;
+  }
+  @media screen and (min-width: 481px) and (max-width:767px) {
     width: 180px;
     height: 40px;
   }
@@ -66,16 +70,90 @@ a.main-logo {
   }
 }
 
+// MOBILE NAV + mobile toggle open/close
+
+a.mobile-menu {
+  background: center center no-repeat transparent;
+  display: block;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 15px;
+  right: 12px;
+  text-align: center;
+  line-height: 40px;
+  color: $white;
+  font-size: 28px;
+  display: none;
+  @media screen and (max-width: 767px) {
+    display: block;
+  }
+}
+
+#my-menu.mm-opened {
+  display: block !important;
+  .mm-navbar {
+    font-size: 20px !important;
+    .mm-close:before {
+       font-family: FontAwesome;
+       content: "\f00d";
+       display: inline-block;
+       padding-right: 3px;
+       vertical-align: middle;
+       color: $white;
+    }
+    .mm-close:after {
+      display: none;
+    }
+  }
+  .mm-arrow:after, .mm-next:after {
+    color: $white;
+  }
+}
+
+#my-menu {
+  #menu-main-nav {
+    li {
+      float: none !important;
+      a {
+        text-transform: uppercase !important;
+        font-size: 1.25em !important;
+        padding: 15px 10px 15px 20px !important;
+        &:hover {
+          color: $white !important;
+        }
+      }
+    }
+    li.small-text {
+      font-size: .95em !important;
+    }
+  }
+}
+
+.navbar {
+  @media screen and (max-width: 767px) {
+    min-height: 0;
+    height: 0;
+  }
+}
+
 // main navbar in header
 
 .home-feature {
+  // spacing up to 767px because of fixed logo, issue selector
+  @media screen and (max-width: 767px) {
+    padding-top: 66px !important;
+  }
   .header-wrapper {
     width: 100%;
     padding: (30 / 16) * 1em 0;
-    background-color: $black;
-    background-color: rgba(0,0,0,0.6);
     @media screen and (max-width:767px) {
       padding: 1.25em 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10000;
+      background-color: $black;
     }
     .container {
       @media screen and (max-width: 1199px) {
@@ -90,7 +168,11 @@ a.main-logo {
       float: left;
       margin-top: 20px;
       line-height: 0.8em;
-      @media screen and (max-width:767px) {
+      @media screen and (max-width: 480px) {
+        margin-top: 4px;
+        font-size: 3em;
+      }
+      @media screen and (min-width: 481px) and (max-width:767px) {
         margin-top: 9px;
         font-size: 3.5em;
       }
@@ -109,9 +191,11 @@ body.home {
     background-color: $black;
     margin-bottom: (30 / 16) * 1em;
     .single-news-item {
-      margin-bottom: -140px;
-      max-height: 600px;
-      overflow: hidden;
+      @media screen and (min-width: 768px) {
+        margin-bottom: -140px;
+        max-height: 600px;
+        overflow: hidden;
+      }
       &:hover {
         header {
           background: none;
@@ -126,14 +210,28 @@ body.home {
       header {
         bottom: 140px;
         padding-bottom: 2em;
-        background: none;
+        background: none !important;
+        @media screen and (max-width: 767px) {
+          padding: 1.2em 1.8em;
+          position: relative !important;
+          bottom: 0 !important;
+          .container {
+            padding-left: 5px;
+            padding-right: 5px;
+          }
+        }
         h1 {
           font-size: (42 / 16 * 1em);
+          @media screen and (max-width: 767px) {
+            text-shadow: none;
+          }
+        }
+        h2, h3 {
+          @media screen and (max-width: 767px) {
+            text-shadow: none;
+          }
         }
       }
-    }
-    .header-wrapper {
-      background: none;
     }
   }
 
@@ -149,7 +247,9 @@ body.home {
           }
         }
         h1, h2, h3 {
-          text-shadow: 2px 2px 7px rgba(255,255,255,.4) !important;
+          @media screen and (min-width: 768px) {
+            text-shadow: 2px 2px 7px rgba(255,255,255,.4) !important;
+          }
         }
         h1 a {
           color: $black;
@@ -160,8 +260,10 @@ body.home {
       }
     }
     a.main-logo {
-      background: url("../images/damn-2X-black.png") no-repeat;
-      background: url("../images/damn.svg") no-repeat;
+      @media screen and (min-width:768px) {
+        background: url("../images/damn-2X-black.png") no-repeat;
+        background: url("../images/damn.svg") no-repeat;
+      }
     }
 
     .social-navs {
@@ -180,6 +282,9 @@ body.home {
   background-color: $white;
   border-bottom: 1px solid $bordercolor;
   border-top: 1px solid $bordercolor;
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
 }
 
 .navbar-default {
@@ -355,6 +460,9 @@ ul.social-nav {
   @include position(fixed, $top: -60px, $left: 0);
   @include opacity(0);
   border-bottom: 1px solid $bordercolor;
+  @media screen and (max-width: 767px) {
+    display: none !important;
+  }
   .container {
     @media screen and (max-width: 991px) {
       width: 100%;
@@ -436,6 +544,9 @@ body.logged-in {
 .fixed-nav-activator {
   background: none;
   margin-top: -1px;
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
 }
 
 /* title wrappers */
@@ -498,6 +609,9 @@ ul#issue-selector {
   float: left !important;
   width: auto !important;
   border: 0 !important;
+  @media screen and (max-width: 767px) {
+    margin: 0 !important;
+  }
   li.dropdown {
     border: 0 !important;
     a.dropdown-toggle {
@@ -508,6 +622,21 @@ ul#issue-selector {
       line-height: 30px !important;
       border: 0 !important;
       color: $white !important;
+      @media screen and (max-width: 480px) {
+        margin: 0 !important;
+        height: 28px !important;
+        line-height: 28px !important;
+        .fa {
+          display: block !important;
+        }
+      }
+      @media screen and (min-width: 481px) and (max-width: 767px) {
+        margin: 8px 0 0 0 !important;
+        height: 30px !important;
+        .fa {
+          display: block !important;
+        }
+      }
       &:hover {
         border: 0 !important;
         opacity: 0.5;
@@ -534,7 +663,9 @@ ul#issue-selector {
   ul#issue-selector {
     li.dropdown {
       a.dropdown-toggle {
-        color: $black !important;
+        @media screen and (min-width:768px) {
+          color: $black !important;
+        }
         &:hover {
           opacity: 0.5;
         }

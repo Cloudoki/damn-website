@@ -2,12 +2,13 @@
 	global $issue, $issue_color, $issue_number;
 ?>
 
-<header class="banner navbar navbar-default navbar-static-top" role="banner">
+<header class="banner navbar navbar-default" role="banner">
   <div class="header-wrapper">
     <div class="container">
       <div class="pull-left">
         <a class="main-logo" href="/">DAMn MAGAZINE - <?php bloginfo('name'); ?></a>
         <span class="issue-number" style="color: <?=$issue_color?>"><?=$issue_number?></span>
+
         <?php /* toggle selector for issues */ ?>
         <ul id="issue-selector" class="nav navbar-nav">
           <li id="" class="dropdown">
@@ -15,7 +16,7 @@
               <i class="fa fa-chevron-up"></i>
               <i class="fa fa-chevron-down"></i>
             </a>
-            <ul role="" class=" dropdown-menu">
+            <ul class="dropdown-menu">
 
               <?php
                 $tax = 'magazine';
@@ -33,7 +34,13 @@
             </ul>
           </li>
         </ul>
+
       </div>
+
+      <?php /* mobile menu toggle */ ?>
+      <a class="mobile-menu no-badge normal-menu" data-count="0" href="#my-menu">
+        <i class="fa fa-bars"></i>
+      </a>
 
       <div class="pull-right social-navs">
         <?php
@@ -47,15 +54,6 @@
 
   <div class="white-wrapper">
     <div class="container">
-      <div class="navbar-header page-scroll">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only"><?= __('Toggle navigation', 'sage'); ?></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-
       <nav class="collapse navbar-collapse main-navigation" role="navigation">
         <?php
         if (has_nav_menu('primary_navigation')) :

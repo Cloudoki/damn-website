@@ -113,6 +113,42 @@
   // Sticky header courtesy of Headhesive.js, Create a new instance of Headhesive
   var header = new Headhesive('.white-wrapper', options);
 
+  // Fitvids
   $(".featured-video").fitVids();
+
+  // MMenu
+  $("#my-menu").mmenu({
+     "extensions": [
+        "border-full",
+        "effect-slide-menu",
+        null,
+        "pageshadow",
+        "theme-dark"
+     ],
+     "navbar": {
+        "title": "MENU"
+     },
+     "navbars": [
+        {
+           "position": "top",
+           "content": [
+              "prev",
+              "title",
+              "close"
+           ]
+        },
+        {
+           "position": "bottom",
+           "content": [
+              "<a class='fa fa-facebook' href='http://www.facebook.com/pages/DAMnmagazine/27113480473'></a>",
+              "<a class='fa fa-twitter' href='https://twitter.com/DAMntwice'></a>",
+              "<a class='fa fa-vimeo' href='https://vimeo.com/damnmagazine/videos'></a>",
+              "<a class='fa fa-instagram' href='https://instagram.com/damn_magazine'></a>",
+              "<a class='fa fa-linkedin' href='http://www.linkedin.com/company/damn-magazine'></a>",
+              "<a class='fa fa-pinterest href='http://pinterest.com/damnmagazine/'></a>"
+           ]
+        }
+     ]
+  });
 
 })(jQuery); // Fully reference jQuery after this point.
