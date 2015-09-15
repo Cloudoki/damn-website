@@ -131,3 +131,30 @@
 .bottom-widgets {
 
 }
+
+// advertising border
+
+.news-item-wrapper.advert.advert-premium .news-item .post-image   {
+  background-color: black !important;
+  position: relative;
+  padding: 12px;
+  @media screen (min-width:768px) and (max-width: 991px) {
+    padding: 0;
+  }
+}
+
+.news-item-wrapper.advert.advert-premium .news-item .post-image img {
+  width: auto;
+  height: auto;
+}
+
+.sponsored-content-wrapper .advert.middle   {
+  background-color: black !important;
+  position: relative;
+  padding: 12px;
+}
+
+.sponsored-content-wrapper .advert.middle img {
+  width: auto;
+  height: auto;
+}
