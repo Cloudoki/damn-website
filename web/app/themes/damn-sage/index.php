@@ -10,7 +10,7 @@
   if ($issue) {
     $dynamics = new WP_Query(
     [
-      'posts_per_page' => 40,
+      'posts_per_page' => 60,
       'post_type' => array ('post','calendar'),
       'orderby' => 'post_date',
       'order' => 'DESC',
@@ -27,7 +27,7 @@
   } else {
     $dynamics = new WP_Query(
     [
-      'posts_per_page' => 40,
+      'posts_per_page' => 60,
       'post_type' => array ('post','calendar'),
       'orderby' => 'post_date',
       'order' => 'DESC',
