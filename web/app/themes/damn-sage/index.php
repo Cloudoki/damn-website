@@ -101,22 +101,50 @@ while ($dynamics->have_posts()) : $dynamics->the_post();
 
     <div class="news-item-wrapper col-xs-12 col-sm-6 col-md-8 medium-post <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
       <div class="news-item">
-        <?php /* DAMn + badge */ ?>
-        <?php get_template_part('templates/damn-plus-badge'); ?>
 
-        <?php if ( has_post_thumbnail()) { ?>
-          <div class="post-image" style="background-image:url(<?=$url?>);">
+        <?php if ( has_post_format( 'quote' )) { ?>
+
+          <div class="post-image">
+            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+              <?php /* show non wide blank-image only on 768-992 so boxes adjust properly, using class "visible-xs-block" */ ?>
+              <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-wide.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder hidden-sm" />
+              <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder visible-sm-block" />
+            </a>
+          </div>
+
+          <header class="quote-format">
+            <div class="quote-wrapper-outer">
+              <div class="quote-wrapper-inner">
+                <blockquote>
+                  <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+                    <?php the_excerpt(); ?>
+                  </a>
+                </blockquote>
+              </div>
+            </div>
+          </header>
+
         <?php } else { ?>
-          <div class="post-image" style="background-image:url(<?= get_template_directory_uri(); ?>/dist/images/default-tall.png)">
+
+          <?php /* DAMn + badge */ ?>
+          <?php get_template_part('templates/damn-plus-badge'); ?>
+
+          <?php if ( has_post_thumbnail()) { ?>
+            <div class="post-image" style="background-image:url(<?=$url?>);">
+          <?php } else { ?>
+            <div class="post-image" style="background-image:url(<?= get_template_directory_uri(); ?>/dist/images/default-tall.png)">
+          <?php } ?>
+            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+              <?php /* show non wide blank-image only on 768-992 so boxes adjust properly, using class "visible-xs-block" */ ?>
+              <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-wide.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder hidden-sm" />
+              <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder visible-sm-block" />
+            </a>
+          </div>
+          <?php /* REUSED snippet to display title, category, subtitle */ ?>
+          <?php get_template_part('templates/snippet', 'feed-header'); ?>
+
         <?php } ?>
-          <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-            <?php /* show non wide blank-image only on 768-992 so boxes adjust properly, using class "visible-xs-block" */ ?>
-            <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-wide.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder hidden-sm" />
-            <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder visible-sm-block" />
-          </a>
-        </div>
-        <?php /* REUSED snippet to display title, category, subtitle */ ?>
-        <?php get_template_part('templates/snippet', 'feed-header'); ?>
+
       </div>
     </div>
 
@@ -124,27 +152,57 @@ while ($dynamics->have_posts()) : $dynamics->the_post();
 
     <div class="news-item-wrapper col-xs-12 col-sm-6 col-md-4 <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
       <div class="news-item">
-        <?php /* DAMn + badge */ ?>
-        <?php get_template_part('templates/damn-plus-badge'); ?>
 
-        <?php if ( has_post_thumbnail()) { ?>
-        <div class="post-image" style="background-image:url(<?=$url?>);">
+        <?php if ( has_post_format( 'quote' )) { ?>
+
+          <div class="post-image">
+            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+              <?php /* if featured video, need a slightly taller image so the video and the post next to it align in height */ ?>
+              <?php if($featurevideo) { ?>
+                <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-video.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
+              <?php } else { ?>
+                <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
+              <?php } ?>
+            </a>
+          </div>
+
+          <header class="quote-format">
+            <div class="quote-wrapper-outer">
+              <div class="quote-wrapper-inner">
+                <blockquote>
+                  <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+                    <?php the_excerpt(); ?>
+                  </a>
+                </blockquote>
+              </div>
+            </div>
+          </header>
+
         <?php } else { ?>
-        <div class="post-image" style="background-image:url(<?= get_template_directory_uri(); ?>/dist/images/default-tall.png)">
+
+          <?php /* DAMn + badge */ ?>
+          <?php get_template_part('templates/damn-plus-badge'); ?>
+
+          <?php if ( has_post_thumbnail()) { ?>
+          <div class="post-image" style="background-image:url(<?=$url?>);">
+          <?php } else { ?>
+          <div class="post-image" style="background-image:url(<?= get_template_directory_uri(); ?>/dist/images/default-tall.png)">
+          <?php } ?>
+            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+
+              <?php /* if featured video, need a slightly taller image so the video and the post next to it align in height */ ?>
+              <?php if($featurevideo) { ?>
+                <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-video.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
+              <?php } else { ?>
+                <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
+              <?php } ?>
+            </a>
+          </div>
+
+          <?php /* REUSED snippet to display title, category, subtitle */ ?>
+          <?php get_template_part('templates/snippet', 'feed-header'); ?>
         <?php } ?>
-          <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
 
-            <?php /* if featured video, need a slightly taller image so the video and the post next to it align in height */ ?>
-            <?php if($featurevideo) { ?>
-              <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-video.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
-            <?php } else { ?>
-              <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
-            <?php } ?>
-          </a>
-        </div>
-
-        <?php /* REUSED snippet to display title, category, subtitle */ ?>
-        <?php get_template_part('templates/snippet', 'feed-header'); ?>
       </div>
     </div>
   <?php } ?>
@@ -200,16 +258,16 @@ while ($dynamics->have_posts()) : $dynamics->the_post();
 
     // Build Cat info
     $categories = get_the_category();
-    
+
     if (count ($categories) > 1) shuffle ($categories);
-	
+
 	// Prevent cat overkill
-	$cat_term = isset ($post_cats[$categories[0]->term_id], $categories[1]) && count ($post_cats[$categories[0]->term_id]) > 2? 
-		
-		$categories[1]->term_id: 
+	$cat_term = isset ($post_cats[$categories[0]->term_id], $categories[1]) && count ($post_cats[$categories[0]->term_id]) > 2?
+
+		$categories[1]->term_id:
 		$categories[0]->term_id;
-	
-	
+
+
     if(!isset ($post_cats[$cat_term]))
 
       $post_cats[$cat_term] = [];
