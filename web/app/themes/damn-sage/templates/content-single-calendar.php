@@ -40,12 +40,24 @@
 
             <div class="clearthis"></div>
 
-            <?php if(get_field('event_website')) { ?>
-              <a class="btn btn-lg btn-default marginRight marginTop text-uppercase" href="<?php the_field('event_website'); ?>" role="button" target="_blank" title="Event Website">Website</a>
-            <?php } ?>
-            <?php if(get_field('ticket_url')) { ?>
-              <a class="btn btn-lg btn-default marginTop text-uppercase" href="<?php the_field('ticket_url'); ?>" role="button" target="_blank" title="Event Tickets">Tickets</a>
-            <?php } ?>
+            <div class="pull-left">
+              <?php if(get_field('event_website')) { ?>
+                <a class="btn btn-lg btn-default marginRight marginTop text-uppercase" href="<?php the_field('event_website'); ?>" role="button" target="_blank" title="Event Website">Website</a>
+              <?php } ?>
+              <?php if(get_field('ticket_url')) { ?>
+                <a class="btn btn-lg btn-default marginTop text-uppercase" href="<?php the_field('ticket_url'); ?>" role="button" target="_blank" title="Event Tickets">Tickets</a>
+              <?php } ?>
+            </div>
+
+            <?php /* share icons */ ?>
+            <div class="pull-right calendar-share">
+              <!-- Go to www.addthis.com/dashboard to customize your tools -->
+              <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55ce3c8af0d16341" async="async"></script>
+
+              <!-- Go to www.addthis.com/dashboard to customize your tools -->
+              <div class="addthis_responsive_sharing"></div>
+            </div>
+            <div class="clearthis"></div>
           </div>
 
           <?php the_content(); ?>

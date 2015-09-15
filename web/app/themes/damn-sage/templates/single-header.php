@@ -31,7 +31,7 @@ $url = $thumb['0'];
 
 <?php /* only show share icons and publish date/author here on 768 to 991, since its too wide to fit in the normal place (at this particular view) */ ?>
 <?php while (have_posts()) : the_post(); ?>
-  <div class="visible-sm-block ipad-sized-meta">
+  <div class="ipad-sized-meta">
     <div class="container">
       <?php get_template_part('templates/entry-meta'); ?>
       <div class="clearthis"></div>

@@ -18,7 +18,7 @@ Template Name: Contributors
 
   // Remove subscribers from the list as they won't write any articles
   foreach($allUsers as $currentUser) {
-    if(!in_array( 'subscriber', $currentUser->roles )) {
+    if(in_array( 'author', $currentUser->roles )) {
       $users[] = $currentUser;
     }
   }

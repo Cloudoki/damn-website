@@ -1,9 +1,5 @@
 <?php while (have_posts()) : the_post(); ?>
   <article <?php post_class(''); ?>>
-    <header class="hidden-sm hidden-sm-block">
-      <?php get_template_part('templates/entry-meta'); ?>
-    </header>
-
     <div class="entry-content">
 
       <?php /* If is in DAMn + category, decide to show content IF user is logged in with an account, or else, CTA.. else, all other categories, display normal content */ ?>

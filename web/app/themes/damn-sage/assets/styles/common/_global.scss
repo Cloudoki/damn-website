@@ -147,7 +147,7 @@ LAYOUT & GRID STYLES
 
 body.single-calendar, body.tax-magazine, body.page, body.post-type-archive-calendar {
   .wrap {
-    margin-top: 2.5em;
+    margin-top: 0em;
   }
 }
 
@@ -185,10 +185,10 @@ body.home, body.archive {
 body.single, body.tax-magazine, body.page {
   .main {
     @media (min-width: $screen-sm-min) {
-      margin: 0 340px 0 0px !important;
+      margin: 2em 340px 0 0px !important;
     }
     @media (min-width: $screen-md-min) {
-      margin: 0 390px 0 0px !important;
+      margin: 2em 390px 0 0px !important;
     }
   }
 }

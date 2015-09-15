@@ -4,7 +4,7 @@
   margin-bottom: (30 / 16) * 1em;
 }
 
-body.single {
+body.single, body.tax-magazine, body.page {
   .home-feature {
     margin-bottom: 0;
   }
@@ -600,21 +600,6 @@ body.tax-magazine, body.page, body.post-type-archive-calendar, body[class^="cale
 .taxonomy-description {
   p {
     margin: 1em 0 0 0;
-  }
-}
-
-// top social sharing and author/date info, only to show on single pages at 768 - 992 (hidden with bootstrap visible-sm-block class on template)
-.ipad-sized-meta {
-  border-bottom: 1px solid $bordercolor;
-  margin-top: -2.5em;
-  margin-bottom: 5.5em;
-  .meta-sharing {
-    margin-bottom: 3em;
-    border: 0;
-    .pull-left, .pull-right {
-      border: 0 !important;
-      padding: 0 !important;
-    }
   }
 }
 
