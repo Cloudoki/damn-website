@@ -42,7 +42,8 @@
     "wpackagist-plugin/advanced-custom-fields": "4.4.3",
     "wpackagist-plugin/custom-post-type-ui": "1.1.2",
     "wpackagist-plugin/google-analytics-dashboard-for-wp": "4.8.2",
-    "wpackagist-plugin/s2member": "150827"
+    "wpackagist-plugin/s2member": "150827",
+    "wpackagist-plugin/wpmandrill": "1.33"
   },
   "extra": {
     "installer-paths": {
