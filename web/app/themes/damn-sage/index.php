@@ -71,7 +71,7 @@ while ($dynamics->have_posts()) : $dynamics->the_post();
 
             <?php /* first news item wrapper */ ?>
             <?php if ( has_post_format( 'quote' )) /* no background image for quote format */ { ?>
-              <div class="news-item-wrapper col-xs-12 col-sm-8 large-post <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>" style="background-image:url(<?=$url?>);">
+              <div class="news-item-wrapper col-xs-12 col-sm-8 large-post <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
             <?php } else { ?>
               <?php if ( has_post_thumbnail()) { ?>
               <div class="news-item-wrapper col-xs-12 col-sm-8 large-post <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>" style="background-image:url(<?=$url?>);">
