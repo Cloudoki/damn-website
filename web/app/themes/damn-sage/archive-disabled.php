@@ -6,7 +6,7 @@
 	 *
 	 *	If issue string parameter is provided,
 	 *	show only connected posts or calendars.
-	 */
+
 	$main_query = [
 		'post_type' => [],
 		'orderby' => 'post_date',
@@ -17,7 +17,7 @@
 	{
 		$pass = false;
 		$main_query ['post_type'][] = 'product';
-	}
+	} */
 
 	/*if (is_post_type_archive([ 'calendar' ]))
 	{
@@ -27,7 +27,7 @@
 		$main_query ['post_type'][] = 'calendar';
 	}*/
 
-
+	/*
 
 	if ($_GET['issue'])
 		$main_query['tax_query'][] = [
@@ -42,7 +42,7 @@
 		//global $dynamics;
 		$dynamics = new WP_Query($main_query);
 	}
-
+	*/
 
 
 ?>
@@ -51,7 +51,7 @@
   <div class="alert alert-warning">
     <?php _e('Sorry, no results were found.', 'sage'); ?>
   </div>
-  <?php get_template_part('templates/snippet-search-form'); ?>
+  <?php get_search_form(); ?>
 <?php endif; ?>
 
 <div class="row">
@@ -73,13 +73,13 @@
 
 	  <?php } else { ?>
 
-  		<?php if (have_posts()) : ?>
-        <div data-columns="" id="columns">
-          <?php while (have_posts()) : the_post(); ?>
-            <?php get_template_part('templates/content-productivity', get_post_type() != 'product' ? get_post_type() : get_post_format()); ?>
-          <?php endwhile; ?>
-        </div>
-      <?php endif; ?>
+		 <?php if (have_posts()) : ?>
+	      <div data-columns="" id="columns">
+	        <?php while (have_posts()) : the_post(); ?>
+	          <?php get_template_part('templates/content-productivity', get_post_type() != 'product' ? get_post_type() : get_post_format()); ?>
+	        <?php endwhile; ?>
+	      </div>
+	    <?php endif; ?>
 
 
 	  <?php } ?>
@@ -134,12 +134,13 @@
 
 
 	  		<?php if (have_posts()) : ?>
-          <div data-columns="" id="columns-calendar">
-            <?php while (have_posts()) : the_post(); ?>
-              <?php get_template_part('templates/content-calendar', get_post_type() != 'calendar' ? get_post_type() : get_post_format()); ?>
-            <?php endwhile; ?>
-          </div>
-        <?php endif; ?>
+		      <div data-columns="" id="columns-calendar">
+		        <?php while (have_posts()) : the_post(); ?>
+		          <?php get_template_part('templates/content-calendar', get_post_type() != 'calendar' ? get_post_type() : get_post_format()); ?>
+		        <?php endwhile; ?>
+		      </div>
+		    <?php endif; ?>
+
 
   <?php }
   /* Else if all others */
