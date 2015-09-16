@@ -20,6 +20,9 @@
         height: auto;
         box-shadow: none;
         border-color: $bordercolor;
+        @media screen and (max-width: 767px) {
+          font-size: 1em;
+        }
       }
       button {
         width: 100%;
@@ -29,6 +32,9 @@
         border: 1px solid $bordercolor;
         background: none;
         color: $black !important;
+        @media screen and (max-width: 767px) {
+          font-size: 1em;
+        }
         &:hover {
           color: $white !important;
         }
@@ -73,6 +79,16 @@
   .form-group {
     float: left;
     width: 100%;
+    @media screen and (max-width: 767px) {
+      width: 100%;
+      .col-sm-2, .col-sm-10 {
+        padding-left: 0;
+        padding-right: 0;
+      }
+      div {
+        width: 100%;
+      }
+    }
     input {
       width: 95%;
       margin-bottom: 1em;

@@ -2,7 +2,7 @@
   <div class="alert alert-warning">
     <?php _e('Sorry, no results were found.', 'sage'); ?>
   </div>
-  <?php get_search_form(); ?>
+  <?php get_template_part('templates/snippet-search-form'); ?>
 <?php endif; ?>
 
 <?php
@@ -19,16 +19,16 @@
 		'orderby' => 'post_date',
 		'order' => 'DESC'
 	];
-	
+
 	if ($_GET['issue'])
 		$main_query['tax_query'][] = [
 			'taxonomy' => 'magazine',
 			'field' => 'slug',
 			'terms' => [$issue->slug]
 		];
-	
+
 	$dynamics = new WP_Query($main_query);
-	
+
 	/*
 	if ($_GET['issue']) {
 		$dynamics = new WP_Query(
@@ -45,7 +45,7 @@
 				),
 			)
 		]);
-	
+
 	} else {
 		$dynamics = new WP_Query(
 		[
@@ -133,8 +133,7 @@ while ($dynamics->have_posts()) : $dynamics->the_post();
                 <?php get_template_part('templates/snippet', 'feed-header'); ?>
                 <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="link-image">
                   <?php /* show non wide blank-image only on 768-992 so boxes adjust properly, using class "visible-xs-block" */ ?>
-                  <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-wide.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder hidden-sm" />
-                  <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder visible-sm-block" />
+                  <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder visible-sm-block visible-xs-block" />
                 </a>
 
               <?php } ?>
@@ -154,7 +153,7 @@ while ($dynamics->have_posts()) : $dynamics->the_post();
 
   <?php } elseif ( $dynamics->current_post%6 == 5 ) { ?>
 
-    <div class="news-item-wrapper col-xs-12 col-sm-6 col-md-8 medium-post <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
+    <div class="news-item-wrapper col-xs-12 col-sm-12 col-md-8 medium-post <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
       <div class="news-item">
 
         <?php if ( has_post_format( 'quote' )) { ?>
@@ -162,8 +161,8 @@ while ($dynamics->have_posts()) : $dynamics->the_post();
           <div class="post-image">
             <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
               <?php /* show non wide blank-image only on 768-992 so boxes adjust properly, using class "visible-xs-block" */ ?>
-              <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-wide.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder hidden-sm" />
-              <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder visible-sm-block" />
+              <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-wide.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder hidden-xs" />
+              <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder visible-xs-block" />
             </a>
           </div>
 
@@ -265,13 +264,13 @@ while ($dynamics->have_posts()) : $dynamics->the_post();
 <?php endwhile; ?>
 
 <?php if($featurevideo) { ?>
-  <div class="news-item-wrapper col-xs-12 col-sm-6 col-md-8 medium-post video-post">
+  <div class="news-item-wrapper col-xs-12 col-sm-12 col-md-8 medium-post video-post">
     <div class="news-item">
       <div class="post-image">
         <?=$featurevideo?>
         <?php /* show non wide blank-image only on 768-992 so boxes adjust properly, using class "visible-xs-block" */ ?>
-        <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-wide-video.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder hidden-sm" />
-        <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-video.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder visible-sm-block" />
+        <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-wide-video.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder hidden-xs" />
+        <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-video.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder visible-xs-block" />
       </div>
     </div>
   </div>

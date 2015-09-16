@@ -70,6 +70,10 @@ p {
   margin-top: 2em !important;
 }
 
+.marginBottom2em {
+  margin-bottom: 2em !important;
+}
+
 .marginAuto {
   margin-left: auto;
   margin-right: auto;
@@ -160,6 +164,14 @@ body.single-calendar, body.tax-magazine, body.page, body.post-type-archive-calen
   }
 }
 
+body.tax-magazine, body.single, body.damn-plus, body.page-subscribe, body.page-contributors, body.page {
+  .wrap {
+    @media screen and (max-width: 767px) {
+      margin-top: 2em;
+    }
+  }
+}
+
 .container {
   @media screen and (min-width: 768px) and (max-width: 1199px) {
     width: 94% !important;
@@ -170,6 +182,9 @@ body.single-calendar, body.tax-magazine, body.page, body.post-type-archive-calen
 }
 
 .main {
+  @media screen and (max-width: 767px) {
+    margin-bottom: .5em;
+  }
   @media (min-width: $screen-sm-min) {
     width: auto !important;
     float: none !important;
@@ -194,9 +209,15 @@ body.home, body.archive {
 body.single, body.tax-magazine, body.page {
   .main {
     @media (min-width: $screen-sm-min) {
-      margin: 2em 340px 0 0px !important;
+      margin: 2em 255px 0 0px !important;
     }
     @media (min-width: $screen-md-min) {
+      margin: 2em 350px 0 0px !important;
+    }
+    @media (min-width: $screen-lg-min) {
+      margin: 2em 355px 0 0px !important;
+    }
+    @media (min-width: 1540px) {
       margin: 2em 390px 0 0px !important;
     }
   }
@@ -207,14 +228,6 @@ body.page-template-page-magazine, body.page-colofon, body.page-colophon, body.pa
     margin: 0 auto !important;
   }
 }
-
-// body.archive {
-//   .main {
-//     @media (min-width: $screen-sm-min) {
-//       margin-left: 30px !important;
-//     }
-//   }
-// }
 
 /* 404 */
 body.error404 {
@@ -315,6 +328,12 @@ VERTICAL RHYTHYM
   }
 }
 
+@media screen and (max-width: 767px) {
+  p {
+    font-size: 14px;
+  }
+}
+
 /*********************
 LOGO
 *********************/
@@ -404,6 +423,9 @@ ADVERTS
   .g img {
     margin-top: .8em;
     margin-bottom: .8em;
+    @media screen and (max-width: 991px) {
+      padding: 0 .8em;
+    }
     @media (min-width: $screen-md-min) {
       margin-top: 2em;
       margin-bottom: 2em;
@@ -428,7 +450,12 @@ MISC
   }
 }
 
-
+.button-box {
+  padding: 0 1em 1em 1em;
+  .btn {
+    margin-top: .8em;
+  }
+}
 
 
 

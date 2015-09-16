@@ -8,10 +8,10 @@
   <div class="footer-wrap">
     <div class="container">
       <div class="row logo-buttons">
-        <div class="col-xs-12 col-sm-6">
+        <div class="col-xs-12 col-sm-6 col-md-6">
           <a class="main-logo" href="/">DAMn MAGAZINE - <?php bloginfo('name'); ?></a>
         </div>
-        <div class="col-xs-12 col-sm-6 text-right">
+        <div class="col-xs-12 col-sm-6 col-md-6 text-right">
           <div class="btn-toolbar pull-right" role="toolbar">
             <div class="btn-group">
               <button type="button" class="btn btn-whitestroke btn-xl btn-noRadius">

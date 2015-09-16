@@ -1,4 +1,4 @@
-<div class="news-item-wrapper col-xs-12 col-sm-4" id="post-<?php the_ID(); ?>">
+<div class="news-item-wrapper col-xs-12 col-sm-6 col-md-4" id="post-<?php the_ID(); ?>">
   <div class="news-item">
     <?php /* REUSED snippet to display post image */ ?>
     <?php get_template_part('templates/snippet', 'post-image'); ?>

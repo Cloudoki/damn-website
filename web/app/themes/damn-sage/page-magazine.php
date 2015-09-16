@@ -4,7 +4,7 @@ Template Name: Magazine taxonomy
 */
 ?>
 
-<div class="row">
+<div class="row marginTop2em">
 
   <?php
   $tax = 'magazine';

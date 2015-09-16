@@ -13,11 +13,11 @@ Template Name: Subscribe
   <?php } ?>
 
   <div class="row subscribe-page">
-    <div class="col-xs-3 col-md-4 magazine-cover">
+    <div class="col-xs-12 col-sm-3 col-md-4 magazine-cover">
       <?php get_template_part('templates/snippet-latest-cover'); ?>
     </div>
 
-    <div class="col-xs-9 col-md-8 mailing-list-form">
+    <div class="col-xs-12 col-sm-9 col-md-8 mailing-list-form">
       <?php the_content(); ?>
     </div>
   </div>

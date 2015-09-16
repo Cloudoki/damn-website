@@ -226,12 +226,12 @@ body.home {
         padding-bottom: 2em;
         background: none !important;
         @media screen and (max-width: 767px) {
-          padding: 1.2em 1.8em;
+          padding: 2.5em 1.8em;
           position: relative !important;
           bottom: 0 !important;
           .container {
-            padding-left: 5px;
-            padding-right: 5px;
+            padding-left: 0;
+            padding-right: 0;
           }
         }
         h1 {
@@ -299,6 +299,12 @@ body.home {
   @media screen and (max-width: 767px) {
     display: none;
   }
+  @media screen and (min-width: 768px) and (max-width: 991px) {
+    .container {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+  }
 }
 
 .navbar-default {
@@ -339,12 +345,16 @@ ul.nav {
       border-right: 1px solid $white;
       border-left: 1px solid $white;
       @media screen and (min-width: 768px) and (max-width: 991px) {
-        font-size: 0.9em;
-        padding: 0 (15 / 16) * 1em;
+        font-size: .88em;
+        padding: 0 .5em;
         line-height: (50 / 16) * 1em;
       }
       @media screen and (min-width: 992px) and (max-width: 1199px) {
-        font-size: 1.05em;
+        font-size: 1em;
+        padding: 0 0.9em;
+      }
+      @media screen and (min-width: 1200px) and (max-width: 1539px) {
+        padding: 0 (17 / 16) * 1em;
       }
       &:hover {
         color: $black;
@@ -391,6 +401,10 @@ ul.nav {
     a {
       font-size: .9em;
       font-weight: 400;
+      @media screen and (min-width: 768px) and (max-width: 991px) {
+        line-height: 40px;
+        font-size: .8em;
+      }
     }
   }
   li.search {
@@ -455,6 +469,9 @@ ul.social-nav {
       &:hover {
         color: $black;
       }
+      @media screen and (min-width: 768px) and (max-width: 991px) {
+        padding: 0 (10 / 16) * 1em;
+      }
       @media screen and (min-width: 992px) and (max-width: 1200px) {
         padding: 0 (10 / 16) * 1em;
       }
@@ -484,7 +501,12 @@ ul.social-nav {
   }
   .main-navigation {
     padding: 0 !important;
-    @media screen and (min-width: 992px) and (max-width: 1199px) {
+    @media screen and (min-width: 992px) and (max-width: 1049px) {
+      ul.nav li a {
+        padding: 0 .7em;
+      }
+    }
+    @media screen and (min-width: 1050px) and (max-width: 1199px) {
       ul.nav li a {
         padding: 0 .9em;
       }
@@ -503,7 +525,10 @@ ul.social-nav {
   .main-navigation {
     .menu-main-nav-container {
       // normal nav when stick is active - set to auto width
-      @include blockfloat ;
+      @include blockfloat;
+      @media screen and (min-width: 768px) and (max-width: 991px) {
+        width: 100%;
+      }
       ul.nav li a {
         font-size: .8em;
       }
@@ -610,6 +635,7 @@ ul#issue-selector {
   border: 0 !important;
   @media screen and (max-width: 767px) {
     margin: 0 !important;
+    display: none;
   }
   li.dropdown {
     border: 0 !important;
@@ -692,6 +718,18 @@ ul#issue-selector {
         }
       }
     }
+  }
+}
+
+#wpadminbar {
+  @media screen and (max-width: 600px) {
+    position: fixed;
+  }
+}
+
+body.logged-in {
+  #my-menu {
+    margin-top: 46px;
   }
 }
 

@@ -1,4 +1,8 @@
+<?php if (is_search()) { ?>
+<header style="position: absolute !important;">
+<?php } else { ?>
 <header>
+<?php } ?>
   <?php get_template_part('templates/snippet', 'category-link'); ?>
 
   <h2 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>

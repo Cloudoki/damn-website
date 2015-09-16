@@ -4,7 +4,7 @@
 
     <?php if ( is_page('search') ) { ?>
       <div class="search-large">
-       <?php get_search_form(); ?>
+       <?php get_template_part('templates/snippet-search-form'); ?>
       </div>
     <?php } ?>
 

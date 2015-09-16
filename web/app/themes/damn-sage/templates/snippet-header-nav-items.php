@@ -27,7 +27,7 @@
                 $magazines = get_terms( $tax, $tax_args );
                 foreach($magazines as $magazine) {
                   $issue_color = get_field('issue_color', $magazine->taxonomy.'_'.$magazine->term_id);
-                  echo '<li style="background-color: ' . $issue_color . '"><a href="/?issue=' . $magazine->slug . '" title="">'. $magazine->name .'</a></li>';
+                  echo '<li style="background-color: ' . $issue_color . '"><a href="?issue=' . $magazine->slug . '" title="">'. $magazine->name .'</a></li>';
                 }
               ?>
 

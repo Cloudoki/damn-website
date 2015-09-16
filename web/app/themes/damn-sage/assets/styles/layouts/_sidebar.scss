@@ -1,14 +1,25 @@
 .sidebar {
   margin: 0 0 2.5em 0;
+  border-left: 1px solid $bordercolor;
+  border-right: 1px solid $bordercolor;
+  @media screen and (max-width: 767px) {
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+    border: 1px solid #ddd;
+    border-bottom: 0;
+    clear: both;
+  }
   @media (min-width: $screen-sm-min) {
-    width: 320px;
+    width: 230px;
     float: right;
-    border-left: 1px solid $bordercolor;
-    border-right: 1px solid $bordercolor;
     padding: 0;
     margin: 0 0 2.5em 0;
   }
   @media (min-width: $screen-md-min) {
+    width: 320px;
+  }
+  @media (min-width: 1540px) {
     width: 360px;
   }
   .sidebar-padding {
@@ -158,6 +169,7 @@ h3.widget-title-black {
     @media screen and (min-width: 768px) and (max-width: 991px) {
       border-left: 0;
       border-right: 0;
+      padding: 1em;
     }
     .company-logo {
       padding-bottom: 1em;

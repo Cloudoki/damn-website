@@ -13,13 +13,13 @@ Template Name: Join DAMn Plus
   <?php } ?>
 
   <div class="row join-damn-plus-info">
-    <div class="col-xs-3 col-md-4 magazine-cover">
+    <div class="col-xs-12 col-sm-3 col-md-4 magazine-cover">
 
       <?php get_template_part('templates/snippet-latest-cover'); ?>
 
     </div>
 
-    <div class="col-xs-9 col-md-8 join-damn-plus-form">
+    <div class="col-xs-12 col-sm-9 col-md-8 join-damn-plus-form">
       <article <?php post_class(''); ?>>
 
         <div class="entry-content">

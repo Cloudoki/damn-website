@@ -42,6 +42,9 @@ $issue_number = get_field ('magazine_number', $issue_acf_id);
 	.color-box, .damn-plus-badge, .join-damn-plus-home-image, .damn-plus-cta, .page-featured-image, .news-item-wrapper.damn-plus .news-item, .single-news-item {
 		background-color: <?=$issue_color?>;
 	}
+	.first-post-advert-wrapper .blackBackground {
+		background-color: <?=$issue_color?> !important;
+	}
 	.category-link .damn-plus {
 		border-color: <?=$issue_color?> !important;
 		background-color: <?=$issue_color?>;

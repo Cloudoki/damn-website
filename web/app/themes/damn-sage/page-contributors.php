@@ -84,6 +84,7 @@ Template Name: Contributors
               ?>
             </ul>
           </div>
+          <div class="clearthis"></div>
           <?php /* author meta end */ ?>
 
         </div>
@@ -91,5 +92,6 @@ Template Name: Contributors
     <?php } ?>
   </footer>
 </article>
+<div class="clearthis"></div>
 
 

@@ -1,13 +1,15 @@
 <?php the_content(); ?>
 
-<div class="bordered padding1em marginBottom">
+<div class="bordered marginBottom profile-options button-box">
   <a href="/category/damn-plus/" class="btn btn-primary btn-lg marginRight">VIEW ALL DAMn + ARTICLES</a> <a href="/join-damn-plus/damn-plus/profile/" class="btn btn-primary btn-lg">EDIT PROFILE</a>
 </div>
 
-<section class="widget damn-plus-login-form visible-xs-block bordered">
+<section class="widget damn-plus-login-form visible-xs-block bordered marginBottom2em">
   <?php if ( is_active_sidebar( 'sidebar-damn-plus-widget' ) ) : dynamic_sidebar( 'sidebar-damn-plus-widget' ); endif; ?>
   <div class="clearthis"></div>
 </section>
+
+<div class="clearthis"></div>
 
 <div class="related-posts clearfix">
   <div class="text-center">
@@ -25,5 +27,7 @@
     <?php wp_reset_postdata(); // reset the query ?>
   </div>
 </div>
+
+<div class="clearthis"></div>
 
 <?php wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']); ?>

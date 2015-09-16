@@ -36,15 +36,15 @@
     @include newsitemheader;
     header {
       z-index: 10;
-      @media screen and (max-width: 767px) {
-        position: relative !important;
-      }
     }
     .link-image {
       z-index: 5;
       display: block;
       @include position(absolute, $top: 0, $left: 0, $bottom: 0, $right: 0);
       @include transition500ms;
+      @media screen and (max-width: 767px) {
+        position: relative !important;
+      }
       &:hover {
         background: rgba(0,0,0,0.6);
       }
