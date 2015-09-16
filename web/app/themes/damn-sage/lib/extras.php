@@ -43,8 +43,8 @@ function custom_excerpt_length($length) {
 }
 add_filter( 'excerpt_length', __NAMESPACE__ . '\\custom_excerpt_length', 999 );
 
-add_filter('the_content', 'make_clickable');
-add_filter('the_excerpt', 'make_clickable');
+// add_filter('the_content', 'make_clickable');
+// add_filter('the_excerpt', 'make_clickable');
 
 
 //Page Slug Body Class

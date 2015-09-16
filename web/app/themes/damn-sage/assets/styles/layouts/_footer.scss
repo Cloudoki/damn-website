@@ -38,6 +38,11 @@ footer.content-info {
           margin-top: 2em !important;
         }
       }
+      @media screen and (min-width: 481px) and (max-width: 767px) {
+        .btn-xl {
+          margin-top: 2em !important;
+        }
+      }
       @media screen and (min-width: 768px) and (max-width: 992px) {
         .btn-xl {
           font-size: 1.1em !important;
