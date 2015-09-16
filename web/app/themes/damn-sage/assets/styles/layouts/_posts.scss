@@ -662,6 +662,11 @@ body.single, body.page {
           .pull-left {
             margin: 0 1.5em 0 0;
             width: 85px;
+            h3 {
+              a {
+                color: $black !important;
+              }
+            }
             @media screen and (min-width: 992px) {
               width: 128px;
             }
