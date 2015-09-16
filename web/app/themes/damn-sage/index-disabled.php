@@ -7,32 +7,27 @@
 
 <?php
 
-  if ($issue) {
-    $dynamics = new WP_Query(
-    [
-      'posts_per_page' => 60,
-      'post_type' => array ('post','calendar'),
-      'orderby' => 'post_date',
-      'order' => 'DESC',
-      // if issue filter, restrict post to only issue posts
-      'tax_query' => array(
-        array(
-          'taxonomy' => 'magazine',
-          'terms'    => $issue,
-        ),
-      ),
-
-    ]);
-
-  } else {
-    $dynamics = new WP_Query(
-    [
-      'posts_per_page' => 60,
-      'post_type' => array ('post','calendar'),
-      'orderby' => 'post_date',
-      'order' => 'DESC',
-    ]);
-  }
+	/**
+	 *	Issue filtering.
+	 *
+	 *	If issue string parameter is provided,
+	 *	show only connected posts and calendars.
+	 */
+	$main_query = [
+		'posts_per_page' => 75,
+		'post_type' => array ('post','calendar'),
+		'orderby' => 'post_date',
+		'order' => 'DESC'
+	];
+	
+	if ($_GET['issue'])
+		$main_query['tax_query'][] = [
+			'taxonomy' => 'magazine',
+			'field' => 'slug',
+			'terms' => [$issue->slug]
+		];
+	
+	$dynamics = new WP_Query($main_query);
 
 ?>
 
@@ -70,19 +65,52 @@ while ($dynamics->have_posts()) : $dynamics->the_post();
           <div class="table-row">
 
             <?php /* first news item wrapper */ ?>
-            <?php if ( has_post_thumbnail()) { ?>
-            <div class="news-item-wrapper col-xs-12 col-sm-8 large-post <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>" style="background-image:url(<?=$url?>);">
+            <?php if ( has_post_format( 'quote' )) /* no background image for quote format */ { ?>
+              <div class="news-item-wrapper col-xs-12 col-sm-8 large-post blackBackground <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
             <?php } else { ?>
-            <div class="news-item-wrapper col-xs-12 col-sm-8 large-post <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>" style="background-image:url(<?= get_template_directory_uri(); ?>/dist/images/default-tall.png)">
+              <?php if ( has_post_thumbnail()) { ?>
+              <div class="news-item-wrapper col-xs-12 col-sm-8 large-post <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>" style="background-image:url(<?=$url?>);">
+              <?php } else { ?>
+              <div class="news-item-wrapper col-xs-12 col-sm-8 large-post <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>" style="background-image:url(<?= get_template_directory_uri(); ?>/dist/images/default-tall.png)">
+              <?php } ?>
             <?php } ?>
 
-              <?php /* REUSED snippet to display title, category, subtitle */ ?>
-              <?php get_template_part('templates/snippet', 'feed-header'); ?>
-              <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="link-image">
-                <?php /* show non wide blank-image only on 768-992 so boxes adjust properly, using class "visible-xs-block" */ ?>
-                <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-wide.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder hidden-sm" />
-                <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder visible-sm-block" />
-              </a>
+              <?php if ( has_post_format( 'quote' )) { ?>
+                <div class="news-item noMargin">
+
+                  <div class="post-image">
+                    <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+                      <?php /* show non wide blank-image only on 768-992 so boxes adjust properly, using class "visible-xs-block" */ ?>
+                      <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-wide-quote.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="hidden-xs" />
+                      <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="visible-xs-block" />
+                    </a>
+                  </div>
+
+                  <header class="quote-format">
+                    <div class="quote-wrapper-outer">
+                      <div class="quote-wrapper-inner">
+                        <blockquote>
+                          <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+                            <?php the_excerpt(); ?>
+                          </a>
+                        </blockquote>
+                      </div>
+                    </div>
+                  </header>
+
+                </div>
+
+              <?php } else { ?>
+
+                <?php /* REUSED snippet to display title, category, subtitle */ ?>
+                <?php get_template_part('templates/snippet', 'feed-header'); ?>
+                <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="link-image">
+                  <?php /* show non wide blank-image only on 768-992 so boxes adjust properly, using class "visible-xs-block" */ ?>
+                  <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-wide.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder hidden-sm" />
+                  <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder visible-sm-block" />
+                </a>
+
+              <?php } ?>
 
             </div>
             <?php /* end news item wrapper */ ?>
@@ -223,19 +251,6 @@ while ($dynamics->have_posts()) : $dynamics->the_post();
 <?php } ?>
 
 </div><?php /* close empty-wrapper */ ?>
-
-<style>
-  .sponsored-content-wrapper .advert.middle   {
-    background-color: black !important;
-    position: relative;
-    padding: 12px;
-  }
-
-  .sponsored-content-wrapper .advert.middle img {
-    width: auto;
-    height: auto;
-  }
-</style>
 
 <?php /* sponsored content */ ?>
 <div class="row sponsored-content-wrapper">
