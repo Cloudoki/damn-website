@@ -6,7 +6,7 @@
 	 *
 	 *	If issue string parameter is provided,
 	 *	show only connected posts or calendars.
-	 */
+	
 	$main_query = [
 		'post_type' => [],
 		'orderby' => 'post_date',
@@ -17,7 +17,7 @@
 	{
 		$pass = false;
 		$main_query ['post_type'][] = 'product';
-	}
+	} */
 	
 	/*if (is_post_type_archive([ 'calendar' ]))
 	{
@@ -27,7 +27,7 @@
 		$main_query ['post_type'][] = 'calendar';
 	}*/
 	
-	
+	/*
 	
 	if ($_GET['issue'])
 		$main_query['tax_query'][] = [
@@ -42,7 +42,7 @@
 		//global $dynamics;
 		$dynamics = new WP_Query($main_query);
 	}
-		
+	*/	
 	
 	
 ?>

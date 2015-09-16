@@ -28,33 +28,6 @@
 		];
 	
 	$dynamics = new WP_Query($main_query);
-	
-	/*
-	if ($_GET['issue']) {
-		$dynamics = new WP_Query(
-		[
-			'posts_per_page' => 75,
-			'post_type' => array ('post','calendar'),
-			'orderby' => 'post_date',
-			'order' => 'DESC',
-			// if issue filter, restrict post to only issue posts
-			'tax_query' => array(
-				array(
-					'taxonomy' => 'magazine',
-					'terms'    => $issue,
-				),
-			)
-		]);
-	
-	} else {
-		$dynamics = new WP_Query(
-		[
-			'posts_per_page' => 75,
-			'post_type' => array ('post','calendar'),
-			'orderby' => 'post_date',
-			'order' => 'DESC',
-		]);
-	}*/
 
 ?>
 
