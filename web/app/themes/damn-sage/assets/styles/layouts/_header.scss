@@ -555,7 +555,7 @@ ul.social-nav {
   @include opacity(0.97);
   z-index: 1001;
   width: 100%;
-  @include transition500ms;
+  @include transition200ms;
   .main-navigation {
     .menu-main-nav-container {
       // normal nav when stick is active - set to auto width

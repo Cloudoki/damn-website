@@ -47,7 +47,7 @@
       z-index: 5;
       display: block;
       @include position(absolute, $top: 0, $left: 0, $bottom: 0, $right: 0);
-      @include transition500ms;
+      @include transition200ms;
       @media screen and (max-width: 767px) {
         position: relative !important;
       }

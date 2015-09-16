@@ -33,7 +33,7 @@
   &:hover {
     .post-image {
       @include opacity(0.3);
-      @include transition500ms;
+      @include transition200ms;
     }
   }
 }
@@ -159,7 +159,7 @@
 
 .entry-content {
   header.quote-single {
-    margin-bottom: 3em;
+    margin-bottom: 2.5em;
     blockquote {
       margin: 0 !important;
       padding: 0 !important;
@@ -580,13 +580,22 @@ body.single {
     font-size: (48 / 16) * 1em;
     margin-bottom: .4em;
     @media screen and (max-width: 767px) {
-      font-size: (38 / 16) * 1em;
+      font-size: (37 / 16) * 1em;
     }
   }
   .single-news-item {
     .post-image {
       max-height: 500px;
       overflow: hidden;
+      .container {
+        max-height: 500px;
+        header {
+          padding: 0 0 3.5em 0;
+          @media screen and (max-width: 767px) {
+            padding: 0 0 1.5em 0;
+          }
+        }
+      }
       img {
         width: 100%;
       }
@@ -596,8 +605,7 @@ body.single {
       width: 100%;
       background: none !important;
       @media screen and (max-width: 767px) {
-        position: relative !important;
-        padding: 1.75em;
+        padding: 0 1.75em 1.75em 1.75em;
         h1 {
           text-shadow: none;
         }

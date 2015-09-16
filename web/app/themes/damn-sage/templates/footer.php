@@ -7,11 +7,13 @@
 
   <div class="footer-wrap">
     <div class="container">
+
       <div class="row logo-buttons">
-        <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="col-xs-12 col-ms-5 col-sm-6 col-md-6 footer-logo">
           <a class="main-logo" href="/">DAM<sub>N</sub>° MAGAZINE - <?php bloginfo('name'); ?></a>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 text-right">
+
+        <div class="col-xs-12 col-ms-7 col-sm-6 col-md-6 footer-cta">
           <div class="btn-toolbar pull-right" role="toolbar">
             <div class="btn-group">
               <button type="button" class="btn btn-whitestroke btn-xl btn-noRadius">
@@ -26,6 +28,7 @@
             </div>
           </div>
         </div>
+
       </div>
 
       <div class="row row-links">
@@ -36,7 +39,7 @@
 
 		    <div class="col-xs-12 col-sm-1 col-md-1"></div>
 
-        <div class="col-xs-6 col-sm-3 col-md-2 text-right">
+        <div class="col-xs-6 col-sm-3 col-md-2 footer-socials">
           <h4>Socials</h4>
           <?php
           if (has_nav_menu('footer_socials')) :
@@ -45,7 +48,7 @@
           ?>
         </div>
 
-        <div class="col-xs-6 col-sm-3 col-md-3 text-right">
+        <div class="col-xs-6 col-sm-3 col-md-3 footer-colophon">
           <h4>Colophon</h4>
           <?php
           if (has_nav_menu('colophon')) :

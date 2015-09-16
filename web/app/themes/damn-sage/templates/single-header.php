@@ -12,21 +12,29 @@ $url = $thumb['0'];
   <?php } else { ?>
     <div class="post-image" style="background-image:url(<?= get_template_directory_uri(); ?>/dist/images/default-large.png)">
   <?php } ?>
-    <?php /* based on browser size, show one other other image. uses bootstrap visible class to show/hide */ ?>
-    <img src="<?= get_template_directory_uri(); ?>/dist/images/default-large-wide.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="visible-md-block visible-lg-block" />
-    <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-news-sm.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="visible-xs-block visible-sm-block" />
+    <div class="container">
+
+      <?php /* need this to have a full height box so the header can properly bottom align */ ?>
+      <div class="header-wrapper positionRelative">
+        <header>
+          <?php get_template_part('templates/snippet', 'category-link'); ?>
+          <div class="entry-meta">
+          <h1 class="entry-title"><?php the_title(); ?></h1>
+          <?php if(get_field('sub-title')) { ?>
+            <h3 class="subtitle">
+              <?php the_field('sub-title'); ?>
+            </h3>
+          <?php } ?>
+        </header>
+
+        <?php /* based on browser size, show one other other image. uses bootstrap visible class to show/hide */ ?>
+        <img src="<?= get_template_directory_uri(); ?>/dist/images/default-large-wide.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="visible-md-block visible-lg-block" />
+        <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-news-sm-tall.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="visible-xs-block visible-sm-block" />
+      </div>
+
+    </div>
   </div>
 
-  <header>
-    <?php get_template_part('templates/snippet', 'category-link'); ?>
-    <div class="entry-meta">
-    <h1 class="entry-title"><?php the_title(); ?></h1>
-    <?php if(get_field('sub-title')) { ?>
-      <h3 class="subtitle">
-        <?php the_field('sub-title'); ?>
-      </h3>
-    <?php } ?>
-  </header>
 </div>
 
 <?php /* only show share icons and publish date/author here on 768 to 991, since its too wide to fit in the normal place (at this particular view) */ ?>

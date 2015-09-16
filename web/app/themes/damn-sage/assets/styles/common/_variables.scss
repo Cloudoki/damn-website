@@ -61,23 +61,23 @@ $break-xlarge: 75em; // 1200px @ 16px
 .col-ms-1, .col-ms-2, .col-ms-3, .col-ms-4,
 .col-ms-5, .col-ms-6, .col-ms-7, .col-ms-8,
 .col-ms-9, .col-ms-10, .col-ms-11, .col-ms-12 {position:relative; padding-left:15px; padding-right:15px;}
-@media (min-width: 480px) and (max-width: 767px) {
+@media (min-width: 481px) and (max-width: 767px) {
   .container {max-width:748px;}
   .col-ms-1, .col-ms-2, .col-ms-3, .col-ms-4,
   .col-ms-5, .col-ms-6, .col-ms-7, .col-ms-8,
-  .col-ms-9, .col-ms-10, .col-ms-11 {float:left;}
-  .col-ms-1 {width:8.33333333%;}
-  .col-ms-2 {width:16.66666667%;}
-  .col-ms-3 {width:25%;}
-  .col-ms-4 {width:33.33333333%;}
-  .col-ms-5 {width:41.66666667%;}
-  .col-ms-6 {width:50%;}
-  .col-ms-7 {width:58.33333333%;}
-  .col-ms-8 {width:66.66666667%;}
-  .col-ms-9 {width:75%;}
-  .col-ms-10 {width:83.33333333%;}
-  .col-ms-11 {width:91.66666667%;}
-  .col-ms-12 {width:100%;}
+  .col-ms-9, .col-ms-10, .col-ms-11 {float:left !important;}
+  .col-ms-1 {width:8.33333333% !important;}
+  .col-ms-2 {width:16.66666667% !important;}
+  .col-ms-3 {width:25% !important;}
+  .col-ms-4 {width:33.33333333% !important;}
+  .col-ms-5 {width:41.66666667% !important;}
+  .col-ms-6 {width:50% !important;}
+  .col-ms-7 {width:58.33333333% !important;}
+  .col-ms-8 {width:66.66666667% !important;}
+  .col-ms-9 {width:75% !important;}
+  .col-ms-10 {width:83.33333333% !important;}
+  .col-ms-11 {width:91.66666667% !important;}
+  .col-ms-12 {width:100% !important;}
 }
 
 /*  Bootstrap Clearfix */
@@ -358,6 +358,12 @@ USAGE: @include transition(all 0.2s ease-in-out);
 
 // Transitions
 
+@mixin transition200ms {
+  @include transition-property(all);
+  @include transition-duration(200ms);
+  @include transition-timing-function(ease-in-out);
+}
+
 @mixin transition300ms {
   @include transition-property(all);
   @include transition-duration(300ms);
@@ -377,27 +383,27 @@ USAGE: @include transition(all 0.2s ease-in-out);
 }
 
 @mixin transition-all {
-    -webkit-transition: all 0.35s;
-    -moz-transition: all 0.35s;
-    transition: all 0.35s;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
 }
 
 @mixin fadein {
   opacity: 1;
-  transition: opacity .25s ease-in-out;
-  -moz-transition: opacity .25s ease-in-out;
-  -webkit-transition: opacity .25s ease-in-out;
-  -o-transition: opacity .25s ease-in-out;
-  -khtml-transition: opacity .25s ease-in-out;
+  transition: opacity .2s ease-in-out;
+  -moz-transition: opacity .2s ease-in-out;
+  -webkit-transition: opacity .2s ease-in-out;
+  -o-transition: opacity .2s ease-in-out;
+  -khtml-transition: opacity .2s ease-in-out;
 }
 
 @mixin transitions {
-  transition: all 0.3s ease-in-out !important;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  -khtml-transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out !important;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -khtml-transition: all 0.2s ease-in-out;
 }
 
 /*********************
