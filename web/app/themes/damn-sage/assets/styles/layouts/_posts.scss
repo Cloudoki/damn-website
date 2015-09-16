@@ -536,6 +536,7 @@ body.single {
   h1 {
     font-weight: 400;
     font-size: (48 / 16) * 1em;
+    margin-bottom: .4em;
     @media screen and (max-width: 767px) {
       font-size: (38 / 16) * 1em;
     }

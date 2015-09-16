@@ -9,7 +9,7 @@
     <div class="container">
       <div class="row logo-buttons">
         <div class="col-xs-12 col-sm-6 col-md-6">
-          <a class="main-logo" href="/">DAMN MAGAZINE - <?php bloginfo('name'); ?></a>
+          <a class="main-logo" href="/">DAM<sub>N</sub>° MAGAZINE - <?php bloginfo('name'); ?></a>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6 text-right">
           <div class="btn-toolbar pull-right" role="toolbar">
@@ -30,7 +30,7 @@
 
       <div class="row row-links">
         <div class="col-xs-12 col-sm-5 col-md-6">
-          <h4>About DAMN</h4>
+          <h4>About DAM<sub>N</sub>°</h4>
           <?php the_field('about_damn', 'option'); ?>
         </div>
 

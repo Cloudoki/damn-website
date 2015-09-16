@@ -44,6 +44,12 @@ function custom_excerpt_length($length) {
 add_filter( 'excerpt_length', __NAMESPACE__ . '\\custom_excerpt_length', 999 );
 
 
+// make links and email addresses clickable
+
+add_filter('the_content', __NAMESPACE__ . '\\make_clickable');
+add_filter('the_excerpt', __NAMESPACE__ . '\\make_clickable');
+
+
 //Page Slug Body Class
 
 function add_slug_body_class( $classes ) {
