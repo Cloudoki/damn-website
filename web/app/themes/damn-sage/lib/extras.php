@@ -29,16 +29,22 @@ add_filter('body_class', __NAMESPACE__ . '\\body_class');
  * Clean up the_excerpt()
  */
 function excerpt_more() {
-  return ' &hellip; <a class="more-link" href="' . get_permalink() . '">' . __('More', 'sage') . '</a>';
+  if ( has_post_format( 'quote' )) {
+    return '';
+  } else {
+    return ' &hellip; <a class="more-link" href="' . get_permalink() . '">' . __('More', 'sage') . '</a>';
+  }
 }
 add_filter('excerpt_more', __NAMESPACE__ . '\\excerpt_more');
 
 
 function custom_excerpt_length($length) {
-    if(in_category('damn-plus') && is_single()) {  //For posts belonging to category IDs 4 and 40
-        return 65; //return 65 words for the excerpt
+    if(in_category('damn-plus') && is_single()) {
+        return 120; //return 65 words for the excerpt
+    } elseif(is_single()) {
+        return 50;
     } else {
-        return 20; //for all others, return 40 words.
+      return 25;
     }
 }
 add_filter( 'excerpt_length', __NAMESPACE__ . '\\custom_excerpt_length', 999 );

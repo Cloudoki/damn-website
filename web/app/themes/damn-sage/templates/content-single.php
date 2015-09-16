@@ -2,6 +2,16 @@
   <article <?php post_class(''); ?>>
     <div class="entry-content">
 
+      <?php if ( has_post_format( 'quote' )) { ?>
+
+        <header class="quote-single">
+          <blockquote>
+              <?php the_excerpt(); ?>
+          </blockquote>
+        </header>
+
+      <?php } ?>
+
       <?php /* If is in DAMN + category, decide to show content IF user is logged in with an account, or else, CTA.. else, all other categories, display normal content */ ?>
       <?php if (in_category('damn-plus')) { ?>
 
