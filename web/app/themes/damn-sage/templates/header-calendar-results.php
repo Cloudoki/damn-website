@@ -19,7 +19,7 @@ $issue = $_GET['issue']?
 if (!$issue) $issue = get_field ('current_issue', 'option');
 if (!$issue)
 
-   throw new Exception('No current issue is set, please contact the DAMn° Moderator.');
+   throw new Exception('No current issue is set, please contact the DAMN° Moderator.');
 
 // Some dry data
 $issue_acf_id = 'magazine_' . $issue->term_id;

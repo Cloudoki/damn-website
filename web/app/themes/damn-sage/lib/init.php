@@ -91,7 +91,7 @@ function widgets_init() {
   ]);
 
   register_sidebar([
-    'name'          => __('DAMn Plus login/summary', 'sage'),
+    'name'          => __('DAMN Plus login/summary', 'sage'),
     'id'            => 'sidebar-damn-plus-widget',
     'before_widget' => '<section class="widget %1$s %2$s">',
     'after_widget'  => '</section>',
@@ -133,20 +133,20 @@ if( function_exists('acf_add_options_page') ) {
 
   acf_add_options_page(array(
     'page_title'  => 'Theme General Settings',
-    'menu_title'  => 'DAMn Global Settings',
+    'menu_title'  => 'DAMN Global Settings',
     'menu_slug'   => 'theme-general-settings',
     'capability'  => 'edit_posts',
     'redirect'    => false
   ));
 
   acf_add_options_sub_page(array(
-    'page_title'  => 'DAMn Header Settings',
+    'page_title'  => 'DAMN Header Settings',
     'menu_title'  => 'Header',
     'parent_slug' => 'theme-general-settings',
   ));
 
   acf_add_options_sub_page(array(
-    'page_title'  => 'DAMn Footer Settings',
+    'page_title'  => 'DAMN Footer Settings',
     'menu_title'  => 'Footer',
     'parent_slug' => 'theme-general-settings',
   ));

@@ -140,8 +140,8 @@
         {
            "position": "bottom",
            "content": [
-              "<a class='fa fa-facebook' href='http://www.facebook.com/pages/DAMnmagazine/27113480473'></a>",
-              "<a class='fa fa-twitter' href='https://twitter.com/DAMntwice'></a>",
+              "<a class='fa fa-facebook' href='http://www.facebook.com/pages/DAMNmagazine/27113480473'></a>",
+              "<a class='fa fa-twitter' href='https://twitter.com/DAMNtwice'></a>",
               "<a class='fa fa-vimeo' href='https://vimeo.com/damnmagazine/videos'></a>",
               "<a class='fa fa-instagram' href='https://instagram.com/damn_magazine'></a>",
               "<a class='fa fa-linkedin' href='http://www.linkedin.com/company/damn-magazine'></a>",

@@ -33,15 +33,9 @@ $url = $thumb['0'];
 
   <?php if ( has_post_thumbnail()) { ?>
     <div class="post-image" style="background-image:url(<?=$url?>);">
-  <?php } else { ?>
-    <div class="post-image" style="background-color: <?=$issue_color?>">
-  <?php } ?>
-    <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-      <?php if ( has_post_thumbnail()) { ?>
+      <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
         <img src="<?= get_template_directory_uri(); ?>/dist/images/default-tall-blank.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
-      <?php } else { ?>
-        <img src="<?= get_template_directory_uri(); ?>/dist/images/default.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
-      <?php } ?>
-    </a>
-  </div>
+      </a>
+    </div>
+  <?php } ?>
 </div>

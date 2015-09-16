@@ -1,7 +1,7 @@
 <?php the_content(); ?>
 
 <div class="bordered marginBottom profile-options button-box">
-  <a href="/category/damn-plus/" class="btn btn-primary btn-lg marginRight">VIEW ALL DAMn + ARTICLES</a> <a href="/join-damn-plus/damn-plus/profile/" class="btn btn-primary btn-lg">EDIT PROFILE</a>
+  <a href="/category/damn-plus/" class="btn btn-primary btn-lg marginRight">VIEW ALL DAMN + ARTICLES</a> <a href="/join-damn-plus/damn-plus/profile/" class="btn btn-primary btn-lg">EDIT PROFILE</a>
 </div>
 
 <section class="widget damn-plus-login-form visible-xs-block bordered marginBottom2em">
@@ -13,7 +13,7 @@
 
 <div class="related-posts clearfix">
   <div class="text-center">
-    <h3 class="marginAuto bottomBorderInline">DAMn + Articles </h3>
+    <h3 class="marginAuto bottomBorderInline">DAMN + Articles </h3>
   </div>
   <div class="row">
     <?php

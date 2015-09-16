@@ -6,7 +6,7 @@
   <div class="header-wrapper">
     <div class="container">
       <div class="pull-left">
-        <a class="main-logo" href="/">DAMn MAGAZINE - <?php bloginfo('name'); ?></a>
+        <a class="main-logo" href="/">DAMN MAGAZINE - <?php bloginfo('name'); ?></a>
         <span class="issue-number" style="color: <?=$issue_color?>"><?=$issue_number?></span>
 
         <?php /* toggle selector for issues */ ?>

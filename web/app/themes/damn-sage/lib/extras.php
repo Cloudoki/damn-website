@@ -56,11 +56,11 @@ return $classes;
 add_filter( 'body_class', __NAMESPACE__ . '\\add_slug_body_class' );
 
 /**
- *  DAMn Customised
+ *  DAMN Customised
  *  All action & hook functionalities - add them here for clear overview.
  */
 
-// add_action ('pre_get_posts', array('Roots\DAMn', 'filter_home'));
+// add_action ('pre_get_posts', array('Roots\DAMN', 'filter_home'));
 
 
 

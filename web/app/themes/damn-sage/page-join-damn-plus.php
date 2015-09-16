@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Join DAMn Plus
+Template Name: Join DAMN Plus
 */
 ?>
 

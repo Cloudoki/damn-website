@@ -19,14 +19,14 @@
 		'orderby' => 'post_date',
 		'order' => 'DESC'
 	];
-	
+
 	if ($_GET['issue'])
 		$main_query['tax_query'][] = [
 			'taxonomy' => 'magazine',
 			'field' => 'slug',
 			'terms' => [$issue->slug]
 		];
-	
+
 	$dynamics = new WP_Query($main_query);
 
 ?>
@@ -154,7 +154,7 @@ while ($dynamics->have_posts()) : $dynamics->the_post();
 
         <?php } else { ?>
 
-          <?php /* DAMn + badge */ ?>
+          <?php /* DAMN + badge */ ?>
           <?php get_template_part('templates/damn-plus-badge'); ?>
 
           <?php if ( has_post_thumbnail()) { ?>
@@ -208,7 +208,7 @@ while ($dynamics->have_posts()) : $dynamics->the_post();
 
         <?php } else { ?>
 
-          <?php /* DAMn + badge */ ?>
+          <?php /* DAMN + badge */ ?>
           <?php get_template_part('templates/damn-plus-badge'); ?>
 
           <?php if ( has_post_thumbnail()) { ?>
@@ -330,16 +330,16 @@ while ($dynamics->have_posts()) : $dynamics->the_post();
 
   <div class="col-xs-12 col-sm-12 col-md-4">
     <div class="widget">
-      <h3 class="widget-title">Join DAMn +</h3>
+      <h3 class="widget-title">Join DAMN +</h3>
         <div class="join-damn-plus-home-image">
           <?php $joinimage = wp_get_attachment_image_src(get_field('join_damn_plus_image', 'option'), 'full'); ?>
           <?php $joinimagewide = wp_get_attachment_image_src(get_field('join_damn_plus_image_wide', 'option'), 'full'); ?>
-          <a href="/join-damn-plus" title="Join DAMn +">
+          <a href="/join-damn-plus" title="Join DAMN +">
             <?php if(get_field('join_damn_plus_image', 'option')) { ?>
-              <img src="<?php echo $joinimage[0]; ?>" alt="Join DAMn +" class="visible-md-block visible-lg-block">
+              <img src="<?php echo $joinimage[0]; ?>" alt="Join DAMN +" class="visible-md-block visible-lg-block">
             <?php } ?>
             <?php if(get_field('join_damn_plus_image_wide', 'option')) { ?>
-              <img src="<?php echo $joinimagewide[0]; ?>" alt="Join DAMn +" class="visible-xs-block visible-sm-block">
+              <img src="<?php echo $joinimagewide[0]; ?>" alt="Join DAMN +" class="visible-xs-block visible-sm-block">
             <?php } ?>
           </a>
         </div>

@@ -2,10 +2,10 @@
 
 
 /**
- *	DAMn Custom Class
+ *	DAMN Custom Class
  */
 
-class DAMn {
+class DAMN {
 
 	/**
 	 * 	Home - amount of posts queried
