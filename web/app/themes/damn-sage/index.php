@@ -91,7 +91,9 @@ while ($dynamics->have_posts()) : $dynamics->the_post();
           <div class="table-row">
 
             <?php /* first news item wrapper */ ?>
-            <?php if ( has_post_thumbnail()) { ?>
+            <?php if ( has_post_format( 'quote' )) { ?>
+              <div class="news-item-wrapper col-xs-12 col-sm-8 large-post quote-format <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
+            <?php } elseif ( has_post_thumbnail()) { ?>
             <div class="news-item-wrapper col-xs-12 col-sm-8 large-post <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>" style="background-image:url(<?=$url?>);">
             <?php } else { ?>
             <div class="news-item-wrapper col-xs-12 col-sm-8 large-post <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>" style="background-image:url(<?= get_template_directory_uri(); ?>/dist/images/default-tall.png)">

@@ -24,6 +24,12 @@
     .news-item-wrapper:nth-child(2) {
     }
   }
+  .quote-format {
+    background-color: $black;
+    .post-image {
+      max-height: 465px;
+    }
+  }
   .large-post {
     padding: 0 !important;
     @media screen and (min-width: 768px) {
@@ -138,12 +144,10 @@
   background-color: black !important;
   position: relative;
   padding: 12px;
-  @media screen and (min-width: 768px) and (max-width: 991px) {
-    padding: 0;
-  }
 }
 
 .news-item-wrapper.advert.advert-premium .news-item .post-image img {
+  width: auto;
   height: auto;
 }
 
