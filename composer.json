@@ -35,7 +35,6 @@
     "johnpbloch/wordpress": "4.2.4",
 
     "wpackagist-plugin/adrotate": "3.12.1",
-    "wpackagist-plugin/advanced-custom-fields": "4.4.3",
     "wpackagist-plugin/custom-post-type-ui": "1.1.2",
     "wpackagist-plugin/google-analytics-dashboard-for-wp": "4.8.2",
     "wpackagist-plugin/s2member": "150827",
@@ -43,7 +42,7 @@
     "wpackagist-plugin/featured-video-plus": "2.2.1",
     "wpackagist-plugin/wp-missed-schedule": "2015.0228.3",
     "wpackagist-plugin/wordpress-seo": "2.3.4",
-    "wpackagist-plugin/multiple-post-thumbnails": "1.6.6"
+    "wpackagist-plugin/redirection": "2.4.1"
   },
   "extra": {
     "installer-paths": {

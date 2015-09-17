@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "704ab0324b9cb43b24770d24b782fc5b",
+    "hash": "06cafec9fdb587aedc26ee3c23bcda56",
     "packages": [
         {
             "name": "composer/installers",
@@ -253,26 +253,6 @@
             "homepage": "https://wordpress.org/plugins/adrotate/"
         },
         {
-            "name": "wpackagist-plugin/advanced-custom-fields",
-            "version": "4.4.3",
-            "source": {
-                "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/advanced-custom-fields/",
-                "reference": "trunk"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/advanced-custom-fields.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/advanced-custom-fields/"
-        },
-        {
             "name": "wpackagist-plugin/custom-post-type-ui",
             "version": "1.1.2",
             "source": {
@@ -333,16 +313,16 @@
             "homepage": "https://wordpress.org/plugins/google-analytics-dashboard-for-wp/"
         },
         {
-            "name": "wpackagist-plugin/multiple-post-thumbnails",
-            "version": "1.6.6",
+            "name": "wpackagist-plugin/redirection",
+            "version": "2.4.1",
             "source": {
                 "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/multiple-post-thumbnails/",
+                "url": "http://plugins.svn.wordpress.org/redirection/",
                 "reference": "trunk"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/multiple-post-thumbnails.zip",
+                "url": "https://downloads.wordpress.org/plugin/redirection.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -350,7 +330,7 @@
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/multiple-post-thumbnails/"
+            "homepage": "https://wordpress.org/plugins/redirection/"
         },
         {
             "name": "wpackagist-plugin/s2member",
