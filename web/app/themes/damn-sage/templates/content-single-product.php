@@ -2,6 +2,7 @@
   <article <?php post_class(''); ?>>
     <div class="entry-content">
       <div class="row">
+
         <div class="col-xs-12">
           <h1 class="entry-title"><?php the_title(); ?></h1>
           <?php if(get_field('sub-title')) { ?>
@@ -11,14 +12,33 @@
           <?php } ?>
           <div class="post-image bordered-image">
 
-            <?php /* damn plus badge */ ?>
-            <?php get_template_part('templates/damn-plus-badge'); ?>
+            <div class="feature-slider">
 
-            <?php if ( has_post_thumbnail()) { ?>
-              <?php the_post_thumbnail('large'); ?>
-            <?php } else { ?>
-              <img src="<?= get_template_directory_uri(); ?>/dist/images/default.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
-            <?php } ?>
+              <ul class="slider bxslider">
+                <?php /* get normal post thumbnail */ ?>
+                <?php if ( has_post_thumbnail()) { ?>
+                  <li id="post-<?php the_ID(); ?>">
+                    <?php the_post_thumbnail('large'); ?>
+                  </li>
+                <?php } ?>
+
+                <?php /* get multiple images, if exist */ ?>
+                <?php if(get_field('multiple_product_images')): ?>
+                  <?php while(has_sub_field('multiple_product_images')): ?>
+
+                    <?php
+                      $attachment_id = get_sub_field('product_images');
+                      $size = "large";
+                      $image = wp_get_attachment_image_src( $attachment_id, $size );
+                    ?>
+                    <li><img src="<?php echo $image[0]; ?>" alt="<?php echo get_the_title(get_sub_field('product_images')) ?>"></li>
+
+                  <?php endwhile; ?>
+                <?php endif; ?>
+              </ul>
+
+            </div>
+
           </div>
         </div>
 

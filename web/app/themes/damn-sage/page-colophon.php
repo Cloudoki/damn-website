@@ -2,6 +2,8 @@
 /*
 Template Name: Colophon
 */
+
+
 ?>
 
 <?php while (have_posts()) : the_post(); ?>
@@ -25,12 +27,45 @@ Template Name: Colophon
           $allUsers = get_users('orderby=display_name');
           $users = array();
 
+          function get_author_tags($id) {
+            $user_tags = array();
+            $query = new WP_Query(array(
+                'posts_per_page' => -1,
+                'author' => $id,
+            ));
+            while ($query->have_posts()) {
+                $query->the_post();
+                $tags = get_the_terms(get_the_ID(), 'magazine');
+                foreach ($tags as $key => $val) {
+                    if ($val->term_id > 0) {
+                        if (!array_key_exists($val->slug, $user_tags)) {
+                            $user_tags[] = $val->slug;
+                        }
+                    }
+                }
+                wp_reset_postdata();
+            }
+            return $user_tags;
+          }
+
           foreach($allUsers as $currentUser) {
             if(in_array( 'author', $currentUser->roles )) {
-              $users[] = $currentUser;
+              $author_tags = get_author_tags($currentUser->ID);
+
+              if(count($author_tags) == 0){
+                continue;
+              }
+
+              $current_issue_slug = "damn-".$issue_number;
+
+              if(in_array($current_issue_slug, $author_tags)){
+                $users[] = $currentUser;
+              }
             }
           }
         ?>
+
+
 
         <h3 class="text-uppercase">
           Contributors

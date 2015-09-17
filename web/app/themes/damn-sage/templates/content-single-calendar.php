@@ -2,6 +2,7 @@
   <article <?php post_class(''); ?>>
     <div class="entry-content">
       <div class="row">
+
         <div class="col-xs-12">
           <h1 class="entry-title"><?php the_title(); ?></h1>
           <?php if(get_field('sub-title')) { ?>

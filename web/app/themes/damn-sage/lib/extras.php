@@ -86,18 +86,6 @@ function mike_modify_main_query( $query ) {
   $query->query_vars['posts_per_page'] = 1; // Show only 6 posts on the homepage only
   }
 }
-// Hook my above function to the pre_get_posts action
-// add_action( 'pre_get_posts', __NAMESPACE__ . '\\mike_modify_main_query' );
-
-// modify normal archive to show 18 items per page
-
-// function mike_modify_normal_archive_query( $query ) {
-//   if ( $query->is_archive()) { // Run only on archive pages, but not custom post types
-//   $query->query_vars['posts_per_page'] = 18; // Show only 15 posts per page
-//   }
-// }
-// // Hook my above function to the pre_get_posts action
-// add_action( 'pre_get_posts', __NAMESPACE__ . '\\mike_modify_normal_archive_query' );
 
 
 // modify calendar posts to show 12 items per page
@@ -111,6 +99,7 @@ function mike_modify_calendar_archive_query( $query ) {
 add_action( 'pre_get_posts', __NAMESPACE__ . '\\mike_modify_calendar_archive_query' );
 
 
+
 // modify magazine taxonomy posts to show 16 items per page
 
 function mike_modify_magazine_query( $query ) {
@@ -119,8 +108,14 @@ function mike_modify_magazine_query( $query ) {
   }
 }
 
+
+
+// make sure calendar and productivity have post_tag registered
+
 register_taxonomy_for_object_type( 'post_tag', 'calendar' );
 register_taxonomy_for_object_type( 'post_tag', 'productivity' );
+
+
 
 // removed "category:" or "archives:" etc from showing automatically in the archive title
 

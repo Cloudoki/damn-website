@@ -116,6 +116,16 @@
   // Fitvids
   $(".featured-video").fitVids();
 
+  // BX Slider - product image pages
+
+  $('.bxslider').bxSlider({
+    adaptiveHeight: true,
+    mode: 'fade',
+    autoStart: 'false',
+    infiniteLoop: 'true',
+    controls: 'true'
+  });
+
   // MMenu
   $("#my-menu").mmenu({
      "extensions": [

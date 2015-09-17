@@ -37,6 +37,7 @@
   ul, ol {
     list-style: none;
     padding-left: 0;
+    margin: 0;
     li {
       padding: 1em;
       border-bottom: 1px solid $bordercolor;
@@ -153,6 +154,38 @@ h3.widget-title-black {
       span {
         font-size: .95em;
         @include lightgraytomediumgraylink;
+      }
+    }
+  }
+}
+
+// older issues
+
+.sidebar {
+  ul.older-issues-list {
+    border-bottom: 1px solid $bordercolor;
+    li {
+      border: none !important;
+      padding: 1.5em;
+      word-wrap: break-word;
+      background-color: $white;;
+      div.mag-image {
+        float: left;
+        margin-right: 1em;
+        background-color: $black;
+        line-height: 1px;
+        width: 30%;
+      }
+      @include blacktowhitelink;
+      h2 {
+        font-weight: 700;
+      }
+      span {
+        display: block;
+        font-size: .9em;
+      }
+      span:nth-child(2) {
+        border-top: 1px solid $black;
       }
     }
   }
