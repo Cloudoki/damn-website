@@ -36,7 +36,6 @@ Template Name: Colophon
             while ($query->have_posts()) {
                 $query->the_post();
                 $tags = get_the_terms(get_the_ID(), 'magazine');
-                if(!is_array($tags) || count($tags) == 0 ) { continue; }
                 foreach ($tags as $key => $val) {
                     if ($val->term_id > 0) {
                         if (!array_key_exists($val->slug, $user_tags)) {
@@ -50,7 +49,7 @@ Template Name: Colophon
           }
 
           foreach($allUsers as $currentUser) {
-            if(in_array( 'author', $currentUser->roles ) || in_array( 'administrator', $currentUser->roles )) {
+            if(in_array( 'author', $currentUser->roles )) {
               $author_tags = get_author_tags($currentUser->ID);
 
               if(count($author_tags) == 0){

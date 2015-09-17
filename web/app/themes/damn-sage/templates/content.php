@@ -20,9 +20,6 @@ $wrapperclass = ( $wp_query->current_post%4 == 0 && (int)( $wp_query->current_po
 
   <div class="news-item ">
 
-    <?php /* damn plus badge */ ?>
-    <?php get_template_part('templates/damn-plus-badge'); ?>
-
     <? /* the actual post images are backgrounds. transparent placeholders GIFs fill the actual space, so all blocks are the same size.
       If no post image is present, a default image loads instead */
 

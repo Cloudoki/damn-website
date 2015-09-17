@@ -154,9 +154,6 @@ while ($dynamics->have_posts()) : $dynamics->the_post();
 
         <?php } else { ?>
 
-          <?php /* DAMN + badge */ ?>
-          <?php get_template_part('templates/damn-plus-badge'); ?>
-
           <?php if ( has_post_thumbnail()) { ?>
             <div class="post-image" style="background-image:url(<?=$url?>);">
           <?php } else { ?>
@@ -207,9 +204,6 @@ while ($dynamics->have_posts()) : $dynamics->the_post();
           </header>
 
         <?php } else { ?>
-
-          <?php /* DAMN + badge */ ?>
-          <?php get_template_part('templates/damn-plus-badge'); ?>
 
           <?php if ( has_post_thumbnail()) { ?>
           <div class="post-image" style="background-image:url(<?=$url?>);">

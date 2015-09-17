@@ -130,6 +130,7 @@ class magazine_Widget extends WP_Widget {
           <h2><a href="<?php echo $link; ?>" title="<?php echo $magazine->name; ?>"><?php echo $magazine->name; ?></a></h2>
           <span><a href="<?php echo $link; ?>" title="<?php echo $magazine->name; ?>"><?php the_archive_description(); ?></a></span>
           <span>Articles: <?php echo $magazine->count; ?></span>
+          <div class="clearthis"></div>
         </li>
       <?php }
     }

@@ -12,9 +12,6 @@
           <?php } ?>
           <div class="post-image bordered-image">
 
-            <?php /* damn plus badge */ ?>
-            <?php get_template_part('templates/damn-plus-badge'); ?>
-
             <?php if ( has_post_thumbnail()) { ?>
               <?php the_post_thumbnail('large'); ?>
             <?php } else { ?>
