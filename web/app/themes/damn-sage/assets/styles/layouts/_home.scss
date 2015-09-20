@@ -114,7 +114,15 @@
   }
 }
 
-// home 4-up category feeds
+// 4 up home category feeds & product feeds shared
+
+.home-category-feeds, .product-feed-home  {
+  h3.archive-title {
+    margin: 0 0 (20 / 24) * 1em 0;
+  }
+}
+
+// home 4-up category feeds specific
 
 .home-category-feeds {
   margin-bottom: .5em;
@@ -122,9 +130,6 @@
     header {
       padding: 1.5em;
     }
-  }
-  h3.archive-title {
-    margin: 0 0 (20 / 24) * 1em 0;
   }
   h3.entry-title {
     @media screen and (min-width: 1200px) and (max-width: 1499px) {
@@ -139,7 +144,9 @@
   }
 }
 
-// home 4 up product feed // see posts.scss and search for "Productivity alternate" to see the css for the product feed, as this uses the same css
+// home 4 up product feed specific
+
+// see posts.scss and search for "Productivity alternate" to see the css for the product feed, as this uses the same css
 // as the feed for the product archive page, only on homepage, we have 100% height so boxes line up and columns widths on home are set in index.php, not
 // by css/js like on the product page (aka, homepage is NOT masonry grid).
 
