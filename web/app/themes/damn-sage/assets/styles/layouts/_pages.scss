@@ -9,6 +9,9 @@
 
 .search-large {
   padding: 2em 0 10em 0;
+  @media screen and (max-width: 767px) {
+    padding-top: 0em;
+  }
   .search-form {
     width: 100%;
     .input-group {
@@ -20,8 +23,11 @@
         height: auto;
         box-shadow: none;
         border-color: $bordercolor;
-        @media screen and (max-width: 767px) {
-          font-size: 1em;
+        @media screen and (max-width: 480px) {
+          font-size: .9em !important;
+        }
+        @media screen and (min-width: 481px) and (max-width: 767px) {
+          font-size: 1em !important;
         }
       }
       button {
@@ -32,8 +38,11 @@
         border: 1px solid $bordercolor;
         background: none;
         color: $black !important;
-        @media screen and (max-width: 767px) {
-          font-size: 1em;
+        @media screen and (max-width: 480px) {
+          font-size: .9em !important;
+        }
+        @media screen and (min-width: 481px) and (max-width: 767px) {
+          font-size: 1em !important;
         }
         &:hover {
           color: $white !important;

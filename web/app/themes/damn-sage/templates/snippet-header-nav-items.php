@@ -1,5 +1,5 @@
 <?php /* Begin actual header/navigation */
-	global $issue, $issue_color, $issue_number;
+  global $issue, $issue_color, $issue_number;
 ?>
 
 <header class="banner navbar navbar-default" role="banner">
@@ -57,7 +57,7 @@
       <nav class="collapse navbar-collapse main-navigation" role="navigation">
         <?php
         if (has_nav_menu('primary_navigation')) :
-          wp_nav_menu(['theme_location' => 'primary_navigation', 'walker' => new wp_bootstrap_navwalker(), 'menu_class' => 'nav navbar-nav']);
+          wp_nav_menu(['theme_location' => 'primary_navigation', 'walker' => new wp_bootstrap_navwalker(), 'menu_class' => 'nav navbar-nav', ]);
         endif;
         ?>
         <?php
@@ -72,4 +72,12 @@
   <?php /* leave this here, it activates the sticky nav */ ?>
   <div class="fixed-nav-activator clearthis"></div>
 </header>
+
+<div id="search-bar" class="collapse">
+  <div class="container">
+    <?php get_template_part('templates/snippet-search-form'); ?>
+  </div>
+</div>
+
 <?php /* end actual header/navigation */ ?>
+

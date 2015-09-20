@@ -347,10 +347,47 @@ while ($dynamics->have_posts()) : $dynamics->the_post();
 
 </div>
 
+<?php /* 4 up products feed */ ?>
+<div class="product-feed-home row">
+  <?php
+    $product_query = [
+      'posts_per_page' => 4,
+      'post_type' => array ('product'),
+      'orderby' => 'post_date',
+      'order' => 'DESC'
+    ];
+
+    if ($_GET['issue'])
+      $product_query['tax_query'][] = [
+        'taxonomy' => 'magazine',
+        'field' => 'slug',
+        'terms' => [$issue->slug]
+      ];
+
+    $products = new WP_Query($product_query);
+  ?>
+
+  <?php if (have_posts()) : ?>
+    <div class="col-xs-12">
+      <h3 class="archive-title">Productivity</h3>
+    </div>
+    <?php /* display as table above 768, so heights all line up */ ?>
+    <?php $post_count = 0; ?>
+    <div class="table-display">
+      <?php while ($products->have_posts()) : $products->the_post(); ?>
+        <div class="col-xs-12 col-sm-6 col-md-3 table-cell">
+          <?php get_template_part('templates/content-productivity', get_post_type() != 'product' ? get_post_type() : get_post_format()); ?>
+          <div class="clearthis"></div>
+        </div>
+      <?php endwhile; ?>
+    </div>
+  <?php endif; ?>
+</div>
+
 
 <?php /* 3 bottom widgets */ ?>
 <div class="row bottom-widgets">
-  <div class="col-xs-12 col-sm-6 col-md-4">
+  <div class="col-xs-12 col-sm-6 col-md-4 table-cell">
     <?php if ( is_active_sidebar( 'sidebar-homepage-agenda' ) ) : dynamic_sidebar( 'sidebar-homepage-agenda' ); endif; ?>
   </div>
 

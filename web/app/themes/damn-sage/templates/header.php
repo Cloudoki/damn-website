@@ -32,7 +32,8 @@ $issue_number = get_field ('magazine_number', $issue_acf_id);
 	a, a:visited, .nav a span, a.mobile-menu .fa {
 		color: <?=$issue_color?>;
 	}
-	.btn-default, .btn-primary, body.damn-plus .title-wrapper, body.category-damn-plus .title-wrapper, body.login .main h3.widget-title, .back-to-calendar a.btn-primary {
+	.btn-default, .btn-primary, body.damn-plus .title-wrapper, body.category-damn-plus .title-wrapper, body.login .main h3.widget-title,
+	.back-to-calendar a.btn-primary, .article-navigation .pagination li span.current {
 		background-color: <?=$issue_color?>;
 		color: #fff !important;
 	}

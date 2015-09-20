@@ -6,6 +6,9 @@
 <?php /* actual header nav items.. below is the title wrapper, if it needs to show */ ?>
 <?php get_template_part('templates/snippet', 'header-nav-items'); ?>
 
+
+<?php /* header title items, for areas where the title displays */ ?>
+
 <?php if(is_single() || (is_front_page())) { ?>
   <?php /* dont display title wrapper if is single */ ?>
 <?php } else { ?>

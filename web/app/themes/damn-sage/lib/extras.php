@@ -132,6 +132,15 @@ add_filter( 'get_the_archive_title', function ($title) {
   return $title;
 });
 
+
+// return to homepage after logout
+
+add_action('wp_logout', __NAMESPACE__ . '\\go_home');
+function go_home(){
+  wp_redirect( home_url() );
+  exit();
+}
+
 /*********************
 PAGE NAVI
 *********************/

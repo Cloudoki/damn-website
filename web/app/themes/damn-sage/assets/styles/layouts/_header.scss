@@ -310,7 +310,7 @@ ul.nav {
       @media screen and (min-width: 768px) and (max-width: 991px) {
         font-size: .88em;
         padding: 0 .5em;
-        line-height: (50 / 16) * 1em;
+        line-height: 40px;
       }
       @media screen and (min-width: 992px) and (max-width: 1199px) {
         font-size: 1em;
@@ -343,17 +343,26 @@ ul.nav {
       }
     }
   }
-  li.search a {
-    &:hover {
-      padding-right: (20 / 16) * 1em;
+  li.search {
+    font-size: 1em;
+    a {
+      padding: 0;
       @media screen and (min-width: 768px) and (max-width: 991px) {
-        padding-right: .5em;
+        line-height: 40px;
       }
-      @media screen and (min-width: 992px) and (max-width: 1199px) {
-        padding-right: 0.9em;
+      i {
+        display: block;
+        padding: 0 0 0 1.25em;
+        line-height: 60px;
+        @include transitions;
+        @media screen and (min-width: 768px) and (max-width: 991px) {
+          line-height: 40px;
+        }
       }
-      @media screen and (min-width: 1200px) and (max-width: 1539px) {
-        padding-right: (17 / 16) * 1em;
+      &:hover {
+        i {
+          padding-right: (20 / 16) * 1em;
+        }
       }
     }
   }
@@ -392,12 +401,6 @@ ul.nav {
         line-height: 40px;
         font-size: .8em;
       }
-    }
-  }
-  li.search {
-    font-size: 1em;
-    a {
-      padding-right: 0;
     }
   }
   // dropdown
@@ -454,7 +457,7 @@ body.page-search {
 
 // social nav
 ul.social-nav {
-  paddng: 0;
+  padding: 0;
   li {
     @include blockfloat;
     a, a:visited {
@@ -544,6 +547,12 @@ ul.social-nav {
     @media screen and (min-width: 1050px) and (max-width: 1199px) {
       ul.nav li a {
         padding: 0 .9em;
+      }
+    }
+    // search specific
+    @media screen and (min-width: 992px) and (max-width: 1199px) {
+      ul.nav li.search a i {
+        padding: 0 .5em;
       }
     }
   }
@@ -765,6 +774,43 @@ ul#issue-selector {
 body.logged-in {
   #my-menu {
     margin-top: 46px;
+  }
+}
+
+// header search
+
+#search-bar {
+  background-color: $white;
+  .search-large {
+    padding: 9em 0 6em 0;
+    opacity: 0;
+    @include transitions;
+    .search-form {
+      border: .7em solid $black;
+      border-right: 0;
+      @include border-radius(10px);
+      background-color: $black;
+    }
+    .input-group {
+      input.search-field {
+        font-size: 2em;
+        border: none;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+      button {
+        font-size: 2em;
+        border: none;
+        background-color: $black;
+        color: $white !important;
+      }
+    }
+  }
+}
+
+#search-bar.collapse.in {
+  .search-large {
+    opacity: 1;
   }
 }
 

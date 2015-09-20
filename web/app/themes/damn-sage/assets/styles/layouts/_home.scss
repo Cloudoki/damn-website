@@ -114,6 +114,8 @@
   }
 }
 
+// home 4-up category feeds
+
 .home-category-feeds {
   margin-bottom: .5em;
   .news-item {
@@ -132,13 +134,62 @@
   .damn-plus-badge {
     width: 75px;
   }
+  br {
+    display: none;
+  }
 }
+
+// home 4 up product feed // see posts.scss and search for "Productivity alternate" to see the css for the product feed, as this uses the same css
+// as the feed for the product archive page, only on homepage, we have 100% height so boxes line up and columns widths on home are set in index.php, not
+// by css/js like on the product page (aka, homepage is NOT masonry grid).
+
+.product-feed-home {
+  @media screen and (min-width: 768px) {
+    .table-display {
+      display: table;
+      height: 100%;
+    }
+    .table-display:after {
+      clear: both;
+    }
+    .table-cell {
+      .news-item {
+        height: 100%;
+      }
+    }
+  }
+  @media screen and (min-width: 768px) and (max-width: 991px) {
+    .table-cell {
+      display: table-cell;
+      height: 47%;
+      margin-bottom: 3%;
+      .news-item {
+        header p.product-creators {
+          margin-bottom: 1.5em
+        }
+      }
+    }
+  }
+  @media screen and (min-width: 992px) {
+    .table-cell {
+      display: table-cell;
+      height: 100%;
+      .news-item {
+        header {
+          padding-bottom: 0.5em;
+        }
+      }
+    }
+  }
+}
+
+// agenda, instagram, join DAMN +
 
 .bottom-widgets {
 
 }
 
-// advertising border
+// advertising border per Koen
 
 .news-item-wrapper.advert.advert-premium .news-item .post-image   {
   background-color: black !important;
