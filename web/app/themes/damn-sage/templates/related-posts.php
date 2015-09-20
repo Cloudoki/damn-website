@@ -16,7 +16,7 @@
   $my_query = new wp_query( $args );
   echo '<div class="related-posts clearfix">';
   echo '<h3>RELATED POSTS</h3>';
-  echo '<div class="row no-gutters">';
+  echo '<div class="row no-gutters related-post-list marginTop">';
   while( $my_query->have_posts() ) { $my_query->the_post(); ?>
     <?php get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
   <?php }

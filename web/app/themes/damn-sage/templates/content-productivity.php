@@ -1,8 +1,3 @@
-<?php
-  $customdescription = get_field('custom_description');
-  $creators = get_field('creators');
-?>
-
 <div class="news-item">
   <div class="post-image">
     <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
@@ -16,7 +11,7 @@
 
   <header>
     <h2 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-    <?php if($customdescription) { ?>
+    <?php if(get_field('custom_description')) { ?>
       <div class="product-description">
         <p><?php the_field('custom_description'); ?></p>
       </div>
@@ -25,7 +20,7 @@
         <?php the_excerpt(); ?>
       </div>
     <?php } ?>
-    <?php if($creators) { ?>
+    <?php if(get_field('creators')) { ?>
       <p class="product-creators">
         <span>
           <strong>From:</strong> <?php the_field('creators'); ?>

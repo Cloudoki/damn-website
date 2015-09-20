@@ -373,12 +373,16 @@ while ($dynamics->have_posts()) : $dynamics->the_post();
     </div>
     <?php /* display as table above 768, so heights all line up / 768 - 991, table cell is 50% height, since there are 2 per row, 100% height at 992 +, as all 4 fit across one row / css home.scss */ ?>
     <div class="table-display">
-      <?php while ($products->have_posts()) : $products->the_post(); ?>
+      <?php
+        while ($products->have_posts()) : $products->the_post();
+        $customdescription = get_field('custom_description');
+        $creators = get_field('creators');
+      ?>
         <div class="col-xs-12 col-sm-6 col-md-3 table-cell">
 
           <?php get_template_part('templates/content-productivity', get_post_type() != 'product' ? get_post_type() : get_post_format()); ?>
-
           <div class="clearthis"></div>
+
         </div>
       <?php endwhile; ?>
     </div>

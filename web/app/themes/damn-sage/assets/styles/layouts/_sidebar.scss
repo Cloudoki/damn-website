@@ -179,6 +179,19 @@ h3.widget-title-black {
   }
 }
 
+// latest calendar list specific to the SIDEBAR and not HOME (removing rounded edges)
+.sidebar {
+  .latest-calendar-list {
+    li.list-group-item:first-child, li.list-group-item:last-child {
+      @include border-radius(0);
+    }
+    li.list-group-item {
+      border-left: 0;
+      border-right: 0;
+    }
+  }
+}
+
 
 // BACK ISSUES on Magazine taxonomy view
 

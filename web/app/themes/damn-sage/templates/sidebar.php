@@ -49,9 +49,11 @@ if (is_singular('product')) { ?>
   <?php if (function_exists('adrotate_group')) echo adrotate_group(3); ?>
 </div>
 
-<?php /* if Magazine detail page, else normal */ ?>
+<?php /* if Magazine detail page or Calendar detal page, else normal */ ?>
 <?php if(is_tax( 'magazine' )) { ?>
   <?php if ( is_active_sidebar( 'magazine-detail-widget' ) ) : dynamic_sidebar( 'magazine-detail-widget' ); endif; ?>
+<?php } elseif(is_singular( 'calendar' )) { ?>
+  <?php if ( is_active_sidebar( 'calendar-detail-widget' ) ) : dynamic_sidebar( 'calendar-detail-widget' ); endif; ?>
 <?php } else { ?>
   <?php if ( is_active_sidebar( 'sidebar-primary' ) ) : dynamic_sidebar( 'sidebar-primary' ); endif; ?>
 <?php } ?>
