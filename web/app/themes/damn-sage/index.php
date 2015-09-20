@@ -10,7 +10,7 @@
 	$feat_query = [
 		'cat=-4315',
 		'posts_per_page' => 1,
-		'post_type' => array ('post'),
+		'post_type' => 'post',
 		'orderby' => 'post_date',
 		'order' => 'DESC'
 	];
@@ -205,80 +205,88 @@ while ($dynamics->have_posts()) : $dynamics->the_post();
 			break;
 		}
 
-    if(!isset ($post_cats[$cat]))
-
-      $post_cats[$cat] = [];
-
-    // Dirty fetch post
-    ob_start();
-    get_template_part('templates/content-home-small-feeds', get_post_type() != 'post' ? get_post_type() : get_post_format());
-
-    $post_cats[$cat][] = ob_get_clean();
-
-
-    // Output if possible
-    if (count ($post_cats[$cat]) == 2)
+    if ($cat)
     {
-
-    ?>
-    
-	<div class="col-xs-12 col-sm-6 col-md-3">
-		<h3 class="archive-title"><?=$name?></h3>
-    <?php
-
-      echo implode ("<br>", $post_cats[$cat]);
-      $post_cats[$cat] = false;
-
-    ?> 
-    </div> 
-    <?php
-
-      if (++$cats_count == 4) break;
-    }
-
-  endwhile;
+	    if(!isset ($post_cats[$cat]))
+	
+	      $post_cats[$cat] = [];
+	
+	    // Dirty fetch post
+	    ob_start();
+	    get_template_part('templates/content-home-small-feeds', get_post_type() != 'post' ? get_post_type() : get_post_format());
+	
+	    $post_cats[$cat][] = ob_get_clean();
+	
+	
+	    // Output if possible
+	    if (count ($post_cats[$cat]) == 2)
+	    {
+	
+	    ?>
+	    
+		<div class="col-xs-12 col-sm-6 col-md-3">
+			<h3 class="archive-title"><?=$name?></h3>
+	    <?php
+	
+	      echo implode ("<br>", $post_cats[$cat]);
+	      $post_cats[$cat] = false;
+	
+	    ?> 
+	    </div> 
+	    <?php
+	
+			if (++$cats_count == 4) break;
+		}
+	}
+endwhile;
   ?>
 
 </div>
 
-<?php /* 4 up products feed */ ?>
-<div class="product-feed-home row">
-  <?php
-    $product_query = [
-      'posts_per_page' => 4,
-      'post_type' => 'product',
-      'orderby' => 'post_date',
-      'order' => 'DESC'
-    ];
-
-    if ($_GET['issue'])
-      $product_query['tax_query'][] = [
-        'taxonomy' => 'magazine',
-        'field' => 'slug',
-        'terms' => [$issue->slug]
-      ];
-
-    $products = new WP_Query($product_query);
-  ?>
-
-  <?php if ($products->have_posts()) : ?>
-    <div class="col-xs-12">
-      <h3 class="archive-title">Productivity</h3>
-    </div>
-    <?php /* display as table above 768, so heights all line up / 768 - 991, table cell is 50% height, since there are 2 per row, 100% height at 992 +, as all 4 fit across one row / css home.scss */ ?>
-    <div class="table-display">
-      <?php while ($products->have_posts()) : $products->the_post(); ?>
-        <div class="col-xs-12 col-sm-6 col-md-3 table-cell">
-
-          <?php get_template_part('templates/content-productivity', get_post_type() != 'product' ? get_post_type() : get_post_format()); ?>
-
-          <div class="clearthis"></div>
-        </div>
-      <?php endwhile; ?>
-    </div>
-  <?php endif; ?>
 </div>
+<div class="products-row">
+	<div class="container">
 
+		<?php /* 4 up products feed */ ?>
+		<div class="product-feed-home row">
+			<?php
+			$product_query = [
+			'posts_per_page' => 4,
+			'post_type' => 'product',
+			'orderby' => 'post_date',
+			'order' => 'DESC'
+			];
+			
+			if ($_GET['issue'])
+			$product_query['tax_query'][] = [
+			'taxonomy' => 'magazine',
+			'field' => 'slug',
+			'terms' => [$issue->slug]
+			];
+			
+			$products = new WP_Query($product_query);
+			?>
+			
+			<?php if ($products->have_posts()) : ?>
+				<div class="col-xs-12">
+				<h3 class="archive-title">Productivity</h3>
+				</div>
+				<?php /* display as table above 768, so heights all line up / 768 - 991, table cell is 50% height, since there are 2 per row, 100% height at 992 +, as all 4 fit across one row / css home.scss */ ?>
+				<div class="table-display">
+				<?php while ($products->have_posts()) : $products->the_post(); ?>
+					<div class="col-xs-12 col-sm-6 col-md-3 table-cell">
+					
+					<?php get_template_part('templates/content-productivity', get_post_type() != 'product' ? get_post_type() : get_post_format()); ?>
+					
+					<div class="clearthis"></div>
+					</div>
+				<?php endwhile; ?>
+				</div>
+			<?php endif; ?>
+		</div>							
+	</div>
+</div>
+<div class="container">
 
 <?php /* 3 bottom widgets */ ?>
 <div class="row bottom-widgets">
