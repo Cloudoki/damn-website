@@ -18,12 +18,14 @@ $url = $thumb['0'];
 
     <?php if(get_field('start_date')) { ?>
       <div class="col-xs-6 start-date">
-        <p><strong>Start Date:</strong> <?php the_field('start_date'); ?></p>
+        <p><strong>Start Date:</strong><br />
+        <?php the_field('start_date'); ?></p>
       </div>
     <?php } ?>
     <?php if(get_field('end_date')) { ?>
       <div class="col-xs-6 end-date">
-        <p><strong>End Date:</strong> <?php the_field('end_date'); ?></p>
+        <p><strong>End Date:</strong><br />
+        <?php the_field('end_date'); ?></p>
       </div>
     <?php } ?>
   </div>

@@ -8,9 +8,10 @@
 
   <?php wp_head(); ?>
 
-  <!-- fonts / typekit -->
+  <!-- fonts / typekit
   <script src="https://use.typekit.net/iir2zjt.js"></script>
   <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  -->
 
 </head>
 

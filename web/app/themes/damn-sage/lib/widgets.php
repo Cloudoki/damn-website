@@ -176,15 +176,36 @@ class agenda_Widget extends WP_Widget {
     if ( !empty( $title ) ) { echo $before_title . $title . $after_title; };
 
     global $post;
+
+    $today = date('Ymd');
     $args=array(
       'posts_per_page'=> $instance['posts_number'], // Number of related posts that will be shown.
       'post_type' => 'calendar',
+      'meta_query' => array(
+      array(
+            'key'   => 'start_date',
+            'compare' => '<=',
+            'value'   => $today,
+        ),
+         array(
+            'key'   => 'end_date',
+            'compare' => '>=',
+            'value'   => $today,
+        )
+      ),
+      'meta_key' => 'start_date', // name of custom field
+      'orderby' => 'meta_value_num',
+      'order' => 'ASC'
     );
     $my_query = new wp_query( $args );
     if( $my_query->have_posts() ) {
       echo '<ol class="latest-calendar-list list-group">';
       while( $my_query->have_posts() ) {
-        $my_query->the_post(); ?>
+        $my_query->the_post();
+        $startdate = get_field('start_date');
+        $startdatedisplay = date("F j, Y", strtotime($date));
+        $enddate = get_field('end_date');
+        ?>
         <li class="list-group-item">
           <?php if ( has_post_thumbnail()) { ?>
             <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="list-thumb"><?php the_post_thumbnail('thumbnail'); ?></a>
@@ -194,7 +215,15 @@ class agenda_Widget extends WP_Widget {
            </a>
           <?php } ?>
           <div class="list-meta">
-            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a><br />
+            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="boldText"><?php the_title(); ?></a>
+            <span class="small-date">
+              <?php if($startdate) { ?>
+                <strong>Starts:</strong> <?php echo $startdate; ?><br />
+              <?php } ?>
+              <?php if($enddate) { ?>
+                <strong>Ends:</strong> <?php echo $enddate; ?><br />
+              <?php } ?>
+            </span>
             <span><?php the_category(' '); ?></span>
           </div>
           <div class="clearthis"></div>

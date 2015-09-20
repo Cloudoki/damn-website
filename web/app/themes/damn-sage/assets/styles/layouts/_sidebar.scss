@@ -125,19 +125,10 @@ h3.widget-title-black {
 
 // Latest articles & calendar // latest calendar specific items below
 
+// both articles and calendar share this
 .latest-articles-list, .latest-calendar-list {
   margin-bottom: 0;
   li {
-    counter-increment: step-counter;
-    &:before {
-      content: counter(step-counter);
-      font-size: 3em;
-      font-weight: 700;
-      padding: 0;
-      float: left;
-      @include inlinemiddle;
-      width: 14%;
-    }
     .list-thumb {
       width: 21%;
       @include inlinemiddle;
@@ -154,12 +145,42 @@ h3.widget-title-black {
       span {
         font-size: .95em;
         @include lightgraytomediumgraylink;
+        display: block
+      }
+      span.small-date {
+        font-size: .85em;
+        padding: .2em 0;
+        color: $medium-gray;
       }
     }
   }
 }
 
-// older issues
+// latest articles specific
+.latest-articles-list {
+  li {
+    counter-increment: step-counter;
+    &:before {
+      content: counter(step-counter);
+      font-size: 3em;
+      font-weight: 700;
+      padding: 0;
+      float: left;
+      @include inlinemiddle;
+      width: 14%;
+    }
+  }
+}
+
+// latest calendar specific
+.latest-calendar-list {
+  li.list-meta {
+    width: 76%;
+  }
+}
+
+
+// BACK ISSUES on Magazine taxonomy view
 
 .sidebar {
   ul.older-issues-list {

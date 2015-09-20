@@ -352,7 +352,7 @@ while ($dynamics->have_posts()) : $dynamics->the_post();
   <?php
     $product_query = [
       'posts_per_page' => 4,
-      'post_type' => array ('product'),
+      'post_type' => 'product',
       'orderby' => 'post_date',
       'order' => 'DESC'
     ];
@@ -375,7 +375,9 @@ while ($dynamics->have_posts()) : $dynamics->the_post();
     <div class="table-display">
       <?php while ($products->have_posts()) : $products->the_post(); ?>
         <div class="col-xs-12 col-sm-6 col-md-3 table-cell">
+
           <?php get_template_part('templates/content-productivity', get_post_type() != 'product' ? get_post_type() : get_post_format()); ?>
+
           <div class="clearthis"></div>
         </div>
       <?php endwhile; ?>
