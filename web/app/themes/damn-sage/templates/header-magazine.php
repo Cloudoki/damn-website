@@ -38,7 +38,7 @@ $header_subtitle = get_field ('header_subtitle', $issue_acf_id);
 					<div class="category-link">
 						<a href="<?=get_category_link($issue_cat->term_id)?>"  class="<?=$issue_cat->slug?>" title="View all posts in <?=$issue_cat->name?>"><?=$issue_cat->name?></a>
 					</div>
-					<? endif; ?>
+					<?php endif; ?>
 
 					<h1 class="entry-title">
 						<a href="<?=$issue_link?>" rel="bookmark" title="<?=$header_highlight?>"><?=$header_highlight?></a>
