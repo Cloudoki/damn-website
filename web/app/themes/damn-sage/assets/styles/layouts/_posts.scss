@@ -875,7 +875,7 @@ body.single-calendar {
 }
 
 .damn-plus-cta {
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1200px) {
     display: table;
   }
   padding: 1em;
@@ -888,8 +888,8 @@ body.single-calendar {
   @media screen and (min-width: 1200px) {
     padding: 1.8em;
   }
-  div {
-    @media screen and (min-width: 768px) {
+  div.damn-plus-image-cta, div.damn-plus-cta-copy {
+    @media screen and (min-width: 1200px) {
       display: table-cell;
     }
     height: 100%;
@@ -903,11 +903,15 @@ body.single-calendar {
     a, a:visited {
       color: $white !important;
     }
+    .mobile-image {
+      border-bottom: 1px solid $white;
+      padding-bottom: .75em;
+      margin-bottom: 1em;
+    }
   }
   .damn-plus-cta-copy {
-    padding-left: 20px !important;
     color: $white;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 1200px) {
       padding-left: 25px !important;
       border-left: 1px solid $white;
     }
@@ -915,7 +919,7 @@ body.single-calendar {
       border-bottom: 1px solid $white;
       padding-bottom: .5em;
       font-weight: 700;
-      font-size: 2.5em;
+      font-size: 2.25em;
     }
     ul {
       li {
@@ -931,6 +935,12 @@ body.single-calendar {
       margin-top: .25em;
       background-color: $white !important;
       color: $black !important;
+    }
+    .join-btn {
+      font-size: 1.75em;
+    }
+    .latest-cover {
+      @include blacktowhitelink ;
     }
   }
 }

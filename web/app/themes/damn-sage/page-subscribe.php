@@ -20,7 +20,7 @@ Template Name: Subscribe
     <div class="col-xs-12 col-sm-9 col-md-8 mailing-list-form">
       <?php the_content(); ?>
 
-      <h2>Subscribe to the DAM<sub>N°</sub> + mailing list</h2>
+      <h2>Subscribe to our mailing list</h2>
       <h4>Fill out the form to get started</h4>
       <form class="validate" role="form" action="//damnmagazine.us11.list-manage.com/subscribe/post?u=e83f5d434bc817ef95113b8f0&amp;id=a9842003b4" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate="">
       <div class="form-group">

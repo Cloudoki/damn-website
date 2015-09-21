@@ -64,7 +64,7 @@
           if( $post_objects ): ?>
             <section class="widget related-post">
               <h3 class="widget-title noMargin boldText">
-                Product Related Posts
+                Read More
               </h3>
               <ul class="relation-list product-relation-list">
               <?php foreach( $post_objects as $post): ?>

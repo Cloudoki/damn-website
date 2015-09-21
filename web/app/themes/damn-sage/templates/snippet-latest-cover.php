@@ -15,7 +15,7 @@ foreach($magazines as $magazine) {
   $image_url = get_template_directory_uri();
   $magazineimage = wp_get_attachment_image_src(get_field('magazine_taxonomy_image', $magazine->taxonomy.'_'.$magazine->term_id), 'full');
   echo "<div class='news-item-wrapper'>";
-    echo "<div class='news-item whiteBackground'>";
+    echo "<div class='news-item whiteBackground marginBottom'>";
       echo '<div class="post-image bordered-image noMargin">';
         echo "<a href=\"{$link}\" title='{$magazine->name}'>";
           echo '<img src="'.$magazineimage[0].'" alt="'.$magazine->name.'" class="placeholder" />';
