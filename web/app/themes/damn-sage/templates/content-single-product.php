@@ -57,16 +57,14 @@
           <?php } ?>
           <?php /* end display of product info for mobile */ ?>
 
-
           <?php the_content(); ?>
 
-
           <?php /* Product Relation */ ?>
-          <?php $post_objects = get_field('product_related _posts');
+          <?php $post_objects = get_field('related _posts');
           if( $post_objects ): ?>
             <section class="widget related-post">
               <h3 class="widget-title noMargin boldText">
-                Product Related
+                Product Related Posts
               </h3>
               <ul class="relation-list product-relation-list">
               <?php foreach( $post_objects as $post): ?>

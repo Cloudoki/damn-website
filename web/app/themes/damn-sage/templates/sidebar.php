@@ -17,11 +17,11 @@ if (is_singular('product')) { ?>
 
   <?php /* Post Relation */ ?>
 
-  <?php $post_objects = get_field('product_related _posts');
+  <?php $post_objects = get_field('related _posts');
   if( $post_objects ): ?>
     <section class="widget related-post">
       <h3 class="widget-title">
-        Product Related
+        Product Related Posts
       </h3>
       <ul class="relation-list product-relation-list">
       <?php foreach( $post_objects as $post): ?>
