@@ -32,7 +32,8 @@ class blog_Widget extends WP_Widget {
           <?php } ?>
           <div class="list-meta">
             <a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a><br />
-            <span><?php the_category(' '); ?></span>
+            <?php /* display category links as a comma separated list, and not the block format */
+            get_template_part('templates/snippet', 'category-link-sep'); ?>
           </div>
           <div class="clearthis"></div>
         </li>

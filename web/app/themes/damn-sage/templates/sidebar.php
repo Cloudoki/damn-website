@@ -1,41 +1,55 @@
 <?php
 /* if Productivity */
 if (is_singular('product')) { ?>
+
+  <?php /* Product Information - Post Relation below this */ ?>
+
   <?php if(get_field('creators')) { ?>
-    <section class="widget product-info-wrapper">
+    <section class="widget product-info-wrapper visible-sm-block visible-md-block visible-lg-block">
       <h3 class="widget-title">
         Product Info
       </h3>
-      <div class="product-info">
-        <?php
-          $companylogo = wp_get_attachment_image_src(get_field('company_image'), 'full');
-          if( $companylogo ) { ?>
-            <div class="company-logo">
-              <img src="<?php echo $companylogo[0]; ?>" alt="<?php echo get_the_title(get_field('magazine_feature_feature_image')) ?>" />
-            </div>
-        <?php } ?>
-
-        <div class="product-creators">
-          <h4><strong>CREATOR</strong></h4>
-          <p class="noMargin"><?php the_field('creators', false, false); ?></p>
-        </div>
-
-        <div class="product-links text-uppercase">
-          <?php if(get_field('company_website')) { ?>
-            <a class="btn btn-lg btn-default marginRight" href="<?php the_field('company_website'); ?>" role="button" target="_blank" title="Creator Website">Website</a>
-          <?php } ?>
-
-          <?php /* hide buy button until October 16th
-          <?php if(get_field('buy_link')) { ?>
-            <a class="btn btn-lg btn-default" href="<?php the_field('buy_link'); ?>" role="button" target="_blank" title="Buy">Buy</a>
-          <?php } ?>
-          */ ?>
-        </div>
-      </div>
+      <?php get_template_part('templates/snippet', 'product-info'); ?>
     </section>
   <?php } ?>
   <?php /* end if get field = creators */ ?>
-<?php } ?>
+
+
+  <?php /* Post Relation */ ?>
+
+  <?php $post_objects = get_field('product_related _posts');
+  if( $post_objects ): ?>
+    <section class="widget related-post">
+      <h3 class="widget-title">
+        Product Related
+      </h3>
+      <ul class="relation-list product-relation-list">
+      <?php foreach( $post_objects as $post): ?>
+        <?php setup_postdata($post); ?>
+        <li>
+          <?php if ( has_post_thumbnail()) { ?>
+            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="list-thumb"><?php the_post_thumbnail('thumbnail'); ?></a>
+          <?php } else { ?>
+           <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="list-thumb">
+            <img src="<?= get_template_directory_uri(); ?>/dist/images/default-thumb.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>"/>
+           </a>
+          <?php } ?>
+          <div class="list-meta">
+            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+            <?php /* display category links as a comma separated list, and not the block format */
+            get_template_part('templates/snippet', 'category-link-sep'); ?>
+          </div>
+          <div class="clearthis"></div>
+        </li>
+      <?php endforeach; ?>
+      </ul>
+    </section>
+    <?php wp_reset_postdata(); ?>
+  <?php /* end Post Relation */ endif; ?>
+
+
+<?php /* end if Productivity */ } ?>
+
 
 <?php /* DAMN + specific form */ ?>
 <?php if (is_page('join-damn-plus') || is_page('damn-plus') || is_page('profile')) { ?>

@@ -588,6 +588,22 @@ CONTENT
   font-weight: 300;
 }
 
+@mixin categorylink {
+  .category-link {
+    a {
+      @include blockfloat;
+      margin: 0 .75em .75em 0;
+      padding: .3em .8em;
+      border: 1px solid #fff;
+      color: #fff;
+      text-transform: uppercase;
+      &:hover {
+        background-color: rgba(0,0,0,.5);
+      }
+    }
+  }
+}
+
 @mixin newsitemheader {
   header {
     padding: 1.2em;
@@ -598,19 +614,7 @@ CONTENT
     @media screen and (min-width: 1200px) {
       padding: 2em;
     }
-    .category-link {
-      a {
-        @include blockfloat;
-        margin: 0 .75em .75em 0;
-        padding: .3em .8em;
-        border: 1px solid #fff;
-        color: #fff;
-        text-transform: uppercase;
-        &:hover {
-          background-color: rgba(0,0,0,.5);
-        }
-      }
-    }
+    @include categorylink;
     h1, h2, h3 {
       margin-bottom: 0;
       clear: both;

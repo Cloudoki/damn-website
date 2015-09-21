@@ -26,14 +26,6 @@ body.wp-admin {
   font-size: 100% !important;
 }
 
-hr {
-  margin: 25px 0;
-  background-color: $gray;
-  border: 1px solid $gray;
-  height: 1px;
-  clear: both;
-}
-
 p {
   line-height: 1.5em;
   margin-bottom: 1.4em;
@@ -44,6 +36,10 @@ p {
   display: block;
   height: 1px;
   line-height: 1px;
+}
+
+.displayBlock {
+  display: block !important;
 }
 
 .noMargin {
@@ -124,7 +120,6 @@ p {
   position: relative !important;
 }
 
-/* change border colour to suit your needs */
 hr {
     display:block;
     height:1px;

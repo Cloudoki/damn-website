@@ -125,8 +125,8 @@ h3.widget-title-black {
 
 // Latest articles & calendar // latest calendar specific items below
 
-// both articles and calendar share this
-.latest-articles-list, .latest-calendar-list {
+// both articles and calendar share this, and relationship lists as well
+.latest-articles-list, .latest-calendar-list, .relation-list {
   margin-bottom: 0;
   li {
     .list-thumb {
@@ -145,7 +145,8 @@ h3.widget-title-black {
       span {
         font-size: .95em;
         @include lightgraytomediumgraylink;
-        display: block
+        display: block;
+        padding-top: .2em;
       }
       span.small-date {
         font-size: .85em;
@@ -153,6 +154,10 @@ h3.widget-title-black {
         color: $medium-gray;
       }
     }
+  }
+  li {
+    // include style for category link
+    @include categorylink;
   }
 }
 
@@ -230,26 +235,30 @@ h3.widget-title-black {
 }
 
 // Productivity page - sidebar
+.product-info {
+  border: 1px solid $bordercolor;
+  padding: 1.5em 1.5em 2em 1.5em;
+  background-color: $lightestgray;
+  @media screen and (min-width: 768px) and (max-width: 991px) {
+    border-left: 0;
+    border-right: 0;
+    padding: 1em;
+  }
+  .company-logo {
+    padding-bottom: 1em;
+  }
+  .product-creators {
+    padding: 0 0 1.3em 0;
+    margin-bottom: 1.3em;
+    border-bottom: 1px solid $bordercolor;
+  }
+}
+
 .sidebar {
   .product-info {
     border: 0;
     border-top: 1px solid $bordercolor;
     border-bottom: 1px solid $bordercolor;
-    padding: 1.5em 1.5em 2em 1.5em;
-    background-color: $lightestgray;
-    @media screen and (min-width: 768px) and (max-width: 991px) {
-      border-left: 0;
-      border-right: 0;
-      padding: 1em;
-    }
-    .company-logo {
-      padding-bottom: 1em;
-    }
-    .product-creators {
-      padding: 0 0 1.3em 0;
-      margin-bottom: 1.3em;
-      border-bottom: 1px solid $bordercolor;
-    }
   }
 }
 
