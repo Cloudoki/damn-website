@@ -3,7 +3,7 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' )
 $url = $thumb['0'];
 ?>
 
-<?php  /* if has featured video or video post format, use alternate post header */ if ( has_post_video() || has_post_format( 'video' )) { ?>
+<?php  /* if has featured video or video post format, use alternate post header */ if ( has_post_video() && has_post_format( 'video' )) { ?>
 
   <div class="single-video-item">
     <div class="post-image">

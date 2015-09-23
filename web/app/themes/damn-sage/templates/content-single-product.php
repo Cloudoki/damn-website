@@ -75,6 +75,11 @@
           <?php } ?>
           <?php /* end display of product info for mobile */ ?>
 
+          <div class="meta-sharing">
+              <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55ce3c8af0d16341" async="async"></script>
+              <div class="addthis_responsive_sharing"></div>
+          </div>
+
           <?php the_content(); ?>
 
           <?php /* Product Relation */ ?>

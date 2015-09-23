@@ -78,11 +78,7 @@ $post_count = 0;
 <?php
 
 while ($dynamics->have_posts()) : $dynamics->the_post();
-  if($featurevideo) {
-    if($post_count++ == 4) break;
-  } else {
-    if($post_count++ == 6) break;
-  }
+  if($post_count++ == 5) break;
 
   if (has_post_thumbnail () && !has_post_format('quote'))
 	{
@@ -91,18 +87,24 @@ while ($dynamics->have_posts()) : $dynamics->the_post();
 	}
 ?>
 
-	<div class="news-item-wrapper col-xs-12 col-sm-6 col-md-4 <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
+	<?php if($post_count == 5) { ?>
+	  <div class="news-item-wrapper col-xs-12 col-sm-12 col-md-8 medium-post video-post <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
+	<?php } else { ?>
+		<div class="news-item-wrapper col-xs-12 col-sm-6 col-md-4 <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
+	<?php } ?>
+
 		<div class="news-item">
 
       <?php if ( has_post_format( 'quote' )) { ?>
 
 				<div class="post-image">
 					<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-						<?php /* if featured video, need a slightly taller image so the video and the post next to it align in height */ ?>
-						<?php if($featurevideo) { ?>
-						<img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-video.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
+					  <?php if($post_count == 5) { ?>
+					  	<?php /* show non wide blank-image only on 768-992 so boxes adjust properly, using class "visible-xs-block" */ ?>
+          		<img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-wide-video.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder hidden-xs" />
+          		<img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-video.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder visible-xs-block" />
 						<?php } else { ?>
-						<img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
+							<img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
 						<?php } ?>
 					</a>
 				</div>
@@ -127,12 +129,12 @@ while ($dynamics->have_posts()) : $dynamics->the_post();
 				<div class="post-image" style="background-image:url(<?= get_template_directory_uri(); ?>/dist/images/default-tall.png)">
 				<?php } ?>
 					<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-
-						<?php /* if featured video, need a slightly taller image so the video and the post next to it align in height */ ?>
-						<?php if($featurevideo) { ?>
-						<img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-video.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
+						<?php if($post_count == 5) { ?>
+						  <?php /* show non wide blank-image only on 768-992 so boxes adjust properly, using class "visible-xs-block" */ ?>
+		          <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-wide.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder hidden-xs" />
+		          <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-video.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder visible-xs-block" />
 						<?php } else { ?>
-						<img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
+							<img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
 						<?php } ?>
 					</a>
 				</div>
@@ -145,19 +147,6 @@ while ($dynamics->have_posts()) : $dynamics->the_post();
 	</div>
 
 <?php endwhile; ?>
-
-<?php if($featurevideo) { ?>
-	<div class="news-item-wrapper col-xs-12 col-sm-12 col-md-8 medium-post video-post">
-		<div class="news-item">
-			<div class="post-image">
-				<?=$featurevideo?>
-				<?php /* show non wide blank-image only on 768-992 so boxes adjust properly, using class "visible-xs-block" */ ?>
-				<img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-wide-video.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder hidden-xs" />
-				<img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-video.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder visible-xs-block" />
-			</div>
-		</div>
-	</div>
-<?php } ?>
 
 </div><?php /* close empty-wrapper */ ?>
 

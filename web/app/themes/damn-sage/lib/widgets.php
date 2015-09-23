@@ -22,7 +22,7 @@ class blog_Widget extends WP_Widget {
       echo '<ol class="latest-articles-list">';
       while( $my_query->have_posts() ) {
         $my_query->the_post(); ?>
-        <li>
+        <li class="<?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
           <?php if ( has_post_thumbnail()) { ?>
             <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="list-thumb"><?php the_post_thumbnail('thumbnail'); ?></a>
           <?php } else { ?>
@@ -212,22 +212,27 @@ class agenda_Widget extends WP_Widget {
         $startdatedisplay = date("F j, Y", strtotime($date));
         $enddate = get_field('end_date');
         ?>
-        <li class="list-group-item">
+        <li class="list-group-item <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
           <?php if ( has_post_thumbnail()) { ?>
             <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="list-thumb"><?php the_post_thumbnail('thumbnail'); ?></a>
-          <?php } else { ?>
-           <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="list-thumb">
-            <img src="<?= get_template_directory_uri(); ?>/dist/images/default-thumb.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>"/>
-           </a>
           <?php } ?>
-          <div class="list-meta">
+
+          <?php if ( has_post_thumbnail()) { ?>
+            <div class="list-meta">
+          <?php } else { ?>
+            <div class="list-meta fullWidth">
+          <?php } ?>
             <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="boldText">
               <?php /* if video post format, show play icon */ if ( has_post_format( 'video' )) { ?>
                 <i class="fa fa-play-circle-o play-video-icon"></i>
               <?php } ?>
               <?php the_title(); ?>
             </a>
-            <span class="small-date">
+            <?php if ( has_post_thumbnail()) { ?>
+              <span class="small-date">
+            <?php } else { ?>
+              <span class="large-date">
+            <?php } ?>
               <?php if($startdate) { ?>
                 <strong>Starts:</strong> <?php echo $startdate; ?><br />
               <?php } ?>

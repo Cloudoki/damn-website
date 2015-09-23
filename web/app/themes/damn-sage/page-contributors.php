@@ -16,10 +16,12 @@ Template Name: Contributors
   $allUsers = get_users('orderby=display_name');
   $users = array();
 
-  // Remove subscribers from the list as they won't write any articles
+  // return authors and admins with posts
   foreach($allUsers as $currentUser) {
-    if(in_array( 'author', $currentUser->roles )) {
+    if(in_array( 'author', $currentUser->roles ) || in_array( 'administrator', $currentUser->roles )) {
+    if(count_user_posts($currentUser->ID)){
       $users[] = $currentUser;
+    }
     }
   }
   ?>
@@ -29,19 +31,21 @@ Template Name: Contributors
 
       <div class="author-wrapper">
         <div class="author-info">
-          <div class="authorAvatar pull-left">
-            <a href="<?php echo get_author_posts_url( $user->ID ); ?>" title="Read Articles">
-              <?php
-                $author_badge = get_field('author_image', 'user_'. $user->ID );
-                if($author_badge != '') { ?>
-                  <img src="<?php echo $author_badge['url']; ?>" alt="<?php echo $author_badge['alt']; ?>" />
-                <?php } else { ?>
-                  <?php echo get_avatar( $user->user_email, '128' ); ?>
-              <?php } ?>
-            </a>
-          </div>
+          <?php
+          $author_badge = get_field('author_image', 'user_'. $user->ID ); if($author_badge != '') { ?>
+            <div class="authorAvatar pull-left">
+              <a href="<?php echo get_author_posts_url( $user->ID ); ?>" title="Read Articles">
+                <img src="<?php echo $author_badge['url']; ?>" alt="<?php echo $author_badge['alt']; ?>" />
+              </a>
+            </div>
+          <?php } ?>
 
-          <div class="author-meta">
+          <?php /* if no badge, remove left margin with inline style, as the default avatar is hidden */
+          $author_badge = get_field('author_image', 'user_'. $user->ID ); if($author_badge != '') { ?>
+            <div class="author-meta">
+          <?php } else { ?>
+            <div class="author-meta" style="margin-left: 0;">
+          <?php } ?>
             <h3>
               <a href="<?php echo get_author_posts_url( $user->ID ); ?>" title="Read Articles" class="black-link">
                 <?php echo $user->display_name; ?>

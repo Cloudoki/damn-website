@@ -19,6 +19,9 @@
           <?php /* If visitor is logged in and can access blocked content, display all content */ ?>
           <?php the_content(); ?>
 
+          <?php /* Multiple external URL links, if added */ ?>
+          <?php get_template_part('templates/snippet', 'external-links'); ?>
+
         <?php } else { ?>
           <?php /* else display excerpt or content above the more tag and the CTA to subscribe */ ?>
           <?php if(strpos(get_the_content(),'id="more-')) : global $more; $more = 0; the_content(''); ?>
@@ -84,7 +87,11 @@
         <?php /* or else, show all content normally, as this is not on a protected post */ ?>
         <?php the_content(); ?>
 
+        <?php /* Multiple external URL links, if added */ ?>
+        <?php get_template_part('templates/snippet', 'external-links'); ?>
+
       <?php } ?>
+
     </div>
 
     <?php /* REUSED snippet to display standard post footer */ ?>

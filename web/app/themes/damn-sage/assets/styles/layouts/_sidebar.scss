@@ -153,6 +153,13 @@ h3.widget-title-black {
         padding: .2em 0;
         color: $medium-gray;
       }
+      span.large-date {
+        display: block;
+        border: 1px solid $bordercolor;
+        padding: .5em;
+        margin: .75em 0 .5em 0;
+        background-color: $lightestgray;
+      }
     }
   }
   li {

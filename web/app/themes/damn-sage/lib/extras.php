@@ -92,7 +92,8 @@ function mike_modify_main_query( $query ) {
 
 function mike_modify_calendar_archive_query( $query ) {
   if ( $query->is_post_type_archive('calendar') && is_archive()) { // Run only on archive pages, but not custom post types
-  $query->query_vars['posts_per_page'] = 12; // Show only 15 posts per page
+    $query->query_vars['posts_per_page'] = 12; // Show only 15 posts per page
+    // $query->query_vars['meta_key'] = '_thumbnail_id'; hide if no post thumbnail
   }
 }
 // Hook my above function to the pre_get_posts action
@@ -109,12 +110,10 @@ function mike_modify_magazine_query( $query ) {
 }
 
 
-
 // make sure calendar and productivity have post_tag registered
 
 register_taxonomy_for_object_type( 'post_tag', 'calendar' );
 register_taxonomy_for_object_type( 'post_tag', 'productivity' );
-
 
 
 // removed "category:" or "archives:" etc from showing automatically in the archive title

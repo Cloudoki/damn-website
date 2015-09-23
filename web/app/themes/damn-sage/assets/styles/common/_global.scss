@@ -155,6 +155,18 @@ sub {
   font-weight: 700;
 }
 
+.fullWidth {
+  width: 100% !important;
+}
+
+.colorWhite {
+  color: $white !important;
+}
+
+.whitecolor {
+  color: $white;
+}
+
 /*********************
 LAYOUT & GRID STYLES
 *********************/
@@ -467,6 +479,13 @@ MISC
   .btn {
     margin-top: .8em;
   }
+}
+
+.borderedBox {
+  border: 1px solid $bordercolor;
+  padding: 1.5em;
+  margin-bottom: 1.25em;
+  width: 100%;
 }
 
 
