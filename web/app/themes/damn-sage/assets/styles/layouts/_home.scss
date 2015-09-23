@@ -44,6 +44,12 @@
       z-index: 10;
       @include posabsolutebottomleft;
       position: absolute !important;
+      .category-link {
+        a {
+          border: 1px solid $white;
+          color: $white;
+        }
+      }
     }
     .link-image {
       z-index: 5;
