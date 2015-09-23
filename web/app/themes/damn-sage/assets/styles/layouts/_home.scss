@@ -42,6 +42,8 @@
     @include newsitemheader;
     header {
       z-index: 10;
+      @include posabsolutebottomleft;
+      position: absolute !important;
     }
     .link-image {
       z-index: 5;
@@ -199,8 +201,8 @@
 
 // Products row
 .products-row	{
-	background: #efefef;
-	padding: 16px 0 8px;
+	background: $grayhovercolor;
+	padding: 2em 0 1.75em;
 }
 
 

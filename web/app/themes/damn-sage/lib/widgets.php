@@ -31,7 +31,12 @@ class blog_Widget extends WP_Widget {
            </a>
           <?php } ?>
           <div class="list-meta">
-            <a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a><br />
+            <a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>">
+              <?php /* if video post format, show play icon */ if ( has_post_format( 'video' )) { ?>
+                <i class="fa fa-play-circle-o play-video-icon"></i>
+              <?php } ?>
+              <?php the_title(); ?>
+            </a><br />
             <?php /* display category links as a comma separated list, and not the block format */
             get_template_part('templates/snippet', 'category-link-sep'); ?>
           </div>
@@ -216,7 +221,12 @@ class agenda_Widget extends WP_Widget {
            </a>
           <?php } ?>
           <div class="list-meta">
-            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="boldText"><?php the_title(); ?></a>
+            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="boldText">
+              <?php /* if video post format, show play icon */ if ( has_post_format( 'video' )) { ?>
+                <i class="fa fa-play-circle-o play-video-icon"></i>
+              <?php } ?>
+              <?php the_title(); ?>
+            </a>
             <span class="small-date">
               <?php if($startdate) { ?>
                 <strong>Starts:</strong> <?php echo $startdate; ?><br />

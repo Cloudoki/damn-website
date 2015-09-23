@@ -72,10 +72,10 @@ $post_count = 0;
  *	open a new, basic container div so bootstrap column clears dont count advert wrapper in nth-child and break the layout.
  *	DIV CLOSED after ENDWHILE
  */
- ?>
-	<div class="empty-wrapper row">
-<?php
+?>
 
+<div class="empty-wrapper row">
+<?php
 
 while ($dynamics->have_posts()) : $dynamics->the_post();
   if($featurevideo) {
@@ -94,51 +94,51 @@ while ($dynamics->have_posts()) : $dynamics->the_post();
 	<div class="news-item-wrapper col-xs-12 col-sm-6 col-md-4 <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
 		<div class="news-item">
 
-        <?php if ( has_post_format( 'quote' )) { ?>
+      <?php if ( has_post_format( 'quote' )) { ?>
 
-			<div class="post-image">
-				<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-					<?php /* if featured video, need a slightly taller image so the video and the post next to it align in height */ ?>
-					<?php if($featurevideo) { ?>
-					<img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-video.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
-					<?php } else { ?>
-					<img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
-					<?php } ?>
-				</a>
-			</div>
-
-			<header class="quote-format">
-				<div class="quote-wrapper-outer">
-					<div class="quote-wrapper-inner">
-						<blockquote>
-						<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-						<?php the_excerpt(); ?>
-						</a>
-						</blockquote>
-					</div>
+				<div class="post-image">
+					<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+						<?php /* if featured video, need a slightly taller image so the video and the post next to it align in height */ ?>
+						<?php if($featurevideo) { ?>
+						<img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-video.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
+						<?php } else { ?>
+						<img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
+						<?php } ?>
+					</a>
 				</div>
-			</header>
 
-        <?php } else { ?>
+				<header class="quote-format">
+					<div class="quote-wrapper-outer">
+						<div class="quote-wrapper-inner">
+							<blockquote>
+							<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+							<?php the_excerpt(); ?>
+							</a>
+							</blockquote>
+						</div>
+					</div>
+				</header>
 
-			<?php if ( has_post_thumbnail()) { ?>
-			<div class="post-image" style="background-image:url(<?=$url?>);">
-			<?php } else { ?>
-			<div class="post-image" style="background-image:url(<?= get_template_directory_uri(); ?>/dist/images/default-tall.png)">
-			<?php } ?>
-				<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+      <?php } else { ?>
 
-					<?php /* if featured video, need a slightly taller image so the video and the post next to it align in height */ ?>
-					<?php if($featurevideo) { ?>
-					<img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-video.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
-					<?php } else { ?>
-					<img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
-					<?php } ?>
-				</a>
-			</div>
+				<?php if ( has_post_thumbnail()) { ?>
+				<div class="post-image" style="background-image:url(<?=$url?>);">
+				<?php } else { ?>
+				<div class="post-image" style="background-image:url(<?= get_template_directory_uri(); ?>/dist/images/default-tall.png)">
+				<?php } ?>
+					<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
 
-		<?php /* REUSED snippet to display title, category, subtitle */ ?>
-		<?php get_template_part('templates/snippet', 'feed-header'); ?>
+						<?php /* if featured video, need a slightly taller image so the video and the post next to it align in height */ ?>
+						<?php if($featurevideo) { ?>
+						<img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-video.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
+						<?php } else { ?>
+						<img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
+						<?php } ?>
+					</a>
+				</div>
+
+			<?php /* REUSED snippet to display title, category, subtitle */ ?>
+			<?php get_template_part('templates/snippet', 'feed-header'); ?>
 		<?php } ?>
 
 		</div>

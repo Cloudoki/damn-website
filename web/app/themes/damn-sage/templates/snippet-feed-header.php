@@ -5,7 +5,14 @@
 <?php } ?>
   <?php get_template_part('templates/snippet', 'category-link'); ?>
 
-  <h2 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+  <h2 class="entry-title">
+    <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+      <?php /* if video post format, show play icon */ if ( has_post_format( 'video' )) { ?>
+        <i class="fa fa-play-circle-o play-video-icon"></i>
+      <?php } ?>
+      <?php the_title(); ?>
+    </a>
+  </h2>
 
   <?php /* dont show on single pages, this would be for the "related posts" area */ ?>
   <?php if (is_single() || is_tax( 'magazine' )) { ?>

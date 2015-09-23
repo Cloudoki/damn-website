@@ -8,7 +8,7 @@
   @media screen and (min-width: 768px) and (max-width: 991px) {
     margin-bottom: 2em;
   }
-  img {
+  img, .featured-video {
     padding: 1em;
     border: 1px solid $bordercolor;
     width: 100%;
@@ -47,7 +47,9 @@
   }
 }
 
-.news-item, .single-news-item {
+// all types of news items here. below are individual news items custom styling
+// (.news-items for feeds, .single-news-item for single page, .single-video-item for video post format single page)
+.news-item, .single-news-item, .single-video-item {
   position: relative;
   background-color: $black;
   .post-image {
@@ -57,7 +59,108 @@
       width: 100%;
     }
   }
-  @include newsitemheader;
+  header {
+    width: 100%;
+    @include categorylink;
+    h1, h2, h3 {
+      margin-bottom: 0;
+      clear: both;
+      font-weight: 700;
+    }
+    /* subtitle for main feeds - see below for subtitle for single page headers */
+    .subtitle {
+      @include subtitletext;
+      p {
+        margin: 0;
+        font-size: 1em;
+        line-height: 1.4em;
+        a {
+          display: none;
+        }
+      }
+    }
+  }
+  .relative-header {
+    background-color: $white;
+    padding: 1.2em;
+    border-bottom: 1px solid $bordercolor;
+    @media screen and (min-width: 1200px) {
+      padding: 2em;
+    }
+  }
+}
+
+.news-item, .single-news-item {
+  header {
+    .category-link {
+      a {
+        border: 1px solid $white;
+        color: $white;
+      }
+    }
+    h1, h2, h3 {
+      color: $white;
+      text-shadow: 2px 2px 7px rgba(0,0,0,.4);
+      @include whitetowhitelink;
+    }
+    .subtitle {
+      color: $white;
+    }
+  }
+}
+
+.news-item {
+  header {
+    padding: 1.2em;
+    background: linear-gradient( to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) );
+    @include posabsolutebottomleft;
+    position: absolute !important;
+    @media screen and (min-width: 1200px) {
+      padding: 2em;
+    }
+  }
+}
+
+.single-news-item {
+  header {
+    padding: 0 0 3.5em 0;
+    width: 100%;
+    background: none;
+    @media screen and (max-width: 767px) {
+      padding: 0 0 2.25em 0;
+      h1 {
+        text-shadow: none;
+      }
+    }
+    @media screen and (min-width: 768px) {
+      @include posabsolutebottomleft;
+      position: absolute !important;
+    }
+  }
+  .post-image {
+    max-height: 500px;
+    overflow: hidden;
+    .container {
+      max-height: 500px;
+      .header-wrapper {
+        max-height: 500px;
+      }
+    }
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.single-video-item {
+  header {
+    .category-link {
+      a {
+        border: 1px solid $black;
+        color: $black;
+      }
+    }
+  }
 }
 
 // quote formats
@@ -506,6 +609,7 @@ body.single-calendar {
   .event-date {
     color: $black;
     border: 0;
+    margin: .5em 0 .25em 0;
     .end-date {
       border-left: 1px solid $bordercolor;
     }
@@ -518,15 +622,14 @@ body.single-calendar {
       .title-header {
         border: 0 !important;
         margin-bottom: 0 !important;
-        .pull-right {
+        .calendar-share {
           padding-top: 1.4em;
-          @media screen and (min-width: 768px) and (max-width: 1145px) {
+          @media screen and (max-width: 1539px) {
             float: none !important;
             clear: both !important;
           }
-          @media screen and (max-width: 480px) {
-            float: none !important;
-            clear: both !important;
+          @media screen and (min-width: 1540px) {
+            padding-top: 1em;
           }
         }
       }
@@ -580,41 +683,17 @@ body.single {
   h1 {
     font-weight: 400;
     font-size: (48 / 16) * 1em;
-    margin-bottom: .4em;
     @media screen and (max-width: 767px) {
       font-size: (37 / 16) * 1em;
     }
-  }
-  .single-news-item {
-    .post-image {
-      max-height: 500px;
-      overflow: hidden;
-      .container {
-        max-height: 500px;
-        header {
-          padding: 0 0 3.5em 0;
-          @media screen and (max-width: 767px) {
-            padding: 0 0 1.5em 0;
-          }
-        }
-      }
-      img {
-        width: 100%;
-      }
-    }
-    header {
-      padding: 3em 4em;
-      width: 100%;
-      background: none !important;
-      @media screen and (max-width: 767px) {
-        padding: 0 1.75em 1.75em 1.75em;
-        h1 {
-          text-shadow: none;
-        }
-      }
+    .play-video-icon {
+      font-size: .9em;
     }
   }
 }
+
+
+/*********** SINGLE PAGES ***********/
 
 // SINGLE (the rest) //
 
@@ -771,6 +850,14 @@ body.single, body.page {
             margin-right: 1em;
           }
         }
+        .nav-next, .nav-previous {
+          @media screen and (max-width: 767px) {
+            width: 100%;
+            padding: 0.5em 0;
+            float: none !important;
+            clear: both !important;
+          }
+        }
       }
     }
 
@@ -793,7 +880,7 @@ body.single, body.page {
 }
 
 /* entry meta + social sharing */
-.meta-sharing, .product-info {
+.meta-sharing {
   margin: 0 0 1.6em 0;
   border: 1px solid $bordercolor;
   float: left;
@@ -849,7 +936,30 @@ body.single-calendar {
   }
 }
 
+// Video Format
+
+body.single-post {
+  .featured-video-plus {
+    @include position(absolute, $top: 0, $left: 0%);
+    width: 100%;
+    height: 100%;
+    iframe, object, embed {
+      width: 100%;
+      height: 100%;
+      max-height: 500px;
+    }
+  }
+}
+
 // Single Productivity
+body.single-product {
+  .entry-content {
+    .product-info {
+      border: 1px solid $bordercolor;
+      margin-bottom: 2em;
+    }
+  }
+}
 
 // MISC SINGLE - related products, facebook comments, all articles for magazines
 
@@ -1023,7 +1133,7 @@ body.category-damn-plus.logged-in {
 .bx-wrapper {
   box-shadow: none;
   border: none;
-  margin-bottom: 3em;
+  margin-bottom: 4em;
   // loading
   .bx-loading {
     background-image: url(../images/bx_loader_2x.gif);
@@ -1033,6 +1143,10 @@ body.category-damn-plus.logged-in {
     width: 40px;
     height: 40px;
     background-size: 100% !important;
+    @media screen and (max-width: 767px) {
+      width: 20px;
+      height: 20px;
+    }
   }
   // prev arrow
   .bx-controls-direction a.bx-prev {
@@ -1043,6 +1157,10 @@ body.category-damn-plus.logged-in {
   .bx-controls-direction a.bx-next {
     background: url(../images/right-arrow.png) no-repeat;
     right: 20px;
+  }
+  ul.bxslider, ul.bxslider li {
+    padding: 0;
+    margin: 0;
   }
 }
 

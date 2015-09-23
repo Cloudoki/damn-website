@@ -12,11 +12,26 @@
           <?php } ?>
           <div class="post-image bordered-image">
 
-            <?php if ( has_post_thumbnail()) { ?>
+            <?php  /* if has featured video and featured thumbnail */ if ( has_post_video() && has_post_thumbnail() ) { ?>
+              <ul class="slider bxslider">
+                <li class="positionRelative">
+                  <div class="featured-video">
+                    <?php the_post_video(''); ?>
+                  </div>
+                </li>
+                <li id="post-<?php the_ID(); ?>">
+                  <?php the_post_thumbnail('large'); ?>
+                </li>
+              </ul>
+            <?php /* else if just has post video */ } elseif ( has_post_video()) { ?>
+              <div class="featured-video">
+                <?php the_post_video(''); ?>
+              </div>
+            <?php /* else if just has featured thumbnail */ } elseif ( has_post_thumbnail()) { ?>
               <?php the_post_thumbnail('large'); ?>
             <?php } else { ?>
-              <img src="<?= get_template_directory_uri(); ?>/dist/images/default.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
             <?php } ?>
+
           </div>
         </div>
 
@@ -42,13 +57,26 @@
 
             <div class="clearthis"></div>
 
-            <div class="pull-left">
+            <div class="pull-left event-buttons">
+              <?php // Event website and ticket buttons ?>
               <?php if(get_field('event_website')) { ?>
                 <a class="btn btn-lg btn-default marginRight marginTop text-uppercase" href="<?php the_field('event_website'); ?>" role="button" target="_blank" title="Event Website">Website</a>
               <?php } ?>
               <?php if(get_field('ticket_url')) { ?>
-                <a class="btn btn-lg btn-default marginTop text-uppercase" href="<?php the_field('ticket_url'); ?>" role="button" target="_blank" title="Event Tickets">Tickets</a>
+                <a class="btn btn-lg btn-default marginTop marginRight text-uppercase" href="<?php the_field('ticket_url'); ?>" role="button" target="_blank" title="Event Tickets">Tickets</a>
               <?php } ?>
+
+              <?php // other URL buttons if added ?>
+              <?php if(get_field('extra_buttons')): ?>
+                <?php while(has_sub_field('extra_buttons')): ?>
+
+                  <a class="btn btn-lg btn-default marginTop marginRight text-uppercase" href="<?php the_sub_field('button_link'); ?>" role="button" target="_blank" title="<?php the_sub_field('button_title'); ?>">
+                    <?php the_sub_field('button_title'); ?>
+                  </a>
+
+                <?php endwhile; ?>
+              <?php endif; ?>
+
             </div>
 
             <?php /* share icons */ ?>

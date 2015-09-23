@@ -12,37 +12,54 @@
           <?php } ?>
           <div class="post-image bordered-image">
 
-            <div class="feature-slider">
+            <?php if(get_field('multiple_product_images')): ?>
+              <div class="feature-slider">
 
-              <ul class="slider bxslider">
-                <?php /* get normal post thumbnail */ ?>
-                <?php if ( has_post_thumbnail()) { ?>
-                  <li id="post-<?php the_ID(); ?>">
-                    <?php the_post_thumbnail('large'); ?>
-                  </li>
-                <?php } ?>
+                <ul class="slider bxslider">
+                  <?php  /* if has featured video */ if ( has_post_video()) { ?>
+                    <li class="positionRelative">
+                      <div class="featured-video">
+                        <?php the_post_video(''); ?>
+                      </div>
+                    </li>
+                  <?php } /* else get normal post thumbnail */ elseif ( has_post_thumbnail()) { ?>
+                    <li id="post-<?php the_ID(); ?>">
+                      <?php the_post_thumbnail('large'); ?>
+                    </li>
+                  <?php } ?>
 
-                <?php /* get multiple images, if exist */ ?>
-                <?php if(get_field('multiple_product_images')): ?>
-                  <?php while(has_sub_field('multiple_product_images')): ?>
+                  <?php /* get multiple images, if exist */ ?>
+                    <?php while(has_sub_field('multiple_product_images')): ?>
 
-                    <?php
-                      $attachment_id = get_sub_field('product_images');
-                      $size = "large";
-                      $image = wp_get_attachment_image_src( $attachment_id, $size );
-                    ?>
-                    <li><img src="<?php echo $image[0]; ?>" alt="<?php echo get_the_title(get_sub_field('product_images')) ?>"></li>
+                      <?php
+                        $attachment_id = get_sub_field('product_images');
+                        $size = "large";
+                        $image = wp_get_attachment_image_src( $attachment_id, $size );
+                      ?>
+                      <li>
+                        <img src="<?php echo $image[0]; ?>" alt="<?php echo get_the_title(get_sub_field('product_images')) ?>">
+                      </li>
 
-                  <?php endwhile; ?>
-                <?php endif; ?>
-              </ul>
+                    <?php endwhile; ?>
+                </ul>
 
-            </div>
+              </div>
+
+            <?php else : ?>
+
+              <?php  /* if has featured video */ if ( has_post_video()) { ?>
+                <div class="featured-video">
+                  <?php the_post_video(''); ?>
+                </div>
+              <?php } /* else get normal post thumbnail */ elseif ( has_post_thumbnail()) { ?>
+                <?php the_post_thumbnail('large'); ?>
+              <?php } ?>
+            <?php endif; ?>
 
           </div>
         </div>
 
-        <div class="col-xs-12 marginTop">
+        <div class="col-xs-12">
 
           <?php /* display product info above content only on mobile (so you dont have to scroll below comments to see product info) - otherwise visible on sidebar for larger than mobile */ ?>
           <?php if(get_field('creators')) { ?>
@@ -52,6 +69,7 @@
               </h3>
 
               <?php get_template_part('templates/snippet', 'product-info'); ?>
+              <div class="clearthis"></div>
 
             </section>
           <?php } ?>

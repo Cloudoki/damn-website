@@ -115,15 +115,20 @@
 
   // Fitvids
   $(".featured-video").fitVids();
+  $(".entry-content").fitVids();
 
   // BX Slider - product image pages
 
   $('.bxslider').bxSlider({
-    adaptiveHeight: true,
-    mode: 'fade',
+    mode: 'vertical',
     autoStart: 'false',
     infiniteLoop: 'true',
-    controls: 'true'
+    controls: 'true',
+    pager: ($(".bxslider li").length > 1) ? true: false,
+    onSlideAfter: function($el, oldIndex, newIndex){
+        var iSrc = $( slider[oldIndex] ).find('iframe').attr('src');
+        $( slider[oldIndex] ).find('iframe').attr('src', iSrc);
+    }
   });
 
   // MMenu
