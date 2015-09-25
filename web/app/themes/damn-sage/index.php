@@ -8,7 +8,7 @@
    *  It shall be an article. It shall be the most recent one.
    */
   $feat_query = [
-    'cat=-4315',
+    'cat' => '-4315',
     'posts_per_page' => 1,
     'post_type' => 'post',
     'orderby' => 'post_date',
@@ -68,7 +68,7 @@
     ];
 
   // Excempt featured post from main stream
-  $featured = new WP_Query($main_query);
+  $featured = new WP_Query($feat_query);
   $main_query['post__not_in'] = [$featured->posts[0]->ID];
 
 
