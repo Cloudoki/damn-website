@@ -2,19 +2,22 @@
   <article <?php post_class(''); ?>>
     <div class="entry-content">
 
-      <?php if ( has_post_format( 'quote' )) { ?>
+      <?php /* if this is a quote post format, add the quote at the top of the page */ ?>
+        <?php if ( has_post_format( 'quote' )) { ?>
 
-        <header class="quote-single">
-          <blockquote>
-              <?php the_excerpt(); ?>
-          </blockquote>
-        </header>
+          <header class="quote-single">
+            <blockquote>
+                <?php the_excerpt(); ?>
+            </blockquote>
+          </header>
 
-      <?php } ?>
+        <?php } ?>
+      <?php /* end if quote */ ?>
 
       <?php /* If is in DAMN + category, decide to show content IF user is logged in with an account, or else, CTA.. else, all other categories, display normal content */ ?>
       <?php if (in_category('damn-plus')) { ?>
 
+        <?php /* if in damn plus and can access locked content */ ?>
         <?php if (current_user_can("access_s2member_level1")){ ?>
           <?php /* If visitor is logged in and can access blocked content, display all content */ ?>
           <?php the_content(); ?>
@@ -22,7 +25,10 @@
           <?php /* Multiple external URL links, if added */ ?>
           <?php get_template_part('templates/snippet', 'external-links'); ?>
 
-        <?php } else { ?>
+          <?php /* REUSED snippet to display standard post footer */ ?>
+          <?php get_template_part('templates/snippet', 'post-footer'); ?>
+
+        <?php } else /* else show CTA and lock everything else out */ { ?>
           <?php /* else display excerpt or content above the more tag and the CTA to subscribe */ ?>
           <?php if(strpos(get_the_content(),'id="more-')) : global $more; $more = 0; the_content(''); ?>
           <?php else : the_excerpt(''); ?>
@@ -81,21 +87,24 @@
             </div>
           </div>
         <?php } ?>
+        <?php /* end if damn + and can or can't access locked content */ ?>
 
       <?php } else { ?>
 
-        <?php /* or else, show all content normally, as this is not on a protected post */ ?>
+        <?php /* or else if not in DAMN+, show all content normally, as this is not on a protected post */ ?>
         <?php the_content(); ?>
 
         <?php /* Multiple external URL links, if added */ ?>
         <?php get_template_part('templates/snippet', 'external-links'); ?>
 
+        <?php /* REUSED snippet to display standard post footer */ ?>
+        <?php get_template_part('templates/snippet', 'post-footer'); ?>
+
       <?php } ?>
 
     </div>
 
-    <?php /* REUSED snippet to display standard post footer */ ?>
-    <?php get_template_part('templates/snippet', 'post-footer'); ?>
+
   </article>
 <?php endwhile; ?>
 

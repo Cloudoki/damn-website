@@ -9,12 +9,15 @@
 
 <?php /* header title items, for areas where the title displays */ ?>
 
-<?php if(is_single() || (is_front_page())) { ?>
+<?php if(is_single() || (is_front_page()) || (is_author())) { ?>
   <?php /* dont display title wrapper if is single */ ?>
 <?php } else { ?>
   <?php /* or else display title wrapper and show archive title based on if its a post type, category, taxonomy, or page */ ?>
   <div class="title-wrapper">
-    <?php if(is_archive()) { ?>
+
+    <?php if(is_author()) { ?>
+      <?php /* show nothing, the author name is in archive.php under if_author, it loads the author profile */ ?>
+    <?php } elseif(is_archive()) { ?>
       <h1 class="archive-title">
         <?php the_archive_title(); ?>
       </h1>
@@ -27,6 +30,7 @@
       </h1>
     <?php } elseif(is_search()) { ?>
       <?php get_template_part('templates/page', 'header'); ?>
+    <?php } else { ?>
     <?php } ?>
   </div>
 <?php } ?>

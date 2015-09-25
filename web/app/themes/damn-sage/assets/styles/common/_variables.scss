@@ -348,6 +348,12 @@ POSITIONING
   @include centerer;
 }
 
+@mixin zeroed {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
 /*********************
 TRANSITION
 *********************/
@@ -691,6 +697,15 @@ COMMON & MISC
     color: $white;
     &:hover {
       color: $white;
+    }
+  }
+}
+
+@mixin blacktoblacklink {
+  a {
+    color: $black;
+    &:hover {
+      color: $black;
     }
   }
 }

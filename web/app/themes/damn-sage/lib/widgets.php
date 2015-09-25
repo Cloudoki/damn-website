@@ -185,7 +185,7 @@ class agenda_Widget extends WP_Widget {
 
     $today = date('Ymd');
     $args=array(
-      'posts_per_page'=> $instance['posts_number'], // Number of related posts that will be shown.
+      'posts_per_page'=> $instance['posts_number'], // Number of posts that will be shown.
       'post_type' => 'calendar',
       'meta_query' => array(
       array(
@@ -209,12 +209,17 @@ class agenda_Widget extends WP_Widget {
       while( $my_query->have_posts() ) {
         $my_query->the_post();
         $startdate = get_field('start_date');
-        $startdatedisplay = date("F j, Y", strtotime($date));
         $enddate = get_field('end_date');
+        $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail' );
+        $url = $thumb['0'];
         ?>
+
+
         <li class="list-group-item <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
           <?php if ( has_post_thumbnail()) { ?>
-            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="list-thumb"><?php the_post_thumbnail('thumbnail'); ?></a>
+            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="list-thumb" style="background-image:url(<?=$url?>);">
+              <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-square.png" alt="<?php the_title_attribute(); ?>" />
+            </a>
           <?php } ?>
 
           <?php if ( has_post_thumbnail()) { ?>
@@ -228,19 +233,15 @@ class agenda_Widget extends WP_Widget {
               <?php } ?>
               <?php the_title(); ?>
             </a>
-            <?php if ( has_post_thumbnail()) { ?>
-              <span class="small-date">
-            <?php } else { ?>
-              <span class="large-date">
-            <?php } ?>
+            <span class="small-date">
               <?php if($startdate) { ?>
-                <strong>Starts:</strong> <?php echo $startdate; ?><br />
+                <?php echo $startdate; ?><br />
               <?php } ?>
               <?php if($enddate) { ?>
                 <strong>Ends:</strong> <?php echo $enddate; ?><br />
               <?php } ?>
             </span>
-            <span><?php the_category(' '); ?></span>
+            <span><?php get_template_part('templates/snippet', 'category-link'); ?></span>
           </div>
           <div class="clearthis"></div>
         </li>

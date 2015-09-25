@@ -768,122 +768,7 @@ body.single, body.page {
 // SINGLE (the rest - footer)
 body.single, body.page {
   .hentry {
-    // entry footer for posts - for contributors, see below
-    footer {
-      @include floatleft100;
-      padding: 1.5em;
-      border: 1px solid $bordercolor;
-      @include border-radius(2px);
-      // background-color: $lightestgray;
-      .author-wrapper, .tags-wrapper, .story-navigation {
-        @include floatleft100;
-      }
-      .author-wrapper {
-        border-bottom: 1px solid $bordercolor;
-        padding-bottom: 1.5em;
-        margin-bottom: 1.5em;
-        .author-info {
-          @include floatleft100;
-          .pull-left {
-            margin: 0 1.5em 0 0;
-            width: 85px;
-            h3 {
-              a {
-                color: $black !important;
-              }
-            }
-            @media screen and (min-width: 992px) {
-              width: 128px;
-            }
-            img {
-              @include border-radius(150px);
-            }
-          }
-          .author-meta {
-            margin-left: 109px;
-            @media screen and (min-width: 992px) {
-              margin-left: 152px;
-            }
-          }
-          h3 {
-            margin-top: 0;
-          }
-          p {
-            margin: 0 0 0.5em 0;
-          }
-          .social-profiles {
-            margin: 0;
-            li {
-              padding: 0 10px 0 0;
-            }
-            li:last-child {
-              padding-right: 0;
-              span {
-                display: none;
-              }
-            }
-          }
-        }
-      }
-      .tags-wrapper {
-        padding-bottom: 1.5em;
-        margin-bottom: 1.5em;
-        border-bottom: 1px solid $bordercolor;
-      }
-      .story-navigation {
-        img {
-          width: 50px;
-          height: 50px;
-          @include border-radius(50px);
-        }
-        .nav-previous, .nav-next {
-          @include text-truncate;
-          line-height: 50px;
-          @include blacktomediumgraylink;
-        }
-        .nav-previous {
-          padding-right: 0;
-          @media (max-width: $screen-xs-max) {
-            float: none;
-          }
-          img {
-            float: right;
-            margin-left: 1em;
-          }
-        }
-        .nav-next {
-          padding-left: 0;
-          img {
-            float: left;
-            margin-right: 1em;
-          }
-        }
-        .nav-next, .nav-previous {
-          @media screen and (max-width: 767px) {
-            width: 100%;
-            padding: 0.5em 0;
-            float: none !important;
-            clear: both !important;
-          }
-        }
-      }
-    }
-
-    // Contributors list
-    footer.contributors-list {
-      .author-wrapper {
-        .author-info {
-          p {
-            margin-bottom: 1em;
-          }
-        }
-      }
-      .author-wrapper:last-child {
-        margin-bottom: 0;
-        padding-bottom: 0;
-        border-bottom: 0;
-      }
-    }
+    // see below for individual items
   }
 }
 
@@ -940,6 +825,140 @@ body.single-calendar {
     .pull-left, .pull-right {
       border: 0 !important;
       padding: 0 !important;
+    }
+  }
+}
+
+footer.post-footer, footer.contributors-list, .author-page-info {
+  @include floatleft100;
+  padding: 1.5em;
+  border: 1px solid $bordercolor;
+  @include border-radius(2px);
+  // background-color: $lightestgray;
+  .author-wrapper, .tags-wrapper, .story-navigation {
+    @include floatleft100;
+  }
+  .author-wrapper {
+    border-bottom: 1px solid $bordercolor;
+    padding-bottom: 1.5em;
+    margin-bottom: 1.5em;
+    .author-info {
+      @include floatleft100;
+      .pull-left {
+        margin: 0 1.5em 0 0;
+        width: 85px;
+        h3 {
+          a {
+            color: $black !important;
+          }
+        }
+        @media screen and (min-width: 992px) {
+          width: 128px;
+        }
+        img {
+          @include border-radius(150px);
+        }
+      }
+      .author-meta {
+        margin-left: 109px;
+        @media screen and (min-width: 992px) {
+          margin-left: 152px;
+        }
+      }
+      h3 {
+        margin-top: 0;
+      }
+      p {
+        margin: 0 0 0.5em 0;
+      }
+      .social-profiles {
+        margin: 0;
+        li {
+          padding: 0 10px 0 0;
+        }
+        li:last-child {
+          padding-right: 0;
+          span {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  .tags-wrapper {
+    padding-bottom: 1.5em;
+    margin-bottom: 1.5em;
+    border-bottom: 1px solid $bordercolor;
+  }
+  .story-navigation {
+    img {
+      width: 50px;
+      height: 50px;
+      @include border-radius(50px);
+    }
+    .nav-previous, .nav-next {
+      @include text-truncate;
+      line-height: 50px;
+      @include blacktomediumgraylink;
+    }
+    .nav-previous {
+      padding-right: 0;
+      @media (max-width: $screen-xs-max) {
+        float: none;
+      }
+      img {
+        float: right;
+        margin-left: 1em;
+      }
+    }
+    .nav-next {
+      padding-left: 0;
+      img {
+        float: left;
+        margin-right: 1em;
+      }
+    }
+    .nav-next, .nav-previous {
+      @media screen and (max-width: 767px) {
+        width: 100%;
+        padding: 0.5em 0;
+        float: none !important;
+        clear: both !important;
+      }
+    }
+  }
+}
+
+// Contributors list
+footer.contributors-list {
+  .author-wrapper {
+    .author-info {
+      p {
+        margin-bottom: 1em;
+      }
+    }
+  }
+  .author-wrapper:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+}
+
+// Author wrapper on Author page
+body.author {
+  .author-wrapper {
+    @include zeroed;
+    h3 {
+      font-size: 2em;
+      @include blacktoblacklink;
+    }
+    ul.social-profiles {
+      float: left;
+      width: 100%;
+      border-top: 1px solid $bordercolor;
+      padding-top: 1em;
+      margin-top: 1em;
     }
   }
 }

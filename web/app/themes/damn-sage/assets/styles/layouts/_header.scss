@@ -244,9 +244,12 @@ body.home {
 
     .social-navs {
       ul.social-nav {
+        background: rgba(255,255,255,.5);
+        padding: 0 1em;
         li {
           a {
             color: $black !important;
+            line-height: 50px;
           }
         }
       }

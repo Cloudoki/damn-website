@@ -46,12 +46,6 @@ use Roots\Sage\Wrapper;
         <div class="clearfix"></div>
       </div><!-- /.content -->
 
-      <?php if (is_singular( 'magazines' )) { ?>
-      <?php } else { ?>
-        <?php /* Back Issues */ ?>
-        <?php get_template_part('templates/back issues'); ?>
-      <?php } ?>
-
       <div class="clearthis"></div>
     </div><!-- /.wrap -->
 

@@ -16,8 +16,23 @@
   <?php get_template_part('templates/content-single', get_post_type()); ?>
 <?php } ?>
 
-<?php /* Facebook Comments */ ?>
-<?php comments_template('/templates/facebook-comments.php'); ?>
+<?php /*hide this to anyone on a paywalled post who does not have access to view the page */ ?>
+<?php if (in_category('damn-plus')) { ?>
 
-<?php /* Related Posts */ ?>
-<?php get_template_part('templates/related-posts'); ?>
+  <?php /* if in damn plus and can access locked content, show the comments and related posts, else nothing */ ?>
+  <?php if (current_user_can("access_s2member_level1")){ ?>
+    <?php /* Facebook Comments */ ?>
+    <?php comments_template('/templates/facebook-comments.php'); ?>
+
+    <?php /* Related Posts */ ?>
+    <?php get_template_part('templates/related-posts'); ?>
+  <?php } ?>
+
+<?php /* else if not in a damn-plus category, show things as normal, as the post is not locked */  ?>
+<?php } else { ?>
+  <?php /* Facebook Comments */ ?>
+  <?php comments_template('/templates/facebook-comments.php'); ?>
+
+  <?php /* Related Posts */ ?>
+  <?php get_template_part('templates/related-posts'); ?>
+<?php } ?>

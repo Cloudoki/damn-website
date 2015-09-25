@@ -1,6 +1,6 @@
 <?php the_content(); ?>
 
-<div class="bordered marginBottom profile-options button-box">
+<div class="bordered marginBottom2em profile-options button-box">
   <a href="/category/damn-plus/" class="btn btn-primary btn-lg marginRight">VIEW ALL DAM<sub>N</sub>° <span>+</span> ARTICLES</a> <a href="/join-damn-plus/damn-plus/profile/" class="btn btn-primary btn-lg">EDIT PROFILE</a>
 </div>
 

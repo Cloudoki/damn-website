@@ -83,7 +83,7 @@ Template Name: Contributors
 
                 $instagram = get_user_meta($user->ID, 'author_instagram', true);
                 if($instagram != '') {
-                  printf('<li><a href="%s" target="_blank" title="">%s</a> <span>&nbsp; /</span></li>', $iinterest, 'Instagram');
+                  printf('<li><a href="%s" target="_blank" title="">%s</a> <span>&nbsp; /</span></li>', $instagram, 'Instagram');
                 }
               ?>
             </ul>

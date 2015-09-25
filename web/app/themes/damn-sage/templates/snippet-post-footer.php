@@ -1,4 +1,4 @@
-<footer>
+<footer class="post-footer">
   <?php if (is_singular('product') || (is_singular('calendar'))) { ?>
   <?php } else { ?>
     <?php /* Author Info */ ?>

@@ -27,8 +27,6 @@
 		$main_query ['post_type'][] = 'calendar';
 	}*/
 
-
-
 	if ($_GET['issue'])
 		$main_query['tax_query'][] = [
 			'taxonomy' => 'magazine',
@@ -36,15 +34,11 @@
 			'terms' => [$issue->slug]
 		];
 
-
 	if (!$pass)
 	{
 		//global $dynamics;
 		$dynamics = new WP_Query($main_query);
 	}
-
-
-
 ?>
 
 <?php if (!have_posts()) : ?>
@@ -105,10 +99,7 @@
   	  // Could use a bit more DRY
 	 /* if (isset ($dynamics))
 	  {
-
 		  exit ('In cal');
-
-
 	  ?>
 
 		    <?php if (have_posts()) : ?>
@@ -140,6 +131,29 @@
             <?php endwhile; ?>
           </div>
         <?php endif; ?>
+
+  <?php }
+  /* If Author Archive */
+  elseif (is_author()) { ?>
+
+    <div class="col-xs-12">
+      <div class="author-page-info marginBottom2em">
+        <?php /* Author Info */ ?>
+        <div class="author-wrapper">
+          <?php get_template_part('templates/author-info'); ?>
+        </div>
+      </div>
+    </div>
+
+    <?php /* need to close the row after the author info, and start a new one for the article feed, so that bootstrap doesn't count author info as a column div and break the layout */ ?>
+    </div>
+    <div class="row">
+
+    <?php if (have_posts()) : ?>
+      <?php while (have_posts()) : the_post(); ?>
+        <?php get_template_part('templates/content-archive'); ?>
+      <?php endwhile; ?>
+    <?php endif; ?>
 
   <?php }
   /* Else if all others */

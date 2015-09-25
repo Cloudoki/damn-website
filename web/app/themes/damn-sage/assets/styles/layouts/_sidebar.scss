@@ -186,8 +186,21 @@ h3.widget-title-black {
 
 // latest calendar specific
 .latest-calendar-list {
-  li.list-meta {
+  li a.list-thumb {
+    background-size: 100%;
+    @include border-radius(50%);
+    img {
+      width: 100% !important;
+    }
+  }
+  .list-meta {
     width: 76%;
+    padding-left: 2%;
+    .category-link {
+      a {
+        border: 1px solid $bordercolor;
+      }
+    }
   }
 }
 
