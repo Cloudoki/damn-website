@@ -38,14 +38,17 @@ $url = $thumb['0'];
         </a>
       </div>
 
+      <?php /* if video post format, center a big play icon */ if ( has_post_format( 'video' )) { ?>
+        <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="centerer">
+        <i class="fa fa-play-circle-o play-video-icon fa-4x whitecolor"></i>
+        </a>
+      <?php } ?>
+
       <header>
         <?php get_template_part('templates/snippet', 'category-link'); ?>
 
         <h3 class="entry-title">
           <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-            <?php /* if video post format, show play icon */ if ( has_post_format( 'video' )) { ?>
-              <i class="fa fa-play-circle-o play-video-icon"></i>
-            <?php } ?>
             <?php the_title(); ?>
           </a>
         </h3>
