@@ -16,6 +16,8 @@ $header_subtitle = get_field ('header_subtitle', $issue_acf_id);
 
 ?>
 
+	<meta property="og:image" content="<?=$header_image?>" />
+
 	<?php if (is_home() && (!$header_image)): ?>
 		<div class="home-feature nothing">
 	<?php else : ?>

@@ -70,9 +70,7 @@ $issue_number = get_field ('magazine_number', $issue_acf_id);
 	    wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'mobile-navigation']);
 	  endif;
   ?>
-
 </nav>
-
 
 <?php if (is_home()): ?>
 
@@ -80,8 +78,6 @@ $issue_number = get_field ('magazine_number', $issue_acf_id);
 
 <?php else: ?>
 
-	<div class="home-feature">
-		<?php get_template_part('templates/snippet', 'header-nav'); ?>
-	</div>
+	<?php get_template_part('templates/snippet', 'header-nav'); ?>
 
 <?php endif; ?>

@@ -113,6 +113,9 @@ while ($dynamics->have_posts()) : $dynamics->the_post();
   {
     $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' );
     $url = $thumb['0'];
+
+    $thumblarge = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' );
+    $urllarge = $thumblarge['0'];
   }
 ?>
 
@@ -152,7 +155,9 @@ while ($dynamics->have_posts()) : $dynamics->the_post();
 
       <?php } else { ?>
 
-        <?php if ( has_post_thumbnail()) { ?>
+        <?php if($post_count == 5 && has_post_thumbnail()) { ?>
+        <div class="post-image" style="background-image:url(<?=$urllarge?>);">
+        <?php } elseif ( has_post_thumbnail()) { ?>
         <div class="post-image" style="background-image:url(<?=$url?>);">
         <?php } else { ?>
         <div class="post-image" style="background-image:url(<?= get_template_directory_uri(); ?>/dist/images/default-tall.png)">

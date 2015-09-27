@@ -210,49 +210,36 @@ body.home {
       }
     }
   }
+}
 
-  // if text needs to be black
-  .black-text {
-    .single-news-item {
-      header {
-        .category-link a {
-          border-color: $black;
-          color: $black;
-          &:hover {
-            color: $white;
-          }
+// if text needs to be black
+.black-text {
+  .single-news-item {
+    header {
+      .category-link a {
+        border-color: $black;
+        color: $black;
+        &:hover {
+          color: $white;
         }
-        h1, h2, h3 {
-          @media screen and (min-width: 768px) {
-            text-shadow: 2px 2px 7px rgba(255,255,255,.4) !important;
-          }
+      }
+      h1, h2, h3 {
+        @media screen and (min-width: 768px) {
+          text-shadow: 2px 2px 7px rgba(255,255,255,.4) !important;
         }
-        h1 a {
-          color: $black;
-        }
-        .subtitle {
-          color: $black;
-        }
+      }
+      h1 a {
+        color: $black;
+      }
+      .subtitle {
+        color: $black;
       }
     }
-    a.main-logo {
-      @media screen and (min-width:768px) {
-        background: url("../images/damn-2X-black.png") no-repeat;
-        background: url("../images/damn.svg") no-repeat;
-      }
-    }
-
-    .social-navs {
-      ul.social-nav {
-        background: rgba(255,255,255,.5);
-        padding: 0 1em;
-        li {
-          a {
-            color: $black !important;
-            line-height: 50px;
-          }
-        }
-      }
+  }
+  a.main-logo {
+    @media screen and (min-width:768px) {
+      background: url("../images/damn-2X-black.png") no-repeat;
+      background: url("../images/damn.svg") no-repeat;
     }
   }
 }
@@ -268,6 +255,7 @@ body.home {
     .container {
       padding-left: 0 !important;
       padding-right: 0 !important;
+      width: 97% !important;
     }
   }
 }
@@ -346,6 +334,10 @@ ul.nav {
       }
     }
   }
+  li.home-menu {
+    // hide the home menu except in the "headhesive sticky menu". see .headhesive below
+    display: none;
+  }
   li.search {
     font-size: 1em;
     a {
@@ -360,11 +352,15 @@ ul.nav {
         @include transitions;
         @media screen and (min-width: 768px) and (max-width: 991px) {
           line-height: 40px;
+          padding: 0 0 0 .5em;
         }
       }
       &:hover {
         i {
           padding-right: (20 / 16) * 1em;
+          @media screen and (min-width: 768px) and (max-width: 991px) {
+            padding-right: .5em;
+          }
         }
       }
     }
@@ -458,35 +454,6 @@ body.page-search {
   }
 }
 
-// social nav
-ul.social-nav {
-  padding: 0;
-  li {
-    @include blockfloat;
-    a, a:visited {
-      font-size: (18 / 16) * 1em;
-      color: $black;
-      padding: 0 (12 / 16) * 1em;
-      line-height: 60px;
-      @include transitions;
-      &:hover {
-        color: $black;
-      }
-      @media screen and (min-width: 768px) and (max-width: 991px) {
-        padding: 0 (10 / 16) * 1em;
-      }
-      @media screen and (min-width: 992px) and (max-width: 1200px) {
-        padding: 0 (10 / 16) * 1em;
-      }
-    }
-  }
-  li:last-child {
-    a {
-      padding-right: 0;
-    }
-  }
-}
-
 // social nav in header
 
 .social-navs {
@@ -494,33 +461,61 @@ ul.social-nav {
     display: none;
   }
   margin-top: .60em;
-  ul.social-nav {
-    padding: 0;
-    @media screen and (max-width: 767px) {
-      margin: 0 !important;
-    }
-    li {
-      a {
-        // for color for black header, see .black-text below
-        font-size: 1.25em;
-        color: $white !important;
-        @media screen and (min-width: 992px) {
-          padding: 0 1em;
-        }
-        @media screen and (max-width: 767px) {
-          line-height: 30px;
-        }
-        @include opacity(0.7);
-        &:hover {
-          @include opacity(1);
-        }
+}
+
+// social nav
+ul.social-nav {
+  background: rgba(0,0,0,.5);
+  padding: 0 1em;
+  @media screen and (max-width: 767px) {
+    margin: 0 !important;
+  }
+  li {
+    @include blockfloat;
+    a, a:visited {
+      font-size: (18 / 16) * 1em;
+      // for color for black header, see .black-text below
+      color: $white !important;
+      padding: 0 (12 / 16) * 1em;
+      line-height: 50px;
+      @include transitions;
+      @include opacity(0.7);
+      &:hover {
+        color: $black;
+        @include opacity(1);
+      }
+      @media screen and (max-width: 767px) {
+        line-height: 30px;
+      }
+      @media screen and (min-width: 768px) and (max-width: 991px) {
+        padding: 0 (10 / 16) * 1em;
+      }
+      @media screen and (min-width: 992px) {
+        padding: 0 1em;
+      }
+      @media screen and (min-width: 992px) and (max-width: 1200px) {
+        padding: 0 (10 / 16) * 1em;
       }
     }
-    li:first-child a {
-      padding-left: 0;
-    }
-    li:last-child a {
-      padding-right: 0;
+  }
+  li:first-child a {
+    padding-left: 0;
+  }
+  li:last-child a {
+    padding-right: 0;
+  }
+}
+
+// color of social icons and background for social icons while in .black-text css setting`
+.black-text {
+  .social-navs {
+    ul.social-nav {
+      background: rgba(255,255,255,.5);
+      li {
+        a {
+          color: $black !important;
+        }
+      }
     }
   }
 }
@@ -536,8 +531,8 @@ ul.social-nav {
     display: none !important;
   }
   .container {
-    @media screen and (max-width: 991px) {
-      width: 100%;
+    @media screen and (max-width: 1199px) {
+      width: 100% !important;
     }
   }
   .main-navigation {
@@ -559,6 +554,13 @@ ul.social-nav {
       }
     }
   }
+  ul.social-nav {
+    background: none !important;
+    li a {
+      color: $black !important;
+      line-height: 60px;
+    }
+  }
 }
 
 /* when scroll past the header, in active "stick" mode */
@@ -578,6 +580,10 @@ ul.social-nav {
       }
       ul.nav li a {
         font-size: .8em;
+      }
+      li.home-menu {
+        // show the home menu when in headhesive stick mode
+        display: block;
       }
     }
     // social menu visible on stick

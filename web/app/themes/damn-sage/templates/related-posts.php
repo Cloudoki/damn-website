@@ -1,31 +1,57 @@
-<?php
-  $orig_post = $post;
-  global $post;
-  $tags = wp_get_post_tags($post->ID);
+<?php $orig_post = $post;
+function damn_get_related_posts( $post_id, $related_count, $args = array() ) {
+  $args = wp_parse_args( (array) $args, array(
+    'orderby' => 'rand',
+    'return'  => 'query', // Valid values are: 'query' (WP_Query object), 'array' (the arguments array)
+  ));
 
-  if ($tags) {
-  $tag_ids = array();
-  foreach($tags as $individual_tag) $tag_ids[] = $individual_tag->term_id;
-  $args=array(
-  'tag__in' => $tag_ids,
-  'post_type' => array( 'post' ),
-  'post__not_in' => array($post->ID),
-  'showposts'=>3
+  $related_args = array(
+    'post_type'      => array('post','product','calendar'),
+    'posts_per_page' => $related_count,
+    'post_status'    => 'publish',
+    'post__not_in'   => array( $post_id ),
+    'orderby'        => $args['orderby'],
+    'tax_query'      => array()
   );
 
-  $my_query = new wp_query( $args );
-  echo '<div class="related-posts clearfix">';
-  echo '<h3>RELATED POSTS</h3>';
-  echo '<div class="row no-gutters related-post-list marginTop">';
-  while( $my_query->have_posts() ) { $my_query->the_post(); ?>
-    <?php get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
-  <?php }
+  $post = get_post( $post_id );
+  $taxonomies = get_object_taxonomies( $post, 'names' );
+
+  foreach( $taxonomies as $taxonomy ) {
+    $terms = get_the_terms( $post_id, $taxonomy );
+    if ( empty( $terms ) ) continue;
+    $term_list = wp_list_pluck( $terms, 'slug' );
+    $related_args['tax_query'][] = array(
+        'taxonomy' => $taxonomy,
+        'field'    => 'slug',
+        'terms'    => $term_list
+    );
   }
-  echo '</div>';
-  echo '</div>';
-  $post = $orig_post;
-  wp_reset_query();
+
+  if( count( $related_args['tax_query'] ) > 1 ) {
+    $related_args['tax_query']['relation'] = 'OR';
+  }
+
+  if( $args['return'] == 'query' ) {
+    return new WP_Query( $related_args );
+  } else {
+    return $related_args;
+  }
+}
+
+$related = damn_get_related_posts( get_the_ID(), 3 );
+
+if( $related->have_posts() ):
   ?>
-<div class="clearthis"></div>
-
-
+  <div class="related-posts clearfix">
+    <h3>Related posts</h3>
+    <div class="row no-gutters related-post-list marginTop">
+      <?php while( $related->have_posts() ): $related->the_post(); ?>
+        <?php get_template_part('templates/content-archive', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
+      <?php endwhile; ?>
+    </div>
+  </div>
+  <?php
+endif;
+wp_reset_postdata();
+?>
