@@ -43,7 +43,8 @@
     "wpackagist-plugin/wp-missed-schedule": "2015.0228.3",
     "wpackagist-plugin/wordpress-seo": "2.3.4",
     "wpackagist-plugin/redirection": "2.4.1",
-    "wpackagist-plugin/wp-migrate-db": "0.7.1"
+    "wpackagist-plugin/regenerate-thumbnails": "2.2.4",
+    "wpackagist-plugin/ewww-image-optimizer": "2.5.1"
   },
   "extra": {
     "installer-paths": {

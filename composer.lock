@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5f3b892c69eed953b06fe618b1f5f8c8",
+    "hash": "f616923e6878b78bab70a5109288039c",
     "packages": [
         {
             "name": "composer/installers",
@@ -273,6 +273,26 @@
             "homepage": "https://wordpress.org/plugins/custom-post-type-ui/"
         },
         {
+            "name": "wpackagist-plugin/ewww-image-optimizer",
+            "version": "2.5.1",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/ewww-image-optimizer/",
+                "reference": "tags/2.5.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/ewww-image-optimizer.2.5.1.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/ewww-image-optimizer/"
+        },
+        {
             "name": "wpackagist-plugin/featured-video-plus",
             "version": "2.2.1",
             "source": {
@@ -333,6 +353,26 @@
             "homepage": "https://wordpress.org/plugins/redirection/"
         },
         {
+            "name": "wpackagist-plugin/regenerate-thumbnails",
+            "version": "2.2.4",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/regenerate-thumbnails/",
+                "reference": "tags/2.2.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/regenerate-thumbnails.2.2.4.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/regenerate-thumbnails/"
+        },
+        {
             "name": "wpackagist-plugin/s2member",
             "version": 150827,
             "source": {
@@ -371,26 +411,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/wordpress-seo/"
-        },
-        {
-            "name": "wpackagist-plugin/wp-migrate-db",
-            "version": "0.7.1",
-            "source": {
-                "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/wp-migrate-db/",
-                "reference": "tags/0.7.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-migrate-db.0.7.1.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/wp-migrate-db/"
         },
         {
             "name": "wpackagist-plugin/wp-missed-schedule",
