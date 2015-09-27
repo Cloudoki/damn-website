@@ -16,10 +16,10 @@
       get_field ('current_issue', 'option');
 
     $issue_acf_id = 'magazine_' . $issue->term_id;
-    $header_image = get_field ('header_image', $issue_acf_id);
-    ?>
+    $mag_tax_image = get_field ('magazine_taxonomy_image', $issue_acf_id);
+  ?>
 
-    <meta property="og:image" content="<?=$header_image?>" />
+    <meta property="og:image" content="<?=$magazine_taxonomy_image?>" />
   <?php endif; ?>
 
   <?php wp_head(); ?>

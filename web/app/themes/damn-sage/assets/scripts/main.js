@@ -124,7 +124,12 @@
     autoStart: 'false',
     infiniteLoop: 'true',
     controls: 'true',
+    preloadImage: 'visible',
     pager: ($(".bxslider li").length > 1) ? true: false,
+    onSliderLoad: function(currentIndex){
+      $(".feature-slider").css("visibility", "visible");
+      $(".pre-loader").css("display", "none");
+    },
     onSlideAfter: function($el, oldIndex, newIndex){
         var iSrc = $( slider[oldIndex] ).find('iframe').attr('src');
         $( slider[oldIndex] ).find('iframe').attr('src', iSrc);

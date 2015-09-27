@@ -10,9 +10,14 @@
               <?php the_field('sub-title'); ?>
             </h2>
           <?php } ?>
-          <div class="post-image bordered-image">
 
-            <?php if(get_field('multiple_product_images')): ?>
+          <?php if(get_field('multiple_product_images')): ?>
+            <div class="pre-loader">
+              <img src="<?= get_template_directory_uri(); ?>/dist/images/spinner.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>"/>
+            </div>
+
+            <div class="post-image bordered-image">
+
               <div class="feature-slider">
 
                 <ul class="slider bxslider">
@@ -45,8 +50,11 @@
 
               </div>
 
-            <?php else : ?>
+            </div>
 
+          <?php else : ?>
+
+            <div class="post-image bordered-image">
               <?php  /* if has featured video */ if ( has_post_video()) { ?>
                 <div class="featured-video">
                   <?php the_post_video(''); ?>
@@ -54,9 +62,9 @@
               <?php } /* else get normal post thumbnail */ elseif ( has_post_thumbnail()) { ?>
                 <?php the_post_thumbnail('large'); ?>
               <?php } ?>
-            <?php endif; ?>
+            </div>
+          <?php endif; ?>
 
-          </div>
         </div>
 
         <div class="col-xs-12">
