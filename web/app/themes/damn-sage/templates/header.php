@@ -34,8 +34,6 @@ $header_subtitle = get_field ('header_subtitle', $issue_acf_id);
 $mag_tax_image = get_field ('magazine_taxonomy_image', $issue_acf_id);
 ?>
 
-<meta property="og:image" content="<?=$header_image?>" />
-
 <?php /*-- style all colors based on issue # color --*/ ?>
 <style type="text/css" media="screen">
 	a, a:visited, .nav a span, a.mobile-menu .fa {
