@@ -108,6 +108,10 @@ p {
   padding-top: 1em;
 }
 
+.white-border-top {
+  border-top: 5px solid #fff;
+}
+
 .floatLeft100 {
   @include floatleft100;
 }

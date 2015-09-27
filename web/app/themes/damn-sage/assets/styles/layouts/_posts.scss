@@ -965,7 +965,7 @@ body.author {
 
 // Video Format
 
-body.single-post {
+body.single-post, body.single-advertorial {
   .featured-video-plus {
     @include position(absolute, $top: 0, $left: 0%);
     width: 100%;
@@ -1191,5 +1191,81 @@ body.category-damn-plus.logged-in {
   }
 }
 
+// ADVERTORIALS
+body.single-advertorial {
+  .hentry {
+    border: 10px solid $black;
+    padding: 2em;
+  }
+}
+
+.advertorial-color {
+  background-color: $black;
+  .advertorial-info {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: $black;
+    background: rgba(0,0,0,0.75);
+    height: 100%;
+  }
+  header {
+    padding: 1.5em 1em;
+    color: $white;
+    @include categorylink;
+    @media screen and (min-width: 630px) {
+      padding: 2em;
+    }
+    .category-link a {
+      border: 1px solid $white;
+      color: $white;
+      &:hover {
+        color: $medium-gray;
+      }
+    }
+    .entry-meta {
+      clear: both;
+    }
+    .meta-sharing {
+      border: 0;
+      border-top: 1px solid $medium-gray;
+      margin-top: .5em;
+      margin-bottom: 0;
+      a, a:visited {
+        &:hover {
+          color: $medium-gray;
+        }
+      }
+      .pull-left, .pull-right {
+        float: none !important;
+        padding: 1.5em 0 .5em 0;
+        margin: 0 !important;
+        border: 0;
+        .addthis_responsive_sharing {
+          float: none !important;
+        }
+      }
+      .pull-left p {
+        line-height: 22px;
+      }
+    }
+  }
+  .single-news-item {
+    .post-image {
+      @media screen and (max-width: 480px) {
+        max-height: 320px;
+      }
+      @media screen and (min-width: 481px) and (max-width: 767px) {
+        max-height: 400px;
+      }
+      @media screen and (min-width: 768px) and (max-width: 991px) {
+        max-height: 450px;
+      }
+      @media screen and (min-width: 992px) {
+        max-height: 600px;
+      }
+    }
+  }
+}
 
 
