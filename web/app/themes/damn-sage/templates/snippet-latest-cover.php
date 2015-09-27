@@ -24,7 +24,6 @@ foreach($magazines as $magazine) {
     echo "</div>";
   echo "</div>";
   echo "<p class='noMargin'>";
-  echo "Latest Issue:";
   echo "<h3><strong><a href=\"{$link}\" title='{$magazine->name}'>{$magazine->name}</a></strong></h3>";
   echo "</p>";
 }

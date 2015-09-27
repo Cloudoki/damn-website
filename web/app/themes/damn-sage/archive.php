@@ -10,7 +10,8 @@
 	$main_query = [
 		'post_type' => [],
 		'orderby' => 'post_date',
-		'order' => 'DESC'
+		'order' => 'DESC',
+    'paged' => $paged,
 	];
 
 	if (is_post_type_archive ([ 'product' ]))

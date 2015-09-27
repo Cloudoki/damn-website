@@ -31,6 +31,7 @@ $header_image = get_field ('header_image', $issue_acf_id);
 $issue_cat = get_field ('primary_category', $issue_acf_id);
 $header_highlight = get_field ('header_highlight', $issue_acf_id);
 $header_subtitle = get_field ('header_subtitle', $issue_acf_id);
+$mag_tax_image = get_field ('magazine_taxonomy_image', $issue_acf_id);
 ?>
 
 <meta property="og:image" content="<?=$header_image?>" />

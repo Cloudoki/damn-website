@@ -146,7 +146,6 @@ function mike_modify_magazine_query( $query ) {
   }
 }
 
-
 // make sure calendar and productivity have post_tag registered
 
 register_taxonomy_for_object_type( 'post_tag', 'calendar' );
