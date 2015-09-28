@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9a02444a0ee5e3bfb45a67f9021e2fe2",
+    "hash": "12dfd1be0555c753470a6045fdf9ffc0",
     "packages": [
         {
             "name": "composer/installers",
@@ -251,6 +251,46 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/adrotate/"
+        },
+        {
+            "name": "wpackagist-plugin/better-search-replace",
+            "version": "1.2.3",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/better-search-replace/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/better-search-replace.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/better-search-replace/"
+        },
+        {
+            "name": "wpackagist-plugin/better-wp-security",
+            "version": "5.0.1",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/better-wp-security/",
+                "reference": "tags/5.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/better-wp-security.5.0.1.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/better-wp-security/"
         },
         {
             "name": "wpackagist-plugin/custom-post-type-ui",

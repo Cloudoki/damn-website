@@ -45,7 +45,9 @@
     "wpackagist-plugin/regenerate-thumbnails": "2.2.4",
     "wpackagist-plugin/ewww-image-optimizer": "2.5.1",
     "wpackagist-plugin/wp-migrate-db": "0.7.1",
-    "wpackagist-plugin/post-via-dropbox": "2.10"
+    "wpackagist-plugin/post-via-dropbox": "2.10",
+    "wpackagist-plugin/better-wp-security": "5.0.1",
+    "wpackagist-plugin/better-search-replace": "1.2.3"
   },
   "extra": {
     "installer-paths": {
