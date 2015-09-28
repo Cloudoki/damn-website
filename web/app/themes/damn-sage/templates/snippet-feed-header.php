@@ -24,7 +24,9 @@
 
     <h2 class="entry-title">
       <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-        <?php /* if video post format, show play icon */ if ( has_post_format( 'video' )) { ?>
+        <?php /* if calendar post type, show calendar icon */ if ( get_post_type() == 'calendar' ){ ?>
+          <i class="fa fa-calendar"></i>
+        <?php } /* if video post format, show play icon */ elseif ( has_post_format( 'video' )) { ?>
           <i class="fa fa-play-circle-o play-video-icon"></i>
         <?php } ?>
         <?php the_title(); ?>
@@ -34,15 +36,27 @@
     <?php /* dont show on single pages, this would be for the "related posts" area */ ?>
     <?php if (is_single() || is_tax( 'magazine' )) { ?>
     <?php } else { ?>
+
+      <?php /* the title */ ?>
+
       <?php if(get_field('sub-title')) { ?>
         <h3 class="subtitle">
           <?php the_field('sub-title'); ?>
         </h3>
+
       <?php } else { ?>
+
+      <?php /* the sub-title */ ?>
+
         <h3 class="subtitle">
           <?php the_excerpt(); ?>
         </h3>
       <?php } ?>
+
+      <?php /* if calendar post type, show start/end date */ ?>
+
+      <?php get_template_part('templates/snippet', 'start-end-date'); ?>
+
     <?php } ?>
 
   <?php } ?>

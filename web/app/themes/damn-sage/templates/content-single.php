@@ -29,9 +29,16 @@
           <?php get_template_part('templates/snippet', 'post-footer'); ?>
 
         <?php } else /* else show CTA and lock everything else out */ { ?>
-          <?php /* else display excerpt or content above the more tag and the CTA to subscribe */ ?>
+          <?php /* display items above the more tag, or a limited content (if more not selected, so "excerpt" doesn't duplicate on quote post formats) */ ?>
           <?php if(strpos(get_the_content(),'id="more-')) : global $more; $more = 0; the_content(''); ?>
-          <?php else : the_excerpt(''); ?>
+          <?php else : ?>
+            <p>
+            <?php $content = get_the_content();
+            $content = strip_tags($content);
+            echo substr($content, 0, 400);
+            echo '...';
+            ?>
+            </p>
           <?php endif; ?>
 
           <?php /* CTA */ ?>

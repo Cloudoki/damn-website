@@ -50,8 +50,15 @@ function custom_excerpt_length($length) {
 add_filter( 'excerpt_length', __NAMESPACE__ . '\\custom_excerpt_length', 999 );
 
 
-// make links and emails clickable
-// add_filter('the_content', 'make_clickable');
+// limit excerpt by character count, not word count
+function get_excerpt($count){
+  $permalink = get_permalink($post->ID);
+  $excerpt = get_the_excerpt();
+  $excerpt = strip_tags($excerpt);
+  $excerpt = substr($excerpt, 0, $count);
+  $excerpt = $excerpt.'';
+  return $excerpt;
+}
 
 
 //Page Slug Body Class

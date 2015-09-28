@@ -2,7 +2,7 @@
 function damn_get_related_posts( $post_id, $related_count, $args = array() ) {
   $args = wp_parse_args( (array) $args, array(
     'orderby' => 'rand',
-    'return'  => 'query', // Valid values are: 'query' (WP_Query object), 'array' (the arguments array)
+    'return'  => 'query',
   ));
 
   $related_args = array(

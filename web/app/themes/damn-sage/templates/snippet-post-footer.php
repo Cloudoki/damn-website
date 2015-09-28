@@ -17,13 +17,13 @@
     <?php $nextPost = get_next_post(); if($nextPost) { ?>
       <div class="nav-next col-xs-6">
         <?php $nextthumbnail = get_the_post_thumbnail($nextPost->ID, 'thumbnail'); ?>
-        <?php next_post_link('%link',"$nextthumbnail &larr; %title"); ?>
+        <?php next_post_link('%link',"$nextthumbnail &larr; <strong>PREV / </strong> %title"); ?>
       </div>
     <?php } ?>
     <?php $prevPost = get_previous_post(); if($prevPost) { ?>
       <div class="nav-previous col-xs-6 text-right pull-right">
         <?php $prevthumbnail = get_the_post_thumbnail($prevPost->ID, 'thumbnail' );?>
-        <?php previous_post_link('%link',"$prevthumbnail %title &rarr;"); ?>
+        <?php previous_post_link('%link',"$prevthumbnail %title <strong> / NEXT:</strong> &rarr;"); ?>
       </div>
     <?php } ?>
   </div>

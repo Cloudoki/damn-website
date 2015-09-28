@@ -1,5 +1,3 @@
-<?php use Roots\Sage\Extras; ?>
-
 <?php if (!have_posts())
     get_template_part('templates/snippet-no-results');
 
@@ -27,6 +25,31 @@
     'post_type' => array ('post','calendar'),
     'orderby' => 'post_date',
     'order' => 'DESC',
+
+    'tax_query' => array(
+      array(
+        'taxonomy' => 'post_format',
+        'field' => 'slug',
+        'terms' => 'post-format-video',
+        'operator' => 'NOT IN'
+      )
+    )
+  ];
+
+  /* Only VIDEO POST FORMAT, so these posts can load below the main query */
+  $video_query = [
+    'posts_per_page' => 2,
+    'post_type' => array ('post','calendar'),
+    'orderby' => 'post_date',
+    'order' => 'DESC',
+
+    'tax_query' => array(
+      array(
+        'taxonomy' => 'post_format',
+        'field' => 'slug',
+        'terms' => 'post-format-video',
+      )
+    )
   ];
 
   /**
@@ -56,6 +79,9 @@
 
   // Build second & third row
   $dynamics = new WP_Query($main_query);
+
+  // Build video post format row
+  $dynamicsvideo = new WP_Query($video_query);
 ?>
 
 <?php
@@ -120,9 +146,7 @@ while ($dynamics->have_posts()) : $dynamics->the_post();
             <div class="quote-wrapper-inner">
               <blockquote>
               <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-                <p>
-                  <?= Extras\get_excerpt(140); ?>
-                </p>
+              <?php the_excerpt(); ?>
               </a>
               </blockquote>
             </div>
@@ -152,6 +176,45 @@ while ($dynamics->have_posts()) : $dynamics->the_post();
       <?php /* REUSED snippet to display title, category, subtitle */ ?>
       <?php get_template_part('templates/snippet', 'feed-header'); ?>
     <?php } ?>
+
+    </div>
+  </div>
+
+<?php endwhile; ?>
+
+</div><?php /* close empty-wrapper */ ?>
+
+
+<?php /* single row to show only Video Post Types */ ?>
+<div class="empty-wrapper row">
+<?php
+
+while ($dynamicsvideo->have_posts()) : $dynamicsvideo->the_post();
+  if($post_count++ == 5) break;
+
+  if (has_post_thumbnail () && !has_post_format('quote'))
+  {
+    $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' );
+    $url = $thumb['0'];
+  }
+?>
+
+  <div class="news-item-wrapper col-xs-12 col-sm-12 col-md-6 col-md-large <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
+    <div class="news-item">
+
+      <?php if ( has_post_thumbnail()) { ?>
+      <div class="post-image" style="background-image:url(<?=$url?>);">
+      <?php } else { ?>
+      <div class="post-image" style="background-image:url(<?= get_template_directory_uri(); ?>/dist/images/default-tall.png)">
+      <?php } ?>
+        <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+          <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-wide.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder hidden-xs" />
+          <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder visible-xs-block" />
+        </a>
+      </div>
+
+      <?php /* REUSED snippet to display title, category, subtitle */ ?>
+      <?php get_template_part('templates/snippet', 'feed-header'); ?>
 
     </div>
   </div>

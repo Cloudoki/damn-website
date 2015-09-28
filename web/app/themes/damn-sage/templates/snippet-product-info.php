@@ -18,12 +18,12 @@
       <h4 class="text-uppercase"><strong>More Information</strong></h4>
 
       <?php // company website ?>
-      <span><i class="fa fa-external-link"></i> <a href="<?php the_field('company_website'); ?>" target="_blank" title="More Information"><?php the_field('company_website'); ?></a></span>
+      <span><i class="fa fa-external-link"></i> <a href="http://<?php the_field('company_website'); ?>" target="_blank" title="More Information"><?php the_field('company_website'); ?></a></span>
 
       <?php // additional URLs ?>
       <?php if(get_field('additional_websites')): ?>
         <?php while(has_sub_field('additional_websites')): ?>
-          <span><i class="fa fa-external-link"></i> <a href="<?php the_sub_field('product_websites'); ?>" target="_blank" title="More Information"><?php the_sub_field('product_websites'); ?></a></span>
+          <span><i class="fa fa-external-link"></i> <a href="http://<?php the_sub_field('product_websites'); ?>" target="_blank" title="More Information"><?php the_sub_field('product_websites'); ?></a></span>
         <?php endwhile; ?>
       <?php endif; ?>
 
@@ -33,7 +33,7 @@
   <?php /* MIKE hide buy button until October 16th
   <?php if(get_field('buy_link')) { ?>
     <div class="product-buy-link">
-      <a class="btn btn-lg btn-default" href="<?php the_field('buy_link'); ?>" role="button" target="_blank" title="Buy This Product">Buy This Product</a>
+      <a class="btn btn-lg btn-default" href="http://<?php the_field('buy_link'); ?>" role="button" target="_blank" title="Buy This Product">Buy This Product</a>
     </div>
   <?php } ?>
   */ ?>

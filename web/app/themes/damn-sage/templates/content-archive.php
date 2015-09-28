@@ -1,3 +1,5 @@
+<?php use Roots\Sage\Extras; ?>
+
 <div class="news-item-wrapper col-xs-12 col-sm-6 col-md-4 col-lg-4 <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>" id="post-<?php the_ID(); ?>">
   <div class="news-item">
 
@@ -13,9 +15,11 @@
         <div class="quote-wrapper-outer">
           <div class="quote-wrapper-inner">
             <blockquote>
-              <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-                <?php the_excerpt(); ?>
-              </a>
+            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+              <p>
+                <?= Extras\get_excerpt(140); ?>
+              </p>
+            </a>
             </blockquote>
           </div>
         </div>
