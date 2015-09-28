@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f616923e6878b78bab70a5109288039c",
+    "hash": "9a02444a0ee5e3bfb45a67f9021e2fe2",
     "packages": [
         {
             "name": "composer/installers",
@@ -333,6 +333,26 @@
             "homepage": "https://wordpress.org/plugins/google-analytics-dashboard-for-wp/"
         },
         {
+            "name": "wpackagist-plugin/post-via-dropbox",
+            "version": "2.10",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/post-via-dropbox/",
+                "reference": "tags/2.10"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/post-via-dropbox.2.10.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/post-via-dropbox/"
+        },
+        {
             "name": "wpackagist-plugin/redirection",
             "version": "2.4.1",
             "source": {
@@ -413,16 +433,16 @@
             "homepage": "https://wordpress.org/plugins/wordpress-seo/"
         },
         {
-            "name": "wpackagist-plugin/wp-missed-schedule",
-            "version": "2015.0228.3",
+            "name": "wpackagist-plugin/wp-migrate-db",
+            "version": "0.7.1",
             "source": {
                 "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/wp-missed-schedule/",
-                "reference": "tags/2015.0228.3"
+                "url": "http://plugins.svn.wordpress.org/wp-migrate-db/",
+                "reference": "tags/0.7.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-missed-schedule.2015.0228.3.zip",
+                "url": "https://downloads.wordpress.org/plugin/wp-migrate-db.0.7.1.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -430,7 +450,7 @@
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/wp-missed-schedule/"
+            "homepage": "https://wordpress.org/plugins/wp-migrate-db/"
         },
         {
             "name": "wpackagist-plugin/wpmandrill",
