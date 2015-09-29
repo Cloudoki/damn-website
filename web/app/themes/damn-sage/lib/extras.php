@@ -119,6 +119,26 @@ function db_filter_user_query( &$user_query ) {
 add_filter( 'posts_search', __NAMESPACE__ . '\\db_filter_authors_search' );
 
 
+// Adds Charachter Counter to the Excerpt Meta Box
+// @ref = http://wpsnipp.com/index.php/excerpt/add-a-character-counter-to-excerpt-metabox/
+function excerpt_count_js(){
+      echo '<script>jQuery(document).ready(function(){
+jQuery("#postexcerpt .handlediv").after("<div style=\"position:absolute;top:5px;right:80px;color:#666;\"><small>Excerpt length: </small><input type=\"text\" value=\"0\" maxlength=\"3\" size=\"3\" id=\"excerpt_counter\" readonly=\"\" style=\"background:#fff;\"> <small>character(s). 117 Characters MAX please</small></div>");
+     jQuery("#excerpt_counter").val(jQuery("#excerpt").val().length);
+     jQuery("#excerpt").keyup( function() {
+     jQuery("#excerpt_counter").val(jQuery("#excerpt").val().length);
+     if ( jQuery("#excerpt_counter").val() >= 110 ) {
+      jQuery("#excerpt_counter").css("color","red");
+     } else {
+      jQuery("#excerpt_counter").css("color","green");
+     }
+   });
+});</script>';
+}
+add_action( 'admin_head-post.php', __NAMESPACE__ . '\\excerpt_count_js');
+add_action( 'admin_head-post-new.php', __NAMESPACE__ . '\\excerpt_count_js');
+
+
 /*********************
 * MIKE'S CUSTOM      *
 *********************/
