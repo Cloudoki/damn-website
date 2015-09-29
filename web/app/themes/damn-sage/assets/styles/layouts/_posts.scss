@@ -977,13 +977,17 @@ body.author {
     h3 {
       font-size: 2em;
       @include blacktoblacklink;
+      margin-bottom: 0 !important;
+    }
+    p {
+      margin-top: .5em !important;
     }
     ul.social-profiles {
       float: left;
       width: 100%;
       border-top: 1px solid $bordercolor;
       padding-top: 1em;
-      margin-top: 1em;
+      margin-top: 1.5em !important;
     }
   }
 }

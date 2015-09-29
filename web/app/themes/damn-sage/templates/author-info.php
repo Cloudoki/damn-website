@@ -12,8 +12,6 @@
         $image_url = $image_object['sizes'][$image_size];
         ?>
         <img src="<?php echo $image_url; ?>" alt="">
-      <?php else : ?>
-        <img src="<?= get_template_directory_uri(); ?>/dist/images/default-thumb.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>"/>
       <?php endif; ?>
     </a>
   </div>
@@ -24,6 +22,7 @@
     <p><?php the_author_meta( 'description' ); ?></p>
   <?php endif; ?>
 
+  <?php if (get_the_author_meta('user_url') || get_the_author_meta('author_facebook') || get_the_author_meta('author_twitter') || get_the_author_meta('author_linkedin') || get_the_author_meta('author_pinterest') || get_the_author_meta('author_instagram')) : ?>
   <ul class="social-profiles list-inline">
     <?php if ( get_the_author_meta( 'user_url' ) ) : ?>
       <li><a href="<?php the_author_meta('user_url');?>" target="_blank" title="Author Website">Website</a> <span>&nbsp; /</span></li>
@@ -44,6 +43,7 @@
       <li><a href="<?php the_author_meta('author_instagram');?>" target="_blank" title="Author Instagram">Instagram</a> <span>&nbsp; /</span></li>
     <?php endif; ?>
   </ul>
+  <?php endif; ?>
 
   <?php /* author meta end */ ?>
 
