@@ -21,15 +21,18 @@ class blog_Widget extends WP_Widget {
     if( $my_query->have_posts() ) {
       echo '<ol class="latest-articles-list">';
       while( $my_query->have_posts() ) {
-        $my_query->the_post(); ?>
+        $my_query->the_post();
+        $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail' );
+        $url = $thumb['0'];
+        ?>
         <li class="<?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
           <?php if ( has_post_thumbnail()) { ?>
-            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="list-thumb"><?php the_post_thumbnail('thumbnail'); ?></a>
+            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="list-thumb" style="background-image:url(<?=$url?>);">
           <?php } else { ?>
-           <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="list-thumb">
-            <img src="<?= get_template_directory_uri(); ?>/dist/images/default-thumb.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>"/>
-           </a>
+            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="list-thumb">
           <?php } ?>
+              <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-square.png" alt="<?php the_title_attribute(); ?>" />
+            </a>
           <div class="list-meta">
             <a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>">
               <?php /* if video post format, show play icon */ if ( has_post_format( 'video' )) { ?>

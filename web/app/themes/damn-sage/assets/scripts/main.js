@@ -171,4 +171,10 @@
      ]
   });
 
+  // Simple Lightbox for galleries
+  var lightbox = $('.gallery-wrapper a').simpleLightbox({
+    captionsData: 'alt',
+    closeText: '<i class="fa fa-times-circle fa-2x"></i>'
+  });
+
 })(jQuery); // Fully reference jQuery after this point.

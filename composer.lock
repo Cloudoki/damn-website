@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "12dfd1be0555c753470a6045fdf9ffc0",
+    "hash": "b0f429a778f321da401d507d5e51c38f",
     "packages": [
         {
             "name": "composer/installers",
@@ -253,26 +253,6 @@
             "homepage": "https://wordpress.org/plugins/adrotate/"
         },
         {
-            "name": "wpackagist-plugin/better-search-replace",
-            "version": "1.2.3",
-            "source": {
-                "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/better-search-replace/",
-                "reference": "trunk"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/better-search-replace.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/better-search-replace/"
-        },
-        {
             "name": "wpackagist-plugin/better-wp-security",
             "version": "5.0.1",
             "source": {
@@ -391,26 +371,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/post-via-dropbox/"
-        },
-        {
-            "name": "wpackagist-plugin/redirection",
-            "version": "2.4.1",
-            "source": {
-                "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/redirection/",
-                "reference": "trunk"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/redirection.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/redirection/"
         },
         {
             "name": "wpackagist-plugin/regenerate-thumbnails",

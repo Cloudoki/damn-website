@@ -108,6 +108,11 @@ p {
   padding-top: 1em;
 }
 
+.border-wrapper {
+  border: 1px solid $bordercolor;
+  padding: 1.25em;
+}
+
 .white-border-top {
   border-top: 5px solid #fff;
 }
@@ -334,7 +339,7 @@ img {
 VERTICAL RHYTHYM
 *********************/
 
-.home-feature, header, .main, .sidebar, footer, .single-news-item, .wrap, .headhesive, p, .relative-header {
+.home-feature, header, .main, .sidebar, footer, .single-news-item, .single-video-item, .single-gallery-item, .wrap, .headhesive, p, .relative-header {
   font-size: 16px;
   @media screen and (max-width: 767px) {
     font-size: 13px;

@@ -49,7 +49,7 @@
 
 // all types of news items here. below are individual news items custom styling
 // (.news-items for feeds, .single-news-item for single page, .single-video-item for video post format single page)
-.news-item, .single-news-item, .single-video-item {
+.news-item, .single-news-item, .single-video-item, .single-gallery-item {
   position: relative;
   background-color: $black;
   .post-image {
@@ -176,12 +176,46 @@
   }
 }
 
-.single-video-item {
+.single-video-item, .single-gallery-item  {
   header {
     .category-link {
       a {
         border: 1px solid $black;
         color: $black;
+      }
+    }
+  }
+}
+
+.single-gallery-item {
+  background: $white;
+  padding: 2em 0 0.25em 0;
+  border-bottom: 1px solid $bordercolor;
+  // also used below in advertorials single
+  @include metasharing;
+  .meta-sharing {
+    margin: 1.25em 0 1.75em 0;
+    border: 0;
+    border-top: 1px solid $bordercolor;
+    @media screen and (min-width: 768px) and (max-width: 991px) {
+      h1.entry-title {
+        font-size: 2em !important;
+      }
+      .pull-left {
+        float: left !important;
+      }
+      .pull-right {
+        float: right !important;
+      }
+    }
+  }
+  .bordered-image {
+    @media screen and (max-width: 767px) {
+      margin-bottom: 1.75em;
+    }
+    @media screen and (min-width: 768px) and (max-width: 991px) {
+      img {
+        padding: .5em;
       }
     }
   }
@@ -891,10 +925,10 @@ footer.post-footer, footer.contributors-list, .author-page-info {
         }
       }
       h3 {
-        margin-top: 0;
+        margin: 0;
       }
       p {
-        margin: 0 0 0.5em 0;
+        margin: .5em 0 .5em 0;
       }
       .social-profiles {
         margin: 0;
@@ -977,10 +1011,6 @@ body.author {
     h3 {
       font-size: 2em;
       @include blacktoblacklink;
-      margin-bottom: 0 !important;
-    }
-    p {
-      margin-top: .5em !important;
     }
     ul.social-profiles {
       float: left;
@@ -988,21 +1018,6 @@ body.author {
       border-top: 1px solid $bordercolor;
       padding-top: 1em;
       margin-top: 1.5em !important;
-    }
-  }
-}
-
-// Video Format
-
-body.single-post, body.single-advertorial {
-  .featured-video-plus {
-    @include position(absolute, $top: 0, $left: 0%);
-    width: 100%;
-    height: 100%;
-    iframe, object, embed {
-      width: 100%;
-      height: 100%;
-      max-height: 500px;
     }
   }
 }
@@ -1110,6 +1125,247 @@ body.single-product {
     }
     .latest-cover {
       @include blacktowhitelink ;
+    }
+  }
+}
+
+// Video Format
+
+body.single-post, body.single-advertorial {
+  .featured-video-plus {
+    @include position(absolute, $top: 0, $left: 0%);
+    width: 100%;
+    height: 100%;
+    iframe, object, embed {
+      width: 100%;
+      height: 100%;
+      max-height: 500px;
+    }
+  }
+}
+
+// (Photo) Gallery Format
+
+.gallery-wrapper {
+  .image-thumb {
+    padding-bottom: 30px;
+    .image-thumb-img {
+      position: relative;
+      img {
+        padding: 0.5em;
+        border: 1px solid $bordercolor;
+      }
+      .gallery-caption {
+        @include posabsolutebottomleft;
+        padding: .5em 1em 1em 1em;
+        background: $black;
+        background: rgba(255,255,255,0.9);
+        border: 1px solid $bordercolor;
+        color: $black;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.sl-overlay {
+  @include opacity(0.9);
+  z-index: 999999;
+}
+.sl-wrapper {
+  font-size: 16px;
+  @media screen and (max-width: 767px) {
+    font-size: 14px;
+  }
+}
+.sl-wrapper .sl-image, .sl-wrapper .sl-navigation button.sl-prev, .sl-wrapper .sl-navigation button.sl-next, .sl-spinner {
+  z-index: 10000000;
+}
+.sl-wrapper .sl-close {
+  top: 4%;
+  right: 3%;
+  z-index: 10000000;
+}
+.sl-wrapper .sl-counter {
+  top: 4%;
+  left: 3%;
+  z-index: 10000000;
+}
+.sl-wrapper .sl-image .sl-caption {
+  font-size: 1em;
+  text-transform: uppercase;
+}
+
+// ADVERTORIALS
+body.single-advertorial {
+  .hentry {
+    border: 10px solid $black;
+    padding: 2em;
+  }
+}
+
+.advertorial-color {
+  background-color: $black;
+  .advertorial-info {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: $black;
+    background: rgba(0,0,0,0.75);
+    height: 100%;
+  }
+  header {
+    padding: 1.5em 1em;
+    color: $white;
+    @include categorylink;
+    @media screen and (min-width: 630px) {
+      padding: 2em;
+    }
+    .category-link a {
+      border: 1px solid $white;
+      color: $white;
+      &:hover {
+        color: $medium-gray;
+      }
+    }
+    .entry-meta {
+      clear: both;
+    }
+    @include metasharing;
+  }
+  .single-news-item {
+    .post-image {
+      @media screen and (max-width: 480px) {
+        max-height: 320px;
+      }
+      @media screen and (min-width: 481px) and (max-width: 767px) {
+        max-height: 400px;
+      }
+      @media screen and (min-width: 768px) and (max-width: 991px) {
+        max-height: 450px;
+      }
+      @media screen and (min-width: 992px) {
+        max-height: 600px;
+      }
+    }
+  }
+}
+
+// EVENTS
+
+body.post-type-archive-events {
+  .border-wrapper {
+    @media screen and (min-width: 1200px) {
+      padding: 2em;
+    }
+    padding-bottom: 0 !important;
+  }
+  .news-item-wrapper {
+    .news-item {
+      margin-bottom: 1.25em;
+      @media screen and (min-width: 1200px) {
+        margin-bottom: 2em;
+      }
+      .event-image {
+        .event-button {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          background: none;
+          border: 2px solid $white;
+          font-size: 1.75em;
+          z-index: 10;
+          @include opacity(0); // until you hover over .news-item
+          @include transitions;
+        }
+        .positioned-border {
+          border: 1px solid $bordercolor;
+          @include position(absolute, $top: 1.25em, $left: 1.25em, $right: 1.25em, $bottom: 1.25em);
+          z-index: 10;
+          @include opacity(0.75); // until you hover over .news-item
+          @media screen and (min-width: 1200px) {
+            @include position(absolute, $top: 2em, $left: 2em, $right: 2em, $bottom: 2em);
+          }
+        }
+      }
+      header {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        bottom: inherit;
+        transform: translate(-50%, -50%);
+        font-size: 18px; // vertical rhythym here to make all items in header larger
+        .category-link a {
+          font-size: 16px; // except this says the same size (vertical rhythym)
+        }
+        h2 {
+          @media screen and (min-width: 1540px) {
+            font-size: 2em;
+          }
+        }
+        h4.calendar-date {
+          padding-top: 1em;
+          margin-top: 1.25em;
+          font-size: 1em;
+          border-width: 1px;
+        }
+      }
+      // .news-item hover, keep the button solid white
+      &:hover {
+        .post-image {
+          @include opacity(0.6);
+        }
+      }
+      &:hover { // on .news-item hover, reveal event details button
+        .event-button {
+          background-color: $black;
+          @include opacity(1);
+        }
+        .positioned-border {
+          @include opacity(1);
+        }
+      }
+    }
+  }
+
+  // for every odd item, backgroudn is white, so header has to be style as black text on white, not the usual white text on black
+  .news-item-wrapper:nth-child(odd) {
+    .news-item {
+      background-color: $white;
+      .event-image {
+        background-color: $black;
+      }
+      .event-details {
+        border: 1px solid $black;
+        @media screen and (max-width: 767px) {
+          border-top: 0;
+        }
+        @media screen and (min-width: 768px) {
+          border-left: 0;
+          img {
+            margin-bottom: -2px;
+          }
+        }
+      }
+      header {
+        background: none;
+        .category-link a {
+          border: 1px solid $black;
+          color: $black;
+        }
+        h2, h3 {
+          color: $black;
+          text-shadow: none;
+          a, a:visited {
+            color: $black;
+          }
+        }
+        h4.calendar-date {
+          border-color: $black;
+          color: $black;
+        }
+      }
     }
   }
 }
@@ -1241,83 +1497,6 @@ body.category-damn-plus.logged-in {
   ul.bxslider, ul.bxslider li {
     padding: 0;
     margin: 0;
-  }
-}
-
-// ADVERTORIALS
-body.single-advertorial {
-  .hentry {
-    border: 10px solid $black;
-    padding: 2em;
-  }
-}
-
-.advertorial-color {
-  background-color: $black;
-  .advertorial-info {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: $black;
-    background: rgba(0,0,0,0.75);
-    height: 100%;
-  }
-  header {
-    padding: 1.5em 1em;
-    color: $white;
-    @include categorylink;
-    @media screen and (min-width: 630px) {
-      padding: 2em;
-    }
-    .category-link a {
-      border: 1px solid $white;
-      color: $white;
-      &:hover {
-        color: $medium-gray;
-      }
-    }
-    .entry-meta {
-      clear: both;
-    }
-    .meta-sharing {
-      border: 0;
-      border-top: 1px solid $medium-gray;
-      margin-top: .5em;
-      margin-bottom: 0;
-      a, a:visited {
-        &:hover {
-          color: $medium-gray;
-        }
-      }
-      .pull-left, .pull-right {
-        float: none !important;
-        padding: 1.5em 0 .5em 0;
-        margin: 0 !important;
-        border: 0;
-        .addthis_responsive_sharing {
-          float: none !important;
-        }
-      }
-      .pull-left p {
-        line-height: 22px;
-      }
-    }
-  }
-  .single-news-item {
-    .post-image {
-      @media screen and (max-width: 480px) {
-        max-height: 320px;
-      }
-      @media screen and (min-width: 481px) and (max-width: 767px) {
-        max-height: 400px;
-      }
-      @media screen and (min-width: 768px) and (max-width: 991px) {
-        max-height: 450px;
-      }
-      @media screen and (min-width: 992px) {
-        max-height: 600px;
-      }
-    }
   }
 }
 

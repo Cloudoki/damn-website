@@ -25,7 +25,7 @@
     <h2 class="entry-title">
       <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
         <?php /* if calendar post type, show calendar icon */ if ( get_post_type() == 'calendar' ){ ?>
-          <i class="fa fa-calendar"></i>
+          <!-- <i class="fa fa-calendar"></i> -->
         <?php } /* if video post format, show play icon */ elseif ( has_post_format( 'video' )) { ?>
           <i class="fa fa-play-circle-o play-video-icon"></i>
         <?php } ?>

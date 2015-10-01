@@ -698,6 +698,7 @@ body.logged-in {
   background-color: $white;
   clear: both;
   h1, h3 {
+    // slightly different behavior on event archive, see a few lines below
     margin: 0;
     text-transform: uppercase;
     display: inline-block;
@@ -712,7 +713,7 @@ body.logged-in {
 }
 
 /* title wrapper - alternate behavior on page and taxonomy terms */
-body.tax-magazine, body.page, body.post-type-archive-calendar, body[class^="calendar-"], body[class*=" calendar-"] {
+body.tax-magazine, body.page {
   .title-wrapper {
     padding-bottom: 2em;
     border-bottom: 1px solid $bordercolor;
@@ -720,6 +721,24 @@ body.tax-magazine, body.page, body.post-type-archive-calendar, body[class^="cale
   .title-wrapper-in-content {
     border-bottom: 0;
     padding-bottom: .5em;
+  }
+}
+
+// title wrapper - alternate behavior on calendar and calendar search results
+body.post-type-archive-calendar, body[class^="calendar-"], body[class*=" calendar-"] {
+  .title-wrapper {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+}
+
+// title-wrapper h1 different on event archive
+body.post-type-archive-events {
+  .title-wrapper {
+    h1 {
+      border: 0;
+      padding-bottom: 0;
+    }
   }
 }
 

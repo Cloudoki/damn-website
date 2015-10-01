@@ -139,6 +139,144 @@ add_action( 'admin_head-post.php', __NAMESPACE__ . '\\excerpt_count_js');
 add_action( 'admin_head-post-new.php', __NAMESPACE__ . '\\excerpt_count_js');
 
 
+// Add rel lightbox to images so photo galleries and lightbox will work
+
+add_filter('wp_get_attachment_link', __NAMESPACE__ . '\\add_gallery_id_rel');
+function add_gallery_id_rel($link) {
+  global $post;
+  return str_replace('<a href', '<a rel="gallery-'. $post->ID .'" href', $link);
+}
+
+// Custom filter function to modify default gallery shortcode output
+function my_post_gallery( $output, $attr ) {
+
+  // Initialize
+  global $post, $wp_locale;
+
+  // Gallery instance counter
+  static $instance = 0;
+  $instance++;
+
+  // Validate the author's orderby attribute
+  if ( isset( $attr['orderby'] ) ) {
+    $attr['orderby'] = sanitize_sql_orderby( $attr['orderby'] );
+    if ( ! $attr['orderby'] ) unset( $attr['orderby'] );
+  }
+
+  // Get attributes from shortcode
+  extract( shortcode_atts( array(
+    'order'      => 'ASC',
+    'orderby'    => 'menu_order ID',
+    'id'         => $post->ID,
+    'itemtag'    => 'div',
+    'icontag'    => 'div',
+    'captiontag' => 'div',
+    'columns'    => 3,
+    'size'       => 'thumbnail',
+    'include'    => '',
+    'exclude'    => ''
+  ), $attr ) );
+
+  // Initialize
+  $id = intval( $id );
+  $attachments = array();
+  if ( $order == 'RAND' ) $orderby = 'none';
+
+  if ( ! empty( $include ) ) {
+
+    // Include attribute is present
+    $include = preg_replace( '/[^0-9,]+/', '', $include );
+    $_attachments = get_posts( array( 'include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby ) );
+
+    // Setup attachments array
+    foreach ( $_attachments as $key => $val ) {
+      $attachments[ $val->ID ] = $_attachments[ $key ];
+    }
+
+  } else if ( ! empty( $exclude ) ) {
+
+    // Exclude attribute is present
+    $exclude = preg_replace( '/[^0-9,]+/', '', $exclude );
+
+    // Setup attachments array
+    $attachments = get_children( array( 'post_parent' => $id, 'exclude' => $exclude, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby ) );
+  } else {
+    // Setup attachments array
+    $attachments = get_children( array( 'post_parent' => $id, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby ) );
+  }
+
+  if ( empty( $attachments ) ) return '';
+
+  // Filter gallery differently for feeds
+  if ( is_feed() ) {
+    $output = "\n";
+    foreach ( $attachments as $att_id => $attachment ) $output .= wp_get_attachment_link( $att_id, $size, true ) . "\n";
+    return $output;
+  }
+
+  // Filter tags and attributes
+  $itemtag = tag_escape( $itemtag );
+  $captiontag = tag_escape( $captiontag );
+  $columns = intval( $columns );
+  $itemwidth = $columns > 0 ? floor( 100 / $columns ) : 100;
+  $float = is_rtl() ? 'right' : 'left';
+  $selector = "gallery-{$instance}";
+
+  // Filter gallery CSS
+  $output = apply_filters( 'gallery_style', "
+    <style type='text/css'>
+    </style>
+    <!-- see gallery_shortcode() in wp-includes/media.php -->
+    <div id='$selector' class='row gallery-wrapper galleryid-{$id}'>"
+  );
+
+  // Iterate through the attachments in this gallery instance
+  $i = 0;
+  foreach ( $attachments as $id => $attachment ) {
+
+    // Attachment link
+    $link = isset( $attr['link'] ) && 'file' == $attr['link'] ? wp_get_attachment_link( $id, $size, false, false ) : wp_get_attachment_link( $id, $size, true, false );
+
+    // Start itemtag
+    $output .= "<{$itemtag} class='col-xs-6 col-sm-6 col-md-3 col-lg-3 image-thumb'>";
+
+    // icontag
+    $output .= "
+    <{$icontag} class='image-thumb-img'>
+      $link ";
+
+      if ( $captiontag && trim( $attachment->post_excerpt ) ) {
+        // captiontag
+        $output .= "
+        <{$captiontag} class='gallery-caption' title='" . wptexturize($attachment->post_excerpt) . "'>
+          " . wptexturize($attachment->post_excerpt) . "
+        </{$captiontag}>";
+      }
+
+    $output .= "
+    </{$icontag}>";
+
+
+    // End itemtag
+    $output .= "</{$itemtag}>";
+
+    // Line breaks by columns set - REMOVE
+    // if($columns > 0 && ++$i % $columns == 0) $output .= '<br style="clear: both">';
+  }
+
+  // End gallery output
+  $output .= "
+    <div class='clearthis'></div>
+  </div>\n";
+
+  return $output;
+
+}
+
+// Apply filter to default gallery shortcode
+add_filter( 'post_gallery', __NAMESPACE__ . '\\my_post_gallery', 10, 2 );
+
+
 /*********************
 * MIKE'S CUSTOM      *
 *********************/

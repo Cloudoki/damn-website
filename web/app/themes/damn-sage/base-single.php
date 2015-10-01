@@ -22,6 +22,8 @@ use Roots\Sage\Wrapper;
     <?php if (is_singular('calendar') || is_singular('product')) { ?>
     <?php } elseif (is_singular('advertorial')) { ?>
       <?php get_template_part('templates/single-header-advertorial'); ?>
+    <?php } else if (has_post_format( 'gallery' )) { ?>
+      <?php get_template_part('templates/single-header-photogallery'); ?>
     <?php } else { ?>
       <?php get_template_part('templates/single-header'); ?>
     <?php } ?>

@@ -168,6 +168,18 @@ h3.widget-title-black {
   }
 }
 
+// latest article and latest calendar specific
+
+.latest-articles-list, .latest-calendar-list {
+  li a.list-thumb {
+    background-size: 100%;
+    @include border-radius(50%);
+    img {
+      width: 100% !important;
+    }
+  }
+}
+
 // latest articles specific
 .latest-articles-list {
   li {

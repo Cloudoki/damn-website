@@ -49,25 +49,28 @@
   <?php get_template_part('templates/snippet-search-form'); ?>
 <?php endif; ?>
 
-<div class="row">
-  <?php
-  /* if Productivity */
-  if (is_post_type_archive(array( 'product' ))) {
 
-	  // Could use a bit more DRY
-	  if (isset ($dynamics))
-	  { ?>
+<?php
+/* if Productivity */
+if (is_post_type_archive(array( 'product' ))) {
 
-	  	 <?php if (have_posts()) : ?>
+  // Could use a bit more DRY
+  if (isset ($dynamics))
+  { ?>
+
+    <div class="row">
+	  	<?php if (have_posts()) : ?>
 	      <div data-columns="" id="columns">
 	        <?php while ($dynamics->have_posts()) : $dynamics->the_post(); ?>
 	          <?php get_template_part('templates/content-productivity', 'product'); ?>
 	        <?php endwhile; ?>
 	      </div>
 		  <?php endif; ?>
+    </div>
 
-	  <?php } else { ?>
+  <?php } else { ?>
 
+    <div class="row">
   		<?php if (have_posts()) : ?>
         <div data-columns="" id="columns">
           <?php while (have_posts()) : the_post(); ?>
@@ -75,14 +78,15 @@
           <?php endwhile; ?>
         </div>
       <?php endif; ?>
+    </div>
 
+  <?php } ?>
 
-	  <?php } ?>
+<?php }
+/* If Magazine Taxonomy */
+elseif (is_tax(array( 'magazine' ))) { ?>
 
-  <?php }
-  /* If Magazine Taxonomy */
-  elseif (is_tax(array( 'magazine' ))) { ?>
-
+  <div class="row">
     <?php if( !is_paged() ) { ?>
       <?php get_template_part('templates/snippet-magazine-description'); ?>
     <?php } ?>
@@ -92,51 +96,69 @@
         <?php get_template_part('templates/content-magazine', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
       <?php endwhile; ?>
     </div>
+  </div>
 
-  <?php }
-  /* If Calendar */
-  elseif (is_post_type_archive(array( 'calendar' ))) {
+<?php }
+/* If Calendar */
+elseif (is_post_type_archive(array( 'calendar' ))) {
 
-  	  // Could use a bit more DRY
-	 /* if (isset ($dynamics))
-	  {
-		  exit ('In cal');
-	  ?>
+	  // Could use a bit more DRY
+ /* if (isset ($dynamics))
+  {
+	  exit ('In cal');
+  ?>
 
-		    <?php if (have_posts()) : ?>
-		      <div data-columns="" id="columns-calendar">
-		        <?php while ($dynamics->have_posts()) : $dynamics->the_post(); ?>
-		          <?php get_template_part('templates/content-calendar', get_post_type() != 'calendar' ? get_post_type() : get_post_format()); ?>
-		        <?php endwhile; ?>
-		      </div>
-		    <?php endif; ?>
+    <div class="row">
+	    <?php if (have_posts()) : ?>
+	      <div data-columns="" id="columns-calendar">
+	        <?php while ($dynamics->have_posts()) : $dynamics->the_post(); ?>
+	          <?php get_template_part('templates/content-calendar', get_post_type() != 'calendar' ? get_post_type() : get_post_format()); ?>
+	        <?php endwhile; ?>
+	      </div>
+	    <?php endif; ?>
+    </div>
 
-	  <?php } else { ?>
+  <?php } else { ?>
 
-		    <?php if (have_posts()) : ?>
-		      <div data-columns="" id="columns-calendar">
-		        <?php while (have_posts()) : the_post(); ?>
-		          <?php get_template_part('templates/content-calendar', get_post_type() != 'calendar' ? get_post_type() : get_post_format()); ?>
-		        <?php endwhile; ?>
-		      </div>
-		    <?php endif; ?>
+    <div class="row">
+	    <?php if (have_posts()) : ?>
+	      <div data-columns="" id="columns-calendar">
+	        <?php while (have_posts()) : the_post(); ?>
+	          <?php get_template_part('templates/content-calendar', get_post_type() != 'calendar' ? get_post_type() : get_post_format()); ?>
+	        <?php endwhile; ?>
+	      </div>
+	    <?php endif; ?>
+    </div>
 
+  <?php } */ ?>
 
-	  <?php } */ ?>
+    <div class="row">
+  		<?php if (have_posts()) : ?>
+        <div data-columns="" id="columns-calendar">
+          <?php while (have_posts()) : the_post(); ?>
+            <?php get_template_part('templates/content-calendar', get_post_type() != 'calendar' ? get_post_type() : get_post_format()); ?>
+          <?php endwhile; ?>
+        </div>
+      <?php endif; ?>
+    </div>
 
+<?php }
+/* If Events */
+elseif (is_post_type_archive(array( 'events' ))) { ?>
 
-	  		<?php if (have_posts()) : ?>
-          <div data-columns="" id="columns-calendar">
-            <?php while (have_posts()) : the_post(); ?>
-              <?php get_template_part('templates/content-calendar', get_post_type() != 'calendar' ? get_post_type() : get_post_format()); ?>
-            <?php endwhile; ?>
-          </div>
-        <?php endif; ?>
+  <?php if (have_posts()) : ?>
+    <div class="border-wrapper">
+      <?php while (have_posts()) : the_post(); ?>
+        <?php get_template_part('templates/content-events'); ?>
+      <?php endwhile; ?>
+    </div>
+  <?php endif; ?>
 
-  <?php }
-  /* If Author Archive */
-  elseif (is_author()) { ?>
+<?php }
+/* If Author Archive */
+elseif (is_author()) { ?>
 
+  <div class="row">
     <div class="col-xs-12">
       <div class="author-page-info marginBottom2em">
         <?php /* Author Info */ ?>
@@ -145,26 +167,27 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <?php /* need to close the row after the author info, and start a new one for the article feed, so that bootstrap doesn't count author info as a column div and break the layout */ ?>
-    </div>
-    <div class="row">
-
+  <div class="row">
     <?php if (have_posts()) : ?>
       <?php while (have_posts()) : the_post(); ?>
         <?php get_template_part('templates/content-archive'); ?>
       <?php endwhile; ?>
     <?php endif; ?>
+  </div>
 
-  <?php }
-  /* Else if all others */
-  else { ?>
+<?php }
+/* Else if all others */
+else { ?>
 
+  <div class="row">
     <?php while (have_posts()) : the_post(); ?>
       <?php get_template_part('templates/content-archive', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
     <?php endwhile; ?>
+  </div>
 
-  <?php } ?>
-</div>
+<?php } ?>
+
 
 <?php get_template_part('templates/page-navi'); ?>

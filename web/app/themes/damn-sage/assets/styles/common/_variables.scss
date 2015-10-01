@@ -661,6 +661,35 @@ CONTENT
   background-repeat: none;
 }
 
+@mixin metasharing {
+  .meta-sharing {
+    border: 0;
+    border-top: 1px solid $medium-gray;
+    margin-top: .5em;
+    margin-bottom: 0;
+    a, a:visited {
+      &:hover {
+        color: $medium-gray;
+      }
+    }
+    .pull-left, .pull-right {
+      float: none !important;
+      padding: 1.5em 0 .5em 0;
+      margin: 0 !important;
+      border: 0;
+      .addthis_responsive_sharing {
+        float: none !important;
+      }
+    }
+    .pull-left p {
+      line-height: 22px;
+    }
+    .pull-left:nth-child(1) {
+      border: 0;
+    }
+  }
+}
+
 /*********************
 COMMON & MISC
 *********************/
