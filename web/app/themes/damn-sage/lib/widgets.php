@@ -76,6 +76,84 @@ class blog_Widget extends WP_Widget {
 add_action( 'widgets_init', create_function( '', "register_widget('blog_Widget');" ) );
 
 
+// Productivity list widget
+class product_Widget extends WP_Widget {
+  function product_Widget() {
+    $widget_ops = array( 'classname' => 'latest-articles', 'description' => 'Product Lists' );
+    $this->WP_Widget( 'product_widget', 'Productivity', $widget_ops );
+  }
+
+  function widget( $args, $instance ) {
+    extract( $args, EXTR_SKIP );
+    echo $before_widget;
+    $title = empty($instance['title']) ? '' : apply_filters('widget_title', $instance['title']);
+    if ( !empty( $title ) ) { echo $before_title . $title . $after_title; };
+
+    global $post;
+    $args=array(
+      'posts_per_page'=> $instance['posts_number'], // Number of related posts that will be shown.
+      'post_type' => 'product',
+      'post__not_in' => array($post->ID),
+    );
+    $my_query = new wp_query( $args );
+    if( $my_query->have_posts() ) {
+      echo '<ol class="latest-articles-list">';
+      while( $my_query->have_posts() ) {
+        $my_query->the_post();
+        $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail' );
+        $url = $thumb['0'];
+        ?>
+        <li class="<?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
+          <?php if ( has_post_thumbnail()) { ?>
+            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="list-thumb" style="background-image:url(<?=$url?>);">
+          <?php } else { ?>
+            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="list-thumb">
+          <?php } ?>
+              <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-square.png" alt="<?php the_title_attribute(); ?>" />
+            </a>
+          <div class="list-meta">
+            <a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>">
+              <?php /* if video post format, show play icon */ if ( has_post_format( 'video' )) { ?>
+                <i class="fa fa-play-circle-o play-video-icon"></i>
+              <?php } ?>
+              <?php the_title(); ?>
+            </a><br />
+            <?php /* display category links as a comma separated list, and not the block format */
+            get_template_part('templates/snippet', 'category-link-sep'); ?>
+          </div>
+          <div class="clearthis"></div>
+        </li>
+      <?php }
+      echo '</ol>';
+    }
+    wp_reset_query();
+    echo $after_widget;
+  }
+
+
+  /** @see WP_Widget::update */
+  function update($new_instance, $old_instance) {
+    $instance = $old_instance;
+    $instance['title'] = strip_tags($new_instance['title']);
+    $instance['posts_number'] = strip_tags($new_instance['posts_number']);
+    return $instance;
+  }
+
+  /** @see WP_Widget::form */
+  function form($instance) {
+    $instance = wp_parse_args( (array) $instance, array( 'title'    => 'Productivity', 'posts_number'  => '5' ));
+    $title = strip_tags($instance['title']);
+    $posts_number = strip_tags($instance['posts_number']);
+    ?>
+    <p><label for="<?php echo $this->get_field_id('title'); ?>">Widget Title: <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></label></p>
+    <p><label for="<?php echo $this->get_field_id('posts_number'); ?>">Number of Items: <input class="widefat" id="<?php echo $this->get_field_id('posts_number'); ?>" name="<?php echo $this->get_field_name('posts_number'); ?>" type="text" value="<?php echo esc_attr($posts_number); ?>" /></label></p>
+    <?php
+  }
+}
+// register widget
+add_action( 'widgets_init', create_function( '', "register_widget('product_Widget');" ) );
+
+
 // magazines widget
 
 class magazine_Widget extends WP_Widget {
@@ -171,7 +249,7 @@ class magazine_Widget extends WP_Widget {
 add_action( 'widgets_init', create_function( '', "register_widget('magazine_Widget');" ) );
 
 
-// Agenda widget
+// Calendar Agenda widget
 class agenda_Widget extends WP_Widget {
   function agenda_Widget() {
     $widget_ops = array( 'classname' => 'calendar-events', 'description' => 'List of latest calendar events' );
@@ -187,25 +265,26 @@ class agenda_Widget extends WP_Widget {
     global $post;
 
     $today = date('Ymd');
-    $args=array(
+    $args = array (
       'posts_per_page'=> $instance['posts_number'], // Number of posts that will be shown.
       'post_type' => 'calendar',
       'meta_query' => array(
       array(
-            'key'   => 'start_date',
-            'compare' => '<=',
-            'value'   => $today,
+          'key'   => 'start_date',
+          'compare' => '<=',
+          'value'   => $today,
         ),
          array(
-            'key'   => 'end_date',
-            'compare' => '>=',
-            'value'   => $today,
+          'key'   => 'end_date',
+          'compare' => '>=',
+          'value'   => $today,
         )
       ),
       'meta_key' => 'start_date', // name of custom field
       'orderby' => 'meta_value_num',
-      'order' => 'ASC'
+      'order' => 'DESC'
     );
+
     $my_query = new wp_query( $args );
     if( $my_query->have_posts() ) {
       echo '<ol class="latest-calendar-list list-group">';
@@ -217,12 +296,28 @@ class agenda_Widget extends WP_Widget {
         $url = $thumb['0'];
         ?>
 
-
         <li class="list-group-item <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
           <?php if ( has_post_thumbnail()) { ?>
-            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="list-thumb" style="background-image:url(<?=$url?>);">
+            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="list-thumb positionRelative" style="background-image:url(<?=$url?>);">
+
+              <?php /* calendar box */ if(get_field('start_date')) { ?>
+                <?php $date = get_field('start_date');
+                  $datemonth = date("M", strtotime($date));
+                  $dateday = date("j", strtotime($date));
+                ?>
+
+                <div class="calendar-box">
+                  <div class="calendar-box-wrapper">
+                    <span class="month"><?php echo $datemonth; ?></span>
+                    <span class="day"><?php echo $dateday; ?></span>
+                  </div>
+                </div>
+              <?php } ?>
+
               <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-square.png" alt="<?php the_title_attribute(); ?>" />
             </a>
+          <?php } else { ?>
+            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="list-thumb positionRelative">
           <?php } ?>
 
           <?php if ( has_post_thumbnail()) { ?>
@@ -238,13 +333,103 @@ class agenda_Widget extends WP_Widget {
             </a>
             <span class="small-date">
               <?php if($startdate) { ?>
-                <?php echo $startdate; ?><br />
+                <strong>Starts:</strong> <?php echo $startdate; ?><br />
               <?php } ?>
               <?php if($enddate) { ?>
                 <strong>Ends:</strong> <?php echo $enddate; ?><br />
               <?php } ?>
             </span>
             <span><?php get_template_part('templates/snippet', 'category-link'); ?></span>
+          </div>
+          <div class="clearthis"></div>
+        </li>
+      <?php }
+      echo '</ol>';
+    }
+    wp_reset_query();
+    echo $after_widget;
+  }
+
+
+  /** @see WP_Widget::update */
+  function update($new_instance, $old_instance) {
+    $instance = $old_instance;
+    $instance['title'] = strip_tags($new_instance['title']);
+    $instance['posts_number'] = strip_tags($new_instance['posts_number']);
+    return $instance;
+  }
+
+  /** @see WP_Widget::form */
+  function form($instance) {
+    $instance = wp_parse_args( (array) $instance, array( 'title'    => 'Events', 'posts_number'  => '5' ));
+    $title = strip_tags($instance['title']);
+    $posts_number = strip_tags($instance['posts_number']);
+    ?>
+    <p><label for="<?php echo $this->get_field_id('title'); ?>">Widget Title: <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></label></p>
+    <p><label for="<?php echo $this->get_field_id('posts_number'); ?>">Number of Items: <input class="widefat" id="<?php echo $this->get_field_id('posts_number'); ?>" name="<?php echo $this->get_field_name('posts_number'); ?>" type="text" value="<?php echo esc_attr($posts_number); ?>" /></label></p>
+    <?php
+  }
+}
+// register widget
+add_action( 'widgets_init', create_function( '', "register_widget('agenda_Widget');" ) );
+
+
+// Event widget
+class event_Widget extends WP_Widget {
+  function event_Widget() {
+    $widget_ops = array( 'classname' => 'calendar-events events-events', 'description' => 'List of latest DAMN events' );
+    $this->WP_Widget( 'events-events', 'Events - Latest DAMN Events List', $widget_ops );
+  }
+
+  function widget( $args, $instance ) {
+    extract( $args, EXTR_SKIP );
+    echo $before_widget;
+    $title = empty($instance['title']) ? '' : apply_filters('widget_title', $instance['title']);
+    if ( !empty( $title ) ) { echo $before_title . $title . $after_title; };
+
+    global $post;
+
+    $args=array(
+      'posts_per_page'=> $instance['posts_number'], // Number of related posts that will be shown.
+      'post_type' => 'events',
+      'post__not_in' => array($post->ID),
+    );
+    $my_query = new wp_query( $args );
+
+    if( $my_query->have_posts() ) {
+      echo '<ol class="latest-articles-list">';
+      while( $my_query->have_posts() ) {
+        $my_query->the_post();
+        $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail' );
+        $url = $thumb['0'];
+        ?>
+        <li class="<?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
+          <?php if ( has_post_thumbnail()) { ?>
+            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="list-thumb positionRelative" style="background-image:url(<?=$url?>);">
+          <?php } else { ?>
+            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="list-thumb positionRelative">
+          <?php } ?>
+
+              <?php /* calendar box */ if(get_field('start_date')) { ?>
+                <?php $date = get_field('start_date');
+                  $datemonth = date("M", strtotime($date));
+                  $dateday = date("j", strtotime($date));
+                ?>
+
+                <div class="calendar-box">
+                  <span class="month"><?php echo $datemonth; ?></span>
+                  <span class="day"><?php echo $dateday; ?></span>
+                </div>
+              <?php } ?>
+
+              <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-square.png" alt="<?php the_title_attribute(); ?>" />
+            </a>
+          <div class="list-meta">
+            <a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>">
+              <?php the_title(); ?>
+            </a><br />
+            <?php /* display category links as a comma separated list, and not the block format */
+            get_template_part('templates/snippet', 'category-link-sep'); ?>
           </div>
           <div class="clearthis"></div>
         </li>
@@ -276,6 +461,6 @@ class agenda_Widget extends WP_Widget {
   }
 }
 // register widget
-add_action( 'widgets_init', create_function( '', "register_widget('agenda_Widget');" ) );
+add_action( 'widgets_init', create_function( '', "register_widget('event_Widget');" ) );
 
 

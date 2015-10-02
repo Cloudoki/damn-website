@@ -339,7 +339,8 @@ img {
 VERTICAL RHYTHYM
 *********************/
 
-.home-feature, header, .main, .sidebar, footer, .single-news-item, .single-video-item, .single-gallery-item, .wrap, .headhesive, p, .relative-header {
+.home-feature, header, .main, .sidebar, footer, .single-news-item, .single-video-item, .single-gallery-item, .wrap,
+.headhesive, p, .relative-header, .title-wrapper.event-specific, .single-event-item {
   font-size: 16px;
   @media screen and (max-width: 767px) {
     font-size: 13px;
@@ -495,6 +496,33 @@ MISC
   padding: 1.5em;
   margin-bottom: 1.25em;
   width: 100%;
+}
+
+.calendar-box {
+  @include blockfloat;
+  margin: .5em 1em .5em 0;
+  text-align: center;
+  color: $white;
+  width: 100px;
+  height: 100px;
+  border: 1px solid $bordercolor;
+  @include border-radius(100px);
+  background: rgba(255,255,255,0.1);
+  span {
+    display: block;
+  }
+  span.month {
+    text-transform: uppercase;
+    padding-top: .4em;
+  }
+  span.day {
+    font-size: 2.5em;
+    font-weight: 700;
+    line-height: .9em;
+    padding: 0;
+  }
+  span.year {
+  }
 }
 
 

@@ -24,6 +24,8 @@ use Roots\Sage\Wrapper;
       <?php get_template_part('templates/single-header-advertorial'); ?>
     <?php } else if (has_post_format( 'gallery' )) { ?>
       <?php get_template_part('templates/single-header-photogallery'); ?>
+    <?php } else if (is_singular( 'events' )) { ?>
+      <?php get_template_part('templates/single-header-events'); ?>
     <?php } else { ?>
       <?php get_template_part('templates/single-header'); ?>
     <?php } ?>

@@ -54,9 +54,6 @@ use Roots\Sage\Wrapper;
 
       </div><!-- /.content -->
 
-      <?php /* Back Issues */ ?>
-      <?php get_template_part('templates/back issues'); ?>
-
       <div class="clearthis"></div>
     </div><!-- /.wrap -->
 

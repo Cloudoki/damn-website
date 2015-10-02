@@ -2,6 +2,11 @@
   <article <?php post_class(''); ?>>
     <div class="entry-content">
 
+      <?php /* if is single event, display the sharing icons above content */ if (is_singular( 'events' )) { ?>
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55ce3c8af0d16341" async="async"></script>
+        <div class="addthis_responsive_sharing"></div>
+      <?php } ?>
+
       <?php /* if this is a quote post format, add the quote at the top of the page */ ?>
         <?php if ( has_post_format( 'quote' )) { ?>
 

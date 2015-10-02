@@ -9,6 +9,20 @@ $url = $thumb['0'];
 
   <div class="positioned-border"></div>
 
+  <?php /* calendar box */ if(get_field('start_date')) { ?>
+    <?php $date = get_field('start_date');
+      $datemonth = date("M", strtotime($date));
+      $dateday = date("j", strtotime($date));
+      $dateyear = date("Y", strtotime($date));
+    ?>
+
+    <div class="calendar-box">
+      <span class="month"><?php echo $datemonth; ?></span>
+      <span class="day"><?php echo $dateday; ?></span>
+      <span class="year"><?php echo $dateyear; ?></span>
+    </div>
+  <?php } ?>
+
   <a class="btn btn-lg btn-default text-uppercase event-button" href="<?php the_permalink() ?>" target="_blank" title="<?php the_title_attribute(); ?>">DETAILS</a>
 
   <?php if ( has_post_thumbnail()) { ?>

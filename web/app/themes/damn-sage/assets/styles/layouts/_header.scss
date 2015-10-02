@@ -729,6 +729,10 @@ body.post-type-archive-calendar, body[class^="calendar-"], body[class*=" calenda
   .title-wrapper {
     padding-bottom: 0;
     border-bottom: 0;
+    h1 {
+      border: 0;
+      padding-bottom: 0;
+    }
   }
 }
 
@@ -742,6 +746,14 @@ body.post-type-archive-events {
   }
 }
 
+body.single-events {
+  .title-wrapper {
+    background-color: $black;
+    color: $white;
+  }
+}
+
+// taxonomy description for title wraper
 .taxonomy-description {
   p {
     margin: 1em 0 0 0;

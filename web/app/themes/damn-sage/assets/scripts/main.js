@@ -116,6 +116,7 @@
   // Fitvids
   $(".featured-video").fitVids();
   $(".entry-content").fitVids();
+  $(".featured-video-plus").fitVids();
 
   // BX Slider - product image pages
 

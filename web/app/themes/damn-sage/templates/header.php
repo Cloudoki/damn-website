@@ -78,6 +78,15 @@ $header_subtitle = get_field ('header_subtitle', $issue_acf_id);
   ?>
 </nav>
 
+<!-- <div class="special-announcement">
+	For a limited time, 50% off DAMN yearly magazine subscriptions!
+	<a class="btn btn-lg btn-default text-uppercase" href="#" target="_blank" title="#">LEARN MORE</a>
+	<div class="pull-right">
+		<i class="fa fa-times-circle"></i>
+	</div>
+	<div class="clearthis"></div>
+</div> -->
+
 <?php if (!$header_image) : ?>
   <div class="home-feature nothing">
 <?php else : ?>

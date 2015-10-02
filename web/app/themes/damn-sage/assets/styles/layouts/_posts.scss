@@ -15,6 +15,16 @@
   }
 }
 
+.positioned-border {
+  border: 1px solid $bordercolor;
+  @include position(absolute, $top: 1.25em, $left: 1.25em, $right: 1.25em, $bottom: 1.25em);
+  z-index: 10;
+  @include opacity(0.75); // until you hover over .news-item
+  @media screen and (min-width: 1200px) {
+    @include position(absolute, $top: 2em, $left: 2em, $right: 2em, $bottom: 2em);
+  }
+}
+
 // ARCHIVE & SINGLE
 
 .post-image {
@@ -49,7 +59,7 @@
 
 // all types of news items here. below are individual news items custom styling
 // (.news-items for feeds, .single-news-item for single page, .single-video-item for video post format single page)
-.news-item, .single-news-item, .single-video-item, .single-gallery-item {
+.news-item, .single-news-item, .single-video-item, .single-gallery-item, .single-event-item {
   position: relative;
   background-color: $black;
   .post-image {
@@ -176,7 +186,7 @@
   }
 }
 
-.single-video-item, .single-gallery-item  {
+.single-video-item, .single-gallery-item, .single-event-item {
   header {
     .category-link {
       a {
@@ -187,7 +197,7 @@
   }
 }
 
-.single-gallery-item {
+.single-gallery-item, .single-event-item {
   background: $white;
   padding: 2em 0 0.25em 0;
   border-bottom: 1px solid $bordercolor;
@@ -217,6 +227,26 @@
       img {
         padding: .5em;
       }
+    }
+  }
+}
+
+// specific to single event
+.single-event-item {
+  padding: 0;
+  @include backgroundcovertopcenter;
+  .fade-wrapper {
+    padding: 2em 0;
+    background-color: rgba(255,255,255,0.9);
+  }
+  header {
+    h3.subtitle {
+      font-size: 1.8em;
+      margin: 0.25em 0;
+    }
+    h4.calendar-date {
+      color: $black;
+      font-size: 1.5em;
     }
   }
 }
@@ -1251,9 +1281,17 @@ body.single-advertorial {
   }
 }
 
-// EVENTS
+// EVENTS ARCHIVE
 
 body.post-type-archive-events {
+  .calendar-box {
+    position: absolute;
+    bottom: 2.5em;
+    left: 3em;
+    z-index: 100;
+    border-color: $white;
+  }
+
   .border-wrapper {
     @media screen and (min-width: 1200px) {
       padding: 2em;
@@ -1278,15 +1316,6 @@ body.post-type-archive-events {
           z-index: 10;
           @include opacity(0); // until you hover over .news-item
           @include transitions;
-        }
-        .positioned-border {
-          border: 1px solid $bordercolor;
-          @include position(absolute, $top: 1.25em, $left: 1.25em, $right: 1.25em, $bottom: 1.25em);
-          z-index: 10;
-          @include opacity(0.75); // until you hover over .news-item
-          @media screen and (min-width: 1200px) {
-            @include position(absolute, $top: 2em, $left: 2em, $right: 2em, $bottom: 2em);
-          }
         }
       }
       header {
@@ -1365,6 +1394,56 @@ body.post-type-archive-events {
           border-color: $black;
           color: $black;
         }
+      }
+    }
+  }
+}
+
+// SINGLE EVENT
+
+body.single-events {
+  .positioned-border {
+    @media screen and (min-width: 1200px) {
+      @include position(absolute, $top: 1.5em, $left: 1.5em, $right: 1.5em, $bottom: 1.5em);
+    }
+  }
+  .calendar-box {
+    position: absolute;
+    bottom: 2.5em;
+    left: 3em;
+    border-color: $white;
+  }
+  .start-end-date {
+    border-top: 1px solid #ddd;
+    padding: 1em 0 0 0;
+    margin-top: 1em;
+    float: left;
+    width: auto;
+    p {
+      font-size: 1.3em;
+      margin-bottom: .25em;
+    }
+  }
+  .event-links {
+    clear: both;
+    padding-bottom: 1em;
+    a.btn-lg {
+      margin-top: .8em !important;
+      // background-color: $black !important;
+      &:last-child {
+        margin-right: 0 !important;
+      }
+    }
+  }
+  .addthis_responsive_sharing {
+    border-bottom: 1px solid $bordercolor;
+    margin-bottom: 1.25em;
+    padding-bottom: 1.5em;
+    float: none;
+    clear: both;
+    .at-resp-share-element {
+      .at-share-btn:first-child {
+        margin-left: 0;
       }
     }
   }

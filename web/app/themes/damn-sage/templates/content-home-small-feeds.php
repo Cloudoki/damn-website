@@ -54,7 +54,7 @@ $url = $thumb['0'];
         <h3 class="entry-title">
           <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
             <?php /* if calendar post type, show calendar icon */ if ( get_post_type() == 'calendar' ){ ?>
-              <i class="fa fa-calendar"></i>
+             <!--  <i class="fa fa-calendar"></i> -->
             <?php } ?>
             <?php the_title(); ?>
           </a>

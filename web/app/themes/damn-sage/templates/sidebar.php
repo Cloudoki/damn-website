@@ -34,6 +34,10 @@ if (is_singular('product')) { ?>
   <?php if ( is_active_sidebar( 'magazine-detail-widget' ) ) : dynamic_sidebar( 'magazine-detail-widget' ); endif; ?>
 <?php } elseif(is_singular( 'calendar' )) { ?>
   <?php if ( is_active_sidebar( 'calendar-detail-widget' ) ) : dynamic_sidebar( 'calendar-detail-widget' ); endif; ?>
+<?php } elseif(is_singular( 'events' )) { ?>
+  <?php if ( is_active_sidebar( 'event-detail-widget' ) ) : dynamic_sidebar( 'event-detail-widget' ); endif; ?>
+<?php } elseif(is_singular( 'product' )) { ?>
+  <?php if ( is_active_sidebar( 'product-detail-widget' ) ) : dynamic_sidebar( 'product-detail-widget' ); endif; ?>
 <?php } else { ?>
   <?php if ( is_active_sidebar( 'sidebar-primary' ) ) : dynamic_sidebar( 'sidebar-primary' ); endif; ?>
 <?php } ?>
