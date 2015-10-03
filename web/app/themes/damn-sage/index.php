@@ -23,7 +23,7 @@
    *  The home posts stream can contain both articles and calendar nodes. EXCLUDES video post format, as those load below main query
    */
   $main_query = [
-    'posts_per_page' => 24,
+    'posts_per_page' => 28,
     'post_type' => array ('post','calendar'),
     'orderby' => 'post_date',
     'order' => 'DESC',
@@ -319,4 +319,3 @@ endwhile;
     </div>
   </div>
 </div>
-
