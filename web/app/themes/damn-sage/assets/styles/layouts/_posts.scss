@@ -1310,6 +1310,8 @@ body.post-type-archive-events {
           left: 50%;
           top: 50%;
           transform: translate(-50%, -50%);
+          -webkit-transform: translate(-50%, -50%);
+          -moz-transform: translate(-50%, -50%);
           background: none;
           border: 2px solid $white;
           font-size: 1.75em;
@@ -1324,6 +1326,8 @@ body.post-type-archive-events {
         top: 50%;
         bottom: inherit;
         transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
         font-size: 18px; // vertical rhythym here to make all items in header larger
         .category-link a {
           font-size: 16px; // except this says the same size (vertical rhythym)

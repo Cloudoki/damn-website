@@ -35,7 +35,7 @@ $header_subtitle = get_field ('header_subtitle', $issue_acf_id);
 
 <?php /*-- style all colors based on issue # color --*/ ?>
 <style type="text/css" media="screen">
-	a, a:visited, .nav a span, a.mobile-menu .fa {
+	a, a:visited, .nav a span, a.mobile-menu .fa, .advertorial-badge {
 		color: <?=$issue_color?>;
 	}
 	span.category-sep a.damn-plus {
@@ -103,7 +103,19 @@ $header_subtitle = get_field ('header_subtitle', $issue_acf_id);
 			<?php /* advertorial, if present */ ?>
 
 				<?php
-					$custom_query = new WP_Query( array( 'post_type' => array( 'advertorial' ), 'posts_per_page' => 1));
+					$args = array(
+						'post_type' => 'advertorial',
+						'posts_per_page' => '1',
+						'tax_query' => array(
+							array(
+								'taxonomy' => 'magazine',
+					      'field' => 'slug',
+					      'terms' => [$issue->slug]
+							),
+						),
+					);
+					$custom_query = new WP_Query( $args );
+
 					while($custom_query->have_posts()) : $custom_query->the_post();
 					?>
 						<a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>" class="advertorial-badge">
