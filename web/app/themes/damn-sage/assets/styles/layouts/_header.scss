@@ -115,6 +115,7 @@ a.mobile-menu {
   .header-wrapper {
     width: 100%;
     padding: (30 / 16) * 1em 0;
+    background-position: center;
 
     @media screen and (max-width:767px) {
       padding: 1.25em 0;
@@ -753,6 +754,19 @@ body.single-events {
   .title-wrapper {
     background-color: $black;
     color: $white;
+  }
+}
+
+// Media list title-header
+body.page-media-list {
+  .title-wrapper {
+    background-color: $black;
+    color: $white;
+    border: 0;
+    h1 {
+      border: 0;
+      padding-bottom: 0;
+    }
   }
 }
 

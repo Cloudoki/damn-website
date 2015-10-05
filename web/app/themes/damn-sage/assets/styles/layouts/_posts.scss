@@ -89,6 +89,11 @@
         }
       }
     }
+    h2 {
+      @media screen and (max-width: 767px) {
+        font-size: 1.55em;
+      }
+    }
     h4.calendar-date {
       margin: .75em 0 0 0;
       color: $bordercolor;
@@ -1224,6 +1229,36 @@ body.single-post, body.single-advertorial {
 .sl-wrapper .sl-image .sl-caption {
   font-size: 1em;
   text-transform: uppercase;
+}
+
+// MEDIA LIST
+
+body.page-media-list {
+  .wrap {
+    padding-top: 2em;
+    background-color: $gray;
+  }
+  .news-item {
+    background-color: $white;
+    padding: 10px;
+    border: 1px solid $bordercolor;
+    header {
+      padding: 2em;
+      right: 10px;
+      bottom: 10px;
+      left: 10px;
+      width: auto;
+    }
+  }
+  // no border on damn plus items
+  .news-item-wrapper.damn-plus {
+    .news-item {
+      border: 0;
+    }
+  }
+  .pagination>li>a, .pagination>li>span {
+    border-color: $gray;
+  }
 }
 
 // ADVERTORIALS

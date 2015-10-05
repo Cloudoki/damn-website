@@ -37,6 +37,8 @@ class blog_Widget extends WP_Widget {
             <a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>">
               <?php /* if video post format, show play icon */ if ( has_post_format( 'video' )) { ?>
                 <i class="fa fa-play-circle-o play-video-icon"></i>
+              <?php /* else if photo gallery format */ } elseif ( has_post_format( 'gallery' )) { ?>
+                <i class="fa fa-camera"></i>
               <?php } ?>
               <?php the_title(); ?>
             </a><br />

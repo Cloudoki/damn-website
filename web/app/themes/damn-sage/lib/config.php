@@ -60,7 +60,8 @@ function display_sidebar() {
         ['is_page', 'back-issues'],
         ['is_page', 'search'],
         ['is_page', 'colophon'],
-        ['is_page', 'colofon']
+        ['is_page', 'colofon'],
+        ['is_page', 'media-list']
       ]
     );
 

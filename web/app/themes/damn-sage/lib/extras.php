@@ -371,4 +371,3 @@ function sage_page_navi() {
   }
 }/* end page navi */
 add_filter('sage_page_navi', __NAMESPACE__ . '\\sage_page_navi');
-
