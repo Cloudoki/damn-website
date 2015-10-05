@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b0f429a778f321da401d507d5e51c38f",
+    "hash": "f9b9c1ab01f04d2ceb7e19804b4974e2",
     "packages": [
         {
             "name": "composer/installers",
@@ -373,46 +373,6 @@
             "homepage": "https://wordpress.org/plugins/post-via-dropbox/"
         },
         {
-            "name": "wpackagist-plugin/regenerate-thumbnails",
-            "version": "2.2.4",
-            "source": {
-                "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/regenerate-thumbnails/",
-                "reference": "tags/2.2.4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/regenerate-thumbnails.2.2.4.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/regenerate-thumbnails/"
-        },
-        {
-            "name": "wpackagist-plugin/s2member",
-            "version": 150827,
-            "source": {
-                "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/s2member/",
-                "reference": "tags/150827"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/s2member.150827.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/s2member/"
-        },
-        {
             "name": "wpackagist-plugin/wordpress-seo",
             "version": "2.3.4",
             "source": {
@@ -431,26 +391,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/wordpress-seo/"
-        },
-        {
-            "name": "wpackagist-plugin/wp-migrate-db",
-            "version": "0.7.1",
-            "source": {
-                "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/wp-migrate-db/",
-                "reference": "tags/0.7.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-migrate-db.0.7.1.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/wp-migrate-db/"
         },
         {
             "name": "wpackagist-plugin/wpmandrill",
