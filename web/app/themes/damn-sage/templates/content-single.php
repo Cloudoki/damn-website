@@ -72,13 +72,64 @@
               </p>
               <a href="/join-damn-plus" class="btn btn-default btn-lg join-btn" role="button" title="Join DAMN +">JOIN DAMN +</a>
 
-              <?php /* subscribe to the magazine */ ?>
+              <?php /* subscribe to the magazine - display cover based on the issue this article resides */ ?>
               <div class="row marginTop marginBottom">
                 <div class="col-xs-12">
                   <h2 class="marginTop">Subscribe to our print magazine</h2>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-5 col-lg-4 latest-cover">
-                  <?php get_template_part('templates/snippet-latest-cover'); ?>
+
+                <?php /* display cover based on the issue of this particular article. IF no damn issue taxonomy selected, default to latest issue */
+                  $terms = get_the_terms( $post->ID, 'magazine' );
+
+                  /* if the article is connected to an issue, load that issue's cover and link to that issue */
+                  if ( !empty( $terms ) ){
+                    // get the first term
+                    $term = array_shift( $terms );
+
+                    $issue_acf_id = 'magazine_' . $term->term_id;
+                    $link = get_term_link(intval($term->term_id),'magazine');
+
+                    $magazineimage = wp_get_attachment_image_src(get_field('magazine_taxonomy_image', $issue_acf_id), 'medium');
+
+                    echo "<div class='news-item-wrapper'>";
+                      echo "<div class='news-item whiteBackground marginBottom'>";
+                        echo '<div class="post-image noMargin">';
+                          echo "<a href=\"{$link}\" title='{$term->name}'>";
+                            echo '<img src="'.$magazineimage[0].'" alt="'.$term->name.'" class="placeholder" />';
+                          echo "</a>";
+                        echo "</div>";
+                      echo "</div>";
+                    echo "</div>";
+
+                    echo "<p class='noMargin'>";
+                    echo "</p>";
+                    echo '<h3>'.$term->name.'</h3>';
+
+                  } else /* default to latest issue to avoid error */ {
+
+                    global $issue, $issue_color, $issue_number;
+
+                    $issue = $_GET['issue'] ? get_term_by('slug', preg_replace ("/[^A-Za-z0-9-]/", '', $_GET['issue']), 'magazine'): get_field ('current_issue', 'option');
+                    $issue_acf_id = 'magazine_' . $issue->term_id;
+                    $link = get_term_link(intval($issue->term_id),'magazine');
+                    $magazineimage = wp_get_attachment_image_src(get_field('magazine_taxonomy_image', $issue_acf_id), 'medium');
+
+                    echo "<div class='news-item-wrapper'>";
+                      echo "<div class='news-item whiteBackground marginBottom'>";
+                        echo '<div class="post-image noMargin">';
+                          echo "<a href=\"{$link}\" title='{$issue->name}'>";
+                            echo '<img src="'.$magazineimage[0].'" alt="'.$issue->name.'" class="placeholder" />';
+                          echo "</a>";
+                        echo "</div>";
+                      echo "</div>";
+                    echo "</div>";
+
+                    echo "<p class='noMargin'>";
+                    echo "</p>";
+                  }
+                ?>
+
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-7 col-lg-8">
                   <p>Don’t miss a single copy of DAMN° Magazine! Build your own library and feel DAMN° by taking a yearly subscription today.</p>
