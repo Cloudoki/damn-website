@@ -277,6 +277,12 @@ function my_post_gallery( $output, $attr ) {
 add_filter( 'post_gallery', __NAMESPACE__ . '\\my_post_gallery', 10, 2 );
 
 
+function wpseo_opengraph_url(){
+  return 'http://'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+}
+add_filter('wpseo_opengraph_url', __NAMESPACE__ . '\\wpseo_opengraph_url');
+
+
 /*********************
 * MIKE'S CUSTOM      *
 *********************/
