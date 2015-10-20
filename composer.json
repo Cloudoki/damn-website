@@ -40,6 +40,7 @@
     "wpackagist-plugin/wpmandrill": "1.33",
     "wpackagist-plugin/featured-video-plus": "2.2.1",
     "wpackagist-plugin/wordpress-seo": "2.3.4",
+    "wpackagist-plugin/disable-emojis": "1.5",
     "wpackagist-plugin/post-via-dropbox": "2.10",
     "wpackagist-plugin/better-wp-security": "5.0.1",
     "wpackagist-plugin/ewww-image-optimizer": "2.5.1"

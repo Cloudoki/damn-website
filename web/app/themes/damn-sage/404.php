@@ -4,6 +4,6 @@
     <?php _e('Sorry, but the page you were trying to view does not exist.', 'sage'); ?>
   </div>
 
-  <?php get_template_part('templates/snippet-search-form'); ?>
+  <?php get_template_part('snippets/search-form'); ?>
 
 </div>

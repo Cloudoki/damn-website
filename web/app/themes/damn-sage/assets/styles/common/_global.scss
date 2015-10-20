@@ -3,6 +3,26 @@ Site Name: DAMN Magazine
 Author: Mike Lythcott
 ******************************************************************/
 
+/**
+ *	Overrides
+ */
+.btn-default, .btn-primary, body.damn-plus .title-wrapper, body.category-damn-plus .title-wrapper, body.login .main h3.widget-title, .back-to-calendar a.btn-primary, .article-navigation .pagination li span.current, .category-link .damn-plus {
+	color: #fff !important;
+}
+
+.category-link .damn-plus:hover {
+	color: #000 !important;
+}
+
+body.damn-plus .title-wrapper h1, body.category-damn-plus .title-wrapper h1 {
+	border-color: #fff;
+}
+
+.description {
+	color: $light-gray;
+	font-weight: 200;
+}
+
 /*********************
 GENERAL STYLES
 *********************/
@@ -15,8 +35,8 @@ body, html {
 body {
   font-family: $sans-serif;
   font-weight: 400;
-  line-height: 1.5;
-  font-size: 62.5%;
+  line-height: 1.5em;
+  font-size: 14px;
   color: $text-color;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -339,33 +359,14 @@ img {
 VERTICAL RHYTHYM
 *********************/
 
-.home-feature, header, .main, .sidebar, footer, .single-news-item, .single-video-item, .single-gallery-item, .wrap,
+header, nav, .main, .sidebar, footer, .single-news-item, .single-video-item, .single-gallery-item, .wrap,
 .headhesive, p, .relative-header, .title-wrapper.event-specific, .single-event-item {
-  font-size: 16px;
-  @media screen and (max-width: 767px) {
-    font-size: 13px;
-  }
-  @media screen and (min-width: 768px) {
-    font-size: 14px;
-  }
-  @media screen and (min-width: 992px) {
-    font-size: 14px;
-  }
-  @media screen and (min-width: 1200px) {
-    font-size: 15px;
-  }
-  @media screen and (min-width: 1540px) {
-    font-size: 16px;
-    .hentry p {
-      font-size: 17px;
-    }
-  }
-}
 
-@media screen and (max-width: 767px) {
-  p {
-    font-size: 14px;
-  }
+	@media screen and (max-width: 767px) {
+		:not(p) { font-size: 13px; }
+	}
+	@media screen and (min-width: 1280px) { font-size: 15px; }
+	@media screen and (min-width: 1440px) { font-size: 16px; }
 }
 
 /*********************

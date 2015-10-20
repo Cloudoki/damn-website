@@ -6,8 +6,7 @@ GLOBAL VARIABLES
 $icon-font-path:        "../fonts/";
 
 // Fonts
-$sans-serif:        "proxima-nova", helvetica, arial, tahoma, sans-serif;
-$museo:             "museo", georgia, helvetica, arial, tahoma, sans-serif;
+$sans-serif:        "Open Sans", helvetica, arial, tahoma, sans-serif;
 $serif:             "Georgia", Cambria, Times New Roman, Times, serif;
 
 // Grid settings
@@ -18,6 +17,7 @@ $sidebar-sm-columns:    4;
 $gray:            #444;
 $medium-gray:     #777;
 $light-gray:      #aaa;
+$blue-gray:		  #6D6F72;
 $text-color:      #242424;
 $white:           #fff;
 $black:           #000;
@@ -603,7 +603,6 @@ CONTENT
 @mixin subtitletext {
   margin: .5em 0 0 0;
   font-size: (18 / 16) * 1em;
-  font-family: $museo;
   font-weight: 300;
 }
 
@@ -763,17 +762,6 @@ COMMON & MISC
 @mixin floatleft100 {
   float: left;
   width: 100%;
-}
-
-@mixin width100heightautoboth {
-  width: 100%;
-  height: auto;
-  clear: both;
-}
-
-@mixin width100heightauto {
-  width: 100%;
-  height: auto;
 }
 
 @mixin paddedborderbottom {

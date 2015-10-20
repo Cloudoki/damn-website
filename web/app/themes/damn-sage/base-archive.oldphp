@@ -1,0 +1,65 @@
+<?php
+use Roots\Sage\Config;
+use Roots\Sage\Wrapper;
+
+/**
+ *	Quirks
+ *	Taxonomy "magazine" is the detail page.
+ */
+?>
+<!doctype html>
+<html class="no-js" <?php language_attributes(); ?>>
+
+<?php get_template_part('templates/head'); ?>
+
+<body <?php body_class(); ?>>	
+	
+<?php
+	do_action('get_header');
+	get_template_part('snippets/ie9-warning');
+	get_template_part('templates/header');
+?>
+
+	<div class="wrap" role="document">
+	<?php if (is_tax( 'magazine' )): ?>
+		
+		<div class="content container">
+			
+			<?php if (Config\display_sidebar()) : ?>
+			<aside class="sidebar visible-sm-block visible-md-block visible-lg-block" role="complementary">
+				<?php include Wrapper\sidebar_path(); ?>
+			</aside>
+			<?php endif; ?>
+			
+			<main class="main" role="main">
+				<?php include Wrapper\template_path('page'); ?>
+			</main>
+			
+			<?php if (Config\display_sidebar()) : ?>
+			<aside class="sidebar visible-xs-block" role="complementary">
+				<?php include Wrapper\sidebar_path(); ?>
+			</aside>
+			<?php endif; ?>
+
+	<?php else: ?>
+		
+		<div class="content">
+			<main class="main" role="main">
+				<div class="container">
+					<?php include Wrapper\template_path(); ?>
+				</div>
+			</main>
+		
+	<?php endif; ?>
+		
+		</div>
+		<div class="clearthis"></div>
+	</div>
+	
+	<?php
+		do_action('get_footer');
+		get_template_part('templates/footer');
+		wp_footer();
+	?>
+</body>
+</html>

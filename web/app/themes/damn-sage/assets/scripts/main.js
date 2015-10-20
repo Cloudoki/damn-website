@@ -41,7 +41,7 @@
     }
   };
 
-  // The routing fires all common scripts, followed by the page specific scripts.
+ // The routing fires all common scripts, followed by the page specific scripts.
   // Add additional events for more control over timing e.g. a finalize event
   var UTIL = {
     fire: function(func, funcname, args) {
@@ -136,7 +136,7 @@
         $( slider[oldIndex] ).find('iframe').attr('src', iSrc);
     }
   });
-
+ /*
   // MMenu
   $("#my-menu").mmenu({
      "extensions": [
@@ -171,11 +171,26 @@
         }
      ]
   });
-
-  // Simple Lightbox for galleries
-  var lightbox = $('.gallery-wrapper a').simpleLightbox({
-    captionsData: 'alt',
-    closeText: '<i class="fa fa-times-circle fa-2x"></i>'
-  });
-
+*/
+	// Simple Lightbox for galleries
+	var lightbox = $('.gallery-wrapper a').simpleLightbox({
+		captionsData: 'alt',
+		closeText: '<i class="fa fa-times-circle fa-2x"></i>'
+	});
+	
+	
+	/**
+	 *	Issue Selector
+	 *	Select a recent issue in the header
+	 */
+	$('.issue-selector').on('click', function ()
+	{
+		$('header').toggleClass ('issued');
+		
+		return !$('header').hasClass ('issued');
+	});
+	
+	
+	
 })(jQuery); // Fully reference jQuery after this point.
+

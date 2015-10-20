@@ -5,7 +5,7 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' 
 $url = $thumb['0'];
 ?>
 
-<div class="news-item-wrapper <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
+<div class="item <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
   <div class="news-item">
 
     <?php if ( has_post_format( 'quote' )) { ?>

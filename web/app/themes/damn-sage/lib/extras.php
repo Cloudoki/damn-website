@@ -28,7 +28,7 @@ add_filter('body_class', __NAMESPACE__ . '\\body_class');
 /**
  * Clean up the_excerpt()
  */
-function excerpt_more() {
+/*function excerpt_more() {
   if ( has_post_format( 'quote' )) {
     return '';
   } else {
@@ -48,7 +48,7 @@ function custom_excerpt_length($length) {
     }
 }
 add_filter( 'excerpt_length', __NAMESPACE__ . '\\custom_excerpt_length', 999 );
-
+*/
 
 // limit excerpt by character count, not word count
 function get_excerpt($count){
@@ -118,7 +118,7 @@ function db_filter_user_query( &$user_query ) {
 }
 add_filter( 'posts_search', __NAMESPACE__ . '\\db_filter_authors_search' );
 
-
+/*
 // Adds Charachter Counter to the Excerpt Meta Box
 // @ref = http://wpsnipp.com/index.php/excerpt/add-a-character-counter-to-excerpt-metabox/
 function excerpt_count_js(){
@@ -137,7 +137,7 @@ jQuery("#postexcerpt .handlediv").after("<div style=\"position:absolute;top:5px;
 }
 add_action( 'admin_head-post.php', __NAMESPACE__ . '\\excerpt_count_js');
 add_action( 'admin_head-post-new.php', __NAMESPACE__ . '\\excerpt_count_js');
-
+*/
 
 // Add rel lightbox to images so photo galleries and lightbox will work
 

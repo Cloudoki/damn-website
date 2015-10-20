@@ -120,9 +120,9 @@ while ($dynamics->have_posts()) : $dynamics->the_post();
 ?>
 
   <?php if($post_count == 5) { ?>
-    <div class="news-item-wrapper col-xs-12 col-sm-12 col-md-8 medium-post video-post <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
+    <div class="item col-xs-12 col-sm-12 col-md-8 medium-post video-post <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
   <?php } else { ?>
-    <div class="news-item-wrapper col-xs-12 col-sm-6 col-md-4 <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
+    <div class="item col-xs-12 col-sm-6 col-md-4 <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
   <?php } ?>
 
     <div class="news-item">
@@ -199,7 +199,7 @@ while ($dynamicsvideo->have_posts()) : $dynamicsvideo->the_post();
   }
 ?>
 
-  <div class="news-item-wrapper col-xs-12 col-sm-12 col-md-6 col-md-large <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
+  <div class="item col-xs-12 col-sm-12 col-md-6 col-md-large <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
     <div class="news-item">
 
       <?php if ( has_post_thumbnail()) { ?>

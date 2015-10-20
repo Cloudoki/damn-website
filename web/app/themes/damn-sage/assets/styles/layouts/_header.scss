@@ -1,5 +1,132 @@
+.home > header {
+	padding-top: 60px; 
+	height: 210px;
+	box-sizing: border-box;
+	background-position-y: top;
+	@media screen and (min-width: 1024px) { padding-top: 100px; height: 240px; }
+	@media screen and (min-width: 1280px) { padding-top: 120px; height: 280px; }
+	@media screen and (min-width: 1440px) { padding-top: 140px; height: 300px; }
+	@media screen and (min-width: 1600px) { padding-top: 150px; height: 320px; }
+	
+	.logo-container {
+		transform: translateY(-4%);
+	}
+}
+
+.title-wrapper {
+	padding-bottom: 20px !important;
+}
+
+body > header {
+	padding-top: 50px;
+	height: 138px;
+	background: black no-repeat center;
+	background-size: 100% auto;
+	box-sizing: border-box;
+	
+	.logo-container {
+		max-width: 56%;
+		position: relative;
+		top: -20px;
+		
+		a.main-logo {
+			float: left;
+			margin: 0 10px 10px 0;
+		}
+		
+		.issue-selector {
+			float: left;
+			width: 72px;
+			height: 72px;
+			overflow: hidden;
+			font-weight: 400;
+			
+			ul {
+				min-width: 1000px;
+				padding: 0;
+				list-style: none;
+				position: relative;
+			
+				li {
+					float: left;
+					padding-right: 20px;
+					font-size: 64px;
+					line-height: 1.45em;
+					color: rgba(0,0,0,.4);
+					cursor: pointer;
+					
+					&:hover {
+						color: rgba(0,0,0,.8);
+					}
+					
+					a {
+						color: inherit;
+					}
+				}
+				
+				li.active {
+					font-weight: 700;
+				}
+			}
+		}
+		
+		.issue-buttons {
+			float: left;
+			padding-top: 18px;
+			
+			a { color: inherit; }
+			
+			div {
+				display: block;
+				padding: 4px 10px;
+				font-size: 20px;
+				
+				&:hover, &.inactive { opacity: .5; }
+			}
+		}
+			
+		h3 {
+			padding-top: 8px;
+			font-size: 1.2em;
+			font-weight: 200;
+			line-height: 1.32em;
+			clear: both;
+		}
+	}
+	
+	&.issued {
+		
+		.logo-container {
+			max-width: 100%;
+			
+			h3 { max-width: 58%; }
+	
+			.issue-selector { 
+				width: 71.2%;
+				
+				ul {
+					position: inherit;
+				}
+				
+				@media screen and (max-width: 1280px) { width: 64%; font-weight: 300; }
+				@media screen and (max-width: 1024px) { width: 58%; font-weight: 200; }
+			}
+			
+			
+		}
+
+		.issue-buttons, .social-navs { display: none; }
+	}
+}
+
+
+
+
+
+// !DEPRECATED!
 // home above nav wide featured content
-.home-feature {
+
+/*.home-feature {
   background-color: $black;
   margin-bottom: (30 / 16) * 1em;
 }
@@ -8,7 +135,7 @@ body.single, body.tax-magazine, body.page {
   .home-feature {
     margin-bottom: 0;
   }
-}
+}*/
 // end home above nav wide featured content
 
 a.main-logo {
@@ -102,8 +229,9 @@ a.mobile-menu {
   }
 }
 
-// main navbar in header
 
+/*
+// main navbar in header
 .home-feature {
   // spacing up to 767px because of fixed logo, issue selector
   @media screen and (max-width: 480px) {
@@ -230,9 +358,9 @@ body.home {
     }
   }
 }
-
+*/
 // if text needs to be black
-.black-text {
+.positive-contrast {
   .single-news-item {
     header {
       .category-link a {
@@ -266,6 +394,10 @@ body.home {
   }
 }
 
+.home .white-wrapper {
+  margin-bottom: 24px; 
+}
+
 .white-wrapper {
   background-color: $white;
   border-bottom: 1px solid $bordercolor;
@@ -282,13 +414,14 @@ body.home {
   }
 }
 
+/*
 .navbar-default {
   // background-color: $white;
   background: none;
   border: 0;
   // border-bottom: 1px solid $bordercolor;
   margin-bottom: 0;
-}
+}*/
 
 .main-navigation {
   border: 0;
@@ -308,6 +441,7 @@ body.home {
 // Nav structure
 ul.nav {
   width: 100%;
+  
   li {
     a, a:visited {
       font-size: (20 / 16) * 1em;
@@ -493,29 +627,29 @@ body.page-search {
   @media screen and (max-width: 767px) {
     display: none;
   }
-  margin-top: 1em;
+// margin-top: 1em;
 }
 
 // social nav
 ul.social-nav {
-  background: rgba(0,0,0,.5);
+  background: rgba(0,0,0,.4);
   padding: 0 1em;
-  @media screen and (max-width: 767px) {
-    margin: 0 !important;
-  }
+  margin-right: -.75em;
+  border-radius: 2px;
+ 
   li {
     @include blockfloat;
     a, a:visited {
       font-size: (18 / 16) * 1em;
-      // for color for black header, see .black-text below
+      // for color for black header, see .positive-contrast below
       color: $white !important;
       padding: 0 (12 / 16) * 1em;
       line-height: 50px;
       @include transitions;
-      @include opacity(0.7);
+      @include opacity(1);
       &:hover {
         color: $black;
-        @include opacity(1);
+        @include opacity(.5);
       }
       @media screen and (max-width: 767px) {
         line-height: 30px;
@@ -533,17 +667,19 @@ ul.social-nav {
   }
   li:first-child a {
     padding-left: 0;
+    border-radius: 2px 0 0 2px;
   }
   li:last-child a {
     padding-right: 0;
+	border-radius: 0 2px 2px 0;
   }
 }
 
-// color of social icons and background for social icons while in .black-text css setting`
-.black-text {
+// color of social icons and background for social icons while in .positive-contrast css setting`
+.positive-contrast {
   .social-navs {
     ul.social-nav {
-      background: rgba(255,255,255,.5);
+      background: rgba(255,255,255,.4);
       li {
         a {
           color: $black !important;
@@ -855,7 +991,7 @@ ul#issue-selector {
 }
 
 
-.black-text {
+.positive-contrast {
   ul#issue-selector {
     li.dropdown {
       a.dropdown-toggle {

@@ -92,7 +92,7 @@
 
                     $magazineimage = wp_get_attachment_image_src(get_field('magazine_taxonomy_image', $issue_acf_id), 'medium');
 
-                    echo "<div class='news-item-wrapper'>";
+                    echo "<div class='item'>";
                       echo "<div class='news-item whiteBackground marginBottom'>";
                         echo '<div class="post-image noMargin">';
                           echo "<a href=\"{$link}\" title='{$term->name}'>";
@@ -115,7 +115,7 @@
                     $link = get_term_link(intval($issue->term_id),'magazine');
                     $magazineimage = wp_get_attachment_image_src(get_field('magazine_taxonomy_image', $issue_acf_id), 'medium');
 
-                    echo "<div class='news-item-wrapper'>";
+                    echo "<div class='item'>";
                       echo "<div class='news-item whiteBackground marginBottom'>";
                         echo '<div class="post-image noMargin">';
                           echo "<a href=\"{$link}\" title='{$issue->name}'>";

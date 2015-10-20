@@ -1,247 +1,253 @@
 <?php use Roots\Sage\Extras; ?>
 
-<?php if (!have_posts())
-    get_template_part('templates/snippet-no-results');
-
-  /**
-   *  Featured post.
-   *
-   *  There can only be one featured post.
-   *  It shall be an article. It shall be the most recent one.
-   */
-  $feat_query = [
-    'cat' => '-4315',
-    'posts_per_page' => 1,
-    'post_type' => 'post',
-    'orderby' => 'post_date',
-    'order' => 'DESC'
-  ];
-
-  /**
-   *  Posts stream.
-   *
-   *  The home posts stream can contain both articles and calendar nodes. EXCLUDES video post format, as those load below main query
-   */
-  $main_query = [
-    'posts_per_page' => 28,
-    'post_type' => array ('post','calendar'),
-    'orderby' => 'post_date',
-    'order' => 'DESC',
-  ];
-
-  /**
-   *  Issue filtering.
-   *
-   *  If issue string parameter is provided,
-   *  show only connected posts and calendars.
-   */
-  if ($_GET['issue'])
-
-    $feat_query['tax_query'][] =
-    $main_query['tax_query'][] = [
-      'taxonomy' => 'magazine',
-      'field' => 'slug',
-      'terms' => [$issue->slug]
-    ];
-
-  // Excempt featured post from main stream
-  $featured = new WP_Query($feat_query);
-  $main_query['post__not_in'] = [$featured->posts[0]->ID];
-
-
-  // Build featured post row
-  $featured->the_post();
-  get_template_part('templates/home', 'primary-row');
-
-
-  // Build second & third row
-  $dynamics = new WP_Query($main_query);
-?>
-
-<?php
-
-/**
- *  Selected Issue
- */
+<?php 
 global $issue, $issue_color, $issue_number;
-
-// Some dry data
-$issue_acf_id = 'magazine_' . $issue->term_id;
-$featurevideo = get_field ('video_embed1', $issue_acf_id);
-$post_count = 0;
-
-/**
- *  open a new, basic container div so bootstrap column clears dont count advert wrapper in nth-child and break the layout.
- *  DIV CLOSED after ENDWHILE.
- *  These first 5 items EXCLUDE video post type. Two video post types loads after these 5.
- */
-?>
-
-<div class="empty-wrapper row">
-<?php
-
-while ($dynamics->have_posts()) : $dynamics->the_post();
-  if($post_count++ == 5) break;
-
-  if (has_post_thumbnail () && !has_post_format('quote'))
-  {
-    $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' );
-    $url = $thumb['0'];
-
-    $thumblarge = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' );
-    $urllarge = $thumblarge['0'];
-  }
-?>
-
-  <?php if($post_count == 5) { ?>
-    <div class="news-item-wrapper col-xs-12 col-sm-12 col-md-8 medium-post video-post <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
-  <?php } else { ?>
-    <div class="news-item-wrapper col-xs-12 col-sm-6 col-md-4 <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
-  <?php } ?>
-
-    <div class="news-item">
-
-      <?php if ( has_post_format( 'quote' )) { ?>
-
-        <div class="post-image">
-          <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-            <?php if($post_count == 5) { ?>
-              <?php /* show non wide blank-image only on 768-992 so boxes adjust properly, using class "visible-xs-block" */ ?>
-              <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-wide-video.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder hidden-xs" />
-              <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-video.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder visible-xs-block" />
-            <?php } else { ?>
-              <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
-            <?php } ?>
-          </a>
-        </div>
-
-        <header class="quote-format">
-          <div class="quote-wrapper-outer">
-            <div class="quote-wrapper-inner">
-              <blockquote>
-              <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-                <p>
-                  <?= Extras\get_excerpt(140); ?>
-                </p>
-              </a>
-              </blockquote>
-            </div>
-          </div>
-        </header>
-
-      <?php } else { ?>
-
-        <?php if($post_count == 5 && has_post_thumbnail()) { ?>
-        <div class="post-image" style="background-image:url(<?=$urllarge?>);">
-        <?php } elseif ( has_post_thumbnail()) { ?>
-        <div class="post-image" style="background-image:url(<?=$url?>);">
-        <?php } else { ?>
-        <div class="post-image" style="background-image:url(<?= get_template_directory_uri(); ?>/dist/images/default-tall.png)">
-        <?php } ?>
-          <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-            <?php if($post_count == 5) { ?>
-              <?php /* show non wide blank-image only on 768-992 so boxes adjust properly, using class "visible-xs-block" */ ?>
-              <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image-wide.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder hidden-xs" />
-              <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder visible-xs-block" />
-            <?php } else { ?>
-              <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" alt="<?php the_title_attribute(); ?> - <?= get_bloginfo("name"); ?>" class="placeholder" />
-            <?php } ?>
-          </a>
-        </div>
-
-      <?php /* REUSED snippet to display title, category, subtitle */ ?>
-      <?php get_template_part('templates/snippet', 'feed-header'); ?>
-    <?php } ?>
-
-    </div>
-  </div>
-
-<?php endwhile; ?>
-
-</div><?php /* close empty-wrapper */ ?>
-
-
-<?php /* sponsored content */ ?>
-<div class="row sponsored-content-wrapper">
-  <div class="col-xs-12">
-    <div class="advert middle advert">
-      <?php if (function_exists('adrotate_group')) echo adrotate_group(6); ?>
-    </div>
-  </div>
+	
+if (!have_posts())
+	get_template_part('templates/snippet-no-results');
+	
+	/**
+	 *  Featured post.
+	 *
+	 *  There can only be one featured post.
+	 *  It shall be an article. It shall be the most recent one.
+	 */
+	$feat_query = [
+		'cat' => '-4315',
+		'posts_per_page' => 1,
+		'post_type' => 'post',
+		'orderby' => 'post_date',
+		'order' => 'DESC',
+		'meta_query' => [[ 'key' => '_thumbnail_id' ]]
+	];
+	
+	/**
+	 *  Calendar stream.
+	 *
+	 *  The home calendar stream can contain 6 calendar nodes.
+	 */
+	$cal_query = [
+		'posts_per_page' => 6,
+		'post_type' => 'calendar',
+		'orderby' => 'post_date',
+		'order' => 'DESC'
+	];
+	
+	/**
+	 *  Manifesto stream.
+	 *
+	 *  The manifesto stream contains 1 article only.
+	 */
+	$manf_query = [
+		'posts_per_page' => 1,
+		'post_type' => 'post',
+		'orderby' => 'post_date',
+		'order' => 'DESC',
+		'tax_query' => [
+			[
+				'taxonomy' => 'category',
+				'field' => 'slug',
+				'terms' => 'manifesto'
+			],
+			[
+				'taxonomy' => 'magazine',
+				'field' => 'slug',
+				'terms' => $issue->slug
+			],
+		]
+	];
+	
+	/**
+	 *  Posts stream.
+	 *
+	 *  The home posts stream can contain both articles and calendar nodes. EXCLUDES video post format, as those load below main query
+	 */
+	$issue_query = [
+		'posts_per_page' => 5,
+		'post_type' => 'post',
+		'orderby' => 'post_date',
+		'order' => 'DESC',
+		'post__not_in' => [],
+		'meta_query' => [[ 'key' => '_thumbnail_id' ]],
+		'tax_query' => [[
+			'taxonomy' => 'magazine',
+			'field' => 'slug',
+			'terms' => $issue->slug
+		]]
+	];
+	
+	/**
+	 *  Posts stream.
+	 *
+	 *  The home posts stream can contain both articles and calendar nodes. EXCLUDES video post format, as those load below main query
+	 */
+	$main_query = [
+		'posts_per_page' => 3,
+		'post_type' => 'post',
+		'orderby' => 'post_date',
+		'order' => 'DESC',
+		'meta_query' => [[ 'key' => '_thumbnail_id' ]],
+		'post__not_in' => [],
+	];
+	
+	/**
+	*  Issue filtering.
+	*
+	*  If issue string parameter is provided,
+	*  show only connected posts and calendars.
+	*/
+	if ($_GET['issue'])
+	
+		$feat_query['tax_query'][] =
+		$main_query['tax_query'][] = [
+			'taxonomy' => 'magazine',
+			'field' => 'slug',
+			'terms' => [$issue->slug]
+		];
+	
+	// Build featured post row
+	$featured = new WP_Query($feat_query);
+	$featured->the_post();
+	
+	// Excempt featured post from main streams
+	$main_query['post__not_in'][] = 
+	$issue_query['post__not_in'][] = get_the_ID();
+	
+	get_template_part('templates/home', 'primary-row');
+	
+	// Build second row
+	$calnodes = new WP_Query($cal_query);
+	
+	?>
+	<div class="row recent-agenda">
+		<div class="table-row">
+		<?php
+	
+		while ($calnodes->have_posts())
+		{
+			$calnodes->the_post();
+			get_template_part('templates/post-calendar');  
+		}
+	
+		?>
+		</div>
+	</div>
 </div>
 
+<?php /* sponsored content */ ?>
+<div class="advert-grey-wrapper">
+	<div class="container">
+		
+		<div class="row sponsored-content-wrapper">
+			<div class="col-xs-12">
+				<div class="middle advert">
+				<?=function_exists('adrotate_group')? adrotate_group(6): null?>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
 
-<?php /* 4 up category feeds */ ?>
-<div class="row home-category-feeds">
+<div class="container">
 <?php
 
 /**
- *  Dynamic taxonomy column build
- *  We might use an ad-hoc function...
+ *	Manifesto & Articles
+ *	The Manifesto and articles in this row are Issue-bound.
  */
 
-function cattable ($cat, $post_cats)
-{
-  return isset ($cat) && (!isset ($post_cats[$cat->term_id]) || $post_cats[$cat->term_id] !== false);
-}
+// Fetch issue-related manifesto
+$manifesto = new WP_Query($manf_query);
+$manifesto->the_post();
 
-$post_cats = [];
-$cats_count = 0;
+// Excempt manifesto from main streams
+$main_query['post__not_in'][] = 
+$issue_query['post__not_in'][] = get_the_ID();
+?>
 
-while ($dynamics->have_posts()) : $dynamics->the_post();
+	<div class="empty-wrapper row">
+		
+		<div class="col-sm-12 col-md-8">
+			<div class="row">
+				<?php get_template_part('templates/post-manifesto'); ?>
+			</div>
+			<hr class="sub-column" />
+			<div class="row category-articles">
+<?php
 
-    // Build Cat info
-    $categories = get_the_category();
-  if (count ($categories) > 1) shuffle ($categories);
+// Fetch issue-related articles
+$issues = new WP_Query($issue_query);
 
-  $cat = null;
-
-  // Prevent cat overkill
-  for ($n = 0; $n <= 3;  $n++)
-    if (cattable ($categories[$n], $post_cats))
-    {
-      $cat = $categories[$n]->term_id;
-      $name = $categories[$n]->name;
-      break;
-    }
-
-    if ($cat)
-    {
-      if(!isset ($post_cats[$cat]))
-
-        $post_cats[$cat] = [];
-
-      // Dirty fetch post
-      ob_start();
-      get_template_part('templates/content-home-small-feeds', get_post_type() != 'post' ? get_post_type() : get_post_format());
-
-      $post_cats[$cat][] = ob_get_clean();
+// Excempt issue post from main stream
+foreach ($issues->posts as $post)
+	
+	$main_query['post__not_in'][] = $post->ID;
 
 
-      // Output if possible
-      if (count ($post_cats[$cat]) == 2)
-      {
+// Default Categories: 
+// Design, Architecture & Art
+$cats = [56, 60, 57];
 
-      ?>
+// Override 3rd Category
+if ($issue_cat && !in_array($issue_cat->term_id, $cats))
 
-    <div class="col-xs-12 col-sm-6 col-md-3">
-      <h3 class="archive-title"><?=$name?></h3>
-      <?php
+	$cats[2] = $issue_cat->term_id;
+	
+foreach ($cats as $n):
 
-        echo implode ("<br>", $post_cats[$cat]);
-        $post_cats[$cat] = false;
+	$main_query['cat'] = $n;
+	
+	// Fetch category-related articles
+	$dynamics = new WP_Query($main_query);
+	$category = get_term ($n, 'category');
+?>
 
-      ?>
-      </div>
-      <?php
+				<div class="col-sm-12 col-md-4">
+					<a href="<?=get_category_link($n)?>">
+						<h2 class="category-title"> 
+						<category><?=$category->name?></category> <span class="description">/ Articles</span>
+						</h2>
+					</a>
+					
+					<div class="empty-wrapper row">
+<?php
+	while ($dynamics->have_posts())
+	{
+		$dynamics->the_post();
+		
+		get_template_part(
+			has_post_format( 'quote' )? 'templates/post-quote': 'templates/post-simple'
+		);
+		
+		$main_query['post__not_in'][] = get_the_ID();
+	}
+?>					
+					</div>
+				</div>
+				
+<?php endforeach; ?>
 
-      if (++$cats_count == 4) break;
-    }
-  }
-endwhile;
-  ?>
+			</div>
+		</div>
 
-  </div>
+		<div class="col-sm-12 col-md-4 issue-articles">
+			<h2>ISSUE #<?=$issue_number?> <span class="description">/ Articles</span></h2>
+			
+			<div class="row">
+			<?php
+	
+			while ($issues->have_posts())
+			{
+				$issues->the_post();
+				get_template_part('templates/post');  
+			}
+		
+			?>
+			</div>
+		</div>
+		
+	</div>
 </div>
 
 <?php /* 4 up products feed */ ?>

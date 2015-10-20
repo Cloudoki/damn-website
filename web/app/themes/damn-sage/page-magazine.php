@@ -20,7 +20,7 @@ Template Name: Magazine taxonomy
     $image_url = get_template_directory_uri();
     $magazineimage = wp_get_attachment_image_src(get_field('magazine_taxonomy_image', $magazine->taxonomy.'_'.$magazine->term_id), 'full');
 
-    echo "<div class='news-item-wrapper col-xs-6 col-sm-4 col-md-3 col-lg-3'>";
+    echo "<div class='item col-xs-6 col-sm-4 col-md-3 col-lg-3'>";
       echo "<div class='news-item'>";
         echo '<div class="post-image" style="background-image:url('.$magazineimage[0].');">';
           echo "<a href=\"{$link}\" title='{$magazine->name}'>";

@@ -1,6 +1,6 @@
 <?php use Roots\Sage\Extras; ?>
 
-<div class="news-item-wrapper <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>" id="post-<?php the_ID(); ?>">
+<div class="item <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>" id="post-<?php the_ID(); ?>">
   <div class="news-item row no-gutters">
 
     <div class="col-sm-6 event-image">

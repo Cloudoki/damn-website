@@ -1,4 +1,4 @@
-<div class="news-item-wrapper col-xs-12 col-sm-12 col-md-8 medium-post video-post <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
+<div class="item col-xs-12 col-sm-12 col-md-8 medium-post video-post <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>">
   <div class="news-item">
 
     <?php if ( has_post_format( 'quote' )) { ?>
