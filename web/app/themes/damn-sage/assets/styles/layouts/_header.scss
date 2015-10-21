@@ -119,8 +119,61 @@ body > header {
 	}
 }
 
-
-
+/**
+ *	Mobile Overrides
+ *	Anything equal or lower then 768px. 
+ */
+.home {
+	@media screen and (max-width: 768px) {
+	
+		header {
+			background-size: cover;
+			padding-top: 20px; 
+			height: auto;
+			max-height: 200px;
+	
+			a.main-logo {
+				margin-right: .4em;
+				width: 200px;
+				height: 45px;
+			}
+			
+			.logo-container { 
+				max-width: 100%;
+				transform: none;
+				top: 0;
+				
+				.issue-selector {
+					width: 58px;
+					height: 60px;
+					li {
+						padding-right: 12px;
+						line-height: 1.4em;
+					}
+					
+					li, li a { font-size: 42px !important; }
+				}
+				
+				.issue-buttons {
+					padding-top: 10px;
+					
+					div {
+						font-size: 16px;
+						padding: 2px;
+					}
+				}
+				
+				h3	{ display: none; }
+			}
+			
+			&.issued .logo-container .issue-selector { 
+				width: 100%; 
+				
+				li { line-height: 1.2em; }
+			}
+		}
+	}
+}
 
 
 // !DEPRECATED!
@@ -149,14 +202,14 @@ a.main-logo {
   text-indent: -9999px;
   outline: none;
   background-size: 100% auto;
-  @media screen and (max-width: 480px) {
+  /*@media screen and (max-width: 480px) {
     width: 140px;
     height: 31px;
   }
   @media screen and (min-width: 481px) and (max-width:767px) {
     width: 180px;
     height: 40px;
-  }
+  }*/
 }
 
 // MOBILE NAV + mobile toggle open/close
@@ -387,10 +440,10 @@ body.home {
     }
   }
   a.main-logo {
-    @media screen and (min-width:768px) {
+   // @media screen and (min-width:768px) {
       background: url("../images/damn-2X-black.png") no-repeat;
       background: url("../images/damn.svg") no-repeat;
-    }
+   // }
   }
 }
 
@@ -402,10 +455,10 @@ body.home {
   background-color: $white;
   border-bottom: 1px solid $bordercolor;
   border-top: 1px solid $bordercolor;
-  @media screen and (max-width: 767px) {
-    display: none;
-  }
-  @media screen and (min-width: 768px) and (max-width: 991px) {
+//@media screen and (max-width: 767px) {
+//   display: none;
+//}
+  @media screen and (max-width: 991px) { //(min-width: 768px) and 
     .container {
       padding-left: 0 !important;
       padding-right: 0 !important;

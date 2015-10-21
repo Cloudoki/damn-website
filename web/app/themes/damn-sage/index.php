@@ -295,8 +295,6 @@ foreach ($cats as $n):
 
   <?php endif; ?>
 
-<small style="color: #eee;">(small)</small>
-
 <div class="container">
 
 <?php /* 3 bottom widgets */ ?>

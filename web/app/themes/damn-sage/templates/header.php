@@ -81,9 +81,8 @@ $history       = -10;
 			<?php endif; ?>
 		</div>
 		
+		<!--<a class="mobile-menu no-badge normal-menu" data-count="0" href="#my-menu"><i class="fa fa-bars"></i></a>-->
 		
-		
-		<a class="mobile-menu no-badge normal-menu" data-count="0" href="#my-menu"><i class="fa fa-bars"></i></a>
 	</div>
 	
 	<div class="fixed-nav-activator clearthis"></div>

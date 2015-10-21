@@ -47,12 +47,29 @@
 			&:hover { opacity: .5; }
 		}
 	}
+	
+	@media screen and (max-width: 768px) {
+		
+		article.item:nth-child(odd) {
+			clear: both;
+		}
+		
+		article.item {
+			float: left !important;
+			padding-bottom: 20px;
+			
+			.category-link.half-span { max-width: 100%; }
+		}
+	}
 }
 
 .advert-grey-wrapper {
-	margin: 40px 0 100px;
-	height: 184px;
-	background-color: #ddd;
+	@media screen and (min-width: 769px)
+	{
+		margin: 40px 0 100px;
+		height: 184px;
+		background-color: #ddd;
+	}
 }
 
 .item-manifesto {
@@ -147,6 +164,10 @@ hr.sub-column {
 	@media screen and (max-width: 1440px) {
 		div.row > a:nth-child(5) { display:none; }
 	}
+	
+	@media screen and (max-width: 768px) {
+		h2 { padding-top: 12px; }
+	}
 }
 
 .category-articles {
@@ -221,6 +242,17 @@ hr.sub-column {
 		.quote-wrapper-inner p { 
 			line-height: 1.2em;
 			font-size: 1.4em !important; 
+		}
+	}
+	
+	@media screen and (max-width: 768px) {
+		
+		.quote-wrapper-inner {
+			
+			p { font-size: 2em !important; }
+			
+			blockquote:before,
+			blockquote:after { display: inline !important; }
 		}
 	}
 }
