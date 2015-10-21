@@ -31,7 +31,7 @@ $end = get_field('end_date')? strtotime (get_field ('end_date')): null;
 	<span class='end-date'>Until <?=date("M jS", $end)?></span>
 	<?php endif; ?>
 	
-	<div class="category-link pull-right">
+	<div class="category-link pull-right<?=$end? " half-span":null?>">
 	<?php foreach (get_the_category() as $cat): ?>
 		<a href="<?=get_category_link($cat->term_id)?>" class="<?=$cat->slug?>"><?=$cat->cat_name?></a>
 	<?php endforeach; ?>

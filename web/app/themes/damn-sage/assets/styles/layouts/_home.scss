@@ -2,7 +2,7 @@
 	margin-top: 10px;
 	
 	h1 {
-		margin: 12px 0;
+		margin: 14px 0 10px;
 		color: $black;
 		font-size: 1.2em;
 		font-weight: 700;
@@ -15,6 +15,7 @@
 		color: $black;
 		font-size: 1em;
 		font-weight: 300;
+		line-height: 1.25em;
 		max-height: 64px;
 		overflow: hidden;
 		@media screen and (min-width: 1280px) { max-height: 76px; }
@@ -33,7 +34,8 @@
 	.category-link {
 		line-height: 1.58em;
 		text-align: right;
-		max-width: 50%;
+		
+		&.half-span { max-width: 50%; }
 		
 		a { 
 			padding: 1px 6px 2px;
@@ -113,7 +115,7 @@ hr.sub-column {
 		
 			.content {
 				padding: 2px 20px;
-				background: rgba(0,0,0,.5);
+				background: rgba(0,0,0,.45);
 				
 				h1	{
 					margin: 12px 0 2px;
@@ -137,6 +139,8 @@ hr.sub-column {
 					opacity: .5;
 				}
 			}
+			
+			&:hover .content { background: rgba(0,0,0,.65); }
 		}
 	}
 	
@@ -181,9 +185,15 @@ hr.sub-column {
 		}
 	}
 
+	@media screen and (max-width: 1599px) {
+		
+		.quote-wrapper-inner { padding: 24px !important; }
+	}
+	
 	@media screen and (max-width: 1439px) {
 		
 		.quote-wrapper-inner {
+			
 			p { 
 				line-height: 1.25em;
 				font-size: 1.5em !important; 
