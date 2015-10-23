@@ -57,6 +57,7 @@ if (!have_posts())
 		]
 	];
 	
+	
 	/**
 	 *  Posts stream.
 	 *
