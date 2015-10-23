@@ -1,7 +1,7 @@
 <?php use Roots\Sage\Extras; ?>
 
 <?php 
-global $issue, $issue_color, $issue_number;
+global $issue, $issue_color, $issue_number, $main_query;
 	
 if (!have_posts())
 	get_template_part('templates/snippet-no-results');
@@ -252,23 +252,23 @@ foreach ($cats as $n):
 
 <?php /* 4 up products feed */ ?>
 <?php
-  $product_query = [
-  'posts_per_page' => 4,
-  'post_type' => 'product',
-  'orderby' => 'post_date',
-  'order' => 'DESC'
-  ];
+$product_query = [
+	'posts_per_page' => 4,
+	'post_type' => 'product',
+	'orderby' => 'post_date',
+	'order' => 'DESC'
+];
 
-  if ($_GET['issue'])
-  $product_query['tax_query'][] = [
-  'taxonomy' => 'magazine',
-  'field' => 'slug',
-  'terms' => [$issue->slug]
-  ];
+if ($_GET['issue'])
+	$product_query['tax_query'][] = [
+		'taxonomy' => 'magazine',
+		'field' => 'slug',
+		'terms' => [$issue->slug]
+	];
 
-  $products = new WP_Query($product_query);
+$products = new WP_Query($product_query);
 
-  if ($products->have_posts()) : ?>
+if ($products->have_posts()) : ?>
 
 <div class="products-row">
   <div class="container">
@@ -297,31 +297,18 @@ foreach ($cats as $n):
 
 <div class="container">
 
-<?php /* 3 bottom widgets */ ?>
-<div class="row bottom-widgets">
-  <div class="col-xs-12 col-sm-6 col-md-4 table-cell">
-    <?php if ( is_active_sidebar( 'sidebar-homepage-agenda' ) ) : dynamic_sidebar( 'sidebar-homepage-agenda' ); endif; ?>
-  </div>
-
-  <div class="col-xs-12 col-sm-6 col-md-4">
-    <?php if ( is_active_sidebar( 'sidebar-homepage-socials' ) ) : dynamic_sidebar( 'sidebar-homepage-socials' ); endif; ?>
-  </div>
-
-  <div class="col-xs-12 col-sm-12 col-md-4">
-    <div class="widget">
-      <h3 class="widget-title">Join DAM<sub>N°</sub> +</h3>
-        <div class="join-damn-plus-home-image">
-          <?php $joinimage = wp_get_attachment_image_src(get_field('join_damn_plus_image', 'option'), 'full'); ?>
-          <?php $joinimagewide = wp_get_attachment_image_src(get_field('join_damn_plus_image_wide', 'option'), 'full'); ?>
-          <a href="/join-damn-plus" title="Join DAMN +">
-            <?php if(get_field('join_damn_plus_image', 'option')) { ?>
-              <img src="<?php echo $joinimage[0]; ?>" alt="Join DAMN +" class="visible-md-block visible-lg-block">
-            <?php } ?>
-            <?php if(get_field('join_damn_plus_image_wide', 'option')) { ?>
-              <img src="<?php echo $joinimagewide[0]; ?>" alt="Join DAMN +" class="visible-xs-block visible-sm-block">
-            <?php } ?>
-          </a>
-        </div>
-    </div>
-  </div>
+	<?php /* 3 bottom widgets */ ?>
+	<div class="row bottom-widgets">
+		<div class="col-xs-12 col-sm-6 col-md-4 table-cell">
+		<?php if ( is_active_sidebar( 'sidebar-homepage-agenda' ) ) : dynamic_sidebar( 'sidebar-homepage-agenda' ); endif; ?>
+		</div>
+		
+		<div class="col-xs-12 col-sm-6 col-md-4">
+		<?php if ( is_active_sidebar( 'sidebar-homepage-socials' ) ) : dynamic_sidebar( 'sidebar-homepage-socials' ); endif; ?>
+		</div>
+		
+		<div class="col-xs-12 col-sm-12 col-md-4">
+		<?php get_template_part ('templates/widget-damnplus-select'); ?>
+		</div>
+	</div>
 </div>

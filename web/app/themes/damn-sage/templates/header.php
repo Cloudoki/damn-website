@@ -21,7 +21,7 @@ $history       = -10;
 	
 	a.mobile-menu .fa, .advertorial-badge, span.category-sep a.damn-plus, .issue-selector li.active { color: <?=$issue_color?> !important; }
 	
-	.btn-default, .btn-primary, body.damn-plus .title-wrapper, body.category-damn-plus .title-wrapper, body.login .main h3.widget-title, .back-to-calendar a.btn-primary, .article-navigation .pagination li span.current, .color-box, .damn-plus-badge, .join-damn-plus-home-image, .damn-plus-cta, .page-featured-image, .item.damn-plus .news-item, .single-news-item, .first-post-advert-wrapper .blackBackground, .category-link .damn-plus, .category-link .damn-plus:hover { background-color: <?=$issue_color?> !important; }
+	.btn-default, .btn-primary, body.damn-plus .title-wrapper, body.category-damn-plus .title-wrapper, body.login .main h3.widget-title, .back-to-calendar a.btn-primary, .article-navigation .pagination li span.current, .color-box, .damn-plus-badge, .join-damn-plus-home-image, .damn-plus-cta, .page-featured-image, .item.damn-plus .news-item, .single-news-item, .first-post-advert-wrapper .blackBackground, .category-link .damn-plus, .category-link .damn-plus:hover, .plus-select .post-image { background-color: <?=$issue_color?> !important; }
 	
 	.category-link .damn-plus { border-color: <?=$issue_color?> !important; }
 </style>
