@@ -19,6 +19,7 @@ foreach(get_the_category() as $category)
 <div class="row">
 	<div class="first-post-advert-wrapper">
 		<div class="table-row">
+
 			<div class="item col-xs-12 col-sm-8 large-post <?=has_post_format('quote')? 'quote-format ':null?><?=implode (' ', $cats)?>"<?=isset ($url)? ' style="background-image:url(' . $url . ');"': null?>>
 
 				<?php get_template_part('templates/snippet', has_post_format('quote')? 'item-post-quote': 'item-post'); ?>
