@@ -4,7 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c067d3c5f211146146541e3b0243e6c6",
+    "hash": "3306dcc2c50d814247e126df121cfc18",
+    "content-hash": "c631c8e2c98f7c5f7f43437b5d774111",
     "packages": [
         {
             "name": "composer/installers",
@@ -253,26 +254,6 @@
             "homepage": "https://wordpress.org/plugins/adrotate/"
         },
         {
-            "name": "wpackagist-plugin/better-wp-security",
-            "version": "5.0.1",
-            "source": {
-                "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/better-wp-security/",
-                "reference": "tags/5.0.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/better-wp-security.5.0.1.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/better-wp-security/"
-        },
-        {
             "name": "wpackagist-plugin/custom-post-type-ui",
             "version": "1.1.2",
             "source": {
@@ -313,26 +294,6 @@
             "homepage": "https://wordpress.org/plugins/disable-emojis/"
         },
         {
-            "name": "wpackagist-plugin/ewww-image-optimizer",
-            "version": "2.5.1",
-            "source": {
-                "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/ewww-image-optimizer/",
-                "reference": "tags/2.5.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/ewww-image-optimizer.2.5.1.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/ewww-image-optimizer/"
-        },
-        {
             "name": "wpackagist-plugin/featured-video-plus",
             "version": "2.2.1",
             "source": {
@@ -371,46 +332,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/google-analytics-dashboard-for-wp/"
-        },
-        {
-            "name": "wpackagist-plugin/post-via-dropbox",
-            "version": "2.10",
-            "source": {
-                "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/post-via-dropbox/",
-                "reference": "tags/2.10"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/post-via-dropbox.2.10.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/post-via-dropbox/"
-        },
-        {
-            "name": "wpackagist-plugin/wordpress-seo",
-            "version": "2.3.4",
-            "source": {
-                "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/2.3.4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.2.3.4.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/wordpress-seo/"
         },
         {
             "name": "wpackagist-plugin/wpmandrill",
