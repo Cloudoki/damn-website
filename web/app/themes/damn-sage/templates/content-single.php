@@ -155,7 +155,25 @@
       <?php } else { ?>
 
         <?php /* or else if not in DAMN+, show all content normally, as this is not on a protected post */ ?>
-        <?php the_content(); ?>
+        <?php
+	        
+	    the_content(); 
+        
+		/*$images =& get_children( 'post_type=attachment&post_mime_type=image&post_parent=' . get_the_ID ());
+		
+		if ($images)
+		{
+			print_r ($images);
+			
+			//array_shift($images);
+			
+			foreach ( $images as $attachment_id => $attachment )
+				echo wp_get_attachment_image( $attachment_id, 'full' );
+		}*/
+		
+        ?>
+        
+        
 
         <?php /* Multiple external URL links, if added */ ?>
         <?php get_template_part('templates/snippet', 'external-links'); ?>
