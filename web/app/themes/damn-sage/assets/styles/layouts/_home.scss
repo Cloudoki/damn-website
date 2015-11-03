@@ -1,3 +1,22 @@
+
+body.home {
+	
+	header {
+		background-position: center !important;
+		
+		h3.subtitle { color: white; }
+		
+		&.positive-contrast { 
+			background-position: center top !important; 
+			
+			h3.subtitle { color: #242424; }
+		}
+	}
+
+	.logo-container .issue-buttons .fa { color: white; }
+}
+
+
 .recent-agenda {
 	margin-top: 10px;
 	
@@ -79,6 +98,7 @@
 	width: 100%;
 	float: none;
 	padding-right: 0 !important;
+	margin-bottom: 24px;
 	
 	.row {
 		display: table-row;
@@ -90,11 +110,17 @@
 			background: no-repeat top right;
 			background-size: cover;
 			
-			&.post-image { background-origin: content-box; }
+			&.post-image { 
+				background-origin: content-box; 
+				margin-bottom: 20px; 
+			}
 		}
 	}
 	
-	a, p { color: $black; }
+	a, p { 
+		margin-bottom: 0;
+		color: $black; 
+	}
 	
 	h1	{
 		margin-bottom: 4px;
