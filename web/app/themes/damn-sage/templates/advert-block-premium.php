@@ -7,7 +7,7 @@ $coloring = strpos ($banner, 'Alcantara')? ' style="background-color: #A6A064;"'
 	
 ?>
 
-<div class="item col-xs-12 col-sm-4 advert advert-premium"<?=$coloring?>>
+<div class="item col-xs-12 col-sm-4 advert advert-premium here"<?=$coloring?>>
 	<div class="news-item">
 		<div class="post-image">
 		
