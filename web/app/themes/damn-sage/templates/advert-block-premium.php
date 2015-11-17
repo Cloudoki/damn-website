@@ -1,8 +1,18 @@
-<div class="item col-xs-12 col-sm-4 advert advert-premium">
-  <div class="news-item">
-    <div class="post-image">
-      <?php if (function_exists('adrotate_group')) echo adrotate_group(1); ?>
-      <!-- <img src="<?= get_template_directory_uri(); ?>/dist/images/blank-image.gif" class="placeholder"> -->
-    </div>
-  </div>
+<?php
+
+// Hack for Alcantara
+if (function_exists('adrotate_group')) $banner =  adrotate_group(1);
+
+$coloring = strpos ($banner, 'Alcantara')? ' style="background-color: #A6A064;"': null;
+	
+?>
+
+<div class="item col-xs-12 col-sm-4 advert advert-premium"<?=$coloring?>>
+	<div class="news-item">
+		<div class="post-image">
+		
+			<?=$banner?>
+		
+		</div>
+	</div>
 </div>
