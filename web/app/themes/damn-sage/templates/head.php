@@ -12,6 +12,8 @@
 	<link rel="icon" href="<?= get_template_directory_uri(); ?>/dist/images/favicon.png">
 	
 	<?php wp_head(); ?>
+	
+	<link rel='stylesheet' id='ionic-icons'  href='http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css' type='text/css' media='all' />
 
 </head>
 

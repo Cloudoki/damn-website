@@ -6,8 +6,10 @@
 
 // Variables
 $thumb = has_post_thumbnail ()? wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' ): [null];
-$start = get_field('start_date')? strtotime (get_field ('start_date')): (int) get_the_date ('U');
+$start = get_field('start_date')? strtotime (get_field ('start_date')): null;
 $end = get_field('end_date')? strtotime (get_field ('end_date')): null;
+
+if($start && $start < (int) get_the_date ('U')) $start = null;
 
 ?>
 
@@ -16,8 +18,12 @@ $end = get_field('end_date')? strtotime (get_field ('end_date')): null;
 	<a href="<?=the_permalink()?>" rel="bookmark" title="<?=the_title_attribute()?>">
 		<div class="header-circle"<?=isset ($thumb['0'])? ' style="background-image:url(' . $thumb['0'] . ');"': null?>>
 			<div>
+			<?php if ($start): ?>
 				<span class="month"><?=date("M", $start);?></span>
 				<span class="day"><?=date("j", $start);?></span>
+			<?php else: ?>
+				<span class="running"><i class="ion-ios-calendar-outline"></i></span>
+			<?php endif; ?>
 			</div>
 		</div>
 

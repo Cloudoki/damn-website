@@ -19,7 +19,7 @@
 	width:100%;
 	background: no-repeat center;
 	background-size: cover;
-	border-radius: 50%;
+	
 
 	&:after {
 		content: "";
@@ -27,8 +27,7 @@
 		width: 100%;
 		height:0;
 		padding-bottom: 100%;
-		background: rgba(0,0,0,.5) no-repeat center;
-		border-radius: 50%;
+		background: rgba(0,0,0, .2) no-repeat center;
 	}
 	
 	&:hover {
@@ -37,7 +36,7 @@
 		
 	div {
 		float:left;
-		width:100%;
+		width:95%;
 		padding-top:35%;
 		line-height:1em;
 		text-align:center;
@@ -53,6 +52,11 @@
 			&.month {
 				text-transform: uppercase;
 				font-weight: 100;
+			}
+			
+			&.running {
+				font-size: 2.5em;
+				line-height: 1.5em;
 			}
 		}
 	}

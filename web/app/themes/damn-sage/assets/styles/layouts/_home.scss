@@ -133,6 +133,31 @@ body.home {
 		font-size: 1.45em;
 		font-style: italic;
 	}
+	
+	.previous {
+		display: block !important;
+		margin: 10px 0 0; 
+		font-style: italic;
+		
+		a {	
+			color: #777;
+			font-weight: 200;
+			
+			&:hover { color: black; }
+		}
+	}
+}
+
+.previous {
+	margin-bottom: 20px; 
+	font-style: italic;
+	text-align: right;
+	
+	a {	
+		color: #777;
+		
+		&:hover { color: black; }
+	}
 }
 
 hr.sub-column {

@@ -173,8 +173,16 @@
 		
         ?>
         
-        
-
+        <?php /* Add Menifesto, if so */ 
+		
+		if( has_category("manifesto")) : 
+			global $issue_number;
+		?>
+			<hr>
+			<div class='previous'><a href="/category/manifesto">View All</a> <a href="/?issue=damn-<?=$issue_number-1?>#manifesto">/ Previous Manifesto</a></div>
+			
+		<?php endif; ?>
+		
         <?php /* Multiple external URL links, if added */ ?>
         <?php get_template_part('templates/snippet', 'external-links'); ?>
 
