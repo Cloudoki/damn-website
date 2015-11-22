@@ -121,7 +121,7 @@ if (!have_posts())
 	
 	?>
 	<div class="row recent-agenda">
-		<div class="table-row">
+		<!--<div class="table-row">-->
 		<?php
 	
 		while ($calnodes->have_posts())
@@ -131,7 +131,7 @@ if (!have_posts())
 		}
 	
 		?>
-		</div>
+		<!--</div>-->
 	</div>
 </div>
 

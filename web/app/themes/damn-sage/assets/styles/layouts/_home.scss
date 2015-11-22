@@ -20,50 +20,54 @@ body.home {
 .recent-agenda {
 	margin-top: 10px;
 	
-	h1 {
-		margin: 14px 0 10px;
-		color: $black;
-		font-size: 1.2em;
-		font-weight: 700;
-		max-height: 60px;
-		overflow: hidden;
-		@media screen and (min-width: 1280px) { max-height: 66px; }
-	}
-	
-	h3 {
-		color: $black;
-		font-size: 1em;
-		font-weight: 300;
-		line-height: 1.25em;
-		max-height: 66px;
-		overflow: hidden;
-		@media screen and (min-width: 1280px) { max-height: 80px; }
-	}
-	
-	hr { 
-		border-color: rgba(0,0,0, .4);
-		margin: 6px 0;
-	}
-	
-	.end-date { 
-		font-size: .875em;
-		font-weight: 600;
-	}
-	
-	.category-link {
-		line-height: 1.58em;
-		text-align: right;
+	article {
+		margin-bottom: 15px;
 		
-		&.half-span { max-width: 50%; }
-		
-		a { 
-			padding: 1px 6px 2px;
+		h1 {
+			margin: 14px 0 10px;
 			color: $black;
-			font-size: .8em;
-			text-transform: uppercase;
-			border: 1px solid rgba(0,0,0, .5);
+			font-size: 1.2em;
+			font-weight: 700;
+			max-height: 60px;
+			overflow: hidden;
+			@media screen and (min-width: 1280px) { max-height: 66px; }
+		}
+		
+		h3 {
+			color: $black;
+			font-size: 1em;
+			font-weight: 300;
+			line-height: 1.25em;
+			max-height: 66px;
+			overflow: hidden;
+			@media screen and (min-width: 1280px) { max-height: 80px; }
+		}
+		
+		hr { 
+			border-color: rgba(0,0,0, .4);
+			margin: 6px 0;
+		}
+		
+		.end-date { 
+			font-size: .875em;
+			font-weight: 600;
+		}
+		
+		.category-link {
+			line-height: 1.58em;
+			text-align: right;
 			
-			&:hover { opacity: .5; }
+			&.half-span { max-width: 50%; }
+			
+			a { 
+				padding: 1px 6px 2px;
+				color: $black;
+				font-size: .8em;
+				text-transform: uppercase;
+				border: 1px solid rgba(0,0,0, .5);
+				
+				&:hover { opacity: .5; }
+			}
 		}
 	}
 	
