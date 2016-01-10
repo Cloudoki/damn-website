@@ -1,5 +1,19 @@
 // REUSED ITEMS
 
+/**
+ *	Does calendar need a separate file?
+ */
+.single-calendar {
+	
+	date { 
+		font-style: italic; 
+		font-size: 1.25em; 
+	}
+	
+	hr.primary { border-top: 4px solid black; }
+}
+
+
 .bordered-image {
   margin-bottom: 1.75em;
   @media screen and (max-width: 767px) {
@@ -1220,7 +1234,7 @@ body.single-product {
 
 // Video Format
 
-body.single-post, body.single-advertorial {
+/*body.single-post, body.single-advertorial {
   .featured-video-plus {
     @include position(absolute, $top: 0, $left: 0%);
     width: 100%;
@@ -1231,7 +1245,7 @@ body.single-post, body.single-advertorial {
       max-height: 500px;
     }
   }
-}
+}*/
 
 // (Photo) Gallery Format
 

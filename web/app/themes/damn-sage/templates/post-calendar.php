@@ -7,10 +7,8 @@
 // Variables
 $thumb = has_post_thumbnail ()? wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' ): [null];
 $start = get_field('start_date')? strtotime (get_field ('start_date')): null;
-$end = get_field('end_date')? strtotime (get_field ('end_date')): null;
 
-if($start && $start < (int) get_the_date ('U')) $start = null;
-
+if($start && $start < time()) $start = null;
 ?>
 
 <article class="item col-xs-6 col-sm-4 col-md-2">
@@ -31,16 +29,11 @@ if($start && $start < (int) get_the_date ('U')) $start = null;
 		<h3><?=get_field('sub-title')?: get_the_excerpt()?></h3>
 	</a>
 	
-	<hr>
-	
-	<?php if($end): ?>
-	<span class='end-date'>Until <?=date("M jS", $end)?></span>
-	<?php endif; ?>
-	
-	<div class="category-link pull-right<?=$end? " half-span":null?>">
-	<?php foreach (get_the_category() as $cat): ?>
-		<a href="<?=get_category_link($cat->term_id)?>" class="<?=$cat->slug?>"><?=$cat->cat_name?></a>
-	<?php endforeach; ?>
+	<div class="agenda-share">
+		<a href="http://twitter.com/share?url=<?=the_permalink()?>" target="_blank"><i class='ion-social-twitter'></i></a>
+		<a href="http://www.facebook.com/sharer.php?u=<?=the_permalink()?>" target="_blank"><i class='ion-social-facebook'></i></a>
+		<a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','//assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());" target="_blank"><i class='ion-social-pinterest'></i></a>
+		<a href="http://www.tumblr.com/share/link?<?=the_permalink()?>" target="_blank"><i class='ion-social-tumblr'></i></a>
 	</div>
-
+	
 </article>

@@ -5,6 +5,29 @@ use Roots\Sage\Config;
 use Roots\Sage\Wrapper;
 
 /**
+ *	Detect Templating
+ */
+  
+if (is_single ())
+
+	include ("base-". get_post_type () .".php");	
+
+else {
+
+ 
+/*
+if (is_single () && get_post_meta (get_the_ID (), '_template_slug', true))
+
+	include ("base-single-template.php");	
+	
+else if ('events' == get_post_type())
+
+	include ("base-event.php");
+
+else {*/
+
+
+/**
  *	Selected Issue
  */
 $issue = $_GET['issue']?
@@ -88,3 +111,5 @@ $header_subtitle = get_field ('header_subtitle', $issue_acf_id);
     ?>
   </body>
 </html>
+
+<?php } ?>
