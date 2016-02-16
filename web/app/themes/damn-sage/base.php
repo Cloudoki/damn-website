@@ -56,6 +56,7 @@ $header_subtitle = get_field ('header_subtitle', $issue_acf_id);
 			<?php endif; ?>
 			
 			<main class="main" role="main">
+			
 				<?php include Wrapper\template_path(); ?>
 			</main>
 			
@@ -66,7 +67,6 @@ $header_subtitle = get_field ('header_subtitle', $issue_acf_id);
 			<?php endif; ?>
 
 	<?php else: ?>
-
 		<div class="content">
 			<main class="main" role="main">
 				<div class="container">

@@ -297,3 +297,22 @@ class DAMN {
 		 }, $list);
 	 }
 }
+
+/**
+ * Filter the except length to 20 characters.
+ *
+ * @param int $length Excerpt length.
+ * @return int (Maybe) modified excerpt length.
+ */
+function damn_custom_excerpt_length( $length ) {
+    return 30;
+}
+add_filter( 'excerpt_length', 'damn_custom_excerpt_length', 999 );
+
+
+function damn_add_pinterest_code(){
+?>
+	<meta name="p:domain_verify" content="4aad6966ef02523e0cbf9b5af759e550"/>
+<?php
+}
+add_action( 'wp_head', 'damn_add_pinterest_code', 1 );

@@ -18,7 +18,13 @@ if (!have_posts())
 		'post_type' => 'post',
 		'orderby' => 'post_date',
 		'order' => 'DESC',
-		'meta_query' => [[ 'key' => '_thumbnail_id' ]]
+		'relation' => 'OR',
+			array(
+				'key' => '_thumbnail_id',
+			),
+			array(
+				'key' => '_scheduled_thumbnail_id',
+			)
 	];
 	
 	/**
