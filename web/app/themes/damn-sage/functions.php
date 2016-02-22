@@ -25,7 +25,7 @@ $sage_includes = [
 
 foreach ($sage_includes as $file) {
   if (!$filepath = locate_template($file)) {
-    trigger_error(sprintf(__('Error locating %s for inclusion', 'sage'), $file), E_USER_ERROR);
+	trigger_error(sprintf(__('Error locating %s for inclusion', 'sage'), $file), E_USER_ERROR);
   }
 
   require_once $filepath;
@@ -263,9 +263,9 @@ class DAMN {
 	 public function filterIds ($list)
 	 {
 		 return $list? 
-		 	
-		 	array_map (function ($item){ return $item->ID | $item->post_id | $item->term_id | $item->id; }, $list): 
-		 	[];
+			
+			array_map (function ($item){ return $item->ID | $item->post_id | $item->term_id | $item->id; }, $list): 
+			[];
 	 }
 	 
 	 /**
@@ -305,7 +305,7 @@ class DAMN {
  * @return int (Maybe) modified excerpt length.
  */
 function damn_custom_excerpt_length( $length ) {
-    return 30;
+	return 30;
 }
 add_filter( 'excerpt_length', 'damn_custom_excerpt_length', 999 );
 
@@ -316,3 +316,12 @@ function damn_add_pinterest_code(){
 <?php
 }
 add_action( 'wp_head', 'damn_add_pinterest_code', 1 );
+
+
+function damn_widget_title_link( $title ) {
+	if( strtolower( $title ) == "instagram" ) {
+		return "<a href=\"https://www.instagram.com/damn_magazine/\">".$title."</a>";
+	} 
+	return $title;
+}
+add_filter( 'widget_title', 'damn_widget_title_link' );
