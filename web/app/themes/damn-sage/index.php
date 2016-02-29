@@ -103,7 +103,7 @@ if (!have_posts())
 	*  If issue string parameter is provided,
 	*  show only connected posts and calendars.
 	*/
-	if ($_GET['issue'])
+	if ( isset( $_GET['issue'] ) )
 	
 		$feat_query['tax_query'][] =
 		$main_query['tax_query'][] = [
@@ -114,7 +114,7 @@ if (!have_posts())
 	
 	// Build featured post row
 	$featured = new WP_Query($feat_query);
-	$featured->the_post();
+	if( $featured->have_posts() ) $featured->the_post();
 	
 	// Excempt featured post from main streams
 	$main_query['post__not_in'][] = 
@@ -129,13 +129,13 @@ if (!have_posts())
 	<div class="row recent-agenda">
 		<!--<div class="table-row">-->
 		<?php
-	
+		if ( $calnodes->have_posts() ) {
 		while ($calnodes->have_posts())
-		{
-			$calnodes->the_post();
-			get_template_part('templates/post-calendar');  
+			{
+				$calnodes->the_post();
+				get_template_part('templates/post-calendar');  
+			}
 		}
-	
 		?>
 		<!--</div>-->
 	</div>
@@ -166,7 +166,8 @@ if (!have_posts())
 
 // Fetch issue-related manifesto
 $manifesto = new WP_Query($manf_query);
-$manifesto->the_post();
+
+if( $manifesto->have_posts() ) $manifesto->the_post();
 
 // Excempt manifesto from main streams
 $main_query['post__not_in'][] = 
@@ -187,9 +188,11 @@ $issue_query['post__not_in'][] = get_the_ID();
 $issues = new WP_Query($issue_query);
 
 // Excempt issue post from main stream
-foreach ($issues->posts as $post)
-	
-	$main_query['post__not_in'][] = $post->ID;
+if ( $issues->have_posts() ){
+	foreach ($issues->posts as $post)
+		$main_query['post__not_in'][] = $post->ID;
+}
+
 
 
 // Default Categories: 
@@ -219,16 +222,19 @@ foreach ($cats as $n):
 					
 					<div class="empty-wrapper row">
 <?php
-	while ($dynamics->have_posts())
-	{
-		$dynamics->the_post();
-		
-		get_template_part(
-			has_post_format( 'quote' )? 'templates/post-quote': 'templates/post-simple'
-		);
-		
-		$main_query['post__not_in'][] = get_the_ID();
+	if( $dynamics->have_posts() ){
+		while ( $dynamics->have_posts() )
+		{
+			$dynamics->the_post();
+			
+			get_template_part(
+				has_post_format( 'quote' )? 'templates/post-quote': 'templates/post-simple'
+			);
+			
+			$main_query['post__not_in'][] = get_the_ID();
+		}
 	}
+
 ?>					
 					</div>
 				</div>
@@ -266,7 +272,7 @@ $product_query = [
 	'order' => 'DESC'
 ];
 
-if ($_GET['issue'])
+if ( isset( $_GET['issue'] ) )
 	$product_query['tax_query'][] = [
 		'taxonomy' => 'magazine',
 		'field' => 'slug',

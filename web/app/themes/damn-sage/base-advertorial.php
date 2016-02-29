@@ -41,31 +41,46 @@ $parameters = (object)[
 	'date'			=> get_the_date ("F o")
 ];
 
+$template_path = 'advertorial/';
+
+# Template smarts
+$parameters->template = $template_path . '.default';
+
+
 # The Post
-$parameters->post = get_post ();
+$parameters->post = get_post();
 
 # Tags
-$parameters->tags = get_the_tags ();
+if ( get_the_tags() ){
+	$parameters->tags = get_the_tags ();
+}
 
 # Categories
-$parameters->categories = get_the_category (get_the_ID());
+if ( get_the_category( get_the_ID() ) ){
+	$parameters->categories = get_the_category (get_the_ID());
+}
 
 # Agenda
-$parameters->calnode = get_field ('calnode');
-$parameters->calnode->subtitle = get_field ('subtitle', $parameters->calnode->ID);
-$parameters->calnode->start = get_field ('start_date', $parameters->calnode->ID);
-$parameters->calnode->start_day = date ('d', strtotime ($parameters->calnode->start));
-$parameters->calnode->start_month = date ('M', strtotime ($parameters->calnode->start));
-$parameters->calnode->end = get_field ('end_date', $parameters->calnode->ID);
-$parameters->calnode->url = get_post_permalink ($parameters->calnode->ID);
+if (get_field ('calnode')  ){
+	$parameters->calnode = get_field ('calnode');
+	$parameters->calnode->subtitle = get_field ('subtitle', $parameters->calnode->ID);
+	$parameters->calnode->start = get_field ('start_date', $parameters->calnode->ID);
+	$parameters->calnode->start_day = date ('d', strtotime ($parameters->calnode->start));
+	$parameters->calnode->start_month = date ('M', strtotime ($parameters->calnode->start));
+	$parameters->calnode->end = get_field ('end_date', $parameters->calnode->ID);
+	$parameters->calnode->url = get_post_permalink ($parameters->calnode->ID);
+}
 
 
 
 # Brand
-$parameters->brand = get_field ('brand');
-$parameters->brand->logo = get_field ('logo', $parameters->brand->ID);
-$parameters->brand->link = get_field ('link', $parameters->brand->ID);
-$parameters->brand->acfid = 'brand_' . $parameters->brand->ID;
+if( get_field ('brand') ){
+	$parameters->brand = get_field ('brand');
+	$parameters->brand->logo = get_field ('logo', $parameters->brand->ID);
+	$parameters->brand->link = get_field ('link', $parameters->brand->ID);
+	$parameters->brand->acfid = 'brand_' . $parameters->brand->ID;
+}
+
 
 #Highlight
 $highlights = ($highlight = get_field ('highlight'))? $DAMN->sugar ([$highlight]): [];

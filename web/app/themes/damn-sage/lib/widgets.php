@@ -2,7 +2,7 @@
 class blog_Widget extends WP_Widget {
   function blog_Widget() {
     $widget_ops = array( 'classname' => 'latest-articles', 'description' => 'List of latest articles across all categories' );
-    $this->WP_Widget( 'latest_articles', 'Latest Articles', $widget_ops );
+    parent::__construct( 'latest_articles', 'Latest Articles', $widget_ops );
   }
 
   function widget( $args, $instance ) {
@@ -82,7 +82,7 @@ add_action( 'widgets_init', create_function( '', "register_widget('blog_Widget')
 class product_Widget extends WP_Widget {
   function product_Widget() {
     $widget_ops = array( 'classname' => 'latest-articles', 'description' => 'Product Lists' );
-    $this->WP_Widget( 'product_widget', 'Productivity', $widget_ops );
+    parent::__construct( 'product_widget', 'Productivity', $widget_ops );
   }
 
   function widget( $args, $instance ) {
@@ -161,7 +161,7 @@ add_action( 'widgets_init', create_function( '', "register_widget('product_Widge
 class magazine_Widget extends WP_Widget {
   function magazine_Widget() {
     $widget_ops = array( 'classname' => 'other-issues', 'description' => 'List of other magazine issues' );
-    $this->WP_Widget( 'magazine_related', 'Magazine Issues', $widget_ops );
+    parent::__construct( 'magazine_related', 'Magazine Issues', $widget_ops );
   }
 
   function widget( $args, $instance ) {
@@ -255,7 +255,7 @@ add_action( 'widgets_init', create_function( '', "register_widget('magazine_Widg
 class agenda_Widget extends WP_Widget {
   function agenda_Widget() {
     $widget_ops = array( 'classname' => 'calendar-events', 'description' => 'List of latest calendar events' );
-    $this->WP_Widget( 'calendar-events', 'Agenda - Latest Calendar Events', $widget_ops );
+    parent::__construct( 'calendar-events', 'Agenda - Latest Calendar Events', $widget_ops );
   }
 
   function widget( $args, $instance ) {
@@ -380,7 +380,7 @@ add_action( 'widgets_init', create_function( '', "register_widget('agenda_Widget
 class event_Widget extends WP_Widget {
   function event_Widget() {
     $widget_ops = array( 'classname' => 'calendar-events events-events', 'description' => 'List of latest DAMN events' );
-    $this->WP_Widget( 'events-events', 'Events - Latest DAMN Events List', $widget_ops );
+    parent::__construct( 'events-events', 'Events - Latest DAMN Events List', $widget_ops );
   }
 
   function widget( $args, $instance ) {

@@ -41,6 +41,11 @@ $parameters = (object)[
 	'date'			=> get_the_date ("F o")
 ];
 
+$template_path = 'events/';
+
+# Template smarts
+$parameters->template = $template_path . '.default';
+
 # The Post
 $parameters->post = get_post ();
 

@@ -7,7 +7,7 @@ use Roots\Sage\Wrapper;
 /**
  *	Selected Issue
  */
-$issue = $_GET['issue']?
+$issue = isset( $_GET['issue'] )?
 
 	get_term_by('slug', preg_replace ("/[^A-Za-z0-9-]/", '', $_GET['issue']), 'magazine'):
 	get_field ('current_issue', 'option');

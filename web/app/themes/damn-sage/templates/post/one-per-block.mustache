@@ -95,6 +95,10 @@
 		{{/spill}}
 		
 		<div class="row">
+			{{^issue.brand}}
+				{{> /partials/ad-single}}
+			{{/issue.brand}}
+
 			{{#spill}}
 			
 				<div class="image col-sm-6">
