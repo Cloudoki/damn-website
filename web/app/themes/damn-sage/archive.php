@@ -28,14 +28,15 @@
 		$main_query ['post_type'][] = 'calendar';
 	}*/
 
-	if ($_GET['issue'])
+	if ( isset( $_GET['issue'] ) )
 		$main_query['tax_query'][] = [
 			'taxonomy' => 'magazine',
 			'field' => 'slug',
 			'terms' => [$issue->slug]
 		];
 
-	if (!$pass)
+
+	if ( !isset( $pass ) )
 	{
 		//global $dynamics;
 		$dynamics = new WP_Query($main_query);

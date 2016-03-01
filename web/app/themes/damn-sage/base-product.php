@@ -20,13 +20,24 @@ $latest_number = (int) !$DAMN->latest?
 	$DAMN->issue->number;
 
 $template_path = 'product/';
-	
+
+$next_issue = null;
+if( !$DAMN->latest && $DAMN->issue ){
+	$next_issue = $DAMN->issue->number +1;
+}
+
+$prev_issue = null;
+if( $DAMN->issue && $DAMN->issue->number > $latest_number-10 ){
+	$prev_issue = $DAMN->issue->number -1;
+}
+
+
 # Template required data
 $parameters = (object)[
 	'issue'		 => $DAMN->issue,
 	'issued'	 => $DAMN->issued,
-	'next_issue' => $DAMN->latest? null: $DAMN->issue->number +1,
-	'prev_issue' => $DAMN->issue->number > $latest_number-10? $DAMN->issue->number -1: null,
+	'next_issue' => $next_issue,
+	'prev_issue' => $prev_issue,
 	'history'	 => range ($latest_number, $latest_number-10),
 	'theme_path' => get_template_directory_uri(),
 	'template'	 => $template_path . (get_post_meta ($post->ID, '_template_slug', true)?: '.default'),
@@ -43,7 +54,7 @@ $parameters = (object)[
 ];
 
 # Ad
-if (!$DAMN->issue->brand && function_exists ('adrotate_group'))
+if ( $DAMN->issue && !$DAMN->issue->brand && function_exists ('adrotate_group'))
 	
 	$parameters->advert = adrotate_group (3);
 
@@ -103,8 +114,8 @@ else
 	 */
 	$related = [
 		'posts'=> $DAMN->relatedPosts (4, $parameters->post, $parameters->categories, $parameters->tags),
-		'products'=> $DAMN->relatedProducts (3, false, $parameters->categories, $parameters->tags, $parameters->products),
-		'calendar'=> $DAMN->relatedCalendars (3, false, $parameters->categories, $parameters->tags, $parameters->calendars)
+		'products'=> $DAMN->relatedProducts (3, false, $parameters->categories, $parameters->tags, isset($parameters->products)? $parameters->products : null ),
+		'calendar'=> $DAMN->relatedCalendars (3, false, $parameters->categories, $parameters->tags, isset($parameters->calendars)? $parameters->calendars : null )
 	];
 			
 	// Get some more

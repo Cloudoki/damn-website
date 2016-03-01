@@ -95,12 +95,14 @@ class DAMN {
 			throw new Exception('No current issue is set, please contact the DAMN° Moderator.');
 		
 		# Current Issue
-		$this->issue = $this->issued? : $this->filterIssue ($_GET['issue']);
+		if( isset(  $_GET['issue'] ) )
+		$this->issue = $this->issued? : $this->filterIssue ( $_GET['issue']);
 		
 		$this->expandIssue ();
 		
 		# Latest
-		$this->latest = $DAMN->latest_issue->term_id == $DAMN->issue->term_id;
+		if( isset ($DAMN ) ) 
+			$this->latest = $DAMN->latest_issue->term_id == $DAMN->issue->term_id;
 		
 		# Template
 		$this->template = is_single()? 
@@ -109,7 +111,8 @@ class DAMN {
 			null;
 			
 		# Contrast
-		$this->contrast = (int) get_field ('colour_scheme', $this->issue->acf_id);
+		if( $this->issue )
+			$this->contrast = (int) get_field ('colour_scheme', $this->issue->acf_id);
 	}
 	
 	/**
@@ -131,14 +134,17 @@ class DAMN {
 	public function expandIssue ()
 	{
 		# afc id
-		$this->issue->acf_id	= 'magazine_' . $this->issue->term_id;
-		
-		$this->issue->link		= get_term_link ($this->issue->term_id, 'magazine');
-		$this->issue->color		= get_field ('issue_color', $this->issue->acf_id);
-		$this->issue->number	= get_field ('magazine_number', $this->issue->acf_id);
-		
-		$id = get_field ('magazine_taxonomy_image', $this->issue->acf_id);
-		$this->issue->thumbnail	= $id? array_shift (wp_get_attachment_image_src ($id, 'small')): null;
+		if( $this->issue ){
+			$this->issue->acf_id	= 'magazine_' . $this->issue->term_id;
+			
+			$this->issue->link		= get_term_link ($this->issue->term_id, 'magazine');
+			$this->issue->color		= get_field ('issue_color', $this->issue->acf_id);
+			$this->issue->number	= get_field ('magazine_number', $this->issue->acf_id);
+			
+			$id = get_field ('magazine_taxonomy_image', $this->issue->acf_id);
+			$this->issue->thumbnail	= $id? array_shift (wp_get_attachment_image_src ($id, 'small')): null;
+		}
+
 	}
 	
 	/**
@@ -149,10 +155,12 @@ class DAMN {
 	 *	Related Posts
 	 *	Topical relation, with advertorial
 	 */
-	public function relatedPosts ($limit, $_single, $categories = null, $tags = null, $exclude = [])
+	public function relatedPosts ($limit, $_single, $categories = null, $tags = null, $exclude = [], $orderby = null )
 	{
 		wp_reset_query();
 		
+		$orderby = $orderby?: 'rand';
+
 		# Filters
 		$args = [];
 		$base_args = [
@@ -164,11 +172,16 @@ class DAMN {
 					'after'  => '2 year ago',
 				]
 			],
-			'orderby'		 => 'rand'
+			'orderby'		 => $orderby
 		];
 		
 		# Tags
-		if($tags) $args['tag__in'] = $this->filterIds ($tags);
+		if( $tags && !is_array( $tags ) ){
+			$args['tag_id'] = $tags;
+		} else if($tags){
+			$args['tag__in'] = $this->filterIds ($tags);
+		}
+
 		
 		# Categories
 		else if($categories) $args['category__in'] = $this->filterIds ($categories);

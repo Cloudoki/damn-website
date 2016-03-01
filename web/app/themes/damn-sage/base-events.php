@@ -12,12 +12,24 @@ global $DAMN;
 $DAMN = new DAMN ();
 
 # Issue numbers
-/*$latest_number = (int) !$DAMN->latest? 
+$latest_number = (int) !$DAMN->latest? 
 	
 	get_field ('magazine_number', 'magazine_' . $DAMN->latest_issue->term_id):
-	$DAMN->issue->number;*/
+	$DAMN->issue->number;
 	
 # Template required data
+
+
+$next_issue = null;
+if( !$DAMN->latest && $DAMN->issue ){
+	$next_issue = $DAMN->issue->number +1;
+}
+
+$prev_issue = null;
+if( $DAMN->issue && $DAMN->issue->number > $latest_number-10 ){
+	$prev_issue = $DAMN->issue->number -1;
+}
+
 $parameters = (object)[
 	'background'	=> [
 		'image' => get_field ('background_image'),
@@ -27,8 +39,8 @@ $parameters = (object)[
 	'issue'		 => $DAMN->issue,
 	'issued'	 => $DAMN->issued,
 	'contrast'	 => get_field ('contrast'),
-	'next_issue' => $DAMN->latest? null: $DAMN->issue->number +1,
-	'prev_issue' => $DAMN->issue->number > $latest_number-10? $DAMN->issue->number -1: null,
+	'next_issue' => $next_issue,
+	'prev_issue' => $prev_issue,
 	'history'	 => range ($latest_number, $latest_number-10),
 	'theme_path' => get_template_directory_uri(),
 	'navigation' => wp_nav_menu (
@@ -52,8 +64,16 @@ $parameters->post = get_post ();
 # Tags
 $parameters->tags = get_the_tags ();
 
+# Event tag
+$parameters->event_tag = get_field ('event_tag', $parameters->calnode->ID);
+
 # Categories
 $parameters->categories = get_the_category (get_the_ID());
+
+
+# Facebook stream
+$parameters->facebook_shortcode = do_shortcode( get_field('facebook_shortcode', $parameters->calnode->ID) );
+
 
 # Agenda
 $parameters->calnode = get_field ('calnode');
@@ -63,8 +83,6 @@ $parameters->calnode->start_day = date ('d', strtotime ($parameters->calnode->st
 $parameters->calnode->start_month = date ('M', strtotime ($parameters->calnode->start));
 $parameters->calnode->end = get_field ('end_date', $parameters->calnode->ID);
 $parameters->calnode->url = get_post_permalink ($parameters->calnode->ID);
-
-
 
 # Brand
 $parameters->brand = get_field ('brand');
@@ -76,10 +94,12 @@ $parameters->brand->acfid = 'brand_' . $parameters->brand->ID;
 $highlights = ($highlight = get_field ('highlight'))? $DAMN->sugar ([$highlight]): [];
 
 # Listed Posts
-$posts[0] = $DAMN->relatedPosts (-1, $parameters->post, null, $parameters->tags, $highlights?: null);
-$posts[1] = $DAMN->relatedPosts (13 - count ($posts[0]) - count ($highlights), false, $parameters->categories, null, array_merge ($highlights, $posts[0]));
+$event_tag = get_term_by( 'name', $parameters->event_tag , 'post_tag' );
 
-$parameters->posts = array_merge ($highlights, $posts[0], $posts[1]);
+$args = $DAMN->relatedPosts( -1, $parameters->post, null, $event_tag->term_id, [], 'date' );
+
+$parameters->posts = $args;
+//$parameters->posts = array_merge ($highlights, $posts[0], $posts[1]);
 
 # Classes
 $classes = get_field ('class')?: null;
@@ -99,12 +119,10 @@ get_template_part('templates/head');
 	 *	Code is Poetry.
 	 */
 	$Wustache = new Cloudoki\Wustache\Publication ();
-	echo $Wustache->template_content ($parameters, 'cpt/event');
-	
-	// Handled comfortably by Wustache.
-	
-				
+	echo $Wustache->template_content ($parameters, 'cpt/event'); // Handled comfortably by Wustache.
+
 	// Get some more
+
 	do_action('get_footer');
 	get_template_part('templates/footer');
 	wp_footer();

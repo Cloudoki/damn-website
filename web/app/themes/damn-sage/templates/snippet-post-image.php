@@ -23,7 +23,7 @@ $url = $thumb['0'];
     </div>
   <?php } ?>
 
-  <a class="btn btn-lg btn-default text-uppercase event-button" href="<?php the_permalink() ?>" target="_blank" title="<?php the_title_attribute(); ?>">MORE</a>
+  <a style="color:black;" class="btn btn-lg btn-default text-uppercase event-button" href="<?php the_permalink() ?>" target="_blank" title="<?php the_title_attribute(); ?>">MORE</a>
 
   <?php if ( has_post_thumbnail()) { ?>
     <div class="post-image" style="background-image:url(<?=$url?>);">

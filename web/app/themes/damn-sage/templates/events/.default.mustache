@@ -100,27 +100,26 @@
 	
 	<div class="row">
 
-		{{#spill}}
+		{{#rel_posts}}
 		<div class="col-sm-12 col-md-6 col-lg-4">
-			<a href="/{{posts.post_name}}">
-				<div class="item event-post" style="background-image:url({{posts.thumbnail}});">
+			<a href="/{{post_name}}">
+				<div class="item event-post" style="background-image:url({{thumbnail}});">
 					
 					<div class="bg-fade post-title">
 						
-						{{posts.post_title}}
-						<i class='sub-title'>{{posts.subtitle}}</i>
+						{{post_title}}
+						<i class='sub-title'>{{subtitle}}</i>
 						
 					</div>
 			
 				</div>
 			</a>
 		</div>
-		{{/spill}}
+		{{/rel_posts}}
 
 	</div>
-</div>
 
-<hr>
+</div>
 
 <div class="container">
 	<div class="row">
@@ -137,6 +136,7 @@
 </div>
 
 <hr>
+
 
 <div class="row">
 	<div class="col-md-6 align-right">
@@ -174,6 +174,16 @@
 		</div>
 	</div>
 </div>
+
+{{#facebook_shortcode}}
+	<hr>
+	<br>
+	<div class="container post-content">
+		<div class="row">
+			{{{facebook_shortcode}}}
+		</div>
+	</div>
+{{/facebook_shortcode}}
 
 
 {{> /partials/sub-footer-event}}
