@@ -172,7 +172,8 @@ class DAMN {
 					'after'  => '2 year ago',
 				]
 			],
-			'orderby'		 => $orderby
+			'orderby'		 => $orderby,
+			//'post__not_in'	 => $exclude
 		];
 		
 		# Tags
@@ -187,19 +188,16 @@ class DAMN {
 		else if($categories) $args['category__in'] = $this->filterIds ($categories);
 		
 		# pre-parse excludes
-		if(count ($exclude)) $exclude = $this->filterIds ($exclude);
+		//if(count ($exclude)) $exclude = $this->filterIds ($exclude);
 		
 		# In "the post"
 		if($_single) $exclude[] = $_single->ID;
 		
 		# Excludes
 		if(count ($exclude)) $args['post__not_in'] = $exclude;
-		
-		//print_r(array_merge ($base_args, $args));
-		//exit ();
-		
+
 		$list = get_posts (array_merge ($base_args, $args));
-		
+
 		# Output limit
 		if ($limit != -1 && count ($list) > $limit)
 			

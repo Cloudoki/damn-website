@@ -65,14 +65,14 @@ $parameters->post = get_post ();
 $parameters->tags = get_the_tags ();
 
 # Event tag
-$parameters->event_tag = get_field ('event_tag', $parameters->calnode->ID);
+$parameters->event_tag = get_field ('event_tag', get_the_ID());
 
 # Categories
 $parameters->categories = get_the_category (get_the_ID());
 
 
 # Facebook stream
-$parameters->facebook_shortcode = do_shortcode( get_field('facebook_shortcode', $parameters->calnode->ID) );
+$parameters->facebook_shortcode = do_shortcode( get_field('facebook_shortcode', get_the_ID() ) );
 
 
 # Agenda
@@ -96,10 +96,19 @@ $highlights = ($highlight = get_field ('highlight'))? $DAMN->sugar ([$highlight]
 # Listed Posts
 $event_tag = get_term_by( 'name', $parameters->event_tag , 'post_tag' );
 
-$args = $DAMN->relatedPosts( -1, $parameters->post, null, $event_tag->term_id, [], 'date' );
 
-$parameters->posts = $args;
-//$parameters->posts = array_merge ($highlights, $posts[0], $posts[1]);
+if( !empty( $highlights ) ){
+	$posts = $DAMN->relatedPosts( -1, $parameters->post, null, $event_tag->term_id, [$highlights[0]->ID], 'date' );
+	$parameters->posts = $highlights;
+	$parameters->rel_posts = $posts; 
+} else {
+	$highlights = $DAMN->relatedPosts( 1, $parameters->post, null, $event_tag->term_id, [], 'date' );
+	$rel_posts = $DAMN->relatedPosts( -1, $parameters->post, null, $event_tag->term_id, [$highlights[0]->ID], 'date' );
+	$parameters->posts = $highlights;
+	$parameters->rel_posts = $rel_posts; 
+}
+
+
 
 # Classes
 $classes = get_field ('class')?: null;
