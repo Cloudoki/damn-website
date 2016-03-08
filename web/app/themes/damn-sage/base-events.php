@@ -108,8 +108,6 @@ if( !empty( $highlights ) ){
 	$parameters->rel_posts = $rel_posts; 
 }
 
-
-
 # Classes
 $classes = get_field ('class')?: null;
 

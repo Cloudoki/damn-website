@@ -2,11 +2,13 @@
 /*
 Template Name: Magazine taxonomy
 */
+
 ?>
 
 <div class="row marginTop2em">
 
   <?php
+  
   $tax = 'magazine';
   $tax_args = array(
     'orderby' => 'ID',

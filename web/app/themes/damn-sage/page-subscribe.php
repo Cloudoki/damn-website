@@ -21,6 +21,7 @@ Template Name: Subscribe
       <?php the_content(); ?>
 
       <h2>Subscribe to our mailing list</h2>
+      <h4>While we finish DAMn+, subscribe to our mailing list to get the latest and hottest fresh from the oven.</h4>
       <h4>Fill out the form to get started</h4>
 
       <form class="validate" role="form" action="//damnmagazine.us11.list-manage.com/subscribe/post?u=e83f5d434bc817ef95113b8f0&amp;id=1f6a1653df" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate="">

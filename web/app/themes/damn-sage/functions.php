@@ -336,3 +336,47 @@ function damn_widget_title_link( $title ) {
 	return $title;
 }
 add_filter( 'widget_title', 'damn_widget_title_link' );
+
+/* For now.. add to scss later */
+function damn_custom_styling(){
+	?>
+		<style type="text/css" >
+			.right > .image > .caption{
+				margin-left:5%!important;
+			}
+			.image > .caption-white{
+				color:white!important;
+				font-size:12px!important;
+			}
+			.image > .caption-black{
+				color:black!important;
+				font-size:12px!important;
+			}
+		</style>
+	<?php
+	
+	if ( str_replace( '/' , '', $_SERVER['REQUEST_URI'] ) === 'back-issues' ){ ?>
+		<style type="text/css" >
+			.news-item h2{
+				display:none!important;
+			}
+			.back-issues-copy{
+				padding-top:35px;
+				padding-bottom:25px;
+				border-bottom: 1px solid #e0dede;
+			}
+			.back-issues-copy > .subscribe-link{
+				width:fit-content;
+				text-transform: uppercase;
+				border: 2px solid rgba(0,0,0,.8);
+				margin: 0 auto;
+			}
+			.back-issues-copy > .subscribe-link a {
+				display:inline-block;
+				padding: 10px 70px 10px 70px;
+				color: #000;
+			}
+		</style>
+	<?php }
+}
+add_action( 'wp_head', 'damn_custom_styling' );

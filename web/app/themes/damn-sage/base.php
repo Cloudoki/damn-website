@@ -47,6 +47,12 @@ $header_subtitle = get_field ('header_subtitle', $issue_acf_id);
 	<div class="wrap" role="document">
 	<?php if (is_tax( 'magazine' ) || is_page() || is_post_type_archive('calendar')): ?>
 
+		<?php 
+			if ( str_replace( '/' , '', $_SERVER['REQUEST_URI'] ) === 'back-issues'  ){
+				get_template_part('templates/back-issues-copy');
+			}
+		?>
+
 		<div class="content container">
 			
 			<?php if (Config\display_sidebar() && !is_post_type_archive('calendar')) : ?>
