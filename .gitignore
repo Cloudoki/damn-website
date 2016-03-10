@@ -30,5 +30,8 @@ vendor/*
 # Node Package Manager
 node_modules
 
+# Composer
+composer.phar
+
 .phpintel
 .DS_Store
