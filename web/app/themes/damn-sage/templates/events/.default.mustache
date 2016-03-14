@@ -19,8 +19,8 @@
 					{{#contrast}}<img src="{{theme_path}}/dist/images/logo-positive.svg" alt="DAMN°" />{{/contrast}}
 					{{^contrast}}<img src="{{theme_path}}/dist/images/logo-negative.svg" alt="DAMN°" />{{/contrast}}
 					</a>
-			
-					<div class="event-title">
+					
+					<div class="event-title col-md-8">
 					{{{post.post_title}}}
 					</div>
 					
@@ -44,7 +44,7 @@
 	
 	{{#image}}	
 	<div class="row">
-		<div class="col-sm-12 col-md-7 event-description">
+		<div class="col-sm-12 col-md-7  event-description">
 			
 			{{{post.post_content}}}
 			
@@ -59,7 +59,7 @@
 	
 	{{^image}}	
 	<div class="row">
-		<div class="col-md-12 col-lg-10 event-description">
+		<div class="col-md-12 col-lg-12 event-description">
 			
 			{{{post.post_content}}}
 			
@@ -68,7 +68,14 @@
 	{{/image}}
 	
 	<div class="row">
-		<div class="col-sm-12 col-md-9 col-lg-10">
+		<div class="col-md-12 col-lg-12 event-description">
+		{{{text_area}}}
+		</div>
+	</div>
+
+	<div class="row">
+
+		<div class="col-sm-12 col-md-3 col-lg-8 ">
 		{{#iterate}}
 				
 			{{#posts.#}}
@@ -77,27 +84,31 @@
 			
 		{{/iterate}}			
 		</div>
-		<div class="col-sm-12 col-md-3 col-lg-2">
-			
-			<div class="event-brand">
-				<a href="{{brand.logo}}" target="_blank">
-					<img src="{{brand.logo}}" title="{{brand.post_title}}" />
-				</a>
-			</div>
+		
+		<div class="col-sm-12 col-md-3 col-lg-4">
 
-			<div class="event-social">
-				{{{post.post_title}}} on <br>
-				{{#post.social_twitter}}
-					<a href="{{post.social_twitter}}" target="_blank"><i class="ion-social-twitter"></i></a>
-				{{/post.social_twitter}}
-				{{#post.social_facebook}}
-					<a href="{{post.social_facebook}}" target="_blank"><i class="ion-social-facebook"></i></a>
-				{{/post.social_facebook}}
-			</div>
+			{{#offset_posts}}
+
+				<a href="/{{post_name}}">
+					<div class="item event-post" style="background-image:url({{thumbnail}});">
 						
+						<div class="bg-fade post-title">
+						
+							{{post_title}}
+							<i class='sub-title'>{{subtitle}}</i>
+							
+						</div>
+				
+					</div>
+				</a>
+
+			{{/offset_posts}}
+
 		</div>
+
 	</div>
-	
+
+
 	<div class="row">
 
 		{{#rel_posts}}
@@ -122,18 +133,41 @@
 </div>
 
 <div class="container">
+
 	<div class="row">
-		<div class="col-sm-12">
+
+		<div class="col-sm-12 col-md-3 col-lg-2">
+			<a href="{{brand.logo}}" target="_blank">
+				<img src="{{brand.logo}}" title="{{brand.post_title}}" />
+			</a>
+		</div>
+
+		<div class="col-sm-12 col-md-6 col-lg-8">
 			<a href="{{calnode.url}}">
+				
 				<h2>{{calnode.post_title}}</h2>
 				<h4>
 					{{#subtitle}}{{subtitle}}{{/subtitle}}
 					{{^subtitle}}{{calnode.start}} - {{calnode.end}}{{/subtitle}}
 				</h4>
 			</a>
+		
+
+			<div class="event-social">
+				{{#post.social_twitter}}
+					<a href="{{post.social_twitter}}" target="_blank"><i class="ion-social-twitter"></i></a>
+				{{/post.social_twitter}}
+				{{#post.social_facebook}}
+					<a href="{{post.social_facebook}}" target="_blank"><i class="ion-social-facebook"></i></a>
+				{{/post.social_facebook}}
+			</div>
+
 		</div>
 	</div>
+
+
 </div>
+
 
 <hr>
 
@@ -180,10 +214,15 @@
 	<br>
 	<div class="container post-content">
 		<div class="row">
+			<h2><i>Facebook stream</i></h2>
+		</div>
+	</div>
+	<div class="container post-content">
+		<div class="row">
+			
 			{{{facebook_shortcode}}}
 		</div>
 	</div>
 {{/facebook_shortcode}}
-
 
 {{> /partials/sub-footer-event}}

@@ -97,16 +97,30 @@ $highlights = ($highlight = get_field ('highlight'))? $DAMN->sugar ([$highlight]
 $event_tag = get_term_by( 'name', $parameters->event_tag , 'post_tag' );
 
 
+# text area 
+$parameters->text_area = get_field('text_area', get_the_ID() );
+
+
+#offset posts
+//$offset = $DAMN->relatedPosts( 1, $parameters->post, null, $event_tag->term_id, [], 'date' );
+
+
 if( !empty( $highlights ) ){
-	$posts = $DAMN->relatedPosts( -1, $parameters->post, null, $event_tag->term_id, [$highlights[0]->ID], 'date' );
+	$posts = $DAMN->relatedPosts( -1, $parameters->post, null, $event_tag->term_id, [$highlights[0]->ID], 'date', 3 );
+	$offset = $DAMN->relatedPosts( 3, $parameters->post, null, $event_tag->term_id, [], 'date' );
 	$parameters->posts = $highlights;
 	$parameters->rel_posts = $posts; 
+	$parameters->offset_posts = $offset; 
 } else {
 	$highlights = $DAMN->relatedPosts( 1, $parameters->post, null, $event_tag->term_id, [], 'date' );
 	$rel_posts = $DAMN->relatedPosts( -1, $parameters->post, null, $event_tag->term_id, [$highlights[0]->ID], 'date' );
 	$parameters->posts = $highlights;
 	$parameters->rel_posts = $rel_posts; 
 }
+
+
+
+
 
 # Classes
 $classes = get_field ('class')?: null;

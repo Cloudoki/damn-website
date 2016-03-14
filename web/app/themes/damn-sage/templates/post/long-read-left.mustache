@@ -38,7 +38,7 @@
 		
 		<div class="row">
 			
-			<div class="col-md-8 col-lg-8 col-lg-offset-1 paragraph">
+			<div class="col-md-8 col-lg-8 col-lg-offset-2 paragraph">
 				
 				{{#iterate}}
 					{{{paragraphs.#}}}
@@ -63,7 +63,7 @@
 		{{#iterate}}
 		<div class="row">
 			
-			<div class="col-md-8 col-lg-8 col-lg-offset-1 paragraph image-pull-left">
+			<div class="col-md-8 col-lg-8 col-lg-offset-2 paragraph image-pull-left">
 				
 				{{> /partials/image-captioned}}
 				
@@ -75,14 +75,12 @@
 		
 		{{#iterate}}
 		<div class="row">
-			
-			<div class="col-md-2">
-				
-				{{> /partials/quote-tweet}}
 
+			<div class="col-md-2">
+				{{> /partials/quote-tweet}}
 			</div>
-			
-			<div class="col-md-10 col-lg-8 paragraph">
+
+			<div class="col-md-10 col-lg-8  paragraph">
 				{{{paragraphs.#}}}
 			</div>
 			

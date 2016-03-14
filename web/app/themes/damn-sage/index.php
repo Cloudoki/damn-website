@@ -139,6 +139,39 @@ if (!have_posts())
 		?>
 		<!--</div>-->
 	</div>
+
+	<?php 
+		$main_event = get_field('highlighted_event', 'option');
+	 	if( $main_event ){
+	?>
+		<hr>
+		<article class="item-manifesto col-md-12" >
+			
+				<div class="row">
+					<div class="col-md-8">
+						<a href="<?php echo get_permalink( $main_event->ID ); ?>" rel="bookmark" title="<?php echo get_the_title( $main_event->ID ); ?>">
+							<h1><span class="description">Events /</span><?php echo get_the_title( $main_event->ID ); ?></h1>
+
+							<?php if ( $main_event->post_excerpt ){ ?>
+								<h3><?php  ?></h3>
+							<?php } ?>
+
+							<p><?php echo $main_event->post_excerpt ?></p>
+						</a>
+						<div class="previous"><a href="<?php echo get_site_url()?>/events">View All Events</a></div>
+						
+					</div>
+
+					<div class="col-md-4 post-image" style="background-image:url(<?php echo $url = wp_get_attachment_url( get_post_thumbnail_id( $main_event->ID ) ); ?>);"></div>
+
+				</div>
+			</a>
+		</article>
+		<hr>
+	<?php
+	 	}
+	?>
+
 </div>
 
 <?php /* sponsored content */ ?>

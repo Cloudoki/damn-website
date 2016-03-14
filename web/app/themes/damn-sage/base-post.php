@@ -20,7 +20,7 @@ $latest_number = (int) !$DAMN->latest?
 	$DAMN->issue->number;
 
 $template_path = 'post/';
-	
+
 # Template required data
 $next_issue = null;
 if( !$DAMN->latest && $DAMN->issue ){
@@ -31,7 +31,6 @@ $prev_issue = null;
 if( $DAMN->issue && $DAMN->issue->number > $latest_number-10 ){
 	$prev_issue = $DAMN->issue->number -1;
 }
-
 
 $parameters = (object)[
 	'issue'		 => $DAMN->issue,
@@ -60,11 +59,12 @@ $parameters->template = $template_path . (
 );
 
 
-
 # Ad
-if ( $DAMN->issue && !$DAMN->issue->brand && function_exists ('adrotate_group'))
-	
+if ( function_exists ('adrotate_group')){
 	$parameters->advert = adrotate_group (3);
+}
+
+
 
 # External Links
 $parameters->external_links = [];
