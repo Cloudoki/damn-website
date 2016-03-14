@@ -155,10 +155,10 @@ class DAMN {
 	 *	Related Posts
 	 *	Topical relation, with advertorial
 	 */
-	public function relatedPosts ($limit, $_single, $categories = null, $tags = null, $exclude = [], $orderby = null )
+	public function relatedPosts ($limit, $_single, $categories = null, $tags = null, $exclude = [], $orderby = null, $offset = 0 )
 	{
 		wp_reset_query();
-		
+
 		$orderby = $orderby?: 'rand';
 
 		# Filters
@@ -217,7 +217,23 @@ class DAMN {
 		if($partnered = $this->partneredContent (1, 'post'))
 		
 			$list [rand (0,count($list)-1)] = $partnered;
-		
+
+		#offset posts
+		if ( $offset > 0 ){
+
+			$the_list = $list;
+			$list = array();
+			$counter = 1;
+
+			foreach ($the_list as $post) {
+				if( $counter > $offset ){
+					array_push($list, $post);
+				}
+				$counter++;
+			}
+
+		}
+
 		return $this->sugar ($list);
 	}
 
@@ -340,6 +356,7 @@ add_filter( 'widget_title', 'damn_widget_title_link' );
 /* For now.. add to scss later */
 function damn_custom_styling(){
 	?>
+		
 		<style type="text/css" >
 			.right > .image > .caption{
 				margin-left:5%!important;
@@ -349,12 +366,19 @@ function damn_custom_styling(){
 				font-size:12px!important;
 			}
 			.image > .caption-black{
-				color:black!important;
+				color:#242424!important;
 				font-size:12px!important;
 			}
+			.subscribe-links > a, .mailing-list-form > p > a {
+				color:white!important;
+			}
+			.subscribe-links > a:hover {
+				color:white!important;
+			}
 		</style>
+
 	<?php
-	
+
 	if ( str_replace( '/' , '', $_SERVER['REQUEST_URI'] ) === 'back-issues' ){ ?>
 		<style type="text/css" >
 			.news-item h2{
@@ -377,6 +401,19 @@ function damn_custom_styling(){
 				color: #000;
 			}
 		</style>
+	<?php }  
+
+	if( get_post_type() == 'events' ){ ?>
+		<style type="text/css" >
+			.facebook-stream-dark-panel, .facebook-stream-white-panel{
+				padding: 0px;
+				border:none;
+			}
+		</style>
 	<?php }
+
+
+	#facebook-stream-dark-panel
+
 }
 add_action( 'wp_head', 'damn_custom_styling' );
