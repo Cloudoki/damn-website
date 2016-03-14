@@ -30,8 +30,8 @@ vendor/*
 # Node Package Manager
 node_modules
 
-# Vagrant
-bin
-.vagrant
+# Composer
+composer.phar
 
+.phpintel
 .DS_Store

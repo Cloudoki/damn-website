@@ -7,7 +7,7 @@ var concat       = require('gulp-concat');
 var flatten      = require('gulp-flatten');
 var gulp         = require('gulp');
 var gulpif       = require('gulp-if');
-var imagemin     = require('gulp-imagemin');
+//var imagemin     = require('gulp-imagemin');
 var jshint       = require('gulp-jshint');
 var lazypipe     = require('lazypipe');
 var less         = require('gulp-less');
@@ -214,6 +214,7 @@ gulp.task('fonts', function() {
 
 // ### Images
 // `gulp images` - Run lossless compression on all the images.
+/*
 gulp.task('images', function() {
   return gulp.src(globs.images)
     .pipe(imagemin({
@@ -224,6 +225,7 @@ gulp.task('images', function() {
     .pipe(gulp.dest(path.dist + 'images'))
     .pipe(browserSync.stream());
 });
+*/
 
 // ### JSHint
 // `gulp jshint` - Lints configuration JSON and project JS.
@@ -268,7 +270,8 @@ gulp.task('watch', function() {
 gulp.task('build', function(callback) {
   runSequence('styles',
               'scripts',
-              ['fonts', 'images'],
+              'fonts',
+              //['fonts', 'images'],
               callback);
 });
 
