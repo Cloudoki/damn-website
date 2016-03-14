@@ -358,6 +358,13 @@ function damn_custom_styling(){
 	?>
 		
 		<style type="text/css" >
+
+			.paragraph{
+				-webkit-column-count:1!important;
+				-webkit-column-count:1!important;
+				-moz-column-count:1!important;
+				column-count:1!important;
+			}
 			.title-dark > *, .title-dark > author a{
 				color:white!important;
 			}
@@ -414,9 +421,6 @@ function damn_custom_styling(){
 			}
 		</style>
 	<?php }
-
-
-	#facebook-stream-dark-panel
 
 }
 add_action( 'wp_head', 'damn_custom_styling' );
