@@ -358,6 +358,9 @@ function damn_custom_styling(){
 	?>
 		
 		<style type="text/css" >
+			.title-dark > *, .title-dark > author a{
+				color:white!important;
+			}
 			.right > .image > .caption{
 				margin-left:5%!important;
 			}

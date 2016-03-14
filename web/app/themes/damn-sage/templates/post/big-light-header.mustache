@@ -13,6 +13,7 @@
 
 	{{/iterate}}
 		
+		{{#contrast}}
 		<div class="header-content">
 			
 			<h1>{{{post.post_title}}}</h1>
@@ -21,7 +22,7 @@
 			<p class="excerpt">
 				{{{post.post_excerpt}}}
 			</p>
-			
+
 			<author>
 				<a href="{{author.url}}">{{author.display_name}}</a>
 			</author>
@@ -29,6 +30,28 @@
 			<date>{{date}}</date>
 			
 		</div>
+		{{/contrast}}
+
+
+		{{^contrast}}
+		<div class="header-content title-dark">
+			
+			<h1>{{{post.post_title}}}</h1>
+			<h2>{{#get_field}}sub-title{{/get_field}}</h2>
+			
+			<p class="excerpt">
+				{{{post.post_excerpt}}}
+			</p>
+
+			<author>
+				<a href="{{author.url}}">{{author.display_name}}</a>
+			</author>
+			
+			<date>{{date}}</date>
+			
+		</div>
+		{{/contrast}}
+
 	</div>
 	
 	<div class="container post-content">
