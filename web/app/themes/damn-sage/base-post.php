@@ -64,12 +64,10 @@ if ( !$DAMN->issue->brand && function_exists ('adrotate_group')){
 	$parameters->advert = adrotate_group (3);
 }
 
-
-
-
 # Make something happen here..
 if( !$DAMN->issue ){
-	@$parameters->issue->link = get_site_url() . '/editions/' . $DAMN->issued->slug;
+	@$parameters->issue->link = get_site_url() . '/wp/editions/' . $DAMN->issued->slug;
+	@$parameters->issue->link = str_replace('/wp', '', @$parameters->issue->link );
 	@$parameters->issue->thumbnail =  wp_get_attachment_url( get_field( 'magazine_taxonomy_image', 'magazine_' . $DAMN->issued->term_id ) );
 }
 
