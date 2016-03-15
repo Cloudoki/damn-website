@@ -67,6 +67,7 @@ function asset_path($filename) {
 
 function assets() {
   wp_enqueue_style('sage_css', asset_path('styles/main.css?v=1.1'), false, null);
+  wp_enqueue_style('extra_css', get_stylesheet_uri() );
 
   if (is_single() && comments_open() && get_option('thread_comments')) {
     wp_enqueue_script('comment-reply');

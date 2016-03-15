@@ -9,3 +9,55 @@ Author URI:         https://reccenter.com/
 License:            MIT License
 License URI:        http://opensource.org/licenses/MIT
 */
+
+.paragraph{
+	-webkit-column-count:1!important;
+	-webkit-column-count:1!important;
+	-moz-column-count:1!important;
+	column-count:1!important;
+}
+.title-dark > *, .title-dark > author a{
+	color:white!important;
+}
+.right > .image > .caption{
+	margin-left:5%!important;
+}
+.image > .caption-white{
+	color:white!important;
+	font-size:12px!important;
+}
+.image > .caption-black{
+	color:#242424!important;
+	font-size:12px!important;
+}
+.subscribe-links > a, .mailing-list-form > p > a {
+	color:white!important;
+}
+.subscribe-links > a:hover {
+	color:white!important;
+}
+
+.news-item h2{
+	display:none!important;
+}
+.back-issues-copy{
+	padding-top:35px;
+	padding-bottom:25px;
+	border-bottom: 1px solid #e0dede;
+}
+.back-issues-copy > .subscribe-link{
+	width:fit-content;
+	text-transform: uppercase;
+	border: 2px solid rgba(0,0,0,.8);
+	margin: 0 auto;
+}
+.back-issues-copy > .subscribe-link a {
+	display:inline-block;
+	padding: 10px 70px 10px 70px;
+	color: #000;
+}
+
+.facebook-stream-dark-panel, .facebook-stream-white-panel{
+	padding: 0px;
+	border:none;
+}
