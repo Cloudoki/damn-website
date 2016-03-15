@@ -158,7 +158,7 @@ if (!have_posts())
 
 							<p><?php echo $main_event->post_excerpt ?></p>
 						</a>
-						<div class="previous"><a href="<?php echo get_site_url()?>/events">View All Events</a></div>
+						<div class="previous"><a href="/events">View All Events</a></div>
 						
 					</div>
 
