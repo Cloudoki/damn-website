@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f5776b93534949fb6a959d785b677461",
-    "content-hash": "4ed949a71d6dd4da242344881d982374",
+    "hash": "550dd2288fa03c5b9ff15601bdce7f6a",
+    "content-hash": "ac235c0a96c4c67b02da7aaabbfcab0a",
     "packages": [
         {
             "name": "composer/installers",
@@ -303,15 +303,15 @@
         },
         {
             "name": "wpackagist-plugin/facebook-stream",
-            "version": "1.6",
+            "version": "1.5",
             "source": {
                 "type": "svn",
                 "url": "http://plugins.svn.wordpress.org/facebook-stream/",
-                "reference": "tags/1.6"
+                "reference": "tags/1.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/facebook-stream.1.6.zip",
+                "url": "https://downloads.wordpress.org/plugin/facebook-stream.1.5.zip",
                 "reference": null,
                 "shasum": null
             },
