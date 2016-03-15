@@ -88,6 +88,6 @@ footer .main-logo {
 	padding: 0px;
 }
 
-.event-text-area {
-	text-transform:lowercase!important;
+.event-text-area a{
+	color:white;
 }
