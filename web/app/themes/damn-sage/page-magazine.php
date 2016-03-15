@@ -29,7 +29,7 @@ Template Name: Magazine taxonomy
             echo '<img src="'.$image_url.'/dist/images/blank-image-magazine.gif" alt="'.$magazine->name.'" class="placeholder" />';
           echo "</a>";
         echo "</div>";
-        echo "<h2 class='entry-title text-center'><a href=\"{$link}\" title='{$magazine->name}'>{$magazine->name}</a></h2>";
+        echo "<h2 class='entry-title text-center entry-title-hide'><a href=\"{$link}\" title='{$magazine->name}'>{$magazine->name}</a></h2>";
       echo "</div>";
     echo "</div>";
   }
