@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1275ded852d89acca6c86e4bee96fc01",
-    "content-hash": "c631c8e2c98f7c5f7f43437b5d774111",
+    "hash": "f8cce55bafad86aed99b81018f8c2a5d",
+    "content-hash": "0c5162d364b0841e1f19bd5d81ec09e9",
     "packages": [
         {
             "name": "composer/installers",
@@ -300,6 +300,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/disable-emojis/"
+        },
+        {
+            "name": "wpackagist-plugin/facebook-stream",
+            "version": "1.2",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/facebook-stream/",
+                "reference": "tags/1.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/facebook-stream.1.2.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/facebook-stream/"
         },
         {
             "name": "wpackagist-plugin/featured-video-plus",
