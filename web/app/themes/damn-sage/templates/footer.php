@@ -15,17 +15,15 @@
 
         <div class="col-xs-12 col-ms-7 col-sm-6 col-md-6 footer-cta">
           <div class="btn-toolbar pull-right" role="toolbar">
+
             <div class="btn-group">
-              <button type="button" class="btn btn-whitestroke btn-xl btn-noRadius">
-                <a href="/subscribe" title="Join The Mailing List">Join The Mailing List</a>
-              </button>
+               <a class="btn btn-whitestroke btn-xl btn-noRadius" href="/subscribe" title="Join The Mailing List">Join The Mailing List</a>
             </div>
 
             <div class="btn-group pull-right">
-              <button type="button" class="btn btn-whitestroke btn-xl btn-noRadius">
-                <a href="/back-issues" title="DAMN Magazine - Back Issues">Back Issues</a>
-              </button>
+              <a href="/back-issues" class="btn btn-whitestroke btn-xl btn-noRadius" title="DAMN Magazine - Back Issues">Back Issues</a>
             </div>
+
           </div>
         </div>
 
