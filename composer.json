@@ -39,8 +39,7 @@
     "wpackagist-plugin/google-analytics-dashboard-for-wp": "4.8.2",
     "wpackagist-plugin/wpmandrill": "1.33",
     "wpackagist-plugin/featured-video-plus": "2.2.1",
-    "wpackagist-plugin/disable-emojis": "1.5",
-    "wpackagist-plugin/facebook-stream": "1.5"
+    "wpackagist-plugin/disable-emojis": "1.5"
   },
   "extra": {
     "installer-paths": {
