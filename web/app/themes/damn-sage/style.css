@@ -10,6 +10,13 @@ License:            MIT License
 License URI:        http://opensource.org/licenses/MIT
 */
 
+.fts-jal-fb-group-display{
+	-webkit-column-count:3!important;
+	-webkit-column-count:3!important;
+	-moz-column-count:3!important;
+	column-count:3!important;
+}
+
 .paragraph{
 	-webkit-column-count:1!important;
 	-webkit-column-count:1!important;
