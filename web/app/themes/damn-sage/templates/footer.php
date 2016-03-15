@@ -31,8 +31,8 @@
 
       <div class="row row-links">
         <div class="col-xs-12 col-sm-5 col-md-6">
-          <h4>About DAM<sub>N</sub>°</h4>
-          <?php the_field('about_damn', 'option'); ?>
+          <h4 class="about-damn-title">About DAM<sub>N</sub>°</h4>
+          <span class="about-damn"><?php the_field('about_damn', 'option'); ?></span>
         </div>
 
 		    <div class="col-xs-12 col-sm-1 col-md-1"></div>
@@ -46,7 +46,7 @@
           ?>
         </div>
 
-        <div class="col-xs-6 col-sm-3 col-md-3 footer-colophon">
+        <div class="col-xs-6 col-sm-3 col-md-2 footer-colophon">
           <h4>Colophon</h4>
           <?php
           if (has_nav_menu('colophon')) :
@@ -58,7 +58,7 @@
 
       <div class="row">
         <div class="col-xs-12 text-center">
-          <p class="copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?>. All rights reserved.</p>
+          <p class="copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?>. All rights reserved. <span class="footer-extra"><a href="/colophon/privacy-policy/">Privacy</a> - <a href="/colophon/terms-conditions">Terms & Conditions</a></span></p>
         </div>
       </div>
 
