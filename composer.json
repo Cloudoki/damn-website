@@ -32,7 +32,7 @@
     "php": ">=5.4",
     "composer/installers": "~1.0.12",
     "vlucas/phpdotenv": "^2.0.1",
-    "johnpbloch/wordpress": "4.3.1",
+    "johnpbloch/wordpress": "4.4.2",
 
     "wpackagist-plugin/adrotate": "3.12.1",
     "wpackagist-plugin/custom-post-type-ui": "1.1.2",
