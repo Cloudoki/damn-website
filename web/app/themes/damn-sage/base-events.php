@@ -71,10 +71,6 @@ $parameters->event_tag = get_field ('event_tag', get_the_ID());
 $parameters->categories = get_the_category (get_the_ID());
 
 
-# Facebook stream
-$parameters->facebook_shortcode = do_shortcode( get_field('facebook_shortcode', get_the_ID() ) );
-
-
 # Agenda
 $parameters->calnode = get_field ('calnode');
 $parameters->calnode->subtitle = get_field ('subtitle', $parameters->calnode->ID);
@@ -104,13 +100,22 @@ $parameters->text_area = get_field('text_area', get_the_ID() );
 #offset posts
 //$offset = $DAMN->relatedPosts( 1, $parameters->post, null, $event_tag->term_id, [], 'date' );
 
+# Facebook stream
+$parameters->facebook_shortcode = do_shortcode( get_field('facebook_shortcode', get_the_ID() ) );
+
 
 if( !empty( $highlights ) ){
-	$posts = $DAMN->relatedPosts( -1, $parameters->post, null, $event_tag->term_id, [$highlights[0]->ID], 'date', 3 );
-	$offset = $DAMN->relatedPosts( 3, $parameters->post, null, $event_tag->term_id, [], 'date' );
+
+	$posts = $DAMN->relatedPosts( -1, $parameters->post, null, $event_tag->term_id, [$highlights[0]->ID], 'date');
+	if( !$parameters->facebook_shortcode ){
+		$posts = $DAMN->relatedPosts( -1, $parameters->post, null, $event_tag->term_id, [$highlights[0]->ID], 'date', 3);
+		$offset = $DAMN->relatedPosts( 3, $parameters->post, null, $event_tag->term_id, [], 'date' );
+		$parameters->offset_posts = $offset; 
+	}
 	$parameters->posts = $highlights;
 	$parameters->rel_posts = $posts; 
-	$parameters->offset_posts = $offset; 
+
+
 } else {
 	$highlights = $DAMN->relatedPosts( 1, $parameters->post, null, $event_tag->term_id, [], 'date' );
 	$rel_posts = $DAMN->relatedPosts( -1, $parameters->post, null, $event_tag->term_id, [$highlights[0]->ID], 'date' );

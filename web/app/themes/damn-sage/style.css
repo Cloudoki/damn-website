@@ -10,13 +10,6 @@ License:            MIT License
 License URI:        http://opensource.org/licenses/MIT
 */
 
-.fts-jal-fb-group-display{
-	-webkit-column-count:3!important;
-	-webkit-column-count:3!important;
-	-moz-column-count:3!important;
-	column-count:3!important;
-}
-
 .paragraph{
 	-webkit-column-count:1!important;
 	-webkit-column-count:1!important;
@@ -64,10 +57,6 @@ License URI:        http://opensource.org/licenses/MIT
 	color: #000;
 }
 
-.facebook-stream-dark-panel, .facebook-stream-white-panel{
-	padding: 0px;
-	border:none;
-}
 
 footer, footer .btn-group a, footer .about-damn p, footer .copyright {
 	font-size: 13px;
@@ -98,4 +87,20 @@ footer .main-logo {
 .event-text-area a{
 	color:#141412;
 	font-weight:bold;
+}
+
+.fts-jal-fb-header{
+	display:none;
+}
+
+.fts-jal-single-fb-post{
+	display:none;
+}
+
+.fts-jal-single-fb-post:nth-child(-n+3){
+	display:block;
+}
+
+.fts-powered-by-text{
+	display:none;
 }

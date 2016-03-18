@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ec5204c6c7adfa047b98a14764d966b4",
-    "content-hash": "c7f2603cded25ad1f5c4cf0e1c336980",
+    "hash": "f2e369bb13235d0a973e98958982c84f",
+    "content-hash": "4059ac43c5fcc6cdf69da4c6dbea655d",
     "packages": [
         {
             "name": "composer/installers",
@@ -246,7 +246,7 @@
             "version": "3.12.1",
             "source": {
                 "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/adrotate/",
+                "url": "https://plugins.svn.wordpress.org/adrotate/",
                 "reference": "tags/3.12.1"
             },
             "dist": {
@@ -266,7 +266,7 @@
             "version": "1.1.2",
             "source": {
                 "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/custom-post-type-ui/",
+                "url": "https://plugins.svn.wordpress.org/custom-post-type-ui/",
                 "reference": "tags/1.1.2"
             },
             "dist": {
@@ -286,7 +286,7 @@
             "version": "1.5",
             "source": {
                 "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/disable-emojis/",
+                "url": "https://plugins.svn.wordpress.org/disable-emojis/",
                 "reference": "tags/1.5"
             },
             "dist": {
@@ -306,7 +306,7 @@
             "version": "2.2.1",
             "source": {
                 "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/featured-video-plus/",
+                "url": "https://plugins.svn.wordpress.org/featured-video-plus/",
                 "reference": "tags/2.2.1"
             },
             "dist": {
@@ -322,11 +322,31 @@
             "homepage": "https://wordpress.org/plugins/featured-video-plus/"
         },
         {
+            "name": "wpackagist-plugin/feed-them-social",
+            "version": "1.9.5",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/feed-them-social/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/feed-them-social.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/feed-them-social/"
+        },
+        {
             "name": "wpackagist-plugin/google-analytics-dashboard-for-wp",
             "version": "4.8.2",
             "source": {
                 "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/google-analytics-dashboard-for-wp/",
+                "url": "https://plugins.svn.wordpress.org/google-analytics-dashboard-for-wp/",
                 "reference": "tags/4.8.2"
             },
             "dist": {
@@ -346,7 +366,7 @@
             "version": "1.33",
             "source": {
                 "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/wpmandrill/",
+                "url": "https://plugins.svn.wordpress.org/wpmandrill/",
                 "reference": "tags/1.33"
             },
             "dist": {

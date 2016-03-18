@@ -86,23 +86,29 @@
 		</div>
 		
 		<div class="col-sm-12 col-md-3 col-lg-4">
+			{{#facebook_shortcode}}
+				<h2><a href="https://www.facebook.com/DAMnmagazine-27113480473" target="_blank">Facebook Stream</a></h2>
 
-			{{#offset_posts}}
+				{{{facebook_shortcode}}}
 
-				<a href="/{{post_name}}">
-					<div class="item event-post" style="background-image:url({{thumbnail}});">
-						
-						<div class="bg-fade post-title">
-						
-							{{post_title}}
-							<i class='sub-title'>{{subtitle}}</i>
+			{{/facebook_shortcode}}
+
+			{{^facebook_shortcode}}
+				{{#offset_posts}}
+					<a href="/{{post_name}}">
+						<div class="item event-post" style="background-image:url({{thumbnail}});">
 							
+							<div class="bg-fade post-title">
+							
+								{{post_title}}
+								<i class='sub-title'>{{subtitle}}</i>
+								
+							</div>
+					
 						</div>
-				
-					</div>
-				</a>
-
-			{{/offset_posts}}
+					</a>
+				{{/offset_posts}}
+			{{/facebook_shortcode}}
 
 		</div>
 
@@ -164,12 +170,9 @@
 		</div>
 	</div>
 
-
 </div>
 
-
 <hr>
-
 
 <div class="row">
 	<div class="col-md-6 align-right">
@@ -207,21 +210,5 @@
 		</div>
 	</div>
 </div>
-
-{{#facebook_shortcode}}
-	<hr>
-	<br>
-	<div class="container post-content">
-		<div class="row">
-			<h2><i>Facebook stream</i></h2>
-		</div>
-	</div>
-	<div class="container post-content">
-		<div class="row">
-			
-			{{{facebook_shortcode}}}
-		</div>
-	</div>
-{{/facebook_shortcode}}
 
 {{> /partials/sub-footer-event}}
