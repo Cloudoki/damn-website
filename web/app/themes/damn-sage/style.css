@@ -102,5 +102,5 @@ footer .main-logo {
 }
 
 .fts-powered-by-text{
-	display:none;
+	visibility: hidden;
 }
