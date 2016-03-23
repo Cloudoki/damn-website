@@ -107,14 +107,19 @@ footer .main-logo {
 
 .first-post-advert-wrapper .large-post header{
 	background: none;
-	background:none;
-	background: none; 
-	background: none;
+	width:100%;
+	height:100%;
+	position: relative;
+	transition: background .4s;
 }
 
+.first-post-advert-wrapper .large-post header .header-wrapper{
+	position: absolute;
+	bottom: 30px;
+	left: 30px;
+}
+
+
 .first-post-advert-wrapper .large-post header:hover{
-	background: linear-gradient(to bottom,rgba(0,0,0,0.6),rgba(0,0,0,0.6));
-	background: -o-linear-gradient(top,rgba(0,0,0,0.6),rgba(0,0,0,.6));
-	background: -webkit-linear-gradient(top,rgba(0,0,0,0.6),rgba(0,0,0,.6)); 
-	background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,0.6)),to(rgba(0,0,0,.6))); 
+	background: rgba(0,0,0,0.6);
 }
