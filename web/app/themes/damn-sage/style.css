@@ -104,7 +104,15 @@ footer .main-logo {
 .fts-powered-by-text{
 	visibility: hidden;
 }
+
 .first-post-advert-wrapper .large-post header{
+	background: none;
+	background:none;
+	background: none; 
+	background: none;
+}
+
+.first-post-advert-wrapper .large-post header:hover{
 	background: linear-gradient(to bottom,rgba(0,0,0,0.6),rgba(0,0,0,0.6));
 	background: -o-linear-gradient(top,rgba(0,0,0,0.6),rgba(0,0,0,.6));
 	background: -webkit-linear-gradient(top,rgba(0,0,0,0.6),rgba(0,0,0,.6)); 
