@@ -130,3 +130,48 @@ footer .main-logo {
 	letter-spacing: 0.1em;
 	font-weight: 100;
 }
+
+
+@media only screen and (max-width: 600px) {
+
+	.item .category-link a{
+		font-size: 10px!important;
+	}
+	.item .entry-title{
+		font-size:1em!important;
+	}
+	.item .subtitle{
+		font-size:10px!important;
+		height: 100px!important;
+	}
+}
+
+@media only screen and (max-width: 400px) {
+
+	.item .category-link a{
+		font-size: 10px!important;
+	}
+	.item .entry-title{
+		font-size:1em!important;
+	}
+	.item .subtitle{
+		font-size:10px!important;
+		height: 100px!important;
+	}
+
+}
+
+@media only screen and (max-width: 350px) {
+
+	.item .category-link a{
+		font-size: 10px!important;
+	}
+	.item .entry-title{
+		font-size:1em!important;
+	}
+	.item .subtitle{
+		font-size:10px!important;
+		height: 80px!important;
+	}
+
+}
