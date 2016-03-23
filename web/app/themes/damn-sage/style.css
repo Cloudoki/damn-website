@@ -123,3 +123,11 @@ footer .main-logo {
 .first-post-advert-wrapper .large-post header:hover{
 	background: rgba(0,0,0,0.6);
 }
+
+.ongoing-event {
+	font-size: 32px;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	margin-top: 7px;
+	font-weight: 100;
+}

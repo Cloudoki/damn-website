@@ -37,7 +37,7 @@ if($start && $start < time()) $start = null;
 				<span class="month"><?=date("M", $start);?></span>
 				<span class="day"><?=date("j", $start);?></span>
 			<?php else: ?>
-				<span class="running"><i class="ion-ios-calendar-outline"></i></span>
+				<span class="running"><p class="ongoing-event">Ongoing</p></span>
 			<?php endif; ?>
 			</div>
 		</div>
