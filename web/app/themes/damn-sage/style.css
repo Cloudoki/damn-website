@@ -105,8 +105,13 @@ footer .main-logo {
 	visibility: hidden;
 }
 
-.fts-jal-fb-message{
+.fts-jal-fb-message, .fts-jal-fb-see-more, .facebook-stream-title a{
 	color: #141412;
+}
+
+.fts-jal-fb-message a, .fts-jal-fb-description-wrap a, .fts-jal-fb-user-name a{
+	color: #141412;
+	font-weight: 700;
 }
 
 .first-post-advert-wrapper .large-post header{
