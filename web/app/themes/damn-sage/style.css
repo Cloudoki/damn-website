@@ -150,6 +150,26 @@ footer .main-logo {
 	}
 }
 
+@media only screen and (max-width: 455px) {
+
+	.single-events #menu-minimal-nav {
+		clear: both!important;
+	}
+
+	.single-events nav ul, .single-events nav ul li{
+		margin-top:5px!important;
+		padding: 0!important;
+	}
+
+	.single-events #menu-minimal-nav li, .single-events nav ul li a{;
+		font-size: 12px!important;
+		padding-right: 4px!important;
+	}
+
+
+}
+
+
 @media only screen and (max-width: 400px) {
 
 	.item .category-link a{
@@ -183,3 +203,5 @@ footer .main-logo {
 .event-social-share i, .event-read-more, .event-external-links li a {
 	color: #141412!important;
 }
+
+/*.single-events nav ul*/
