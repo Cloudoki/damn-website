@@ -139,6 +139,7 @@ get_template_part('templates/head');
 
 	<body <?php body_class ($classes); ?>>	
 	
+
 <?php
 
 	/**
@@ -147,8 +148,15 @@ get_template_part('templates/head');
 	$Wustache = new Cloudoki\Wustache\Publication ();
 	echo $Wustache->template_content ($parameters, 'cpt/event'); // Handled comfortably by Wustache.
 
-	// Get some more
+?>
+	<div id="search-bar" class="collapse event-search-bar">
+		<div class="container">
+			<?php get_template_part('snippets/search-form'); ?>
+		</div>
+	</div>
 
+<?php
+	// Get some more
 	do_action('get_footer');
 	get_template_part('templates/footer');
 	wp_footer();

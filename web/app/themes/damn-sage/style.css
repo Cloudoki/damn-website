@@ -204,4 +204,6 @@ footer .main-logo {
 	color: #141412!important;
 }
 
-/*.single-events nav ul*/
+.event-search-bar {
+	background:none!important;
+}
