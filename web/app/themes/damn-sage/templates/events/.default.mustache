@@ -105,8 +105,15 @@
 			{{^facebook_shortcode}}
 				{{#offset_posts}}
 					<a href="/{{post_name}}">
-						<div class="item event-post" style="background-image:url({{thumbnail}});">
-							
+						
+						{{#fallback_image_url}}
+							<div class="item event-post" style="background-image:url({{fallback_image_url}});">
+						{{/fallback_image_url}}
+
+						{{^fallback_image_url}}
+							<div class="item event-post" style="background-image:url({{thumbnail}});">
+						{{/fallback_image_url}}
+
 							<div class="bg-fade post-title">
 							
 								{{post_title}}

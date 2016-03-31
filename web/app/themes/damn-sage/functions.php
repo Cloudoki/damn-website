@@ -233,6 +233,15 @@ class DAMN {
 			}
 
 		}
+		/* Make sure there is a thumbail */
+		//
+		foreach ( $list as $post ) {
+			if( get_post_meta( $post->ID, 'scheduled' ) ){
+				$thumbId =  get_post_meta( $post->ID, '_scheduled_thumbnail_id' );
+				$url =  wp_get_attachment_url( $thumbId[0] );
+				$post->fallback_image_url = $url;
+			} 
+		} wp_reset_postdata();
 
 		return $this->sugar ($list);
 	}
