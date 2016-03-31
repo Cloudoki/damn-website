@@ -226,3 +226,7 @@ footer .main-logo {
 body.templated article .post-content .paragraph{
 	font-size:inherit!important;
 }
+
+#issuupress h3:last-of-type, ol.issuu-list {
+	display: none!important;
+}
