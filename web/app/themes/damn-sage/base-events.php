@@ -125,6 +125,10 @@ if( !empty( $highlights ) ){
 
 
 
+#Issuu link
+if( get_field ('issuu_post', $post->ID ) ){
+	$parameters->issuu_post = get_field ('issuu_post', $post->ID );
+}
 
 
 # Classes

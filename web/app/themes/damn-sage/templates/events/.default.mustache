@@ -60,18 +60,27 @@
 	{{^image}}	
 	<div class="row">
 		<div class="col-md-12 col-lg-12 event-description">
-			
+
 			{{{post.post_content}}}
-			
+
+			{{#issuu_post}}
+				<br>
+				<br>
+				Check our Cathalog <a href="{{issuu_post}}">here!</a>
+			{{/issuu_post}}
+
 		</div>
 	</div>
 	{{/image}}
-	
+
+
 	<div class="row">
 		<div class="col-md-12 col-lg-12 event-text-area">
 		{{{text_area}}}
 		</div>
 	</div>
+	
+
 
 	<div class="row">
 

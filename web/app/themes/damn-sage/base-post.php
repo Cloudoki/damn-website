@@ -32,6 +32,7 @@ if( $DAMN->issue && $DAMN->issue->number > $latest_number-10 ){
 	$prev_issue = $DAMN->issue->number -1;
 }
 
+
 $parameters = (object)[
 	'issue'		 => $DAMN->issue,
 	'issued'	 => $DAMN->issued,
@@ -99,6 +100,14 @@ if ($parameters->has_video)
 	$parameters->video = get_the_post_video($post->ID, '100%');
 
 
+# Issuu shortcode
+if( get_post_meta ($post->ID, 'issuu_shortcode', true) ){
+	$shortcode = get_post_meta ($post->ID, 'issuu_shortcode', true);
+	$parameters->issuu_shortcode = do_shortcode( $shortcode );
+}
+
+
+
 # Load Head
 get_template_part('templates/head'); 
 
@@ -125,6 +134,8 @@ else
 
 
 }	
+	
+
 	/**
 	 *	Add Related Posts
 	 */
