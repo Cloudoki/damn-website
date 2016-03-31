@@ -223,6 +223,6 @@ footer .main-logo {
 	background:none!important;
 }
 
-.body.templated article .post-content .paragraph{
+body.templated article .post-content .paragraph{
 	font-size:inherit!important;
 }
