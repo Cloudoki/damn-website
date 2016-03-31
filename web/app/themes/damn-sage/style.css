@@ -222,3 +222,7 @@ footer .main-logo {
 .event-search-bar {
 	background:none!important;
 }
+
+.body.templated article .post-content .paragraph{
+	font-size:inherit!important;
+}
