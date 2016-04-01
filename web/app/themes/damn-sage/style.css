@@ -230,3 +230,7 @@ body.templated article .post-content .paragraph{
 #issuupress h3:last-of-type, ol.issuu-list {
 	display: none!important;
 }
+
+.item.highlight-post-free .event-main-post-title {
+	background:none;
+}
