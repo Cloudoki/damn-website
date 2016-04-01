@@ -162,7 +162,7 @@ if (!have_posts())
 						
 					</div>
 
-					<div class="col-md-4 post-image" style="background-image:url(<?php echo $url = wp_get_attachment_url( get_post_thumbnail_id( $main_event->ID ) ); ?>);"></div>
+					<div class="col-md-4 post-image" style="background-image:url(<?php echo $url = wp_get_attachment_url( get_post_thumbnail_id( $main_event->ID ) ); ?>);"><a class="home-img-link-event" href="<?php echo get_permalink( $main_event->ID ); ?>"></a></div>
 
 				</div>
 			</a>
