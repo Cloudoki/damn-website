@@ -233,6 +233,7 @@ body.templated article .post-content .paragraph{
 
 .item.highlight-post-free .event-main-post-title {
 	background:none;
+	display:none;
 }
 
 .mc4wp-form-fields label {
