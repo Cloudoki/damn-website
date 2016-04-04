@@ -41,7 +41,8 @@
     "wpackagist-plugin/featured-video-plus": "2.2.1",
     "wpackagist-plugin/disable-emojis": "1.5",
     "wpackagist-plugin/feed-them-social": "1.9.5",
-    "wpackagist-plugin/issuupress": "1.3.2"
+    "wpackagist-plugin/issuupress": "1.3.2",
+    "wpackagist-plugin/mailchimp-for-wp": "3.1.5"
   },
   "extra": {
     "installer-paths": {
