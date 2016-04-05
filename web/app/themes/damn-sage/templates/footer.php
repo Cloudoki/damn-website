@@ -10,7 +10,7 @@
 
       <div class="row logo-buttons">
         <div class="col-xs-12 col-ms-5 col-sm-6 col-md-6 footer-logo">
-          <a class="main-logo" href="/">DAM<sub>N</sub>° MAGAZINE - <?php bloginfo('name'); ?></a>
+          <a class="main-logo" style="background: url(<?php echo get_template_directory_uri(); ?>/dist/images/damn-white.svg) no-repeat" href="/">DAM<sub>N</sub>° MAGAZINE - <?php bloginfo('name'); ?></a>
         </div>
 
         <div class="col-xs-12 col-ms-7 col-sm-6 col-md-6 footer-cta">
