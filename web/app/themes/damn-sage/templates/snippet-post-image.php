@@ -38,8 +38,24 @@ $url = $thumb['0'];
 <?php } else { ?>
 
   <?php if ( has_post_thumbnail()) { ?>
+
     <div class="post-image" style="background-image:url(<?=$url?>);">
-  <?php } else { ?>
+  <?php } else if( get_post_meta( $post->ID, 'scheduled' ) ){
+
+    if ( get_post_meta( $post->ID, '_scheduled_thumbnail_id' ) ){
+      $array = get_post_meta( $post->ID, '_scheduled_thumbnail_id' );
+      $thumb = wp_get_attachment_image_src( $array [0], 'large' );
+    } else if ( get_post_meta( $post->ID, '_scheduled_thumbnail_list') ){
+      $list = get_post_meta( $post->ID, '_scheduled_thumbnail_list');
+      $array =json_decode($list[0]);
+      $thumb = wp_get_attachment_image_src( $array[0], 'large' );
+    }
+
+  ?>
+    <div class="post-image" style="background-image:url(<?php echo $thumb[0]; ?>);">
+<?php
+
+  } else { ?>
     <div class="post-image" style="background-image:url(<?= get_template_directory_uri(); ?>/dist/images/default-tall.png)">
   <?php } ?>
     <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
