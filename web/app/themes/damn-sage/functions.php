@@ -362,3 +362,86 @@ function damn_widget_title_link( $title ) {
 }
 add_filter( 'widget_title', 'damn_widget_title_link' );
 
+/* 
+* Automatic email notification
+ */
+add_action( 'save_post', 'damn_send_email' );
+function damn_send_email( $post_id ) {
+
+	if ( !wp_is_post_revision( $post_id ) ) {
+
+		$checker = get_field( 'email_notification', $post_id );
+		if ( $checker ){
+
+			$post_type = get_post_type_object( get_post_type( $post_id ) );
+			$post_type = $post_type->labels->name;
+
+			$terms = wp_get_post_terms( $post_id, 'magazine', array('orderby' => 'name', 'order' => 'ASC' ) );
+
+			if( count( $terms ) > 1 ){
+
+				$issue = "";
+				$numItems = count($terms);
+				$i = 0;
+				foreach ( $terms as $term ) {
+					if(++$i === $numItems) {
+						$issue .= 'and ';
+						$issue .= $term->name;
+					} else {
+						$issue .= $term->name;
+						$issue .= ', ';
+					}
+				}
+
+			} else {
+				$issue = $terms[0]->name;
+			}
+
+			$permalink = get_permalink( $post_id );
+
+			$name = null;
+
+			$default_content = '';
+			$default_content .= "Your " . $post_type . " is published in DAMn Digitals - <a href='http://www.damnmagazine.net'>www.damnmagazine.net</a>\n"; 
+			$default_content .= "Here is the link to the online piece:\n";
+			$default_content .= $permalink ."\n\n";
+			$default_content .= "Please store it for your archive and feel free to share it on your social media!\n\n";
+			$default_content .= "If you are not subscribed to DAMn Magazine but would like to support us with a subscription, just let me know.\n\n";
+
+			$pdf = get_field( 'email_pdf', $post_id );
+			if ( $pdf ){
+				$default_content = '';
+				$default_content .= "Your " . $post_type . " is published in our current " . $issue . "\n"; 
+				$default_content .= "Attached you can find the pdf of the publication plus the cover.\n"; 
+				$default_content .= "Please store it for your archive and feel free to share it on your social media!\n\n"; 
+				$default_content .= "Also, here is the link to the online publication:\n"; 
+				$default_content .= $permalink ."\n\n";
+				$default_content .= "If you are not subscribed to DAMn Magazine but would like to support us with a subscription, just let me know.\n\n";
+			}
+
+			if ( have_rows( 'email_recipient', $post_id ) ){
+				while ( have_rows( 'email_recipient', $post_id ) ){
+					the_row();
+
+					$email = get_sub_field( 'recipient_email', $post_id );
+
+					$subject = "DAMNº Magazine / featured article_​";
+
+					$content = "Dear " .  get_sub_field( 'recipient_name', $post_id ) . " team,\n";
+					$content .= $default_content; 
+					$body = get_field( 'email_content', $post_id ) ? get_field( 'email_content', $post_id ) : $content;
+
+
+					if ( $pdf ){
+						wp_mail( $email, $subject, $body, '', array( $pdf->url ) );
+					} else {
+						wp_mail( $email, $subject, $body, '' );
+					}
+				}
+			}
+
+
+		}
+
+	}
+}
