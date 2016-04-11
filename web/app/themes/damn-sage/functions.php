@@ -362,6 +362,8 @@ function damn_widget_title_link( $title ) {
 }
 add_filter( 'widget_title', 'damn_widget_title_link' );
 
+
+
 /* 
 * Automatic email notification
  */
@@ -408,7 +410,7 @@ function damn_send_email( $post_id ) {
 						$issue .= $term->name;
 						$issue .= ', ';
 					}
-					
+
 					$image_id = get_field( 'magazine_taxonomy_image', $term->taxonomy . '_' . $term->term_id );
 					$image_uri = wp_get_attachment_url( $image_id );
 					$image_dir =  str_replace( get_site_url() . '/wp-content' , WP_CONTENT_DIR , $image_uri );
