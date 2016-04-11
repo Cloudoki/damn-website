@@ -136,7 +136,14 @@
 		{{#rel_posts}}
 		<div class="col-sm-12 col-md-6 col-lg-4">
 			<a href="/{{post_name}}">
-				<div class="item event-post" style="background-image:url({{thumbnail}});">
+				
+				{{#fallback_image_url}}
+					<div class="item event-post" style="background-image:url({{fallback_image_url}});">
+				{{/fallback_image_url}}
+
+				{{^fallback_image_url}}
+					<div class="item event-post" style="background-image:url({{thumbnail}});">
+				{{/fallback_image_url}}
 					
 					<div class="bg-fade post-title">
 						
