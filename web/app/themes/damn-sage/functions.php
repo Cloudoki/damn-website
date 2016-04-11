@@ -368,33 +368,57 @@ add_filter( 'widget_title', 'damn_widget_title_link' );
 add_action( 'save_post', 'damn_send_email' );
 function damn_send_email( $post_id ) {
 
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
+		return;
+
+
 	if ( !wp_is_post_revision( $post_id ) ) {
 
 		$checker = get_field( 'email_notification', $post_id );
 		if ( $checker ){
 
-			$post_type = get_post_type_object( get_post_type( $post_id ) );
-			$post_type = $post_type->labels->name;
+			$post_type = get_post_type( $post_id ) ;
+
+			if ( $post_type == "product" ) {
+				$post_type = "work";
+			} else if ( $post_type == "calendar" ){
+				$post_type = "event";
+			} else {
+				$post_type = "post";
+			}
 
 			$terms = wp_get_post_terms( $post_id, 'magazine', array('orderby' => 'name', 'order' => 'ASC' ) );
+			$covers = array();
 
 			if( count( $terms ) > 1 ){
 
 				$issue = "";
 				$numItems = count($terms);
-				$i = 0;
+
 				foreach ( $terms as $term ) {
 					if(++$i === $numItems) {
-						$issue .= 'and ';
+						$issue = substr( $issue, 0, -2 );
+						$issue .= ' and ';
 						$issue .= $term->name;
 					} else {
 						$issue .= $term->name;
 						$issue .= ', ';
 					}
+					
+					$image_id = get_field( 'magazine_taxonomy_image', $term->taxonomy . '_' . $term->term_id );
+					$image_uri = wp_get_attachment_url( $image_id );
+					$image_dir =  str_replace( get_site_url() . '/wp-content' , WP_CONTENT_DIR , $image_uri );
+
+					$covers[] = $image_dir; 
 				}
 
 			} else {
 				$issue = $terms[0]->name;
+				$image_id = get_field( 'magazine_taxonomy_image', $terms[0]->taxonomy . '_' . $terms[0]->term_id );
+				$image_uri = wp_get_attachment_url( $image_id );
+				$image_dir =  str_replace( get_site_url() . '/wp-content' , WP_CONTENT_DIR , $image_uri );
+
+				$covers[] = $image_dir; 
 			}
 
 			$permalink = get_permalink( $post_id );
@@ -419,6 +443,10 @@ function damn_send_email( $post_id ) {
 				$default_content .= "If you are not subscribed to DAMn Magazine but would like to support us with a subscription, just let me know.\n\n";
 			}
 
+			$headers[] = 'Reply-To: Maria Ribeiro <maria@damnmagazine.net>';
+			$headers[] = 'From: Maria Ribeiro <maria@damnmagazine.net>';
+			$headers[] = 'Cc: John Q Codex <jqc@wordpress.org>';
+
 			if ( have_rows( 'email_recipient', $post_id ) ){
 				while ( have_rows( 'email_recipient', $post_id ) ){
 					the_row();
@@ -429,19 +457,25 @@ function damn_send_email( $post_id ) {
 
 					$content = "Dear " .  get_sub_field( 'recipient_name', $post_id ) . " team,\n";
 					$content .= $default_content; 
+
 					$body = get_field( 'email_content', $post_id ) ? get_field( 'email_content', $post_id ) : $content;
 
-
 					if ( $pdf ){
-						wp_mail( $email, $subject, $body, '', array( $pdf->url ) );
+						$file = array( str_replace( get_site_url() . '/wp-content' , WP_CONTENT_DIR , $pdf['url'] ) );
+						$attachments = array_merge( $file, $covers );
+						add_filter( 'wp_mail_content_type', 'damn_email_notification_content_type' );
+						wp_mail( $email, $subject, $body, $headers, $attachments );
 					} else {
-						wp_mail( $email, $subject, $body, '' );
+						wp_mail( $email, $subject, $body, $headers );
 					}
 				}
 			}
 
-
 		}
 
 	}
+}
+
+function damn_email_notification_content_typ() {
+    return 'text/html';
 }
