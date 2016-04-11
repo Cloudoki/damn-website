@@ -376,7 +376,6 @@ function damn_send_email( $post_id ) {
 		return;
 
 
-
 	if ( !wp_is_post_revision( $post_id ) ) {
 
 		$checker = get_field( 'email_notification', $post_id );
@@ -462,6 +461,11 @@ function damn_send_email( $post_id ) {
 
 					$content = "Dear " .  get_sub_field( 'recipient_name', $post_id ) . " team,\n";
 					$content .= $default_content; 
+
+					$content .= "Maria Ribeiro \n";
+					$content .= "digital assistant \n";
+					$content .= "<a href='https://www.facebook.com/DAMnmagazine-27113480473/'>facebook</a> | <a href='https://www.instagram.com/damn_magazine/'>instagram</a>  | <a href='https://twitter.com/damntwice'>twitter</a> \n";
+
 
 					$body = get_field( 'email_content', $post_id ) ? get_field( 'email_content', $post_id ) : $content;
 
