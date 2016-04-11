@@ -372,6 +372,11 @@ function damn_send_email( $post_id ) {
 		return;
 
 
+	if( get_post_status( $post_id) != 'publish' )
+		return;
+
+
+
 	if ( !wp_is_post_revision( $post_id ) ) {
 
 		$checker = get_field( 'email_notification', $post_id );
