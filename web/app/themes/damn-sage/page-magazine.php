@@ -24,10 +24,15 @@ Template Name: Magazine taxonomy
 
     echo "<div class='item col-xs-6 col-sm-4 col-md-3 col-lg-3'>";
       echo "<div class='news-item'>";
-        echo '<div class="post-image" style="background-image:url('.$magazineimage[0].');">';
+        echo '<div class="post-image issue-container" style="background-image:url('.$magazineimage[0].');">';
+          if(!$magazineimage ){
+            echo "<span class='no-cover-image'><h1>" . $magazine->name . "</h1></span>";
+          }
+          
           echo "<a href=\"{$link}\" title='{$magazine->name}'>";
             echo '<img src="'.$image_url.'/dist/images/blank-image-magazine.gif" alt="'.$magazine->name.'" class="placeholder" />';
           echo "</a>";
+        
         echo "</div>";
         echo "<h2 class='entry-title text-center entry-title-hide'><a href=\"{$link}\" title='{$magazine->name}'>{$magazine->name}</a></h2>";
       echo "</div>";
