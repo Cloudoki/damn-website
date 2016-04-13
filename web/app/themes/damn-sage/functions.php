@@ -451,7 +451,8 @@ function damn_send_email( $post_id ) {
 
 			$headers[] = 'Reply-To: Maria Ribeiro <maria@damnmagazine.net>';
 			$headers[] = 'From: Maria Ribeiro <maria@damnmagazine.net>';
-			$headers[] = 'Cc: John Q Codex <jqc@wordpress.org>';
+			$headers[] = 'Cc: Bessam <bessaam@damnmagazine.net>';
+			$headers[] = 'Cc: Maria Ribeiro <maria@damnmagazine.net>';
 
 			if ( have_rows( 'email_recipient', $post_id ) ){
 				while ( have_rows( 'email_recipient', $post_id ) ){
