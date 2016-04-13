@@ -451,8 +451,8 @@ function damn_send_email( $post_id ) {
 
 			$headers[] = 'Reply-To: Maria Ribeiro <maria@damnmagazine.net>';
 			$headers[] = 'From: Maria Ribeiro <maria@damnmagazine.net>';
-			$headers[] = 'Cc: Bessaam El-Asmar <bessaam@damnmagazine.net>';
-			$headers[] = 'Cc: Maria Ribeiro <maria@damnmagazine.net>';
+			//$headers[] = 'Cc: Bessaam El-Asmar <bessaam@damnmagazine.net>';
+			//$headers[] = 'Cc: Maria Ribeiro <maria@damnmagazine.net>';
 
 			if ( have_rows( 'email_recipient', $post_id ) ){
 				while ( have_rows( 'email_recipient', $post_id ) ){
@@ -477,8 +477,16 @@ function damn_send_email( $post_id ) {
 						$attachments = array_merge( $file, $covers );
 						add_filter( 'wp_mail_content_type', 'damn_email_notification_content_type' );
 						wp_mail( $email, $subject, $body, $headers, $attachments );
+
+						wp_mail( 'bessaam@damnmagazine.net', $subject, $body, $headers, $attachments );
+						wp_mail( 'maria@damnmagazine.net', $subject, $body, $headers, $attachments );
+
+
 					} else {
 						wp_mail( $email, $subject, $body, $headers );
+
+						wp_mail( 'bessaam@damnmagazine.net', $subject, $body, $headers );
+						wp_mail( 'maria@damnmagazine.net', $subject, $body, $headers );
 					}
 				}
 			}
