@@ -26,8 +26,8 @@ Template Name: Magazine taxonomy
       echo "<div class='news-item'>";
         echo '<div class="post-image issue-container" style="background-image:url('.$magazineimage[0].');">';
           if(!$magazineimage ){
-            echo "<span class='no-cover-image'><h1>" . $magazine->name . "</h1></span>";
-          }
+            echo "<div class='no-cover-image'><h1>" . $magazine->name . "</h1></div>";
+          } 
           
           echo "<a href=\"{$link}\" title='{$magazine->name}'>";
             echo '<img src="'.$image_url.'/dist/images/blank-image-magazine.gif" alt="'.$magazine->name.'" class="placeholder" />';

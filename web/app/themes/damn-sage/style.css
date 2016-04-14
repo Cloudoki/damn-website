@@ -253,7 +253,12 @@ body.templated.positive-contrast footer h4{
 .no-cover-image h1{
 	color: #fff;
 	text-align: center;
-	position: relative;
-	top: 160px;
+}
+
+.no-cover-image{
+	position:absolute;
+	width:70%;
+	top: 150px;
+	left:15%;
 }
 
