@@ -29,7 +29,7 @@ $thumb = has_post_thumbnail ()? wp_get_attachment_image_src( get_post_thumbnail_
 				
 			</div>
 			<div class="col-md-4 post-image" style="background-image:url(<?=$thumb['0']?>);">
-				
+				<a class="home-img-link" href="<?=the_permalink()?>"></a>
 			</div>
 		</div>
 
@@ -50,3 +50,4 @@ $thumb = has_post_thumbnail ()? wp_get_attachment_image_src( get_post_thumbnail_
 	
 	
 </article>
+
