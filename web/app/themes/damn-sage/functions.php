@@ -482,7 +482,7 @@ function damn_send_email( $post_id ) {
 						add_filter( 'wp_mail_content_type', 'damn_email_notification_content_type' );
 						wpMandrill::mail( $email, $subject, $body, $headers, $attachments );
 
-						//wp_mail( 'bessaam@damnmagazine.net', $subject, $body, $headers, $attachments );
+						wpMandrill::mail( 'bessaam@damnmagazine.net', $subject, $body, $headers, $attachments );
 						wpMandrill::mail( 'maria@damnmagazine.net', $subject, $body, $headers, $attachments );
 
 
