@@ -292,12 +292,12 @@ body.templated.positive-contrast footer h4{
 }
 
 .offside-users-alphabet-menu-icon {
-	background-color: #dd9933;
-	position:absolute;
-	width:25px;
-	height:25px;
-	text-align:center;
-	padding-top:3px;
+	background-color: #dd9933!important;
+	position:absolute!important;
+	width:25px!important;
+	height:25px!important;
+	text-align:center!important;
+	padding-top:3px!important;
 }
 
 .offside-users-alphabet-menu-icon i {
