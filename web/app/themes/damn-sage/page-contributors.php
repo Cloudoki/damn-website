@@ -37,7 +37,7 @@ Template Name: Contributors
 
   ?>
 
-
+<!--
 <div class="offside-users-alphabet-menu">
   <div class="offside-users-alphabet-menu-icon"><i class="ion-person" data-toggle="collapse" data-target="#search-bar"></i></div>
   <ul>
@@ -50,7 +50,7 @@ Template Name: Contributors
      ?>
   </ul>
 </div>
-
+-->
 
   <footer class="contributors-list">
     <?php foreach($users as $user) { 
