@@ -49,7 +49,7 @@ Template Name: Contributors
      ?>
   </ul>
 </div>
-
+-->
 
   <footer class="contributors-list">
     <?php foreach($users as $user) { 
