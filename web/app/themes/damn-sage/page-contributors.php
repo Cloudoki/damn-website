@@ -39,6 +39,7 @@ Template Name: Contributors
 
 
 <div class="offside-users-alphabet-menu">
+  <div class="offside-users-alphabet-menu-icon"><i class="ion-person" data-toggle="collapse" data-target="#search-bar"></i></div>
   <ul>
     <?php 
       foreach ( $alphabet as $letter ) {
