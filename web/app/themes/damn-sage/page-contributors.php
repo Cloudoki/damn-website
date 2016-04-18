@@ -37,6 +37,7 @@ Template Name: Contributors
 
   ?>
 
+<!--
 <div class="offside-users-alphabet-menu">
   <ul>
     <?php 
@@ -47,9 +48,8 @@ Template Name: Contributors
     }
      ?>
   </ul>
-
 </div>
-
+-->
 
 
   <footer class="contributors-list">
