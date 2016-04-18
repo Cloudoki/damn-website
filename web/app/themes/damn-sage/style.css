@@ -262,3 +262,16 @@ body.templated.positive-contrast footer h4{
 	left:15%;
 }
 
+.offside-users-alphabet-menu {
+	position:fixed;
+	left:0;
+	top:35%;
+	width: 30px;
+	border-top: 1px solid #ddd;
+}
+
+.offside-users-alphabet-menu ul li {
+	text-align:center;
+	border-bottom: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+}

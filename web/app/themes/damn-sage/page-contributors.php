@@ -16,22 +16,60 @@ Template Name: Contributors
   $allUsers = get_users('orderby=display_name');
   $users = array();
 
+  $alphabet = array();
+
   // return authors and admins with posts
   foreach($allUsers as $currentUser) {
+
     if(in_array( 'author', $currentUser->roles ) || in_array( 'administrator', $currentUser->roles )) {
     if(count_user_posts($currentUser->ID)){
+
+      if( !in_array( substr( $currentUser->display_name , 0, 1 ),  $alphabet ) ){
+        array_push( $alphabet , substr( $currentUser->display_name , 0, 1 ) );
+      }
+
       $users[] = $currentUser;
     }
     }
   }
+
+  $current = "A";
+
   ?>
 
-  <footer class="contributors-list">
-    <?php foreach($users as $user) { ?>
+<div class="offside-users-alphabet-menu">
+  <ul>
+    <?php 
+      foreach ( $alphabet as $letter ) {
+    ?>
+        <li><a href="#user-<?php echo $letter ?>"><?php echo $letter ?></a></li>
+    <?php
+    }
+     ?>
+  </ul>
 
-      <div class="author-wrapper">
+</div>
+
+
+
+  <footer class="contributors-list">
+    <?php foreach($users as $user) { 
+
+         if( substr( $user->display_name , 0, 1 ) != $current ){
+              $current = substr( $user->display_name , 0, 1 );
+    ?>
+          <div class="author-wrapper" id="user-<?php echo $current ?>">
+    <?php
+          } else {
+      ?>
+          <div class="author-wrapper">
+    <?php
+          }
+      ?>
+
         <div class="author-info">
           <?php
+
           $author_badge = get_field('author_image', 'user_'. $user->ID ); if($author_badge != '') { ?>
             <div class="authorAvatar pull-left">
               <a href="<?php echo get_author_posts_url( $user->ID ); ?>" title="Read Articles">
