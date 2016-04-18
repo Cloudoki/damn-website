@@ -10,7 +10,4 @@ jQuery(document).ready(function($) {
 	});
 
 
-
-
-
 });

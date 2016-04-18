@@ -266,7 +266,8 @@ body.templated.positive-contrast footer h4{
 	position:fixed!important;
 	left:0!important;
 	top:25%!important;
-	width: 30px!important;
+	width: 25px!important;
+	height: 25px!important;
 	border-top: 1px solid #ddd!important;
 }
 
@@ -275,4 +276,8 @@ body.templated.positive-contrast footer h4{
 	text-align:center!important;
 	border-bottom: 1px solid #ddd!important;
 	border-right: 1px solid #ddd!important;
+}
+
+.offside-users-alphabet-menu ul li a{
+	font-size: 10px;
 }
