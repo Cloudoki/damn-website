@@ -384,6 +384,8 @@ function damn_send_email( $post_id ) {
 
 	if ( !wp_is_post_revision( $post_id ) ) {
 
+		$dir = WP_CONTENT_DIR ."/uploads";
+
 		$checker = get_field( 'email_notification', $post_id );
 		if ( $checker ){
 
@@ -416,8 +418,9 @@ function damn_send_email( $post_id ) {
 					}
 
 					$image_id = get_field( 'magazine_taxonomy_image', $term->taxonomy . '_' . $term->term_id );
-					$image_uri = wp_get_attachment_url( $image_id );
-					$image_dir =  str_replace( get_site_url() . '/wp-content' , WP_CONTENT_DIR , $image_uri );
+					$image_data = wp_get_attachment_metadata( $image_id );
+
+					$image_dir = $dir . "/" . $image_data['file'];
 
 					$covers[] = $image_dir; 
 				}
@@ -425,8 +428,10 @@ function damn_send_email( $post_id ) {
 			} else {
 				$issue = $terms[0]->name;
 				$image_id = get_field( 'magazine_taxonomy_image', $terms[0]->taxonomy . '_' . $terms[0]->term_id );
-				$image_uri = wp_get_attachment_url( $image_id );
-				$image_dir =  str_replace( get_site_url() . '/wp-content' , WP_CONTENT_DIR , $image_uri );
+
+				$image_data = wp_get_attachment_metadata( $image_id );
+
+				$image_dir = $dir . "/" . $image_data['file'];
 
 				$covers[] = $image_dir; 
 			}
@@ -471,22 +476,23 @@ function damn_send_email( $post_id ) {
 
 					$content .= "Maria Ribeiro \n";
 					$content .= "digital assistant \n";
-					$content .= "<a href='https://www.facebook.com/DAMnmagazine-27113480473/'>facebook</a> | <a href='https://www.instagram.com/damn_magazine/'>instagram</a>  | <a href='https://twitter.com/damntwice'>twitter</a> \n";
-
+					$content .= "<a href='https://www.facebook.com/DAMnmagazine-27113480473/'>facebook</a> | <a href='https://www.instagram.com/damn_magazine/'>instagram</a>  | <a href='https://twitter.com/damntwice'>twitter</a> \n\n";
 
 					$body = get_field( 'email_content', $post_id ) ? get_field( 'email_content', $post_id ) : $content;
 
 					if ( $pdf ){
-						$file = array( str_replace( get_site_url() . '/wp-content' , WP_CONTENT_DIR , $pdf['url'] ) );
+
+						$file = array( $dir . date( "/Y/m/",  strtotime( $pdf['date'] ) ) . $pdf['filename']  );
+
 						$attachments = array_merge( $file, $covers );
-						add_filter( 'wp_mail_content_type', 'damn_email_notification_content_type' );
+
 						wpMandrill::mail( $email, $subject, $body, $headers, $attachments );
 
 						wpMandrill::mail( 'bessaam@damnmagazine.net', $subject, $body, $headers, $attachments );
 						wpMandrill::mail( 'maria@damnmagazine.net', $subject, $body, $headers, $attachments );
 
-
 					} else {
+
 						wpMandrill::mail( $email, $subject, $body, $headers );
 
 						wpMandrill::mail( 'bessaam@damnmagazine.net', $subject, $body, $headers );
@@ -498,8 +504,4 @@ function damn_send_email( $post_id ) {
 		}
 
 	}
-}
-
-function damn_email_notification_content_typ() {
-    return 'text/html';
 }
