@@ -36,7 +36,7 @@ Template Name: Contributors
   $current = "A";
 
   ?>
-<!--
+
 <div class="offside-users-alphabet-menu">
   <ul>
     <?php 
@@ -50,7 +50,7 @@ Template Name: Contributors
 
 </div>
 
--->
+
 
   <footer class="contributors-list">
     <?php foreach($users as $user) { 
