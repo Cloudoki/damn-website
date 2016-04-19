@@ -25,7 +25,15 @@ if (!$thumb[0]){
 
 $start = get_field('start_date')? strtotime (get_field ('start_date')): null;
 
-if($start && $start < time()) $start = null;
+if( $start && $start < time() ){
+	$start = null;
+}
+
+if( get_field('end_date') && strtotime (get_field ('end_date')) < time() ){
+	$past = true;
+}	
+
+
 ?>
 
 <article class="item col-xs-6 col-sm-4 col-md-2">
@@ -33,12 +41,14 @@ if($start && $start < time()) $start = null;
 	<a href="<?=the_permalink()?>" rel="bookmark" title="<?=the_title_attribute()?>">
 		<div class="header-circle"<?=isset ($thumb['0'])? ' style="background-image:url(' . $thumb['0'] . ');"': null?>>
 			<div>
-			<?php if ($start): ?>
+			<?php if ($start) {  ?>
 				<span class="month"><?=date("M", $start);?></span>
 				<span class="day"><?=date("j", $start);?></span>
-			<?php else: ?>
+			<?php } else if( $past ) { ?>
+				<span class="running"><p class="ongoing-event">Past</p></span>
+			<?php } else { ?>
 				<span class="running"><p class="ongoing-event">Ongoing</p></span>
-			<?php endif; ?>
+			<?php } ?>
 			</div>
 		</div>
 
