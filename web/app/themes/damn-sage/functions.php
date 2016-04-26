@@ -370,9 +370,6 @@ add_filter( 'widget_title', 'damn_widget_title_link' );
 add_action( 'save_post', 'damn_send_email' );
 function damn_send_email( $post_id ) {
 
-	if( !class_exists('wpMandrill') ){
-		return;
-	}
 
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
 		return;
@@ -486,17 +483,17 @@ function damn_send_email( $post_id ) {
 
 						$attachments = array_merge( $file, $covers );
 
-						wpMandrill::mail( $email, $subject, $body, $headers, $attachments );
+						wp_mail( $email, $subject, $body, $headers, $attachments );
 
-						wpMandrill::mail( 'bessaam@damnmagazine.net', $subject, $body, $headers, $attachments );
-						wpMandrill::mail( 'maria@damnmagazine.net', $subject, $body, $headers, $attachments );
+						wp_mail( 'bessaam@damnmagazine.net', $subject, $body, $headers, $attachments );
+						wp_mail( 'maria@damnmagazine.net', $subject, $body, $headers, $attachments );
 
 					} else {
 
-						wpMandrill::mail( $email, $subject, $body, $headers );
+						wp_mail( $email, $subject, $body, $headers );
 
-						wpMandrill::mail( 'bessaam@damnmagazine.net', $subject, $body, $headers );
-						wpMandrill::mail( 'maria@damnmagazine.net', $subject, $body, $headers );
+						wp_mail( 'bessaam@damnmagazine.net', $subject, $body, $headers );
+						wp_mail( 'maria@damnmagazine.net', $subject, $body, $headers );
 					}
 				}
 			}
