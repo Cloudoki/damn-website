@@ -78,7 +78,11 @@ get_template_part('templates/head');
 ?>
 
 	<body <?php body_class ($parameters->contrast? 'positive-contrast templated': 'templated'); ?>>	
-	
+	<div id="search-bar" class="collapse event-search-bar">
+		<div class="container">
+			<?php get_template_part('snippets/search-form'); ?>
+		</div>
+	</div>
 <?php
 
 # Hold off DAMN+

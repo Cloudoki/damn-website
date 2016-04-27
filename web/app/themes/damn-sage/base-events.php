@@ -1,6 +1,8 @@
 <!doctype html>
 <html data-type="event" class="no-js" <?php language_attributes(); ?>>
 
+
+
 <?php
 global $DAMN;
 
