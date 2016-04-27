@@ -23,7 +23,7 @@
 			</ul>
 			
 		</div>
-		
+		{{#author.description}}
 		<div class="col-sm-6 col-lg-4 author">
 			
 			<a href="{{author.url}}" class='profile'>View Profile</a>
@@ -33,10 +33,11 @@
 					<img src="{{url}}" />
 				</div>
 			{{/author.avatar}}
-			
+
 			<h4>{{author.display_name}}</h4>
-			
+
 			{{{author.description}}}
 		</div>
+		{{/author.description}}
 	</div>
 </div>
