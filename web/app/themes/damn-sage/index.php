@@ -130,6 +130,14 @@ if (!have_posts())
 		<!--<div class="table-row">-->
 		<?php
 		if ( $calnodes->have_posts() ) {
+		?>
+			<br>
+			<div class="col-xs-12">
+		       <h3 class="archive-title">Calendar</h3>
+		    </div>
+
+
+		<?php
 		while ($calnodes->have_posts())
 			{
 				$calnodes->the_post();
