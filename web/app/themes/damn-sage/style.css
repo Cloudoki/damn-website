@@ -307,4 +307,5 @@ body.templated.positive-contrast footer h4{
 }
 .magazine_footer_description p {
 	font-size: 11px!important;
+	text-align: right;
 }
