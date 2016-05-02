@@ -1,3 +1,12 @@
+<?php 
+$issue = get_field ('current_issue', 'option');
+$issue_color = get_field ('issue_color', 'magazine_' . $issue->term_id );
+$issue_image   = get_field('magazine_taxonomy_image', 'magazine_' . $issue->term_id );
+
+$footer_desc   = get_field('magazine_footer_description', 'magazine_' . $issue->term_id );
+
+?>
+
 <footer class="content-info" role="contentinfo">
   <div class="container">
     <div class="advert footer-advert">
@@ -13,7 +22,17 @@
           <a class="main-logo" style="background: url(<?php echo get_template_directory_uri(); ?>/dist/images/damn-white.svg) no-repeat" href="/">DAM<sub>N</sub>° MAGAZINE - <?php bloginfo('name'); ?></a>
         </div>
 
-        <div class="col-xs-12 col-ms-7 col-sm-6 col-md-6 footer-cta">
+        <div class="col-xs-12 col-sm-6 col-md-6 footer-cta">
+
+           <div class="btn-toolbar pull-right" role="toolbar">
+
+              <div class="btn-group">
+                <a href="/back-issues/subscribe" class="btn btn-whitestroke btn-xl btn-noRadius" title="DAMN Magazine - Back Issues">Subscribe</a>
+              </div>
+
+            </div>
+
+
           <div class="btn-toolbar pull-right" role="toolbar">
 
             <div class="btn-group">
@@ -25,6 +44,8 @@
             </div>
 
           </div>
+
+
         </div>
 
       </div>
@@ -34,10 +55,10 @@
           <h4 class="about-damn-title">About DAM<sub>N</sub>°</h4>
           <span class="about-damn"><?php the_field('about_damn', 'option'); ?></span>
         </div>
+        
+        <div class="col-xs-12 col-sm-1 col-md-1"></div>
 
-		    <div class="col-xs-12 col-sm-1 col-md-1"></div>
-
-        <div class="col-xs-6 col-sm-3 col-md-2 footer-socials">
+        <div class="col-xs-6 col-sm-3 col-md-1 footer-socials">
           <h4>Socials</h4>
           <?php
           if (has_nav_menu('footer_socials')) :
@@ -46,7 +67,7 @@
           ?>
         </div>
 
-        <div class="col-xs-6 col-sm-3 col-md-2 footer-colophon">
+        <div class="col-xs-6 col-sm-3 col-md-1 footer-colophon">
           <h4>Colophon</h4>
           <?php
           if (has_nav_menu('colophon')) :
@@ -54,6 +75,21 @@
           endif;
           ?>
         </div>
+     
+        <div class="col-xs-12 col-sm-1 col-md-1"></div>
+
+        <div class="col-xs-6 col-sm-3 col-md-1 footer-issue">
+
+          <a href="/back-issues/subscribe" >
+            <?php echo wp_get_attachment_image( $issue_image, 'medium' ); ?>
+          </a>
+           
+           <div class="magazine_footer_description">
+             <?php echo trim( $footer_desc ); ?>
+          </div>
+        
+        </div>
+
       </div>
 
       <div class="row">

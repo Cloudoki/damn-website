@@ -300,6 +300,11 @@ body.templated.positive-contrast footer h4{
 	padding-top:3px!important;
 }
 
-.offside-users-alphabet-menu-icon i {
+
+.footer-socials, .footer-colophon, .footer-issue {
+	padding: 0px;
 	
+}
+.magazine_footer_description p {
+	font-size: 11px!important;
 }
