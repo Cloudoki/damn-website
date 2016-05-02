@@ -140,6 +140,14 @@ footer .main-logo {
 	font-weight: 100;
 }
 
+@media only screen and (max-width: 1280px) {
+
+	.no-margin-btn{
+		margin-right: 5px!important;
+	}
+
+}
+
 
 @media only screen and (max-width: 600px) {
 
@@ -303,8 +311,12 @@ body.templated.positive-contrast footer h4{
 
 .footer-socials, .footer-colophon, .footer-issue {
 	padding: 0px;
-	
 }
+
+.footer-issue{
+	padding-right:12px!important;
+}
+
 .magazine_footer_description p {
 	font-size: 11px!important;
 	text-align: right;

@@ -22,7 +22,7 @@ $footer_desc   = get_field('magazine_footer_description', 'magazine_' . $issue->
           <a class="main-logo" style="background: url(<?php echo get_template_directory_uri(); ?>/dist/images/damn-white.svg) no-repeat" href="/">DAM<sub>N</sub>° MAGAZINE - <?php bloginfo('name'); ?></a>
         </div>
 
-        <div class="col-xs-12 col-sm-6 col-md-6 footer-cta">
+        <div class="col-xs-12 col-sm-5 col-md-6 footer-cta">
 
            <div class="btn-toolbar pull-right" role="toolbar">
 
@@ -33,7 +33,7 @@ $footer_desc   = get_field('magazine_footer_description', 'magazine_' . $issue->
             </div>
 
 
-          <div class="btn-toolbar pull-right" role="toolbar">
+          <div class="btn-toolbar no-margin-btn pull-right" role="toolbar">
 
             <div class="btn-group">
                <a class="btn btn-whitestroke btn-xl btn-noRadius" href="/subscribe" title="Join The Mailing List">Join The Mailing List</a>
@@ -83,7 +83,7 @@ $footer_desc   = get_field('magazine_footer_description', 'magazine_' . $issue->
           <a href="/back-issues/subscribe" >
             <?php echo wp_get_attachment_image( $issue_image, 'medium' ); ?>
           </a>
-           
+           <br>
            <div class="magazine_footer_description">
              <?php echo trim( $footer_desc ); ?>
           </div>
