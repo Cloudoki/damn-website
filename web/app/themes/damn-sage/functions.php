@@ -502,3 +502,64 @@ function damn_send_email( $post_id ) {
 
 	}
 }
+
+
+/*
+* AJAX load more
+ */
+add_action( 'wp_ajax_nopriv_ajax_load', 'projects_ajax_load' );
+add_action( 'wp_ajax_ajax_load', 'projects_ajax_load' );
+
+function projects_ajax_load() {
+
+    $tag_name = get_field( 'project_tag', 'option' );
+
+	$tag = get_term_by('name', $tag_name, 'post_tag');
+
+	$args = array( 'post_type' => 'post', 'offset' => 5, 'tag__in' => $tag ? array( $tag->term_id ) : null );
+
+	$query = new WP_Query( $args );
+
+	if( $query->have_posts() ){
+		$x = 0;
+		while ( $query->have_posts() ) {
+			$query->the_post();
+			global $post;
+
+			$post->place = get_field( 'city_country' );
+
+			$thumb = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID), 'large' );
+			$url = $thumb['0'];
+
+			if( $x % 2 == 0 ){ 
+				$float = "left";
+			} else { 
+				$float = "right";
+			}
+		?>
+			<article class="item-project col-md-12 float-<?php echo $float; ?>">
+
+				<div class="row">
+
+					<div class="col-md-5 post-image" style="background-image: url(<?php echo $url; ?>)"><a class="home-img-link" href="<?php the_permalink(); ?>"></a></div>
+
+					<div class="col-md-7">
+						<a href="{{permalink}}" rel="bookmark" title="">
+							<h1><?php echo get_the_title();  ?>/ <span class="description"><?php echo get_field( 'city_country' ); ?></span></h1></a>
+							<p class="designers"><?php echo get_field( 'designers' ); ?></p>
+
+							<p class="project-excerpt"><?php echo $post->post_excerpt  ?> ... <span class="project-read-more"><a href="<?php the_permalink(); ?>"> + </a></span></p>
+
+					</div>
+
+				</div>
+				<hr>
+			</article>
+
+		<?php
+		$x++;
+		}
+	} wp_reset_postdata(); wp_reset_query();
+
+    die();
+}

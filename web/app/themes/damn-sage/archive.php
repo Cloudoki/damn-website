@@ -156,6 +156,19 @@ elseif (is_post_type_archive(array( 'events' ))) { ?>
   <?php endif; ?>
 
 <?php }
+/* If projects */
+elseif (is_post_type_archive(array( 'projects' ))) { ?>
+
+  <?php if ( have_posts() ) {  ?>
+    <div class="border-wrapper">
+      <?php while (have_posts()) {
+        the_post(); ?>
+        <?php get_template_part('templates/content-projects'); ?>
+      <?php } ?>
+    </div>
+  <?php } ?>
+
+<?php }
 /* If Author Archive */
 elseif (is_author()) { ?>
 

@@ -76,5 +76,11 @@ function assets() {
   wp_enqueue_script('modernizr', asset_path('scripts/modernizr.js'), [], null, true);
   wp_enqueue_script('sage_js', asset_path('scripts/main.js?v=1.1'), ['jquery'], null, true);
   wp_enqueue_script('general', get_stylesheet_directory_uri() . '/assets/scripts/general.js', ['jquery'], null, true);
+
+  if( get_post_type() === 'projects' ){
+    wp_enqueue_script('ajax', get_stylesheet_directory_uri() . '/assets/scripts/ajax.js', ['jquery'], null, true);
+  }
+
+
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
