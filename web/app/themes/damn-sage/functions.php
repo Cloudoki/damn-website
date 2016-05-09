@@ -512,7 +512,7 @@ add_action( 'wp_ajax_ajax_load', 'projects_ajax_load' );
 
 function projects_ajax_load() {
 
-    $tag_name = get_field( 'project_tag', 'option' );
+	$tag_name = get_field( 'project_tag', 'option' );
 
 	$tag = get_term_by('name', $tag_name, 'post_tag');
 
@@ -561,5 +561,39 @@ function projects_ajax_load() {
 		}
 	} wp_reset_postdata(); wp_reset_query();
 
-    die();
+	die();
 }
+
+
+/*
+* Programmaticaly add menu items
+ */
+function damn_add_menu_items( $items, $menu ) {
+
+	if( $menu->menu->slug === 'main-nav' ){
+		
+		$new_item = array();
+
+		 $item = array(
+			'title'            => 'Projects',
+			'attr_title'       => 'divider',
+			'menu_item_parent' => 0,
+			'ID'               => '',
+			'db_id'            => '',
+			'url'              => '/projects',
+			'classes'          => array( 'menu-item' )
+		);
+
+		$new_item[] = (object) $item;  // Add the new menu item to our array
+
+		$index = count( $items ) - 12;
+		array_splice( $items, $index, 0, $new_item );
+
+
+	}
+
+	return $items;
+
+}
+add_filter( 'wp_nav_menu_objects', 'damn_add_menu_items', 10, 2 );
+
