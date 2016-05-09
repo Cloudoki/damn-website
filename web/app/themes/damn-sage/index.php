@@ -405,7 +405,6 @@ if ($products->have_posts()) : ?>
 * Spoted with DAMN
 */
  ?>
-<?php /* ?>
 <br>
 <div class="row swd-container">
 	<div class="container">
@@ -413,22 +412,7 @@ if ($products->have_posts()) : ?>
 		<div class="col-xs-12">
 	       <h3 class="archive-title swd-title">#SPOTEDWITHDAMN</h3>
 	    </div>
-		
-		<?php 
-			
-			for ($i=0; $i < 6 ; $i++) { 
-		?>
-			<article class="item col-xs-6 col-sm-4 col-md-2">
-				
-				<a href="<?=the_permalink()?>" rel="bookmark" title="<?=the_title_attribute()?>">
-					<div class="header-circle" style="background-image:url(http://c.directlyrics.com/img/upload/lana-del-rey-big-eyes.jpg);" ></div>
-
-					<h3>Spoted With DAMN</h3>
-				</a>
-			</article>
-		<?php
-			}
-		?>
+		<br>
+		<?php echo wdi_feed(array('id'=>'1')); ?>
 	</div>
 </div>
-<?php */ ?>

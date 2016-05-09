@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d50ad16cf6eb3ab15c1681d59902ec2c",
-    "content-hash": "ad50fa184f8beffd6374c8f6ef9ab71e",
+    "hash": "ea01d18b5fa925947c335075383725de",
+    "content-hash": "64946c4612390b5e8a2068af13689b72",
     "packages": [
         {
             "name": "composer/installers",
@@ -421,6 +421,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/sendgrid-email-delivery-simplified/"
+        },
+        {
+            "name": "wpackagist-plugin/wd-instagram-feed",
+            "version": "1.0.10",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wd-instagram-feed/",
+                "reference": "tags/1.0.10"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wd-instagram-feed.1.0.10.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wd-instagram-feed/"
         },
         {
             "name": "wpackagist-plugin/wpmandrill",
