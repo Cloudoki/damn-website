@@ -164,7 +164,7 @@ elseif (is_post_type_archive(array( 'events' ))) { ?>
 elseif (is_post_type_archive(array( 'projects' ))) { ?>
 
   <?php if ( have_posts() ) {  ?>
-    <div class="border-wrapper">
+    <div class="border-wrapper projects-wrapper">
       <?php while (have_posts()) {
         the_post(); ?>
         <?php get_template_part('templates/content-projects'); ?>

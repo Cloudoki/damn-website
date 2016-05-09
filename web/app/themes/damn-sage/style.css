@@ -535,6 +535,13 @@ body.single-events nav ul li a{
 	float:right;
 }
 
+.border-wrapper.projects-wrapper .post-image, .border-wrapper.projects-wrapper .event-details {
+	height:350px;
+}
+.border-wrapper.projects-wrapper .news-item{
+	margin-bottom: 0px;
+}
+
 /*
 * Instagram feed
  */
