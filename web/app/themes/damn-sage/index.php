@@ -6,6 +6,9 @@ global $issue, $issue_color, $issue_number, $main_query;
 if (!have_posts())
 	get_template_part('templates/snippet-no-results');
 	
+$tag_name = get_field( 'project_tag', 'option' );
+$tag = get_term_by('name', $tag_name , 'post_tag');
+
 	/**
 	 *  Featured post.
 	 *
@@ -18,6 +21,7 @@ if (!have_posts())
 		'post_type' => 'post',
 		'orderby' => 'post_date',
 		'order' => 'DESC',
+		'tag__not_in' =>  $tag ? array( $tag->term_id ) : null,  
 		'relation' => 'OR',
 			array(
 				'key' => '_thumbnail_id',
@@ -74,6 +78,7 @@ if (!have_posts())
 		'post_type' => 'post',
 		'orderby' => 'post_date',
 		'order' => 'DESC',
+		'tag__not_in' =>  $tag ? array( $tag->term_id ) : null,  
 		'post__not_in' => [],
 		'meta_query' => [[ 'key' => '_thumbnail_id' ]],
 		'tax_query' => [[
@@ -92,6 +97,7 @@ if (!have_posts())
 		'posts_per_page' => 3,
 		'post_type' => 'post',
 		'orderby' => 'post_date',
+		'tag__not_in' =>  $tag ? array( $tag->term_id ) : null,  
 		'order' => 'DESC',
 		'meta_query' => [[ 'key' => '_thumbnail_id' ]],
 		'post__not_in' => [],
@@ -160,10 +166,6 @@ if (!have_posts())
 						<a href="<?php echo get_permalink( $main_event->ID ); ?>" rel="bookmark" title="<?php echo get_the_title( $main_event->ID ); ?>">
 							<h1><span class="description">Events /</span><?php echo get_the_title( $main_event->ID ); ?></h1>
 
-							<?php if ( $main_event->post_excerpt ){ ?>
-								<h3><?php  ?></h3>
-							<?php } ?>
-
 							<p><?php echo $main_event->post_excerpt ?></p>
 						</a>
 						<div class="previous"><a href="/events">View All Events</a></div>
@@ -177,6 +179,36 @@ if (!have_posts())
 		</article>
 		<hr>
 	<?php
+	 	} else {
+			
+			$args = array( 'post_type' => 'projects', 'posts_per_page' => 1 );
+			$query = new WP_Query( $args );
+
+			if( $query->have_posts() ){
+				while( $query->have_posts() ){ $query->the_post(); global $post;
+	?>
+				<hr>
+				<article class="item-manifesto col-md-12" >
+					
+						<div class="row">
+							<div class="col-md-8">
+								<a href="<?php echo get_permalink(); ?>" rel="bookmark" title="<?php echo get_the_title(); ?>">
+									<h1><span class="description">Projects /</span><?php echo get_the_title(); ?></h1>
+
+									<p><?php echo $post->post_excerpt ?></p>
+								</a>
+								<div class="previous"><a href="/projects">View All Projects</a></div>
+							</div>
+
+							<div class="col-md-4 post-image" style="background-image:url(<?php echo $url = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>);"><a class="home-img-link" href="<?php echo get_permalink( ); ?>"></a></div>
+
+						</div>
+					</a>
+				</article>
+				<hr>
+	<?php
+				}
+			} wp_reset_postdata(); wp_reset_query();
 	 	}
 	?>
 
@@ -365,5 +397,35 @@ if ($products->have_posts()) : ?>
 		<div class="col-xs-12 col-sm-12 col-md-4">
 		<?php get_template_part ('templates/widget-damnplus-select'); ?>
 		</div>
+	</div>
+</div>
+
+<?php 
+/*
+* Spoted with DAMN
+*/
+ ?>
+<br>
+<div class="row swd-container">
+	<div class="container">
+		<br>
+		<div class="col-xs-12">
+	       <h3 class="archive-title swd-title">#SPOTEDWITHDAMN</h3>
+	    </div>
+		
+		<?php 
+			for ($i=0; $i < 6 ; $i++) { 
+		?>
+			<article class="item col-xs-6 col-sm-4 col-md-2">
+				
+				<a href="<?=the_permalink()?>" rel="bookmark" title="<?=the_title_attribute()?>">
+					<div class="header-circle" style="background-image:url(http://c.directlyrics.com/img/upload/lana-del-rey-big-eyes.jpg);" ></div>
+
+					<h3>Spoted With DAMN</h3>
+				</a>
+			</article>
+		<?php
+			}
+		?>
 	</div>
 </div>
