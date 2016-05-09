@@ -385,6 +385,10 @@ body.single-projects footer {
 	margin-top:0px!important;
 }
 
+body.single-projects .addthis_custom_sharing a {
+	color: #000!important;
+}
+
 .projects-main-container{
 	margin-bottom: 100px;
 }
