@@ -405,6 +405,7 @@ if ($products->have_posts()) : ?>
 * Spoted with DAMN
 */
  ?>
+<?php /* ?>
 <br>
 <div class="row swd-container">
 	<div class="container">
@@ -414,6 +415,7 @@ if ($products->have_posts()) : ?>
 	    </div>
 		
 		<?php 
+			
 			for ($i=0; $i < 6 ; $i++) { 
 		?>
 			<article class="item col-xs-6 col-sm-4 col-md-2">
@@ -429,3 +431,4 @@ if ($products->have_posts()) : ?>
 		?>
 	</div>
 </div>
+<?php */ ?>
