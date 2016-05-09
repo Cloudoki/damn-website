@@ -116,14 +116,30 @@ $tag_name = get_field( 'project_tag', 'option' );
 $tag = get_term_by('name', $tag_name, 'post_tag');
 
 
+
 # Get Posts
-$args = array( 'post_type' => 'post', 'posts_per_page' => 5, 'tag__in' => $tag ? array( $tag->term_id ) : null );
+$args = array( 'post_type' => 'post', 'tag__in' => $tag ? array( $tag->term_id ) : null );
 
 $query = new WP_Query( $args );
 
+
+if( $query->found_posts > 5 ){
+	$parameters->load_more = true;
+} else {
+	$parameters->load_more = false;
+}
+
+
 if( $query->have_posts() ){
+	
+
 	$x = 1;
 	while ( $query->have_posts() ) {
+			
+		if( $x >= 6 ){
+			break;
+		}
+
 		$query->the_post();
 		global $post;
 
