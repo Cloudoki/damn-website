@@ -103,6 +103,7 @@ elseif (is_tax(array( 'magazine' ))) { ?>
 /* If Calendar */
 elseif (is_post_type_archive(array( 'calendar' ))) {
 
+
 	  // Could use a bit more DRY
  /* if (isset ($dynamics))
   {
@@ -133,6 +134,8 @@ elseif (is_post_type_archive(array( 'calendar' ))) {
 
   <?php } */ ?>
 
+
+
     <div class="row">
   		<?php if (have_posts()) : ?>
         <div data-columns="" id="columns-calendar">
@@ -156,6 +159,7 @@ elseif (is_post_type_archive(array( 'events' ))) { ?>
   <?php endif; ?>
 
 <?php }
+
 /* If projects */
 elseif (is_post_type_archive(array( 'projects' ))) { ?>
 
@@ -169,6 +173,7 @@ elseif (is_post_type_archive(array( 'projects' ))) { ?>
   <?php } ?>
 
 <?php }
+
 /* If Author Archive */
 elseif (is_author()) { ?>
 

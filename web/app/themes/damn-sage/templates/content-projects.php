@@ -1,5 +1,6 @@
 <?php use Roots\Sage\Extras; ?>
 
+
 <div class="item <?php foreach(get_the_category() as $category) { echo $category->slug . ' ';} ?>" id="post-<?php the_ID(); ?>">
   <div class="news-item row no-gutters">
 
@@ -15,6 +16,5 @@
       <?php /* REUSED snippet to display title, category, subtitle */ ?>
       <?php get_template_part('templates/snippet', 'feed-header'); ?>
     </div>
-
   </div>
 </div>
