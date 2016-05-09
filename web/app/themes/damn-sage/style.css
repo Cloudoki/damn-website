@@ -501,7 +501,7 @@ body.single-projects footer {
 
 .sponsor-wrapper h2{
 	padding-top:10px;
-	font-size: 44px;
+	font-size: 36px;
 	font-weight:900!important;
 	text-transform: none!important;
 }
@@ -511,7 +511,7 @@ body.single-projects footer {
 	float:right;
 	margin-right:15px;
 	margin-top: 50px;
-	font-size:30px;
+	font-size:20px;
 }
 
 .ajax-load-more a{
@@ -519,8 +519,8 @@ body.single-projects footer {
 	border-radius: 5px;
 	color:#000!important;
 	text-transform: uppercase;
-	font-size:30px;
-	padding: 8px;
+	font-size:20px;
+	padding: 3px;
 	
 }
 
@@ -528,3 +528,30 @@ body.single-projects footer {
 	float:right;
 }
 
+/*
+* Instagram feed
+ */
+.wdi_feed_main_container{
+	margin-top:20px;
+	position: relative;
+	width:100px;
+}
+
+.wdi_feed_users, #wdi_current_page, #wdi_last_page, #wdi_first_page{
+	display:none!important;
+}
+
+#wdi_next{
+	position: absolute;
+	right: -30px;
+	top: 40%;
+	font-size:20px;
+}
+
+
+#wdi_prev{
+	position: absolute;
+	left: -30px;
+	top: 40%;
+	font-size:20px;
+}
