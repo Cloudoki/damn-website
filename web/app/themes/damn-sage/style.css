@@ -389,6 +389,10 @@ body.single-projects .addthis_custom_sharing a {
 	color: #000!important;
 }
 
+body.single-events nav ul li a{
+	font-size:1.1em;
+}
+
 .projects-main-container{
 	margin-bottom: 100px;
 }
