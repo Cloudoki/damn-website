@@ -546,6 +546,19 @@ body.single-events nav ul li a{
 	font-weight:700;
 }
 
+
+
+.issue-articles article{
+	display: table;
+	min-height: 250px;
+}
+
+.issue-articles article .post-image{
+	min-height: 250px;
+	display: table-cell;
+	vertical-align: bottom;
+}
+
 /*
 * Instagram feed
  */
