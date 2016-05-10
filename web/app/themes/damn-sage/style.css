@@ -563,6 +563,11 @@ body.single-events a{
 	vertical-align: bottom;
 }
 
+.sub-footer #menu-main-nav li:nth-child(7){
+	display:none;
+}
+
+
 /*
 * Instagram feed
  */
