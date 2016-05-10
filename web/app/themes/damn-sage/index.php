@@ -410,7 +410,7 @@ if ($products->have_posts()) : ?>
 	<div class="container">
 		<br>
 		<div class="col-xs-12">
-	       <h3 class="archive-title swd-title">#SPOTEDWITHDAMN</h3>
+	       <h3 class="archive-title swd-title">#SPOTTEDWITHDAMN</h3>
 	    </div>
 		<br>
 		<?php echo wdi_feed(array('id'=>'1')); ?>
