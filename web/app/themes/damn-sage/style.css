@@ -550,11 +550,11 @@ body.single-events nav ul li a{
 
 .issue-articles article{
 	display: table;
-	min-height: 250px;
+	min-height: 300px;
 }
 
 .issue-articles article .post-image{
-	min-height: 250px;
+	min-height: 300px;
 	display: table-cell;
 	vertical-align: bottom;
 }
