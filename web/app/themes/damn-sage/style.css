@@ -393,6 +393,10 @@ body.single-events nav ul li a{
 	font-size:0.8em;
 }
 
+body.single-events a{
+	color: #000;
+}
+
 .projects-main-container{
 	margin-bottom: 100px;
 }
