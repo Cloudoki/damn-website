@@ -22,7 +22,7 @@ if (!$thumb[0]){
 }
 
 
-
+$past = null;
 $start = get_field('start_date')? strtotime (get_field ('start_date')): null;
 
 if( $start && $start < time() ){

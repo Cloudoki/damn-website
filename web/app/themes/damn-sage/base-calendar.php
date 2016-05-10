@@ -58,6 +58,10 @@ if( get_field('start_date') && get_field('end_date') ){
 	$parameters->date = "From ". get_field('start_date') ." until " . get_field('end_date');
 }
 
+if( !get_field('start_date') && get_field('end_date') ){
+	$parameters->date = "Until " . get_field('end_date');
+}
+
 
 # Ad
 if ( $DAMN->issue && !$DAMN->issue->brand && function_exists ('adrotate_group'))
