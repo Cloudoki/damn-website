@@ -193,7 +193,7 @@ $tag = get_term_by('name', $tag_name , 'post_tag');
 						<div class="row">
 							<div class="col-md-8">
 								<a href="<?php echo get_permalink(); ?>" rel="bookmark" title="<?php echo get_the_title(); ?>">
-									<h1><span class="description">Projects /</span><?php echo get_the_title(); ?></h1>
+									<h1><span class="description">Projects / </span><?php echo get_the_title(); ?></h1>
 
 									<p><?php echo $post->post_excerpt ?></p>
 								</a>
