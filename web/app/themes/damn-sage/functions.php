@@ -586,7 +586,7 @@ function damn_add_menu_items( $items, $menu ) {
 
 		$new_item[] = (object) $item;  // Add the new menu item to our array
 
-		$index = count( $items ) - 12;
+		$index = count( $items ) - 13;
 		array_splice( $items, $index, 0, $new_item );
 
 
