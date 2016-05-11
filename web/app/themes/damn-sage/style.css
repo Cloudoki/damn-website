@@ -385,9 +385,6 @@ body.single-projects footer {
 	margin-top:0px!important;
 }
 
-body.single-projects .addthis_custom_sharing a {
-	color: #000!important;
-}
 
 body.single-events nav ul li a{
 	font-size:0.8em;
@@ -399,6 +396,10 @@ body.single-events a{
 
 body.single-events .footer-wrap a{
 	color: #aaa;
+}
+
+body.single-projects .addthis_custom_sharing a {
+	color: #000!important;
 }
 
 
