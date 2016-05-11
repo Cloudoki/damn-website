@@ -508,6 +508,11 @@ body.single-projects .social-share .addthis_custom_sharing .at-custom-share-anch
 
 }
 
+.projects-read-more{
+	font-weight:700;
+	color:#ef9753!important;
+}
+
 .sponsor-wrapper {
 	margin-top:50px;
 }
