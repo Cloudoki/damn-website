@@ -397,6 +397,11 @@ body.single-events a{
 	color: #000;
 }
 
+body.single-events footer a{
+	color: #aaa;
+}
+
+
 .projects-main-container{
 	margin-bottom: 100px;
 }
