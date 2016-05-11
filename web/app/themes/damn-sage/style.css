@@ -398,7 +398,7 @@ body.single-events .footer-wrap a{
 	color: #aaa;
 }
 
-body.single-projects .addthis_custom_sharing a {
+body.single-projects .social-share .addthis_custom_sharing .at-custom-share-anchor {
 	color: #000!important;
 }
 
