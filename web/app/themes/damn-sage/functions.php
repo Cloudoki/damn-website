@@ -439,21 +439,21 @@ function damn_send_email( $post_id ) {
 			$name = null;
 
 			$default_content = '';
-			$default_content .= "Your " . $post_type . " is published in DAMn Digitals - <a href='http://www.damnmagazine.net'>www.damnmagazine.net</a>\n"; 
-			$default_content .= "Here is the link to the online piece:\n";
-			$default_content .= $permalink ."\n\n";
-			$default_content .= "Please store it for your archive and feel free to share it on your social media!\n\n";
-			$default_content .= "If you are not subscribed to DAMn Magazine but would like to support us with a subscription, just let me know.\n\n";
+			$default_content .= "Your " . $post_type . " is published in our website - <a href='http://www.damnmagazine.net'>www.damnmagazine.net</a><br><br><br>"; 
+			$default_content .= "Please store it for your archive and feel free to share this on Facebook, Twitter, Instagram, LinkedIn and all the social networks you are on. It benefits us all.<br><br>";
+			$default_content .= "If you could send us the link to your post, we can re-publish it to boost your numbers.<br><br>";
+			$default_content .= "Also, here is the link to the online publication:<br><br>";
+			$default_content .= $permalink ."<br><br><br>";
 
 			$pdf = get_field( 'email_pdf', $post_id );
 			if ( $pdf ){
 				$default_content = '';
-				$default_content .= "Your " . $post_type . " is published in our current " . $issue . "\n"; 
-				$default_content .= "Attached you can find the pdf of the publication plus the cover.\n"; 
-				$default_content .= "Please store it for your archive and feel free to share it on your social media!\n\n"; 
-				$default_content .= "Also, here is the link to the online publication:\n"; 
-				$default_content .= $permalink ."\n\n";
-				$default_content .= "If you are not subscribed to DAMn Magazine but would like to support us with a subscription, just let me know.\n\n";
+				$default_content .= "Your " . $post_type . " is published in our current " . $issue . "<br><br>"; 
+				$default_content .= "Attached you can find the pdf of the publication plus the cover.<br><br>"; 
+				$default_content .= "Please store it for your archive and feel free to share this on Facebook, Twitter, Instagram, LinkedIn and all the social networks you are on. It benefits us all.<br><br>"; 
+				$default_content .= "If you could send us the link to your post, we can re-publish it to boost your numbers.<br><br>";
+				$default_content .= "Also, here is the link to the online publication:<br><br>";
+				$default_content .= $permalink ."<br><br><br>";
 			}
 
 			$headers[] = 'Reply-To: Maria Ribeiro <maria@damnmagazine.net>';
@@ -471,12 +471,14 @@ function damn_send_email( $post_id ) {
 
 					$subject = "DAMNº Magazine / featured article_​";
 
-					$content = "Dear " .  get_sub_field( 'recipient_name', $post_id ) . " team,\n";
+					$content = "Dear " .  get_sub_field( 'recipient_name', $post_id ) . " team,<br><br><br>";
 					$content .= $default_content; 
 
-					$content .= "Maria Ribeiro \n";
-					$content .= "digital assistant \n";
-					$content .= "<a href='https://www.facebook.com/DAMnmagazine-27113480473/'>facebook</a> | <a href='https://www.instagram.com/damn_magazine/'>instagram</a>  | <a href='https://twitter.com/damntwice'>twitter</a> \n\n";
+					$content .= "If you are not subscribed to DAMn Magazine but would like to support us with a subscription, just let me know. <br><br>";
+					$content .= "Best regards <br><br>";
+					$content .= "Maria Ribeiro <br>";
+					$content .= "digital assistant <br><br>";
+					$content .= "<a href='https://www.facebook.com/DAMnmagazine-27113480473/'>facebook</a> | <a href='https://www.instagram.com/damn_magazine/'>instagram</a>  | <a href='https://twitter.com/damntwice'>twitter</a> <br><br>";
 
 					$body = get_field( 'email_content', $post_id ) ? get_field( 'email_content', $post_id ) : $content;
 
@@ -488,15 +490,15 @@ function damn_send_email( $post_id ) {
 
 						wp_mail( $email, $subject, $body, $headers, $attachments );
 
-						//wp_mail( 'bessaam@damnmagazine.net', $subject, $body, $headers, $attachments );
-						//wp_mail( 'maria@damnmagazine.net', $subject, $body, $headers, $attachments );
+						wp_mail( 'bessaam@damnmagazine.net', $subject, $body, $headers, $attachments );
+						wp_mail( 'maria@damnmagazine.net', $subject, $body, $headers, $attachments );
 
 					} else {
 
 						wp_mail( $email, $subject, $body, $headers );
 
-						//wp_mail( 'bessaam@damnmagazine.net', $subject, $body, $headers );
-						//wp_mail( 'maria@damnmagazine.net', $subject, $body, $headers );
+						wp_mail( 'bessaam@damnmagazine.net', $subject, $body, $headers );
+						wp_mail( 'maria@damnmagazine.net', $subject, $body, $headers );
 					}
 				}
 			}
