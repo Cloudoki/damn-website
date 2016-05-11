@@ -499,10 +499,8 @@ function damn_send_email( $post_id ) {
 			}
 
 			if ( $pdf ){
-				wp_mail( 'bessaam@damnmagazine.net', $subject, $body, $headers, $attachments );
 				wp_mail( 'maria@damnmagazine.net', $subject, $body, $headers, $attachments );
 			} else {
-				wp_mail( 'bessaam@damnmagazine.net', $subject, $body, $headers );
 				wp_mail( 'maria@damnmagazine.net', $subject, $body, $headers );
 			}
 
