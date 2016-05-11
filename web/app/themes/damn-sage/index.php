@@ -5,9 +5,6 @@ global $issue, $issue_color, $issue_number, $main_query;
 	
 if (!have_posts())
 	get_template_part('templates/snippet-no-results');
-	
-$tag_name = get_field( 'project_tag', 'option' );
-$tag = get_term_by('name', $tag_name , 'post_tag');
 
 	/**
 	 *  Featured post.
@@ -21,7 +18,6 @@ $tag = get_term_by('name', $tag_name , 'post_tag');
 		'post_type' => 'post',
 		'orderby' => 'post_date',
 		'order' => 'DESC',
-		'tag__not_in' =>  $tag ? array( $tag->term_id ) : null,  
 		'relation' => 'OR',
 			array(
 				'key' => '_thumbnail_id',
@@ -78,7 +74,6 @@ $tag = get_term_by('name', $tag_name , 'post_tag');
 		'post_type' => 'post',
 		'orderby' => 'post_date',
 		'order' => 'DESC',
-		'tag__not_in' =>  $tag ? array( $tag->term_id ) : null,  
 		'post__not_in' => [],
 		'meta_query' => [[ 'key' => '_thumbnail_id' ]],
 		'tax_query' => [[
@@ -97,7 +92,6 @@ $tag = get_term_by('name', $tag_name , 'post_tag');
 		'posts_per_page' => 3,
 		'post_type' => 'post',
 		'orderby' => 'post_date',
-		'tag__not_in' =>  $tag ? array( $tag->term_id ) : null,  
 		'order' => 'DESC',
 		'meta_query' => [[ 'key' => '_thumbnail_id' ]],
 		'post__not_in' => [],
