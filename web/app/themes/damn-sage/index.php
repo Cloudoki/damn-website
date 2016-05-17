@@ -407,6 +407,8 @@ if ($products->have_posts()) : ?>
 	       <h3 class="archive-title swd-title">#SPOTTEDWITHDAMN</h3>
 	    </div>
 		<br>
-		<?php echo wdi_feed(array('id'=>'1')); ?>
+		<?php if ( function_exists( 'wdi_feed' ) ){
+			echo wdi_feed(array('id'=>'1'));
+		} ?>
 	</div>
 </div>
