@@ -169,7 +169,6 @@ if( $query->have_posts() ){
 } wp_reset_postdata(); wp_reset_query();
 
 
-
 # Load Head
 get_template_part('templates/head'); 
 

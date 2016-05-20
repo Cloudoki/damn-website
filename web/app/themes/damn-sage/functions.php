@@ -554,8 +554,8 @@ function projects_ajax_load() {
 							<h1><?php echo get_the_title();  ?>/ <span class="description"><?php echo get_field( 'city_country' ); ?></span></h1></a>
 							<p class="designers"><?php echo get_field( 'designers' ); ?></p>
 
-							<p class="project-excerpt"><?php echo $post->post_excerpt  ?> ... <span class="project-read-more"><a href="<?php the_permalink(); ?>"> + </a></span></p>
-
+							<p class="project-excerpt"><?php echo $post->post_excerpt  ?> <a href="<?php the_permalink(); ?>">...</a> <a class="projects-read-more" href="<?php the_permalink(); ?>"> Read More </a></p>
+					
 					</div>
 
 				</div>
