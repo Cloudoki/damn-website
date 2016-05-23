@@ -276,6 +276,7 @@ foreach ($cats as $n):
 	$main_query['cat'] = $n;
 	
 	$main_query['posts_per_page'] = 4;
+	$main_query['orderby'] = 'rand';
 	// Fetch category-related articles
 	$dynamics = new WP_Query($main_query);
 	$category = get_term ($n, 'category');
