@@ -780,6 +780,7 @@ body.single-projects .social-share .addthis_custom_sharing .at-custom-share-anch
 	border:1px solid #ddd;
 	margin-right:70px;
 	float:right;
+	margin-top: -6px!important;
 }
 
 .popup-subscribe-container form{
@@ -791,4 +792,5 @@ body.single-projects .social-share .addthis_custom_sharing .at-custom-share-anch
 	font-size:16px;
 	font-weight:400;
 }
+
 
