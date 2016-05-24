@@ -628,9 +628,11 @@ body.single-projects .social-share .addthis_custom_sharing .at-custom-share-anch
 	height:706px;
 	background-color:#EEEEEE;
 	position:fixed!important;
-	left: 50%;
 	top: 150px;
-	margin-left: -512px; 
+	bottom:0;
+	right: 0;
+    left: 0;
+   	margin: auto; 
 	overflow: hidden;
 	z-index: 999999999999!important;
 	padding: 0;

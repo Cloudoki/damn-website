@@ -426,7 +426,7 @@ $issue_color = get_field ('issue_color', 'magazine_' . $issue->term_id );
 
 <div id="popup-bg"></div>
 
-<div id="popup-content" class="container">
+<div id="popup-content" >
 	
 	<a class="close-popup" href="">X</a>
 
