@@ -40,19 +40,24 @@ jQuery(document).ready(function($) {
 	 */
 	setTimeout(function(){
 
-		$('#popup-bg').fadeIn('fast');
-		$('#popup-content').fadeIn('fast');
-		
-		$('#popup-bg').click(function(event) {
-			$(this).hide();
-			$('#popup-content').hide();
-		});
+		if( $(window).width() >= 1030 ){
 
-		$('.close-popup').click(function(event) {
-			event.preventDefault();
-			$('#popup-bg').hide();
-			$('#popup-content').hide();
-		});
+			$('#popup-bg').fadeIn('fast');
+			$('#popup-content').fadeIn('fast');
+			
+			$('#popup-bg').click(function(event) {
+				$(this).hide();
+				$('#popup-content').hide();
+			});
+
+			$('.close-popup').click(function(event) {
+				event.preventDefault();
+				$('#popup-bg').hide();
+				$('#popup-content').hide();
+			});
+
+		}
+
 
 	}, 5000);
 
