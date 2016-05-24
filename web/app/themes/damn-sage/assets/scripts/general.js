@@ -56,6 +56,22 @@ jQuery(document).ready(function($) {
 				$('#popup-content').hide();
 			});
 
+		} else if( $(window).width() < 1030 ){
+
+			$('#popup-bg').fadeIn('fast');
+			$('#popup-content-mobile').fadeIn('fast');
+			
+			$('#popup-bg').click(function(event) {
+				$(this).hide();
+				$('#popup-content-mobile').hide();
+			});
+
+			$('.close-popup').click(function(event) {
+				event.preventDefault();
+				$('#popup-bg').hide();
+				$('#popup-content-mobile').hide();
+			});
+
 		}
 
 
