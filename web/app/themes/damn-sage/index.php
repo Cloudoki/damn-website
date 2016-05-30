@@ -294,13 +294,19 @@ $cats = [56, 60, 57];
 if ($issue_cat && !in_array($issue_cat->term_id, $cats))
 
 	$cats[2] = $issue_cat->term_id;
-	
+
 foreach ($cats as $n):
 
 	$main_query['cat'] = $n;
 	
 	$main_query['posts_per_page'] = 4;
 	$main_query['orderby'] = 'rand';
+	$main_query['date_query'] = array(
+        'column'  => 'post_date',
+        'after'   => '- 180 days'
+    );
+
+
 	// Fetch category-related articles
 	$dynamics = new WP_Query($main_query);
 	$category = get_term ($n, 'category');
