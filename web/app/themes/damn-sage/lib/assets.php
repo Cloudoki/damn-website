@@ -75,6 +75,9 @@ function assets() {
 
   wp_enqueue_script('modernizr', asset_path('scripts/modernizr.js'), [], null, true);
   wp_enqueue_script('sage_js', asset_path('scripts/main.js?v=1.1'), ['jquery'], null, true);
+
+  wp_enqueue_script('sliderjs', get_stylesheet_directory_uri() . '/assets/scripts/jquery.slides.min.js', ['jquery'], null, true);
+  
   wp_enqueue_script('general', get_stylesheet_directory_uri() . '/assets/scripts/general.js', ['jquery'], null, true);
 
   if( get_post_type() === 'projects' ){

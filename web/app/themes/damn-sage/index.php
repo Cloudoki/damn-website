@@ -14,7 +14,7 @@ if (!have_posts())
 	 */
 	$feat_query = [
 		'cat' => '-4315',
-		'posts_per_page' => 1,
+		'posts_per_page' => 4,
 		'post_type' => 'post',
 		'orderby' => 'post_date',
 		'order' => 'DESC',
@@ -114,14 +114,38 @@ if (!have_posts())
 	
 	// Build featured post row
 	$featured = new WP_Query($feat_query);
-	if( $featured->have_posts() ) $featured->the_post();
-	
-	// Excempt featured post from main streams
-	$main_query['post__not_in'][] = 
-	$issue_query['post__not_in'][] = get_the_ID();
-	
-	get_template_part('templates/home', 'primary-row');
-	
+	//$main_query['post__not_in'][];
+	if( $featured->have_posts() ) {
+
+	?>
+	<div class="row">
+		<div class="first-post-advert-wrapper">
+			<div class="table-row" >
+			<div class="width-pusher"></div>
+
+			<div id="slides">
+			<?php
+				while( $featured->have_posts() ){
+					
+					$featured->the_post();
+					
+					// Excempt featured post from main streams
+					
+					$issue_query['post__not_in'][] = get_the_ID();
+					get_template_part('templates/home', 'primary-row');
+
+				}
+			?>
+			</div>
+				<?php get_template_part('templates/advert-block-premium');  ?>
+			</div>
+		</div>
+	</div>
+
+	<?php
+	}
+
+
 	// Build second row
 	$calnodes = new WP_Query($cal_query);
 	

@@ -19,7 +19,6 @@ jQuery(document).ready(function($) {
 				'width': '55px',
 				'height': '30px'
 			}, 'fast');
-			/* Stuff to do when the mouse enters the element */
 		
 		}, function() {
 			
@@ -28,11 +27,41 @@ jQuery(document).ready(function($) {
 				'height': '15px'
 			}, 'fast');
 			$(this).find('a').hide();
-			/* Stuff to do when the mouse leaves the element */
 		});
 
 
 	});
+
+	/*
+	* Homepage slider
+	 */
+	 $("#slides").slidesjs({
+		//width: 1024,
+		//height: 612,
+		navigation: {
+			active: true,
+			effect: "slide"
+
+		},
+		 play: {
+			active: false,
+			effect: "slide",
+			interval: 4000,
+			auto: true,
+			swap: true,
+			pauseOnHover: false,
+			restartDelay: 2500
+		},
+		 pagination: {
+		  active: true
+		},
+		 callback: {
+		  loaded: function() {
+			$('.width-pusher').remove();
+		  },
+		}
+	});
+
 
 
 	/** 
@@ -73,7 +102,6 @@ jQuery(document).ready(function($) {
 			});
 
 		}
-
 
 	}, 5000);
 
