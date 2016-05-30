@@ -301,6 +301,7 @@ foreach ($cats as $n):
 	
 	$main_query['posts_per_page'] = 4;
 	$main_query['orderby'] = 'rand';
+	// query for last 6 months 
 	$main_query['date_query'] = array(
         'column'  => 'post_date',
         'after'   => '- 180 days'

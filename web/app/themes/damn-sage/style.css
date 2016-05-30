@@ -1068,7 +1068,7 @@ body.single-projects .social-share .addthis_custom_sharing .at-custom-share-anch
 	
 	
 	.slidesjs-slide header .header-wrapper{
-		bottom:0px;
+		bottom:0px!important;
 	}
 
 }
