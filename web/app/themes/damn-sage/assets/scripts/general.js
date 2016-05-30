@@ -69,37 +69,64 @@ jQuery(document).ready(function($) {
 	 */
 	setTimeout(function(){
 
-		if( $(window).width() >= 1030 ){
+		// check localstorage
+		var current = new Date().getTime();
 
-			$('#popup-bg').fadeIn('fast');
-			$('#popup-content').fadeIn('fast');
-			
-			$('#popup-bg').click(function(event) {
-				$(this).hide();
-				$('#popup-content').hide();
-			});
+		if( typeof localStorage.popupStarter == 'undefined' || localStorage.popupTime < current  ){
 
-			$('.close-popup').click(function(event) {
-				event.preventDefault();
-				$('#popup-bg').hide();
-				$('#popup-content').hide();
-			});
+			var popupTime = current + 60 * 60 * 24 * 1000;
 
-		} else if( $(window).width() < 1030 ){
+			if( $(window).width() >= 1030 ){
 
-			$('#popup-bg').fadeIn('fast');
-			$('#popup-content-mobile').fadeIn('fast');
-			
-			$('#popup-bg').click(function(event) {
-				$(this).hide();
-				$('#popup-content-mobile').hide();
-			});
+				$('#popup-bg').fadeIn('fast');
+				$('#popup-content').fadeIn('fast');
+				
+				$('#popup-bg').click(function(event) {
+					$(this).hide();
+					$('#popup-content').hide();
 
-			$('.close-popup').click(function(event) {
-				event.preventDefault();
-				$('#popup-bg').hide();
-				$('#popup-content-mobile').hide();
-			});
+					//set localstorage
+					localStorage.popupStarter = true;
+					localStorage.popupTime = popupTime;
+
+				});
+
+				$('.close-popup').click(function(event) {
+					event.preventDefault();
+					$('#popup-bg').hide();
+					$('#popup-content').hide();
+
+					//set localstorage
+					localStorage.popupStarter = true;
+					localStorage.popupTime = popupTime;
+
+				});
+
+			} else if( $(window).width() < 1030 ){
+
+				$('#popup-bg').fadeIn('fast');
+				$('#popup-content-mobile').fadeIn('fast');
+				
+				$('#popup-bg').click(function(event) {
+					$(this).hide();
+					$('#popup-content-mobile').hide();
+
+					//set localstorage
+					localStorage.popupStarter = true;
+					localStorage.popupTime = popupTime;
+				});
+
+				$('.close-popup').click(function(event) {
+					event.preventDefault();
+					$('#popup-bg').hide();
+					$('#popup-content-mobile').hide();
+
+					//set localstorage
+					localStorage.popupStarter = true;
+					localStorage.popupTime = popupTime;
+				});
+
+			}
 
 		}
 
