@@ -39,7 +39,8 @@ if (!have_posts())
 		'offset' => 4,
 		'post_type' => 'post',
 		'orderby' => 'post_date',
-		'order' => 'DESC'
+		'order' => 'DESC',
+		'cat' => '-4315'
 	];
 
 	/**
