@@ -974,13 +974,11 @@ body.single-projects .social-share .addthis_custom_sharing .at-custom-share-anch
 	background: rgba(0,0,0,0.6);
 }
 
-
-
 .slidesjs-next, .slidesjs-previous {
 	font-size:35px;
 	color:#fff!important;
 	font-weight:900;
-	z-index:9999999;
+	z-index:999;
 }
 
 .slidesjs-next {
@@ -1080,3 +1078,44 @@ body.single-projects .social-share .addthis_custom_sharing .at-custom-share-anch
 	}
 
 }
+
+/*
+* 3 posts under slider
+ */
+.hp-latest-posts{
+	margin: 0px!important;
+	width:100%;
+	padding: 0px;
+}
+
+
+.hp-latest-posts article .post-image{
+	width:100%;
+	height:270px;
+	background-size: cover!important;
+	margin-bottom:10px;
+}
+
+.hp-latest-posts article h2{
+	font-size:25px;
+	text-transform:uppercase;
+	font-weight:700;
+}
+
+.hp-latest-posts article h3{
+	font-size:14px;
+}
+
+.hp-latest-posts article .post-share{
+	text-align: center;
+}
+
+.hp-latest-posts article .post-share a{
+	color: #000;
+	font-size: 16px;
+}
+
+.hp-latest-posts article .post-share a i{
+	padding: 8px;
+}
+

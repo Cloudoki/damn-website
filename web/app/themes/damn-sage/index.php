@@ -26,7 +26,22 @@ if (!have_posts())
 				'key' => '_scheduled_thumbnail_id',
 			)
 	];
-	
+
+	/**
+	 *  Latest posts.
+	 *
+	 * 3 posts under slider.
+	 * 
+	 */
+
+	$latest_query = [
+		'posts_per_page' => 3,
+		'offset' => 4,
+		'post_type' => 'post',
+		'orderby' => 'post_date',
+		'order' => 'DESC'
+	];
+
 	/**
 	 *  Calendar stream.
 	 *
@@ -142,9 +157,36 @@ if (!have_posts())
 		</div>
 	</div>
 
+
+
+	<div class="row">
+		<?php 
+			
+			/*
+			* 3 posts under the slider
+			*/
+
+			$latest_posts = new WP_Query( $latest_query );
+
+			if ( $latest_posts->have_posts() ){
+		?>
+			<div class="hp-latest-posts">
+		<?php
+				while ( $latest_posts->have_posts() ) {
+					$latest_posts->the_post();
+
+					get_template_part('templates/home', 'latest-posts');
+
+				}
+		?>
+			</div>
+		<?php
+			}
+		 ?>
+	</div>
+
 	<?php
 	}
-
 
 	// Build second row
 	$calnodes = new WP_Query($cal_query);
