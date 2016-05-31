@@ -72,9 +72,9 @@ jQuery(document).ready(function($) {
 		// check localstorage
 		var current = new Date().getTime();
 
-		if( typeof localStorage.popupStarter == 'undefined' || localStorage.popupTime < current  ){
+		if( localStorage.popupStarter !== 'true' || localStorage.popupTime < current ){
 
-			var popupTime = current + 60 * 60 * 24 * 1000;
+			var popupTime = new Date().getTime() + 60 * 60 * 24 * 1000;
 
 			if( $(window).width() >= 1030 ){
 
