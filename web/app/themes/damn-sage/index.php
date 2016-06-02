@@ -474,6 +474,7 @@ if ($products->have_posts()) : ?>
 * Spoted with DAMN
 */
  ?>
+<!--
 <br>
 <div class="row swd-container">
 	<div class="container">
@@ -487,7 +488,7 @@ if ($products->have_posts()) : ?>
 		} ?>
 	</div>
 </div>
-
+-->
 <?php 
 
 /*

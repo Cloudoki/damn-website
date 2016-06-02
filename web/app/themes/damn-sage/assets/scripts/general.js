@@ -36,8 +36,7 @@ jQuery(document).ready(function($) {
 	* Homepage slider
 	 */
 	 $("#slides").slidesjs({
-		//width: 1024,
-		//height: 612,
+
 		navigation: {
 			active: true,
 			effect: "slide"
@@ -61,7 +60,6 @@ jQuery(document).ready(function($) {
 		  },
 		}
 	});
-
 
 
 	/** 
