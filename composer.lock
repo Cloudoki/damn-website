@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ea01d18b5fa925947c335075383725de",
-    "content-hash": "64946c4612390b5e8a2068af13689b72",
+    "hash": "78de29cf8bc99d7e06dc82a20aefbd0f",
+    "content-hash": "3ac14ecbf7892879bf3859c9874026f4",
     "packages": [
         {
             "name": "composer/installers",
@@ -424,15 +424,15 @@
         },
         {
             "name": "wpackagist-plugin/wd-instagram-feed",
-            "version": "1.0.10",
+            "version": "1.0.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wd-instagram-feed/",
-                "reference": "tags/1.0.10"
+                "reference": "tags/1.0.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wd-instagram-feed.1.0.10.zip",
+                "url": "https://downloads.wordpress.org/plugin/wd-instagram-feed.1.0.1.zip",
                 "reference": null,
                 "shasum": null
             },
