@@ -455,16 +455,18 @@ if ($products->have_posts()) : ?>
 
 	<?php /* 3 bottom widgets */ ?>
 	<div class="row bottom-widgets">
-		<div class="col-xs-12 col-sm-6 col-md-4 table-cell">
+		<div class="col-xs-12 col-sm-6 col-md-6 table-cell">
 		<?php if ( is_active_sidebar( 'sidebar-homepage-agenda' ) ) : dynamic_sidebar( 'sidebar-homepage-agenda' ); endif; ?>
 		</div>
 		
-		<div class="col-xs-12 col-sm-6 col-md-4">
+
+
+		<div class="col-xs-12 col-sm-12 col-md-6">
 		<?php if ( is_active_sidebar( 'sidebar-homepage-socials' ) ) : dynamic_sidebar( 'sidebar-homepage-socials' ); endif; ?>
 		</div>
 		
 		<div class="col-xs-12 col-sm-12 col-md-4">
-		<?php get_template_part ('templates/widget-damnplus-select'); ?>
+		<?php //get_template_part ('templates/widget-damnplus-select'); ?>
 		</div>
 	</div>
 </div>
