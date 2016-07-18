@@ -3,7 +3,7 @@
 $issue = get_field ('current_issue', 'option');
 $issue_image   = get_field('magazine_taxonomy_image', 'magazine_' . $issue->term_id );
 $issue_color = get_field ('issue_color', 'magazine_' . $issue->term_id );
-
+//15581
 ?>
 
  <div id="popup-content-mobile" class="popup-content">
@@ -20,20 +20,7 @@ $issue_color = get_field ('issue_color', 'magazine_' . $issue->term_id );
 
 	<div class="popup-content-middle">
 
-
-		<h3>Join <span class="bolder">DAM<span class="that-char">N</span>º</span> <span style="color:<?php echo $issue_color; ?>;">+</span> now!</h3>
-
-		<h4>
-			For unlimited onlince access
-		</h4>
-
-		<p class="damnplus-subscribe">
-			<a class="btn btn-lg btn-default marginTop text-uppercase" title="Join damn plus " href="/join-damn-plus" >SUBSCRIBE</a>
-		</p>
-
-
 		<h3>Subscription of <span class="bolder">DAM<span class="that-char">N</span>º</span> <span style="color:<?php echo $issue_color; ?>;">Magazine</span></h3>
-
 			
 		<h4>
 			6 issues for €70 (Europe)<br>
@@ -45,7 +32,6 @@ $issue_color = get_field ('issue_color', 'magazine_' . $issue->term_id );
 
 			<a class="btn btn-lg btn-default text-uppercase" title="Order Back Issue" href="/back-issues/" >ORDER BACK ISSUE</a>
 		</p>
-
 
 	</div>
 
