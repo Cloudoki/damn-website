@@ -11,7 +11,9 @@
 		
 		<div class="logo-container">
 			<a href="/" title="home">
-				<img src="{{theme_path}}/dist/images/logo-positive.svg" alt="DAMN°" />
+				
+				{{#contrast}}<img src="{{theme_path}}/dist/images/logo-positive.svg" alt="DAMN°" />{{/contrast}}
+				{{^contrast}}<img src="{{theme_path}}/dist/images/logo-negative.svg" alt="DAMN°" />{{/contrast}}
 			</a>
 	
 			<a class="issue-news" href="/category/news">NWS</a>	
@@ -27,3 +29,4 @@
 		</div>
 	</div>
 </header>
+<p>{{contrast}}</p>
