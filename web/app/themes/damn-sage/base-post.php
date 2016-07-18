@@ -60,8 +60,7 @@ $parameters->template = $template_path . (
 );
 
 
-# Ad
-if ( !$DAMN->issue->brand && function_exists ('adrotate_group')){
+if ( @!$DAMN->issue->brand && function_exists ('adrotate_group')){
 	$parameters->advert = adrotate_group (3);
 }
 
