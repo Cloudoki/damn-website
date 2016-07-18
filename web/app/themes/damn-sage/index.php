@@ -315,6 +315,9 @@ $issue_query['post__not_in'][] = get_the_ID();
 				<?php get_template_part('templates/post-manifesto'); ?>
 			</div>
 			<hr class="sub-column" />
+			
+			<h4 class="read-more-separator">Read DAMN° articles from previous issues</h4>
+
 			<div class="row category-articles">
 <?php
 
