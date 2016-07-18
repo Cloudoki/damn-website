@@ -350,7 +350,7 @@ foreach ($cats as $n):
 	// query for last 6 months 
 	$main_query['date_query'] = array(
         'column'  => 'post_date',
-        /*'after'   => '- 180 days'*/
+        'after'   => '- 180 days'
     );
 
 
