@@ -316,7 +316,7 @@ $issue_query['post__not_in'][] = get_the_ID();
 			</div>
 			<hr class="sub-column" />
 			
-			<h4 class="read-more-separator">Read DAMN° articles from previous issues</h4>
+			<h3 class="read-more-separator archive-title">Read DAMN° articles from previous issues</h3>
 
 			<div class="row category-articles">
 <?php
