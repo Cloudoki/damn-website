@@ -600,5 +600,5 @@ function damn_add_menu_items( $items, $menu ) {
 	return $items;
 
 }
-add_filter( 'wp_nav_menu_objects', 'damn_add_menu_items', 10, 2 );
+//add_filter( 'wp_nav_menu_objects', 'damn_add_menu_items', 10, 2 );
 
