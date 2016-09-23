@@ -543,7 +543,8 @@ ul.nav {
     &:first-child {
       a {
         padding-left: 0;
-        &:hover {
+        border-left: none;
+        /*&:hover {
           padding-left: (20 / 16) * 1em;
           @media screen and (min-width: 768px) and (max-width: 991px) {
             padding-left: .5em;
@@ -554,18 +555,16 @@ ul.nav {
           @media screen and (min-width: 1200px) and (max-width: 1539px) {
             padding-left: (16 / 16) * 1em;
           }
-        }
+        }*/
       }
     }
-  }
-  li.home-menu {
-    // hide the home menu except in the "headhesive sticky menu". see .headhesive below
-    display: none;
   }
   li.search {
     font-size: 1em;
     a {
       padding: 0;
+      border-right: none;
+      
       @media screen and (min-width: 768px) and (max-width: 991px) {
         line-height: 40px;
       }
@@ -579,15 +578,15 @@ ul.nav {
           padding: 0 0 0 .5em;
         }
       }
-      &:hover {
-        i {
+       /*&:hover {
+       i {
           padding-right: (20 / 16) * 1em;
           @media screen and (min-width: 768px) and (max-width: 1199px) {
             padding-right: .5em;
             padding-left: .5em;
           }
         }
-      }
+      }*/
     }
   }
   li li a {
@@ -662,7 +661,7 @@ ul.nav {
   }
 }
 
-body.page-search {
+/*body.page-search {
   ul.nav li.search.active {
     a {
       padding-right: (20 / 16) * 1em;
@@ -677,7 +676,7 @@ body.page-search {
       }
     }
   }
-}
+}*/
 
 // social nav in header
 
@@ -1070,11 +1069,11 @@ ul#issue-selector {
   }
 }
 
-body.logged-in {
+/*body.logged-in {
   #my-menu {
     margin-top: 46px;
   }
-}
+}*/
 
 // header search
 

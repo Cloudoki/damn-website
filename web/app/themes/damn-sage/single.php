@@ -21,8 +21,8 @@
 
   <?php /* if in damn plus and can access locked content, show the comments and related posts, else nothing */ ?>
   <?php if (current_user_can("access_s2member_level1")){ ?>
-    <?php /* Facebook Comments */ ?>
-    <?php comments_template('/templates/facebook-comments.php'); ?>
+    <?php /* Facebook Comments  ?>
+    <?php comments_template('/templates/facebook-comments.php'); */ ?>
 
     <?php /* Related Posts */ ?>
     <?php get_template_part('templates/related-posts'); ?>
@@ -30,8 +30,8 @@
 
 <?php /* else if not in a damn-plus category, show things as normal, as the post is not locked */  ?>
 <?php } else { ?>
-  <?php /* Facebook Comments */ ?>
-  <?php comments_template('/templates/facebook-comments.php'); ?>
+  <?php /* Facebook Comments  ?>
+  <?php comments_template('/templates/facebook-comments.php');*/ ?>
 
   <?php /* Related Posts */ ?>
   <?php get_template_part('templates/related-posts'); ?>

@@ -114,6 +114,6 @@ $history       = -10;
 
 <div id="search-bar" class="collapse">
 	<div class="container">
-		<?php get_template_part('snippets/search-form'); ?>
+		<?php get_template_part('templates/search-form'); ?>
 	</div>
 </div>

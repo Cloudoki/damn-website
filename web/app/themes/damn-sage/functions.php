@@ -573,7 +573,7 @@ function projects_ajax_load() {
 
 /*
 * Programmaticaly add menu items
- */
+ 
 function damn_add_menu_items( $items, $menu ) {
 
 	if( $menu->menu->slug === 'main-nav' ){
@@ -599,6 +599,6 @@ function damn_add_menu_items( $items, $menu ) {
 
 	return $items;
 
-}
+}*/
 //add_filter( 'wp_nav_menu_objects', 'damn_add_menu_items', 10, 2 );
 

@@ -39,7 +39,6 @@ $header_subtitle = get_field ('header_subtitle', $issue_acf_id);
 	
 <?php
 	do_action('get_header');
-	get_template_part('snippets/ie9-warning');
 	get_template_part('templates/header');
 	get_template_part('templates/page-title');
 ?>

@@ -157,7 +157,7 @@ get_template_part('templates/head');
 ?>
 	<div id="search-bar" class="collapse event-search-bar">
 		<div class="container">
-			<?php get_template_part('snippets/search-form'); ?>
+			<?php get_template_part('templates/search-form'); ?>
 		</div>
 	</div>
 

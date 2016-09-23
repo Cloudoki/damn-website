@@ -177,7 +177,7 @@ get_template_part('templates/head');
 	<body class="single-events single-projects" <?php body_class ($parameters->contrast? 'positive-contrast templated': 'templated'); ?>>	
 	<div id="search-bar" class="collapse event-search-bar">
 		<div class="container">
-			<?php get_template_part('snippets/search-form'); ?>
+			<?php get_template_part('templates/search-form'); ?>
 		</div>
 	</div>
 <?php

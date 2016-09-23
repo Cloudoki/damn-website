@@ -2,7 +2,7 @@
   <div class="alert alert-warning">
     <?php _e('Sorry, no results were found.', 'sage'); ?>
   </div>
-  <?php get_template_part('snippets/search-form'); ?>
+  <?php get_template_part('templates/search-form'); ?>
 <?php endif; ?>
 
 <?php if ( is_active_sidebar( 'sidebar-calendar-page-filter' ) ) : dynamic_sidebar( 'sidebar-calendar-page-filter' ); endif; ?>
