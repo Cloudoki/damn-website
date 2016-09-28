@@ -64,7 +64,7 @@ jQuery(document).ready(function($) {
 
 	/** 
 	 * Index pop up windwow
-	 */
+	
 	setTimeout(function(){
 
 		// check localstorage
@@ -128,6 +128,6 @@ jQuery(document).ready(function($) {
 
 		}
 
-	}, 5000);
+	}, 5000); */
 
 });

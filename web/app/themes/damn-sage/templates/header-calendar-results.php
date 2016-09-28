@@ -1,9 +1,5 @@
 <?php
-// This file assumes that you have included the nav walker from https://github.com/twittem/wp-bootstrap-navwalker
-// somewhere in your theme.
-
 // Identifier between issue- and event-based header will be placed here
-
 
 /**
  *  Selected Issue
