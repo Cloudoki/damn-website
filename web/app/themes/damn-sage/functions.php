@@ -570,6 +570,29 @@ function projects_ajax_load() {
 	die();
 }
 
+/**
+ * Bootstrap-class menu items, by filter & walker class
+ */
+class bootstrap_walker extends Walker_Nav_Menu
+{
+	public function start_lvl( &$output, $depth = 0, $args = array() ) {
+		$indent = str_repeat("\t", $depth);
+		$output .= "\n$indent<ul class=\"dropdown-menu\">\n";
+	}
+}
+
+function nav_menu_css_class_bootstrap_conversion($classes) 
+{
+	# Dropdowns
+	if (in_array ('menu-item-has-children', $classes))	$classes[] = 'dropdown';
+		
+	
+	return $classes;
+}
+
+add_filter( 'nav_menu_css_class', 'nav_menu_css_class_bootstrap_conversion', 10, 4);
+
+
 
 /*
 * Programmaticaly add menu items

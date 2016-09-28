@@ -360,7 +360,7 @@ VERTICAL RHYTHYM
 *********************/
 
 header, nav, .main, .sidebar, footer, .single-news-item, .single-video-item, .single-gallery-item, .wrap,
-.headhesive, p, .relative-header, .title-wrapper.event-specific, .single-event-item {
+p, .relative-header, .title-wrapper.event-specific, .single-event-item {
 
 	@media screen and (max-width: 767px) {
 		:not(p) { font-size: 13px; }

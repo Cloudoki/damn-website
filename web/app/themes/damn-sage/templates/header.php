@@ -1,11 +1,6 @@
 <?php
 global $issue, $contrast, $issue_color, $issue_number, $header_subtitle, $header_image;
 
-/**
- *	This file assumes that you have included the nav walker from
- *	https://github.com/twittem/wp-bootstrap-navwalker somewhere in your theme.
- */ 
- 
 // Issue numbers
 $latest        = get_field ('current_issue', 'option');
 $latest_acf_id = 'magazine_' . $latest->term_id;
@@ -21,7 +16,7 @@ $history       = -10;
 	
 	a.mobile-menu .fa, .advertorial-badge, span.category-sep a.damn-plus, .issue-selector li.active { color: <?=$issue_color?> !important; }
 	
-	.btn-default, .btn-primary, body.damn-plus .title-wrapper, body.category-damn-plus .title-wrapper, body.login .main h3.widget-title, .back-to-calendar a.btn-primary, .article-navigation .pagination li span.current, .color-box, .damn-plus-badge, .join-damn-plus-home-image, .damn-plus-cta, .page-featured-image, .item.damn-plus .news-item, .single-news-item, .first-post-advert-wrapper .blackBackground, .category-link .damn-plus, .category-link .damn-plus:hover, .plus-select .post-image { background-color: <?=$issue_color?> !important; }
+	.btn-default, .btn-primary, body.damn-plus .title-wrapper, body.category-damn-plus .title-wrapper, body.login .main h3.widget-title, .back-to-calendar a.btn-primary, .article-navigation .pagination li span.current, .color-box, .damn-plus-badge, .join-damn-plus-home-image, .damn-plus-cta, .page-featured-image, .item.damn-plus .news-item, .single-news-item, .first-post-advert-wrapper .blackBackground, .category-link .damn-plus, .category-link .damn-plus:hover, .plus-select .post-image, #search-bar { background-color: <?=$issue_color?> !important; }
 	
 	.category-link .damn-plus { border-color: <?=$issue_color?> !important; }
 </style>
@@ -33,7 +28,7 @@ $history       = -10;
 		<div class="pull-right social-navs">
 		<?php
 		if (has_nav_menu('header_socials'))
-			wp_nav_menu(['theme_location' => 'header_socials', 'walker' => new wp_bootstrap_navwalker(), 'menu_class' => 'social-nav navbar-nav']);
+			wp_nav_menu(['theme_location' => 'header_socials', 'menu_class' => 'social-nav navbar-nav']);
 		?>
 		</div>
 		
@@ -88,19 +83,9 @@ $history       = -10;
 	<div class="fixed-nav-activator clearthis"></div>
 </header>
 
-<div class="white-wrapper">
-	<div class="container">
-		<nav class="collapse navbar-collapse main-navigation" role="navigation">
-		<?php
-		if (has_nav_menu('primary_navigation'))
-			wp_nav_menu(['theme_location' => 'primary_navigation', 'walker' => new wp_bootstrap_navwalker(), 'menu_class' => 'nav navbar-nav', ]);
-
-		if (has_nav_menu('header_socials'))
-			wp_nav_menu(['theme_location' => 'header_socials', 'walker' => new wp_bootstrap_navwalker(), 'menu_class' => 'social-nav navbar-nav']);
-		?>
-		</nav>
-	</div>
-</div>
+<!--<div class="white-wrapper">-->
+	<?php get_template_part('templates/navbar-default'); ?>
+<!--</div>-->
 
 <?php /* 
 <nav id="my-menu" style="display:none;">
@@ -112,8 +97,3 @@ $history       = -10;
 </nav>
 */?>
 
-<div id="search-bar" class="collapse">
-	<div class="container">
-		<?php get_template_part('templates/search-form'); ?>
-	</div>
-</div>

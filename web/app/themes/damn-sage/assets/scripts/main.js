@@ -94,7 +94,7 @@
   // Setup Headheasive for sticky navigation
 
   // Set options
-  var options = {
+  /*var options = {
     offset: '.fixed-nav-activator',
     classes: {
       // Cloned elem class
@@ -111,7 +111,7 @@
   };
 
   // Sticky header courtesy of Headhesive.js, Create a new instance of Headhesive
-  var header = new Headhesive('.white-wrapper', options);
+  var header = new Headhesive('.white-wrapper', options);*/
 
   // Fitvids
   $(".featured-video").fitVids();

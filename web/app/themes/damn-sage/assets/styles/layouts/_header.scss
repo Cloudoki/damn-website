@@ -280,13 +280,52 @@ a.mobile-menu {
   }
 }
 
-.navbar {
-  @media screen and (max-width: 767px) {
-    min-height: 0;
-    height: 0;
-  }
-}
+nav.navbar-default { 
+	
+	background-color: transparent;
+	border-top-width: 1px;
+	
+	.navbar-header {
 
+		@media screen and (min-width: 768px) { display: none; }
+	}
+	
+	.navbar-nav>.open>a { background: none !important; }
+	
+	#search-bar {
+		background-color: $white;
+		font-size: inherit;
+		.search-large {
+			padding: 10px 0;
+			opacity: 0;
+			font-size: inherit;
+			@include transitions;
+			.input-group {
+				input.search-field {
+					padding: 8px;
+					font-size: inherit;
+					border: none;
+					border-radius: 2px 0 0 2px;
+				}
+				button {
+					background-color: rgba(255,255,255, .12) !important;
+					border-radius: 0 2px 2px 0;
+					padding: 4px 12px 5px;
+					border: none;
+					font-size: inherit;
+					color: $white !important;
+					
+					&:hover, &:active { background-color: #000 !important; }
+				}
+				
+				button i { font-size: 1.24em; }
+			}
+		}
+		
+		&.collapse.in .search-large { opacity: 1; }
+	}
+
+}
 
 /*
 // main navbar in header
@@ -488,11 +527,6 @@ body.home {
   // Main nav (always visible)
   .menu-main-nav-container {
     padding: 0;
-  }
-
-  // Social nav (hidden in normal nav, visible in Headhesive, the sticky nav - see .headhesive for more on this style )
-  .menu-socials-header-container {
-    display: none;
   }
 }
 
@@ -748,7 +782,7 @@ ul.social-nav {
 
 // HEADHESIVE STICK NAV OPTIONS
 
-/* before scroll or in "unstick" mode, hide */
+/* before scroll or in "unstick" mode, hide 
 .headhesive {
   @include position(fixed, $top: -60px, $left: 0);
   @include opacity(0);
@@ -792,9 +826,9 @@ ul.social-nav {
       line-height: 60px;
     }
   }
-}
+}*/
 
-/* when scroll past the header, in active "stick" mode */
+/* when scroll past the header, in active "stick" mode 
 .headhesive--stick {
   display: block;
   @include position(fixed, $top: 0, $left: 0);
@@ -863,13 +897,11 @@ body.logged-in {
   .logged-in {
     display: block !important;
   }
-}
+}*/
 
 /* bootstrap override */
 
-.navbar-default .navbar-nav>.open>a {
-  background: none !important;
-}
+
 
 .page-header {
   margin-top: 0;
@@ -1076,41 +1108,5 @@ ul#issue-selector {
 }*/
 
 // header search
-
-#search-bar {
-  background-color: $white;
-  .search-large {
-    padding: 9em 0 6em 0;
-    opacity: 0;
-    @include transitions;
-    .search-form {
-      border: .7em solid $black;
-      border-right: 0;
-      @include border-radius(10px);
-      background-color: $black;
-    }
-    .input-group {
-      input.search-field {
-        font-size: 2em;
-        border: none;
-        border-top-right-radius: 5px;
-        border-bottom-right-radius: 5px;
-      }
-      button {
-        font-size: 2em;
-        border: none;
-        background-color: $black;
-        color: $white !important;
-      }
-    }
-  }
-}
-
-#search-bar.collapse.in {
-  .search-large {
-    opacity: 1;
-  }
-}
-
 
 

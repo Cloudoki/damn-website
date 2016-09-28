@@ -7,11 +7,9 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "Headhesive.js": "headhesive#~1.2.4",
     "bootstrap-sass-official": "3.3.5",
     "bxslider-4": "dw-bxslider-4#~4.2.5",
     "fontawesome": "~4.4.0",
-    "jQuery.mmenu": "~5.4.0",
     "jquery.fitvids": "fitvids#~1.1.0",
     "modernizr": "2.8.2",
     "salvattore": "~1.0.8",
@@ -32,16 +30,10 @@
         "./assets/javascripts/bootstrap/collapse.js",
         "./assets/javascripts/bootstrap/dropdown.js",
         "./assets/javascripts/bootstrap/modal.js",
+        "./assets/javascripts/bootstrap/navbar.js",
         "./assets/javascripts/bootstrap/tooltip.js",
         "./assets/javascripts/bootstrap/popover.js",
-        "./assets/javascripts/bootstrap/scrollspy.js",
-        "./assets/javascripts/bootstrap/tab.js",
-        "./assets/javascripts/bootstrap/affix.js",
-        "./assets/fonts/bootstrap/glyphicons-halflings-regular.eot",
-        "./assets/fonts/bootstrap/glyphicons-halflings-regular.svg",
-        "./assets/fonts/bootstrap/glyphicons-halflings-regular.ttf",
-        "./assets/fonts/bootstrap/glyphicons-halflings-regular.woff",
-        "./assets/fonts/bootstrap/glyphicons-halflings-regular.woff2"
+        "./assets/javascripts/bootstrap/affix.js"
       ]
     },
     "fontawesome": {
