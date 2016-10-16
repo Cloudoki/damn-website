@@ -334,6 +334,35 @@ class DAMN {
 	 }
 }
 
+
+/**
+ *	Fetch post image
+ *	@return	string	image url string
+ */
+function fetch_post_image ()
+{
+	if (has_post_thumbnail () && !has_post_format('quote'))
+	{
+		$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' );
+		$url = $thumb['0'];
+	} else {
+		if ( get_post_meta( $post->ID, '_scheduled_thumbnail_id' ) ){
+			$array = get_post_meta( $post->ID, '_scheduled_thumbnail_id' );
+			$thumb = wp_get_attachment_image_src( $array [0], 'large' );
+			$url = $thumb['0'];
+		} else if ( get_post_meta( $post->ID, '_scheduled_thumbnail_list') ){
+			$list = get_post_meta( $post->ID, '_scheduled_thumbnail_list');
+			$array =json_decode($list[0]);
+			$thumb = wp_get_attachment_image_src( $array[0], 'large' );
+			$url = $thumb['0'];
+		}
+	}
+	
+	return $url;
+}
+
+
+
 /**
  * Filter the except length to 20 characters.
  *

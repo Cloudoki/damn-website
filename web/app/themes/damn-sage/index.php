@@ -135,30 +135,34 @@ if (!have_posts())
 
 	?>
 	<div class="row">
-		<div class="first-post-advert-wrapper">
-			<div class="table-row" >
-			<div class="width-pusher"></div>
+		
+	<?php 
+		
+		include 'templates/home-carousel.php'; 
+		
+		get_template_part('templates/advert-block-premium');
+		
+	?>
+	
+		<?php
+		//echo do_shortcode('[display-posts posts_per_page="4" bootstrap="1"]');
+		
+		/*
+		while( $featured->have_posts() ){
+			
+			$featured->the_post();
+			
+			// Excempt featured post from main streams
+			
+			$issue_query['post__not_in'][] = get_the_ID();
+			get_template_part('templates/home', 'primary-row');
 
-			<div id="slides">
-			<?php
-				while( $featured->have_posts() ){
-					
-					$featured->the_post();
-					
-					// Excempt featured post from main streams
-					
-					$issue_query['post__not_in'][] = get_the_ID();
-					get_template_part('templates/home', 'primary-row');
+		}
+		*/ ?>
 
-				}
-			?>
-			</div>
-				<?php get_template_part('templates/advert-block-premium');  ?>
-			</div>
-		</div>
+		<?php   ?>
+
 	</div>
-
-
 
 	<div class="row">
 		<?php 

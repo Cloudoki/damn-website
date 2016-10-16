@@ -1,6 +1,6 @@
 jQuery(document).ready(function($) {
 
-	$('.offside-users-alphabet-menu ul li a').hide();
+	/*$('.offside-users-alphabet-menu ul li a').hide();
 
 	$('.offside-users-alphabet-menu ul li a').click(function(event) {
 
@@ -30,11 +30,11 @@ jQuery(document).ready(function($) {
 		});
 
 
-	});
+	});*/
 
 	/*
 	* Homepage slider
-	 */
+	 
 	 $("#slides").slidesjs({
 
 		navigation: {
@@ -59,7 +59,7 @@ jQuery(document).ready(function($) {
 			$('.width-pusher').remove();
 		  },
 		}
-	});
+	});*/
 
 
 	/** 

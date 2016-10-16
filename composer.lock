@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "650f897338150dfba3135ea70d118785",
-    "content-hash": "7e0c755dba7605b53d01a642337c9244",
+    "hash": "e0ad75488a590a6a0f248fd58612ca67",
+    "content-hash": "1356c904c1e4ce170a0f6aab53efe149",
     "packages": [
         {
             "name": "composer/installers",
@@ -253,7 +253,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/adrotate.3.15.7.zip",
-                "reference": null,
+                "reference": "tags/3.15.7",
                 "shasum": null
             },
             "require": {
@@ -273,7 +273,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/custom-post-type-ui.1.4.1.zip",
-                "reference": null,
+                "reference": "tags/1.4.1",
                 "shasum": null
             },
             "require": {
@@ -293,7 +293,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/disable-emojis.1.5.2.zip",
-                "reference": null,
+                "reference": "tags/1.5.2",
                 "shasum": null
             },
             "require": {
@@ -301,6 +301,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/disable-emojis/"
+        },
+        {
+            "name": "wpackagist-plugin/display-posts-shortcode",
+            "version": "2.7.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/display-posts-shortcode/",
+                "reference": "tags/2.7.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/display-posts-shortcode.2.7.0.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/display-posts-shortcode/"
         },
         {
             "name": "wpackagist-plugin/featured-video-plus",
@@ -313,7 +333,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/featured-video-plus.2.2.3.zip",
-                "reference": null,
+                "reference": "tags/2.2.3",
                 "shasum": null
             },
             "require": {
@@ -353,7 +373,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/google-analytics-dashboard-for-wp.zip",
-                "reference": null,
+                "reference": "trunk",
                 "shasum": null
             },
             "require": {
@@ -373,7 +393,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/issuupress.zip",
-                "reference": null,
+                "reference": "trunk",
                 "shasum": null
             },
             "require": {
@@ -393,7 +413,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/mailchimp-for-wp.4.0.4.zip",
-                "reference": null,
+                "reference": "tags/4.0.4",
                 "shasum": null
             },
             "require": {
@@ -413,7 +433,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/sendgrid-email-delivery-simplified.zip",
-                "reference": null,
+                "reference": "trunk",
                 "shasum": null
             },
             "require": {
@@ -433,7 +453,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/wd-instagram-feed.1.1.10.zip",
-                "reference": null,
+                "reference": "tags/1.1.10",
                 "shasum": null
             },
             "require": {
@@ -441,6 +461,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/wd-instagram-feed/"
+        },
+        {
+            "name": "wpackagist-plugin/wp-bootstrap-carousel",
+            "version": "0.5.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wp-bootstrap-carousel/",
+                "reference": "tags/0.5.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wp-bootstrap-carousel.0.5.0.zip",
+                "reference": "tags/0.5.0",
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wp-bootstrap-carousel/"
         }
     ],
     "packages-dev": [],

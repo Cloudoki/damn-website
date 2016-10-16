@@ -120,7 +120,7 @@
 
   // BX Slider - product image pages
 
-  $('.bxslider').bxSlider({
+/*  $('.bxslider').bxSlider({
     mode: 'vertical',
     autoStart: 'false',
     infiniteLoop: 'true',
@@ -135,7 +135,7 @@
         var iSrc = $( slider[oldIndex] ).find('iframe').attr('src');
         $( slider[oldIndex] ).find('iframe').attr('src', iSrc);
     }
-  });
+  });*/
  /*
   // MMenu
   $("#my-menu").mmenu({

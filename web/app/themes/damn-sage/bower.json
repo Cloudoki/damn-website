@@ -8,7 +8,6 @@
   "private": true,
   "dependencies": {
     "bootstrap-sass-official": "3.3.5",
-    "bxslider-4": "dw-bxslider-4#~4.2.5",
     "fontawesome": "~4.4.0",
     "jquery.fitvids": "fitvids#~1.1.0",
     "modernizr": "2.8.2",
