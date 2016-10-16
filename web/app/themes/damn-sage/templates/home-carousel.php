@@ -19,15 +19,33 @@
 				// Filling
 				$fill = get_field('sub-title')?: get_the_excerpt();
 				
-				$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' );
+				//$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' );
 				//$url = $thumb['0'];
 				//fetch_post_image()
+				
+if (has_post_thumbnail () && !has_post_format('quote'))
+{
+	$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' );
+	$url = $thumb['0'];
+} else {
+	if ( get_post_meta( $post->ID, '_scheduled_thumbnail_id' ) ){
+		$array = get_post_meta( $post->ID, '_scheduled_thumbnail_id' );
+		$thumb = wp_get_attachment_image_src( $array [0], 'large' );
+		$url = $thumb['0'];
+	} else if ( get_post_meta( $post->ID, '_scheduled_thumbnail_list') ){
+		$list = get_post_meta( $post->ID, '_scheduled_thumbnail_list');
+		$array =json_decode($list[0]);
+		$thumb = wp_get_attachment_image_src( $array[0], 'large' );
+		$url = $thumb['0'];
+	}
+}
+
 			?>
 			
 			
 			<div class="item<?=count ($indicators)? '': ' active'?>">
 				<a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>">
-					<img src="<?=$thumb['0']?>" alt="<?= the_title_attribute()?>">
+					<img src="<?=$url?>" alt="<?= the_title_attribute()?>">
 					
 					<div class="carousel-caption">
 						<h3><?php the_title_attribute(); ?></h3>
