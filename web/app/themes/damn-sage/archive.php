@@ -1,5 +1,11 @@
 <?php
 
+	/* Process tag page in separate page */
+	if (is_tag ())
+	
+		include 'archive-tags.php';
+	
+	//else {
 
 	/**
 	 *	Issue filtering.
@@ -43,15 +49,17 @@
 	}
 ?>
 
-<?php if (!have_posts()) : ?>
+
+
+
+<?php if (!isset ($success) && !have_posts()) : ?>
   <div class="alert alert-warning">
     <?php _e('Sorry, no results were found.', 'sage'); ?>
   </div>
   <?php get_template_part('templates/search-form'); ?>
 <?php endif; ?>
 
-
-<?php
+<?php 
 /* if Productivity */
 if (is_post_type_archive(array( 'product' ))) {
 
@@ -210,3 +218,5 @@ else { ?>
 
 
 <?php get_template_part('templates/page-navi'); ?>
+
+<?php /* End non-tag archive  } */ ?>
