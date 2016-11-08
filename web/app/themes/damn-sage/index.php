@@ -69,7 +69,7 @@ if (!have_posts())
 			[
 				'taxonomy' => 'category',
 				'field' => 'slug',
-				'terms' => 'manifesto'
+				'terms' => ['manifesto','eudesignstories']
 			],
 			[
 				'taxonomy' => 'magazine',
@@ -310,13 +310,14 @@ if( $manifesto->have_posts() ) $manifesto->the_post();
 // Excempt manifesto from main streams
 $main_query['post__not_in'][] = 
 $issue_query['post__not_in'][] = get_the_ID();
+
 ?>
 
 	<div class="empty-wrapper row">
 		
 		<div class="col-sm-12 col-md-8">
 			<div class="row">
-				<?php get_template_part('templates/post-manifesto'); ?>
+				<?php get_template_part( has_term ('eudesignstories', 'category')? 'templates/post-eudesignstories': 'templates/post-manifesto'); ?>
 			</div>
 			<hr class="sub-column" />
 			
