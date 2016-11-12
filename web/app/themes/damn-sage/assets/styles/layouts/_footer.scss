@@ -26,6 +26,8 @@ footer.content-info {
   }
 }
 
+
+
 .logo-buttons {
   .footer-cta .pull-right {
     text-align: right;
@@ -57,7 +59,12 @@ footer.content-info {
   }
 }
 
-.row-links {
+footer .row-links {
+  
+  
+  .pull-right { text-align: right; }
+  
+  
   clear: both;
   .col-sm-4:nth-child(3n+1) {
     clear: none !important;
