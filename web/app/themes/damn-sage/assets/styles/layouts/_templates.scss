@@ -69,11 +69,8 @@ body.templated {
 	article {
 		
 		.container {
-			padding: 0 30px;
-			max-width: 1500px;
-			
-			@media screen and (min-width: 1500px) { width: 1500px !important; }
-			@media screen and (max-width: 1499px) { width: 100% !important; }
+			//padding: 0 30px;
+
 		}
 	}
 	
@@ -103,6 +100,8 @@ body.templated {
 }
 
 
+
+
 body.templated,
 body.single-events {
 	background-color: $negative;
@@ -113,7 +112,7 @@ body.single-events {
 		text-transform: uppercase;
 	}
 	
-	.row { margin: 15px 0; }
+	.row { margin: 15px -15px; }
 	
 	/**
 	 *	Positive contrast overrides
@@ -133,7 +132,12 @@ body.single-events {
 			}
 		}
 
-		a.at-share-btn { color: $negative; }
+		a.at-share-btn { 
+			background-color: $positive !important;
+			
+			.at-icon-wrapper .at-icon { fill: $negative; }
+			&:hover .at-icon-wrapper .at-icon { fill: $gray; }
+		}
 	}
 	
 	/**
@@ -222,8 +226,8 @@ body.single-events {
 			
 			li {
 				float: left;
-				padding: 0 15px;
-				font-size: 1.36em;
+				padding: 0 14px;
+				font-size: 1.28em;
 				text-transform: uppercase;
 				font-weight: 700;
 

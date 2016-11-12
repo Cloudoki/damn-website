@@ -221,16 +221,10 @@ body.tax-magazine, body.single, body.damn-plus, body.page-subscribe, body.page-c
 }
 
 .container {
-  @media screen and (min-width: 481px) and (max-width: 767px) {
-    max-width: 600px;
-  }
-  @media screen and (min-width: 768px) and (max-width: 1539px) {
-    width: 94% !important;
-    max-width: 1440px;
-  }
-  @media screen and (min-width: 1540px) {
-    width: 1440px;
-  }
+  width: 98%;
+  
+  @media screen and (min-width: 1024px) { width: 1000px; }
+  @media screen and (min-width: 1280px) { width: 1200px; }
 }
 
 .main {

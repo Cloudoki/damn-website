@@ -1,16 +1,14 @@
 #home-carousel {
 	.carousel-inner {
 		.item {
-			height: 592px;
+			height: 480px;
 			background-color: #ccc;
 			
-			@media screen and (max-width: 1599px) { height: 540px; }
-			@media screen and (max-width: 1439px) { height: 480px; }
-			@media screen and (max-width: 1279px) { height: 374px; }
-			@media screen and (max-width: 991px) { height: 462px; }
-			@media screen and (max-width: 799px) { height: 380px; }
-			@media screen and (max-width: 639px) { height: 320px; }
-			@media screen and (max-width: 414px) { height: 274px; }
+			@media screen and (max-width: 1279px) { height: 420px; }
+			@media screen and (max-width: 1023px) { height: 400px; }
+			@media screen and (max-width: 990px) { height: 420px; }
+			@media screen and (max-width: 679px) { height: 380px; }
+			@media screen and (max-width: 559px) { height: 280px; }
 			
 			a > img {
 				width: 104%;

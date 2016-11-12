@@ -5,65 +5,51 @@
 	<div class="container post-content">
 		
 		<div class="row">
-			<div class="col-md-8 col-lg-9">
+			<div class="col-md-7">
 				
-				{{#has_video}} {{{video}}} {{/has_video}}
-				{{^has_video}} {{> /partials/image-captioned}} {{/has_video}}
+				<!-- Content Row -->
+				<div class="row">
+					
+					<div class="col-md-12">
+						
+						<h1>{{{post.post_title}}}</h1>
+						<h2>{{#get_field}}sub-title{{/get_field}}</h2>
+						
+						<date>{{date}}</date>
+						<br><br>
+					</div>
+
+					<div class="col-md-12 paragraph">
+						{{#iterate}}
+							{{{paragraphs.#}}}
+						{{/iterate}}
+					</div>
+					
+					<div class="col-md-12 paragraph">
+						{{#iterate}}
+							{{{paragraphs.#}}}
+						{{/iterate}}
+					</div>
+					
+					<div class="col-md-12 paragraph">
+						{{#iterate}}
+							{{{paragraphs.#}}}
+						{{/iterate}}
+					</div>
+					
 				
-				<br><br>
-				<h1>{{{post.post_title}}}</h1>
-				<h2>{{#get_field}}sub-title{{/get_field}}</h2>
-				
-				<date>{{date}}</date>
+				</div>
 				
 			</div>
-			
-			<div class="col-md-4 col-lg-3">
-			
-				{{> /partials/ad-single}}
-			
-			</div>
-		</div>	
-		
-		{{#issuu_shortcode}}
-		<div class="row">
-			<div class="col-md-8 col-lg-12">
-			{{{issuu_shortcode}}}
-			</div>
-		</div>
-		{{/issuu_shortcode	}}
-		
-		<div class="row">
-			<div class="col-md-12 paragraph">
-				{{#iterate}}
-					{{{paragraphs.#}}}
-				{{/iterate}}
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col-md-12 paragraph">
-				{{#iterate}}
-					{{{paragraphs.#}}}
-				{{/iterate}}
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col-md-6">
-				{{> /partials/image-captioned}}
-			</div>
-			
-			<div class="col-md-6">
-				{{> /partials/image-captioned}}
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col-md-12 paragraph">
-				{{#iterate}}
-					{{{paragraphs.#}}}
-				{{/iterate}}
+			<div class="col-md-5">
+				
+				<!-- Media Row -->
+				<div class="row">
+					
+					<div class="col-md-12">{{> /partials/image-captioned}}</div>
+				</div>
+				
+				
 			</div>
 		</div>
 		

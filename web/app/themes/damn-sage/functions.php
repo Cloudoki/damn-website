@@ -95,7 +95,7 @@ class DAMN {
 			throw new Exception('No current issue is set, please contact the DAMN° Moderator.');
 		
 		# Current Issue
-		if( isset(  $_GET['issue'] ) )
+		//if( isset(  $_GET['issue'] ) )
 		$this->issue = $this->issued? : $this->filterIssue ( $_GET['issue']);
 		
 		$this->expandIssue ();

@@ -54,6 +54,14 @@
 	current.parent().html(current.html()).addClass('active');
 	
 	var pos = list.find('li.active').position();
-	list.css('left', -pos.left + 'px');
+	
+	// Shift to right
+	if (pos) list.css('left', -pos.left + 'px');
+	
+	// Old issue
+	else {
+		list.html('<li class="active"><a href="/editions/damn-{{issue.number}}">{{issue.number}}</a></li>');
+		jQuery('header .issue-buttons').hide();
+	}
 	
 </script>
