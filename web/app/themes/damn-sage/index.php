@@ -353,7 +353,7 @@ $issue_query['post__not_in'][] = get_the_ID();
 						while ( $latest_posts->have_posts() ) {
 							$latest_posts->the_post();
 		
-							get_template_part('templates/home', 'latest-posts');
+							get_template_part('templates/home', 'company-posts');
 							$issue_query['post__not_in'][] = get_the_ID();
 						}
 				?>
