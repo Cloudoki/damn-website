@@ -1,5 +1,5 @@
 <!doctype html>
-<html data-type="event" class="no-js" <?php language_attributes(); ?>>
+<html class="no-js" <?php language_attributes(); ?>>
 
 <?php
 global $DAMN;
@@ -10,68 +10,71 @@ global $DAMN;
  */
  
 $DAMN = new DAMN ();
+$Wustache = new Cloudoki\Wustache\Template ();
+$post = get_post ();
 
 # Issue numbers
-/*$latest_number = (int) !$DAMN->latest? 
+$latest_number = (int) !$DAMN->latest? 
 	
 	get_field ('magazine_number', 'magazine_' . $DAMN->latest_issue->term_id):
-	$DAMN->issue->number;*/
-	
-# Template required data
-$parameters = (object)[
-	'background'	=> [
-		'image' => get_field ('background_image'),
-		'color' => get_field ('background_color'),
-	],
-	'image' 	 => get_field ('image'),
-	'issue'		 => $DAMN->issue,
-	'issued'	 => $DAMN->issued,
-	'contrast'	 => get_field ('contrast'),
-	'next_issue' => $DAMN->latest? null: $DAMN->issue->number +1,
-	'prev_issue' => $DAMN->issue->number > $latest_number-10? $DAMN->issue->number -1: null,
-	'history'	 => range ($latest_number, $latest_number-10),
-	'theme_path' => get_template_directory_uri(),
-	'navigation' => wp_nav_menu (
-	[
-		'menu' => 'Minimal Nav', 
-		'echo' => false
-	]),
-	
-	// To update: should be issued release date
-	'date'			=> get_the_date ("F o")
-];
+	$DAMN->issue->number;
 
 $template_path = 'advertorial/';
 
-# Template smarts
-$parameters->template = $template_path . '.default';
+$next_issue = null;
+if( !$DAMN->latest && $DAMN->issue ){
+	$next_issue = $DAMN->issue->number +1;
+}
 
+$prev_issue = null;
+if( $DAMN->issue && $DAMN->issue->number > $latest_number-10 ){
+	$prev_issue = $DAMN->issue->number -1;
+}
+	
+# Template required data
+$parameters = (object)[
+	'issue'		 => $DAMN->issue,
+	'issued'	 => $DAMN->issued,
+	'next_issue' => $next_issue,
+	'prev_issue' => $prev_issue,
+	'history'	 => range ($latest_number, $latest_number-10),
+	'theme_path' => get_template_directory_uri(),
+	'template'	 => $template_path . (get_post_meta ($post->ID, '_template_slug', true)?: '.default'),
+	'contrast'	 => get_post_meta ($post->ID, '_template_contrast', true) != 'dark',
+	'navigation' => wp_nav_menu (
+	[
+		'theme_location' => 'primary_navigation', 
+		'depth'			 => 1, 
+		'echo'			 => false
+	]),
+	
+	// To update: should be issued release date
+	'date'		=> get_the_date ("F o")
+];
+
+# External Links
+$parameters->external_links = [];
+
+if(get_field ('external_links'))
+	
+	while( has_sub_field('external_links'))
+		
+		$parameters->external_links[] = ['url'=> get_sub_field ('url')];
 
 # The Post
-$parameters->post = get_post();
+$parameters->post = $post;
 
 # Tags
-if ( get_the_tags() ){
-	$parameters->tags = get_the_tags ();
-}
+$parameters->tags = get_the_tags ();
 
 # Categories
-if ( get_the_category( get_the_ID() ) ){
-	$parameters->categories = get_the_category (get_the_ID());
-}
+$parameters->categories = get_the_category ($post->ID);
 
-# Agenda
-if (get_field ('calnode')  ){
-	$parameters->calnode = get_field ('calnode');
-	$parameters->calnode->subtitle = get_field ('subtitle', $parameters->calnode->ID);
-	$parameters->calnode->start = get_field ('start_date', $parameters->calnode->ID);
-	$parameters->calnode->start_day = date ('d', strtotime ($parameters->calnode->start));
-	$parameters->calnode->start_month = date ('M', strtotime ($parameters->calnode->start));
-	$parameters->calnode->end = get_field ('end_date', $parameters->calnode->ID);
-	$parameters->calnode->url = get_post_permalink ($parameters->calnode->ID);
-}
+# Video
+$parameters->has_video = has_post_video ($post->ID);
 
-
+if ($parameters->has_video)
+	$parameters->video = get_the_post_video($post->ID, '100%');
 
 # Brand
 if( get_field ('brand') ){
@@ -81,27 +84,12 @@ if( get_field ('brand') ){
 	$parameters->brand->acfid = 'brand_' . $parameters->brand->ID;
 }
 
-
-#Highlight
-$highlights = ($highlight = get_field ('highlight'))? $DAMN->sugar ([$highlight]): [];
-
-# Listed Posts
-$posts[0] = $DAMN->relatedPosts (-1, $parameters->post, null, $parameters->tags, $highlights?: null);
-$posts[1] = $DAMN->relatedPosts (13 - count ($posts[0]) - count ($highlights), false, $parameters->categories, null, array_merge ($highlights, $posts[0]));
-
-$parameters->posts = array_merge ($highlights, $posts[0], $posts[1]);
-
-# Classes
-$classes = get_field ('class')?: null;
-
-if ($parameters->contrast) $classes .= ' positive-contrast';
-
 # Load Head
 get_template_part('templates/head'); 
 
 ?>
 
-	<body <?php body_class ($classes); ?>>	
+	<body <?php body_class ($parameters->contrast? 'positive-contrast templated': 'templated'); ?>>
 	<div id="search-bar" class="collapse event-search-bar">
 		<div class="container">
 			<?php get_template_part('snippets/search-form'); ?>

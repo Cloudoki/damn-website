@@ -1,179 +1,107 @@
-<style type="text/css" media="screen">
-	/**
-	 * Style all colors based on event # color
-	 */ 
-	body.single-events, body.positive-contrast { 
-		background-color: {{background.color}} !important;
-		{{#background.image}}background-image: url({{background.image}});{{/background.image}}
-	}
-</style>
+{{> /partials/header-single}}
 
-<header>
-	
-	<div class="container">
+<article class="long-read">
+		
+	<div class="container post-content">
+		
 		<div class="row">
-			<div class="col-sm-12 col-md-11">
-				
-				<div class="logo-container">
-					<a href="/" title="home">
-					{{#contrast}}<img src="{{theme_path}}/dist/images/logo-positive.svg" alt="DAMN°" />{{/contrast}}
-					{{^contrast}}<img src="{{theme_path}}/dist/images/logo-negative.svg" alt="DAMN°" />{{/contrast}}
-					</a>
 			
-					<div class="event-title">
-					{{{post.post_title}}}
+			<div class="col-md-6">
+				
+				<!-- Text Column -->
+				<div class="row">
+					<div class="">
+						<h1>{{{post.post_title}}}</h1>
+						<h2>{{#get_field}}sub-title{{/get_field}}</h2>
+						
+						<date>{{date}}</date>
 					</div>
 					
+					{{#spill}}
+					
+						<br>
+						<div class="paragraph">
+							{{{paragraphs}}}
+						</div>
+						
+					
+					{{/spill}}
+					
+					<hr>
+					
+					<div>
+					<i>Read more</i>
+		
+						<ul class='external_links'>
+							{{#external_links}}
+							<li><a href="{{.}}">{{.}}</a></li>
+							{{/external_links}}
+							{{#brand.link}}
+							<li><a href="{{brand.link}}">{{brand.link}}</a></li>
+							{{/brand.link}}
+							{{#press_url}}
+							<li><a href="{{press_url}}" class="btn btn-primary">Press</a></li>
+							{{/press_url}}
+						</ul>
+						
+						<ul class='keywords'>
+							
+							{{#categories}}
+							<li><a href="/category/{{slug}}">{{name}}</a></li>
+							{{/categories}}
+							
+							{{#tags}}
+							<li><a href="/tag/{{slug}}">{{name}}</a></li>
+							{{/tags}}
+							
+						</ul>
+					</div>
+
+				</div>
+			</div>
+			
+			<!-- Media Column -->
+			<div class="col-lg-offset-1 col-md-6 col-lg-5">
+				
+				<div>
+				{{#has_video}} {{{video}}} {{/has_video}}
+				{{^has_video}} {{> /partials/image-captioned}} {{/has_video}}
 				</div>
 				
+				{{#spill}}
+				<div class="image">
+					<img src="{{images.url}}" title="{{images.post_title}}" />
+					
+					<span class="caption" style='color: #333;'>
+						{{images.post_content}}
+					</span>
+				</div>
+				{{/spill}}
+				
+
+				<div class="col-md-offset-6 {{#issued}}col-xs-12 col-sm-8 {{/issued}}col-md-6">
+				
+					{{#issued}}
+					{{> /partials/magazine-relation}}
+					{{/issued}}
+					
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-12 social-row">
 				<div class='social-share'>
-					<i>Share this momentum</i>
+					<i>Share this news</i>
 					<div class="addthis_custom_sharing"></div>
 				</div>
-				
-			</div>
-			<div class="col-md-1">
-				
-				{{> /partials/snippets/cal-icon}}
-							
 			</div>
 		</div>
-</header>
-
-<div class="container post-content">
-	
-	{{#image}}	
-	<div class="row">
-		<div class="col-sm-12 col-md-7 event-description">
-			
-			{{{post.post_content}}}
-			
-		</div>
-		<div class="col-sm-12 col-md-5">
-			
-			<img src="{{image}}" />
-			
-		</div>
+		
 	</div>
-	{{/image}}
-	
-	{{^image}}	
-	<div class="row">
-		<div class="col-md-12 col-lg-10 event-description">
-			
-			{{{post.post_content}}}
-			
-		</div>
-	</div>
-	{{/image}}
-	
-	<div class="row">
-		<div class="col-sm-12 col-md-9 col-lg-10">
-		{{#iterate}}
-				
-			{{#posts.#}}
-			{{> /partials/items/highlight-post-free}}
-			{{/posts.#}}
-			
-		{{/iterate}}			
-		</div>
-		<div class="col-sm-12 col-md-3 col-lg-2">
-			
-			<div class="event-brand">
-				<a href="{{brand.logo}}" target="_blank">
-					<img src="{{brand.logo}}" title="{{brand.post_title}}" />
-				</a>
-			</div>
-
-			<div class="event-social">
-				{{{post.post_title}}} on <br>
-				{{#post.social_twitter}}
-					<a href="{{post.social_twitter}}" target="_blank"><i class="ion-social-twitter"></i></a>
-				{{/post.social_twitter}}
-				{{#post.social_facebook}}
-					<a href="{{post.social_facebook}}" target="_blank"><i class="ion-social-facebook"></i></a>
-				{{/post.social_facebook}}
-			</div>
-						
-		</div>
-	</div>
-	
-	<div class="row">
-
-		{{#spill}}
-		<div class="col-sm-12 col-md-6 col-lg-4">
-			<a href="/{{posts.post_name}}">
-				<div class="item event-post" style="background-image:url({{posts.thumbnail}});">
-					
-					<div class="bg-fade post-title">
-						
-						{{posts.post_title}}
-						<i class='sub-title'>{{posts.subtitle}}</i>
-						
-					</div>
-			
-				</div>
-			</a>
-		</div>
-		{{/spill}}
-
-	</div>
-</div>
+</article>
 
 <hr>
 
-<div class="container">
-	<div class="row">
-		<div class="col-sm-12">
-			<a href="{{calnode.url}}">
-				<h2>{{calnode.post_title}}</h2>
-				<h4>
-					{{#subtitle}}{{subtitle}}{{/subtitle}}
-					{{^subtitle}}{{calnode.start}} - {{calnode.end}}{{/subtitle}}
-				</h4>
-			</a>
-		</div>
-	</div>
-</div>
+{{> /partials/single-about}}
 
-<hr>
-
-<div class="row">
-	<div class="col-md-6 align-right">
-		<i>Read more</i>
-		
-		<ul class='external_links'>
-			{{#external_links}}
-			<li><a href="{{.}}">{{.}}</a></li>
-			{{/external_links}}
-			{{#brand.link}}
-			<li><a href="{{brand.link}}">{{brand.link}}</a></li>
-			{{/brand.link}}
-			{{#press_url}}
-			<li><a href="{{press_url}}" class="btn btn-primary">Press</a></li>
-			{{/press_url}}
-		</ul>
-		
-		<ul class='keywords'>
-			
-			{{#categories}}
-			<li><a href="/category/{{slug}}">{{name}}</a></li>
-			{{/categories}}
-			
-			{{#tags}}
-			<li><a href="/tag/{{slug}}">{{name}}</a></li>
-			{{/tags}}
-			
-		</ul>
-
-	</div>
-	<div class="col-md-6 social-row align-left">
-		<div class='social-share'>
-			<i>Share this momentum</i>
-			<div class="addthis_custom_sharing"></div>
-		</div>
-	</div>
-</div>
-
-
-{{> /partials/sub-footer-event}}

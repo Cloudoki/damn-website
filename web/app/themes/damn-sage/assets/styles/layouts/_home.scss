@@ -210,6 +210,16 @@ hr.sub-column {
 	}
 }
 
+
+h2.category-title-no-top { 
+	position: relative;
+	top: -14px;
+	margin: 0 0 12px;
+	font-size: 1.8em;
+	color: $light-gray;
+	font-weight: 200;
+}
+
 .category-articles {
 	margin-bottom: 20px;
 	
@@ -229,7 +239,7 @@ hr.sub-column {
 			font-size: 1.125em;
 		}
 	}
-	
+
 	.news-item {
 		
 		header {
