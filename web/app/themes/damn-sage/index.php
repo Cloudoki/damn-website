@@ -79,6 +79,18 @@ if (!have_posts())
 		]
 	];
 	
+	/**
+	 *  Company News posts.
+	 * 
+	 */
+
+	$company_query = [
+		'posts_per_page' => 3,
+		'post_type' => 'advertorial',
+		'orderby' => 'post_date',
+		'order' => 'DESC'
+	];
+	
 	
 	/**
 	 *  Posts stream.
@@ -87,7 +99,7 @@ if (!have_posts())
 	 */
 	$issue_query = [
 		'posts_per_page' => 5,
-		'post_type' => 'post',
+		'post_type' => ['post', 'advertorial'],
 		'orderby' => 'post_date',
 		'order' => 'DESC',
 		'post__not_in' => [],
@@ -316,9 +328,42 @@ $issue_query['post__not_in'][] = get_the_ID();
 	<div class="empty-wrapper row">
 		
 		<div class="col-sm-12 col-md-8">
+			
+			<!-- Manifesto -->
 			<div class="row">
 				<?php get_template_part( has_term ('eudesignstories', 'category')? 'templates/post-eudesignstories': 'templates/post-manifesto'); ?>
 			</div>
+			<hr class="sub-column" />
+			
+			<!-- Company News -->
+			<h2 class="category-title-no-top">Company News</h2>
+			<div class="row">
+				<?php 
+					
+					/*
+					* 3 posts under the slider
+					*/
+		
+					$latest_posts = new WP_Query( $company_query );
+		
+					if ( $latest_posts->have_posts() ){
+				?>
+					<div class="hp-latest-posts">
+				<?php
+						while ( $latest_posts->have_posts() ) {
+							$latest_posts->the_post();
+		
+							get_template_part('templates/home', 'latest-posts');
+							$issue_query['post__not_in'][] = get_the_ID();
+						}
+				?>
+					</div>
+				<?php
+					}
+				 ?>
+			</div>
+			
+			<br>
 			<hr class="sub-column" />
 			
 			<h3 class="read-more-separator archive-title">Read DAMN° articles from previous issues</h3>
@@ -350,7 +395,7 @@ foreach ($cats as $n):
 
 	$main_query['cat'] = $n;
 	
-	$main_query['posts_per_page'] = 4;
+	$main_query['posts_per_page'] = 3;
 	$main_query['orderby'] = 'rand';
 	// query for last 6 months 
 	$main_query['date_query'] = array(
