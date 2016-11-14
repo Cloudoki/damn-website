@@ -343,7 +343,6 @@ $issue_query['post__not_in'][] = get_the_ID();
 					/*
 					* 3 posts under the slider
 					*/
-		
 					$latest_posts = new WP_Query( $company_query );
 		
 					if ( $latest_posts->have_posts() ){

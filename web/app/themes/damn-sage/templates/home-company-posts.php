@@ -28,8 +28,9 @@ if (!$thumb[0]){
 	</a>
 	
 	<h2><?=the_title()?></h2>
-	<h3><?=get_field('sub-title')?>
-		<?=strlen(get_the_excerpt())>300? substr(get_the_excerpt(), 0,298) . '...': get_the_excerpt()?></h3>
+	<h3><?=get_field('sub-title')?></h3>
+	<div class='company-post-excerpt'><?=strlen(get_the_excerpt())>300? substr(get_the_excerpt(), 0,298) . '...': get_the_excerpt()?></div>
+		
 
 	<div class="post-share">
 		<a href="http://twitter.com/share?url=<?=the_permalink()?>" target="_blank"><i class='ion-social-twitter'></i></a>
