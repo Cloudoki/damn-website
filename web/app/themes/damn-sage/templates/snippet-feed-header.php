@@ -68,7 +68,11 @@
 
 					<h3 class="subtitle">
 						<a href="<?php the_permalink(); ?>" >
-							<?php the_excerpt(); ?>
+							<?php 
+								$excerpt = get_the_excerpt(); 
+								
+								echo strlen ($excerpt) < 8*30? $excerpt: substr ($excerpt, 0, 8*30) . " ...";
+							?>
 						</a>
 					</h3>
 				<?php } ?>
