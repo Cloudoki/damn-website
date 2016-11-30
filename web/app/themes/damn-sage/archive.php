@@ -50,7 +50,7 @@
 ?>
 
 
-
+Foo.
 
 <?php if (!isset ($success) && !have_posts()) : ?>
   <div class="alert alert-warning">

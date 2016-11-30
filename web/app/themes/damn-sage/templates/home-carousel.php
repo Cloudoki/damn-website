@@ -6,22 +6,22 @@
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner" role="listbox">
 			
-			<?php
-			$indicators = [];
+		<?php
+		$indicators = [];
+		
+		while( $featured->have_posts() ):
 			
-			while( $featured->have_posts() ):
-				
-				$featured->the_post();
-				
-				// Excempt featured post from main streams
-				$issue_query['post__not_in'][] = get_the_ID();
-				
-				// Filling
-				$fill = get_field('sub-title')?: get_the_excerpt();
-				
-				//$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' );
-				//$url = $thumb['0'];
-				//fetch_post_image()
+			$featured->the_post();
+			
+			// Excempt featured post from main streams
+			$issue_query['post__not_in'][] = get_the_ID();
+			
+			// Filling
+			$fill = get_field('sub-title')?: get_the_excerpt();
+			
+			//$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' );
+			//$url = $thumb['0'];
+			//fetch_post_image()
 				
 if (has_post_thumbnail () && !has_post_format('quote'))
 {
@@ -40,7 +40,7 @@ if (has_post_thumbnail () && !has_post_format('quote'))
 	}
 }
 
-			?>
+		?>
 			
 			
 			<div class="item<?=count ($indicators)? '': ' active'?>">
