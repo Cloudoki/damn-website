@@ -22,7 +22,7 @@ if (!$thumb[0]){
 
  ?>
 
-<article class="item col-xs-6 col-sm-4 col-md-4">
+<article class="item col-xs-12 col-sm-4 col-md-4">
 	<a href="<?=the_permalink()?>" rel="bookmark" title="<?=the_title_attribute()?>">
 		<div class="post-image"<?=isset ($thumb['0'])? ' style="background-image:url(' . $thumb['0'] . ');"': null?>></div>
 	</a>
