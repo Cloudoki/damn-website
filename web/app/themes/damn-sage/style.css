@@ -1126,9 +1126,14 @@ body.single-projects .social-share .addthis_custom_sharing .at-custom-share-anch
 * 3 posts under slider
 */
 .hp-latest-posts{
-	margin: 0px!important;
+	margin: 0px;
 	width:100%;
 	padding: 0px;
+}
+@media(max-width: 767px){
+	.hp-latest-posts{
+		margin-top:20px;
+	}
 }
 
 
