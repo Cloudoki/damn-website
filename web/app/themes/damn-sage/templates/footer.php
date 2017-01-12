@@ -20,7 +20,7 @@ $footer_desc   = get_field('magazine_footer_description', 'magazine_' . $issue->
 		<div class="row">
 			
 			<!-- Footer content -->
-			<div class="col-xs-9 col-md-10">
+			<div class="col-xs-12 col-md-10">
 				
 				<div class="row logo-buttons">
 					<div class="col-md-4 footer-logo">
@@ -49,7 +49,7 @@ $footer_desc   = get_field('magazine_footer_description', 'magazine_' . $issue->
 						<span class="about-damn"><?php the_field('about_damn', 'option'); ?></span>
 					</div>
 					
-					<div class="col-xs-6 col-sm-3 col-lg-2">
+					<div class="col-xs-6 col-sm-3 col-lg-2 footer-social">
 						<div class="pull-right">
 							<h4>Socials</h4>
 							<?php
@@ -60,7 +60,7 @@ $footer_desc   = get_field('magazine_footer_description', 'magazine_' . $issue->
 						</div>
 					</div>
 					
-					<div class="col-xs-6 col-sm-3 col-lg-2">
+					<div class="col-xs-6 col-sm-3 col-lg-2 footer-colophon">
 						<div class="pull-right">
 							<h4>Colophon</h4>
 							<?php
@@ -75,7 +75,7 @@ $footer_desc   = get_field('magazine_footer_description', 'magazine_' . $issue->
 			</div>
 			
 			<!-- Magazine -->
-			<div class="col-xs-3 col-md-2">
+			<div class="col-xs-3 col-md-2 footer-magazine">
 				
 				<a href="/back-issues/subscribe" >
 					<?php echo wp_get_attachment_image( $issue_image, 'medium' ); ?>
@@ -88,20 +88,6 @@ $footer_desc   = get_field('magazine_footer_description', 'magazine_' . $issue->
 			</div>
 			
 		</div>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-
-      
       <div class="row">
         <div class="col-xs-12 text-center">
           <p class="copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?>. All rights reserved. <span class="footer-extra"><a href="/colophon/privacy-policy/">Privacy</a> - <a href="/colophon/terms-conditions">Terms & Conditions</a></span></p>
