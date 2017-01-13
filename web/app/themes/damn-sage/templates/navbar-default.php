@@ -10,9 +10,9 @@
 				<span class="sr-only">Search</span>
 				<span class="ion-ios-search"></span>
 			</button>
-			<a class="navbar-brand" href="/">
+			<!--<a class="navbar-brand" href="/">
 				<img alt="Brand" src="/app/themes/damn-sage/dist/images/damn.svg">
-			</a>
+			</a>-->
 		</div>
 		
 		<!-- Desktop View -->
