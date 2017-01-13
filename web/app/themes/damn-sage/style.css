@@ -93,6 +93,10 @@ footer .main-logo {
 	}
 }
 
+a.main-logo {
+    background: url("assets/images/damn.svg") no-repeat!important;
+ }
+
 .event-text-area a{
 	color:#141412;
 	font-weight:bold;

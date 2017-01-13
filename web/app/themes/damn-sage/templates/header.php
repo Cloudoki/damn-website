@@ -33,7 +33,7 @@ $history       = -10;
 		</div>
 		
 		<div class="logo-container">
-			<a class="main-logo" href="/">DAMN MAGAZINE - <?php bloginfo('name'); ?></a>
+			<a class="main-logo" href="/"></a>
 			
 			<div class="issue-selector">
 				<ul class="issue-list">
