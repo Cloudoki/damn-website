@@ -363,6 +363,7 @@ $issue_query['post__not_in'][] = get_the_ID();
 			</div>
 			
 			<br>
+			<?php /* ?>
 			<hr class="sub-column" />
 			
 			<h3 class="read-more-separator archive-title caps-title">Read DAMN° articles from previous issues</h3>
@@ -371,7 +372,7 @@ $issue_query['post__not_in'][] = get_the_ID();
 <?php
 
 // Fetch issue-related articles
-$issues = new WP_Query($issue_query);
+
 
 // Excempt issue post from main stream
 if ( $issues->have_posts() ){
@@ -416,19 +417,19 @@ foreach ($cats as $n):
 					</a>
 					
 					<div class="empty-wrapper row">
-<?php
-	if( $dynamics->have_posts() ){
-		while ( $dynamics->have_posts() )
-		{
-			$dynamics->the_post();
-			
-			get_template_part(
-				has_post_format( 'quote' )? 'templates/post-quote': 'templates/post-simple'
-			);
-			
-			$main_query['post__not_in'][] = get_the_ID();
-		}
-	}
+					<?php
+						if( $dynamics->have_posts() ){
+							while ( $dynamics->have_posts() )
+							{
+								$dynamics->the_post();
+								
+								get_template_part(
+									has_post_format( 'quote' )? 'templates/post-quote': 'templates/post-simple'
+								);
+								
+								$main_query['post__not_in'][] = get_the_ID();
+							}
+						}
 
 ?>					
 					</div>
@@ -437,7 +438,10 @@ foreach ($cats as $n):
 <?php endforeach; ?>
 
 			</div>
+		<?php */ ?>
 		</div>
+	
+		<?php $issues = new WP_Query($issue_query); ?>
 
 		<div class="col-sm-12 col-md-4 issue-articles">
 			<h2>ISSUE #<?=$issue_number?> <span class="description caps-title">/ Articles</span></h2>
