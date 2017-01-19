@@ -216,7 +216,7 @@ if (!have_posts())
 		?>
 			<br>
 			<div class="col-xs-12">
-		       <h3 class="archive-title">Calendar</h3>
+		       <h3 class="archive-title caps-title">Calendar</h3>
 		    </div>
 
 
@@ -241,7 +241,7 @@ if (!have_posts())
 				<div class="row">
 					<div class="col-xs-12 col-sm-8 col-md-8">
 						<a href="<?php echo get_permalink( $main_event->ID ); ?>" rel="bookmark" title="<?php echo get_the_title( $main_event->ID ); ?>">
-							<h1><span class="description">Events /</span><?php echo get_the_title( $main_event->ID ); ?></h1>
+							<h1><span class="description"><span class="caps-title">Events</span> /</span><?php echo get_the_title( $main_event->ID ); ?></h1>
 
 							<p><?php echo $main_event->post_excerpt ?></p>
 						</a>
@@ -336,7 +336,7 @@ $issue_query['post__not_in'][] = get_the_ID();
 			<hr class="sub-column" />
 			
 			<!-- Company News -->
-			<h2 class="category-title-no-top">Company News</h2>
+			<h2 class="category-title-no-top caps-title">Company News</h2>
 			<div class="row">
 				<?php 
 					
@@ -365,7 +365,7 @@ $issue_query['post__not_in'][] = get_the_ID();
 			<br>
 			<hr class="sub-column" />
 			
-			<h3 class="read-more-separator archive-title">Read DAMN° articles from previous issues</h3>
+			<h3 class="read-more-separator archive-title caps-title">Read DAMN° articles from previous issues</h3>
 
 			<div class="row category-articles">
 <?php
@@ -440,7 +440,7 @@ foreach ($cats as $n):
 		</div>
 
 		<div class="col-sm-12 col-md-4 issue-articles">
-			<h2>ISSUE #<?=$issue_number?> <span class="description">/ Articles</span></h2>
+			<h2>ISSUE #<?=$issue_number?> <span class="description caps-title">/ Articles</span></h2>
 			
 			<div class="row">
 			<?php
@@ -483,7 +483,7 @@ if ($products->have_posts()) : ?>
     <div class="product-feed-home row">
 
       <div class="col-xs-12">
-        <h3 class="archive-title">Productivity</h3>
+        <h3 class="archive-title caps-title">Productivity</h3>
       </div>
       <?php /* display as table above 768, so heights all line up / 768 - 991, table cell is 50% height, since there are 2 per row, 100% height at 992 +, as all 4 fit across one row / css home.scss */ ?>
       <div class="table-display">
@@ -518,25 +518,6 @@ if ($products->have_posts()) : ?>
 	</div>
 </div>
 
-<?php 
-/*
-* Spoted with DAMN
-*/
- ?>
-
-<br>
-<div class="row swd-container">
-	<div class="container">
-		<br>
-		<div class="col-xs-12">
-	       <h3 class="archive-title swd-title">#SPOTTEDWITHDAMN</h3>
-	    </div>
-		<br>
-		<?php if ( function_exists( 'wdi_feed' ) ){
-			echo wdi_feed(array('id'=>'1'));
-		} ?>
-	</div>
-</div>
 
 <?php 
 
