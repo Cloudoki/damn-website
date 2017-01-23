@@ -703,3 +703,15 @@ body.single-events .item.event-post .bg-fade{
 .caps-title{
 	text-transform: uppercase!important;
 }
+
+/* No padding fix */
+.no-padding-left{
+	padding-left: 0px;
+}
+.no-padding-right{
+	padding-right: 0px;
+}
+.no-padding{
+	padding-left: 0px;
+	padding-right: 0px;
+}
