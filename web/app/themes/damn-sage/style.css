@@ -724,3 +724,9 @@ body.single-events .item.event-post .bg-fade{
 .caption-margin .caption {
 	margin-left: 50px;
 }
+
+/* No frame for highlighted post in event */
+.item.highlight-post-free{
+	border: none;
+	padding: 0;
+}
