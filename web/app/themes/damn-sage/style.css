@@ -16,9 +16,13 @@ License URI:        http://opensource.org/licenses/MIT
 	-moz-column-count:1!important;
 	column-count:1!important;
 }
-.title-dark > *, .title-dark > author a{
+.title-dark, .title-dark > *, .title-dark > author a{
 	color:white!important;
 }
+.title-light, .title-dark > *, .title-light > author a{
+	color:#000!important;
+}
+
 .right > .image > .caption{
 	margin-left:5%!important;
 }
@@ -714,4 +718,9 @@ body.single-events .item.event-post .bg-fade{
 .no-padding{
 	padding-left: 0px;
 	padding-right: 0px;
+}
+
+/* Force margin for caption */
+.caption-margin .caption {
+	margin-left: 50px;
 }

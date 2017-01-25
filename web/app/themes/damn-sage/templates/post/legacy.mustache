@@ -70,9 +70,18 @@
 					<div class="image">
 						<img src="{{images.url}}" title="{{images.post_title}}" />
 						
-						<span class="caption" style='color: #333;'>
-							{{images.post_content}}
-						</span>
+						{{#contrast}}
+							<span class="caption title-light">
+								{{images.post_content}}
+							</span>
+						{{/contrast}}
+
+						{{^contrast}}
+							<span class="caption title-dark">
+								{{images.post_content}}
+							</span>
+						{{/contrast}}
+
 					</div>
 				{{/spill}}
 				
