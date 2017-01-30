@@ -98,7 +98,7 @@ if (!have_posts())
 	 *  The home posts stream can contain both articles and calendar nodes. EXCLUDES video post format, as those load below main query
 	 */
 	$issue_query = [
-		'posts_per_page' => 5,
+		'posts_per_page' => 2,
 		'post_type' => ['post', 'advertorial'],
 		'orderby' => 'post_date',
 		'order' => 'DESC',
