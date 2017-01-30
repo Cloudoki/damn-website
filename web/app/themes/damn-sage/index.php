@@ -432,9 +432,9 @@ if ($products->have_posts()) : ?>
 
   <?php endif; ?>
 
+<?php /* ?>
 <div class="container">
 
-	<?php /* 3 bottom widgets */ ?>
 	<div class="row bottom-widgets">
 		<div class="col-xs-12 col-sm-6 col-md-6 table-cell">
 		<?php if ( is_active_sidebar( 'sidebar-homepage-agenda' ) ) : dynamic_sidebar( 'sidebar-homepage-agenda' ); endif; ?>
@@ -446,7 +446,7 @@ if ($products->have_posts()) : ?>
 
 	</div>
 </div>
-
+<?php */ ?>
 
 <?php 
 

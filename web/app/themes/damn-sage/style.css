@@ -734,3 +734,16 @@ body.single-events .item.event-post .bg-fade{
 .grey-font, h3.widget-title, li.menu-item a{
 	color: #5E5E5E!important;
 }
+
+.clearthis{
+	height: 0px;
+    line-height: 0px;
+}
+
+.wrap {
+    padding-bottom: 0px;
+}
+
+footer.content-info{
+	margin-top: 0;
+}
