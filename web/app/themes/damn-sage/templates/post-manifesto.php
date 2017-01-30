@@ -19,7 +19,7 @@ $thumb = has_post_thumbnail ()? wp_get_attachment_image_src( get_post_thumbnail_
 			
 				<h1>
 					<span class="description caps-title">Manifesto /</span>
-					<?=the_title()?>
+					<span class="grey-font"><?=the_title()?></span>
 				</h1>
 				<h3><?=the_field('sub-title')?></h3>
 			

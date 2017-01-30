@@ -730,3 +730,7 @@ body.single-events .item.event-post .bg-fade{
 	border: none;
 	padding: 0;
 }
+
+.grey-font, h3.widget-title, li.menu-item a{
+	color: #5E5E5E!important;
+}

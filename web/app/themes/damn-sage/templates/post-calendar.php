@@ -52,7 +52,7 @@ if( get_field('end_date') && strtotime (get_field ('end_date')) < time() ){
 			</div>
 		</div>
 
-		<h1><?=the_title()?></h1>
+		<h1 class="grey-font"><?=the_title()?></h1>
 		<h3><?=get_field('sub-title')?: get_the_excerpt()?></h3>
 	</a>
 	

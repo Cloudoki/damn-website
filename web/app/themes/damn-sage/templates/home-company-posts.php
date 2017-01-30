@@ -27,7 +27,7 @@ if (!$thumb[0]){
 		<div class="post-image"<?=isset ($thumb['0'])? ' style="background-image:url(' . $thumb['0'] . ');"': null?>></div>
 	</a>
 	
-	<h2><?=the_title()?></h2>
+	<h2 class="grey-font"><?=the_title()?></h2>
 	<h3><?=get_field('sub-title')?></h3>
 	<div class='company-post-excerpt'><?=strlen(get_the_excerpt())>300? substr(get_the_excerpt(), 0,298) . '...': get_the_excerpt()?></div>
 		

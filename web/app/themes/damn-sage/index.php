@@ -216,7 +216,7 @@ if (!have_posts())
 		?>
 			<br>
 			<div class="col-xs-12">
-		       <h3 class="archive-title caps-title">Calendar</h3>
+		       <h3 class="archive-title caps-title grey-font">Calendar</h3>
 		    </div>
 
 
@@ -241,7 +241,7 @@ if (!have_posts())
 				<div class="row">
 					<div class="col-xs-12 col-sm-8 col-md-8">
 						<a href="<?php echo get_permalink( $main_event->ID ); ?>" rel="bookmark" title="<?php echo get_the_title( $main_event->ID ); ?>">
-							<h1><span class="description"><span class="caps-title">Events</span> /</span><?php echo get_the_title( $main_event->ID ); ?></h1>
+							<h1><span class="description"><span class="caps-title">Events</span> /</span><span class="grey-font"><?php echo get_the_title( $main_event->ID ); ?></span></h1>
 
 							<p><?php echo $main_event->post_excerpt ?></p>
 						</a>
@@ -270,7 +270,7 @@ if (!have_posts())
 						<div class="row">
 							<div class="col-md-8">
 								<a href="<?php echo get_permalink(); ?>" rel="bookmark" title="<?php echo get_the_title(); ?>">
-									<h1><span class="description">Projects / </span><?php echo get_the_title(); ?></h1>
+									<h1><span class="description">Projects / </span><span class="grey-font"><?php echo get_the_title(); ?></span></h1>
 
 									<p><?php echo $post->post_excerpt ?></p>
 								</a>
@@ -363,88 +363,13 @@ $issue_query['post__not_in'][] = get_the_ID();
 			</div>
 			
 			<br>
-			<?php /* ?>
-			<hr class="sub-column" />
-			
-			<h3 class="read-more-separator archive-title caps-title">Read DAMN° articles from previous issues</h3>
 
-			<div class="row category-articles">
-<?php
-
-// Fetch issue-related articles
-
-
-// Excempt issue post from main stream
-if ( $issues->have_posts() ){
-	foreach ($issues->posts as $post)
-		$main_query['post__not_in'][] = $post->ID;
-}
-
-
-
-// Default Categories: 
-// Design, Architecture & Art
-$cats = [56, 60, 57];
-
-// Override 3rd Category
-if ($issue_cat && !in_array($issue_cat->term_id, $cats))
-
-	$cats[2] = $issue_cat->term_id;
-
-foreach ($cats as $n):
-
-	$main_query['cat'] = $n;
-	
-	$main_query['posts_per_page'] = 3;
-	$main_query['orderby'] = 'rand';
-	// query for last 6 months 
-	$main_query['date_query'] = array(
-        'column'  => 'post_date',
-        'after'   => '- 180 days'
-    );
-
-
-	// Fetch category-related articles
-	$dynamics = new WP_Query($main_query);
-	$category = get_term ($n, 'category');
-?>
-
-				<div class="col-sm-12 col-md-4">
-					<a href="<?=get_category_link($n)?>">
-						<h2 class="category-title"> 
-						<category><?=$category->name?></category> <span class="description">/ Articles</span>
-						</h2>
-					</a>
-					
-					<div class="empty-wrapper row">
-					<?php
-						if( $dynamics->have_posts() ){
-							while ( $dynamics->have_posts() )
-							{
-								$dynamics->the_post();
-								
-								get_template_part(
-									has_post_format( 'quote' )? 'templates/post-quote': 'templates/post-simple'
-								);
-								
-								$main_query['post__not_in'][] = get_the_ID();
-							}
-						}
-
-?>					
-					</div>
-				</div>
-				
-<?php endforeach; ?>
-
-			</div>
-		<?php */ ?>
 		</div>
 	
 		<?php $issues = new WP_Query($issue_query); ?>
 
 		<div class="col-sm-12 col-md-4 issue-articles">
-			<h2>ISSUE #<?=$issue_number?> <span class="description caps-title">/ Articles</span></h2>
+			<h2 class="grey-font">ISSUE #<?=$issue_number?> <span class="description caps-title">/ Articles</span></h2>
 			
 			<div class="row">
 			<?php
@@ -487,7 +412,7 @@ if ($products->have_posts()) : ?>
     <div class="product-feed-home row">
 
       <div class="col-xs-12">
-        <h3 class="archive-title caps-title">Productivity</h3>
+        <h3 class="archive-title caps-title grey-font">Productivity</h3>
       </div>
       <?php /* display as table above 768, so heights all line up / 768 - 991, table cell is 50% height, since there are 2 per row, 100% height at 992 +, as all 4 fit across one row / css home.scss */ ?>
       <div class="table-display">

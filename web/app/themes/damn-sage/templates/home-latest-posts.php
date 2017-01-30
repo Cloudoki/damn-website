@@ -27,7 +27,7 @@ if (!$thumb[0]){
 		<div class="post-image"<?=isset ($thumb['0'])? ' style="background-image:url(' . $thumb['0'] . ');"': null?>></div>
 	</a>
 	
-	<h2><?=the_title()?></h2>
+	<h2 class="grey-font"><?=the_title()?></h2>
 	<h3><?=get_field('sub-title')?: get_the_excerpt()?></h3>
 
 	<div class="post-share">

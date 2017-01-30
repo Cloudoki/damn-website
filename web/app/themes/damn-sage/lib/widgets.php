@@ -337,7 +337,7 @@ class agenda_Widget extends WP_Widget {
 					<?php } else { ?>
 						<div class="list-meta fullWidth">
 					<?php } ?>
-						<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="boldText">
+						<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="boldText grey-font">
 							<?php /* if video post format, show play icon */ if ( has_post_format( 'video' )) { ?>
 								<i class="fa fa-play-circle-o play-video-icon"></i>
 							<?php } ?>
