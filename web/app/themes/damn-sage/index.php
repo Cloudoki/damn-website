@@ -268,7 +268,7 @@ if (!have_posts())
 				<article class="item-manifesto col-md-12" >
 					
 						<div class="row">
-							<div class="col-md-8">
+							<div class="col-md-12">
 								<a href="<?php echo get_permalink(); ?>" rel="bookmark" title="<?php echo get_the_title(); ?>">
 									<h1><span class="description">Projects / </span><span class="grey-font"><?php echo get_the_title(); ?></span></h1>
 
@@ -327,7 +327,7 @@ $issue_query['post__not_in'][] = get_the_ID();
 
 	<div class="empty-wrapper row">
 		
-		<div class="col-sm-12 col-md-8">
+		<div class="col-sm-12 col-md-12">
 			
 			<!-- Manifesto -->
 			<div class="row">
@@ -366,6 +366,7 @@ $issue_query['post__not_in'][] = get_the_ID();
 
 		</div>
 	
+		<?php /* ?>
 		<?php $issues = new WP_Query($issue_query); ?>
 
 		<div class="col-sm-12 col-md-4 issue-articles">
@@ -383,6 +384,7 @@ $issue_query['post__not_in'][] = get_the_ID();
 			?>
 			</div>
 		</div>
+		<?php */ ?>
 		
 	</div>
 </div>
@@ -449,7 +451,22 @@ if ($products->have_posts()) : ?>
 <?php */ ?>
 
 <?php 
+/*
+* GIF
+ */
+ ?>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-md-12 gif-container">
+			<img src="<?= get_template_directory_uri(); ?>/assets/images/gif60-white-3.gif" alt="magazine gif">
+		</div>
+	</div>
+</div>
 
+
+
+
+<?php 
 /*
 * Popup
  */
