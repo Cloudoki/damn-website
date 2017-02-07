@@ -455,10 +455,14 @@ if ($products->have_posts()) : ?>
 * GIF
  */
  ?>
-<div class="container">
+<div class="container gif-container">
 	<div class="row">
 		<div class="col-xs-12 col-md-12 gif-container">
-			<img src="<?= get_template_directory_uri(); ?>/assets/images/gif60-white-3.gif" alt="magazine gif">
+			<h2 class="caps-title grey-font">DAMNºmagazine #60</h2>
+			<h3>An open-minded view on the interchangeable worlds of design, architecture and art. <a href="http://www.damnmagazine.net/editions/damn-60/">Read more.</a></h3>
+			<a href="http://www.damnmagazine.net/editions/damn-60/">
+				<img src="<?= get_template_directory_uri(); ?>/assets/images/gif60-white-3.gif" alt="magazine gif">
+			</a>
 		</div>
 	</div>
 </div>

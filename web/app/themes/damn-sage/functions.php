@@ -240,6 +240,7 @@ class DAMN {
 				$thumbId =  get_post_meta( $post->ID, '_scheduled_thumbnail_id' );
 				$url =  wp_get_attachment_url( $thumbId[0] );
 				$post->fallback_image_url = $url;
+				var_dump('here');
 			} 
 		} wp_reset_postdata();
 

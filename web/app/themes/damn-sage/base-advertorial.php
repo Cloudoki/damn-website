@@ -71,7 +71,8 @@ $parameters->tags = get_the_tags ();
 $parameters->categories = get_the_category ($post->ID);
 
 # Video
-$parameters->has_video = has_post_video ($post->ID);
+if( function_exists('has_post_video') )
+	$parameters->has_video = has_post_video ($post->ID);
 
 if ($parameters->has_video)
 	$parameters->video = get_the_post_video($post->ID, '100%');

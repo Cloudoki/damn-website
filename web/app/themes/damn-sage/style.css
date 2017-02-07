@@ -747,3 +747,19 @@ body.single-events .item.event-post .bg-fade{
 footer.content-info{
 	margin-top: 0;
 }
+
+.gif-container {
+	padding-top: 40px;
+}
+
+.gif-container h2{
+	font-size: 1.5em;
+	text-align: center;
+}
+
+.gif-container h3{
+	color: #6D6F72;
+    font-size: 1.30em;
+    text-align: center;
+}
+
