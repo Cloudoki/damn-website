@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e523695fca7b2a69727e3501cd58a5a6",
-    "content-hash": "7e0c755dba7605b53d01a642337c9244",
+    "hash": "ea8527699f0415e195bd57ea85a2801f",
+    "content-hash": "b9cbd8e324902ba38504b22147684852",
     "packages": [
         {
             "name": "composer/installers",
@@ -109,16 +109,16 @@
         },
         {
             "name": "johnpbloch/wordpress",
-            "version": "4.6.3",
+            "version": "4.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress.git",
-                "reference": "7970a74bd5782113dee24f8aa74faaa5cfa82694"
+                "reference": "ac7b1792641d1fb61cb2901db292903b31694057"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/7970a74bd5782113dee24f8aa74faaa5cfa82694",
-                "reference": "7970a74bd5782113dee24f8aa74faaa5cfa82694",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/ac7b1792641d1fb61cb2901db292903b31694057",
+                "reference": "ac7b1792641d1fb61cb2901db292903b31694057",
                 "shasum": ""
             },
             "require": {
@@ -142,7 +142,7 @@
                 "blog",
                 "cms"
             ],
-            "time": "2017-01-26 18:16:52"
+            "time": "2017-01-26 18:32:19"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -424,15 +424,15 @@
         },
         {
             "name": "wpackagist-plugin/wd-instagram-feed",
-            "version": "1.1.20",
+            "version": "1.1.21",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wd-instagram-feed/",
-                "reference": "tags/1.1.20"
+                "reference": "tags/1.1.21"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wd-instagram-feed.1.1.20.zip",
+                "url": "https://downloads.wordpress.org/plugin/wd-instagram-feed.1.1.21.zip",
                 "reference": null,
                 "shasum": null
             },
